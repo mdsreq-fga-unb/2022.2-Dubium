@@ -1,0 +1,23 @@
+site_name: Dubium
+site_author: Discipulus - 2022.1 - MDS - FGA - UnB
+copyright: |
+  &copy; 2022.1 <a href="https://github.com/mdsreq-fga-unb/2022.2-Dubium"  target="_blank" rel="noopener">Discipulus - MDS - FGA - UnB</a>
+
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    primary: teal
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+
+
+nav:
+  - Início: "index.md"
+  - Documentação:
+    - Visão do Produto e Projeto: "visao.md"
+
+repo_url: https://github.com/mdsreq-fga-unb/2022.2-Dubium
+repo_name: 2022.2-Dubium
