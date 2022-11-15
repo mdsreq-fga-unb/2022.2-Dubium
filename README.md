@@ -21,7 +21,7 @@
 
 ## Documentação
 
-:open_file_folder: **Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/visao/">documentação</a> ou abra por um servidor web**
+:open_file_folder: **Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/">documentação</a> ou abra por um servidor web**
 
 ## Clonando o repositório
 ```bash
