@@ -1,4 +1,7 @@
-
+---
+hide:
+  - navigation
+---
 
 <h1 align="center"> Discipulus </h1>
 <h3 align="center"> 2022.2 </h3>
@@ -17,11 +20,11 @@
 
 ## Descrição do Projeto
 
-:pushpin: `O Dubium é um produto que visa o auxílio acadêmico aos alunos da FGA, focado em ajudá-los / dar suporte para o desenvolvimento acadêmico - sanando as dúvidas de estudo - em temas específicos das matérias. Gerando assim autonomia e abrangência de conhecimentos, sem obrigatoriedade por partes dos estudantes voluntários.` 
+`O Dubium é um produto que visa o auxílio acadêmico aos alunos da FGA, focado em ajudá-los / dar suporte para o desenvolvimento acadêmico - sanando as dúvidas de estudo - em temas específicos das matérias. Gerando assim autonomia e abrangência de conhecimentos, sem obrigatoriedade por partes dos estudantes voluntários.` 
 
 ## Documentação
 
-:open_file_folder: **Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/visao/">documentação</a> ou abra por um servidor web**
+**Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/visao/">documentação</a> ou abra por um servidor web**
 
 ## Clonando o repositório
 ```bash
@@ -31,7 +34,7 @@ $ cd 2022.2-Dubium
 <!-- ### Executando o projeto -->
 
 ## Instalação
-:page_facing_up: `Para utilização do sistema será necessário: `
+`Para utilização do sistema será necessário: `
 
 - [Git](https://git-scm.com/)
 - [Node](https://nodejs.org/en/)
@@ -40,7 +43,7 @@ $ cd 2022.2-Dubium
 
 ## Equipe
 
-### :computer: REQ
+### REQ
 | [<img src="https://avatars.githubusercontent.com/u/60516644?v=4" width=50><br><sub>Eduarda</sub>](https://github.com/erteduarda) 
 | :---: |
 | [<img src="https://avatars.githubusercontent.com/u/54143767?v=4" width=50><br><sub>Giulia</sub>](https://github.com/alcantaragiubs) | :---: |

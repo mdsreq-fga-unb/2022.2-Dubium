@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # VISÃO DO PRODUTO E PROJETO
 
 ## Historico de revisão
@@ -9,6 +14,7 @@ Data | Versão | Descrição | Autor
 09/11 | 1.1 | Atualização do documento | Giulia, Helder e Silas
 10/11 | 1.0 | Criação do GitPages | Júlio
 14/11 | 1.2 | Atualização do documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
+15/11 | 1.0 | Criação do Read.Me | Giulia
 15/11 | 1.1 | Atualização do GitPages | Júlio
 16/11 | 1.2 | Gravação do Vídeo da Unidade 1 | Gian
 
