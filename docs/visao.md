@@ -17,6 +17,9 @@ Data | Versão | Descrição | Autor
 15/11 | 1.0 | Criação do Read.Me | Giulia
 15/11 | 1.1 | Atualização do GitPages | Júlio
 16/11 | 1.2 | Gravação do Vídeo da Unidade 1 | Gian
+16/11 | 1.3 | Atualização do Documento | Gian, Giulia, Helder, Júlio e Silas
+
+
 
 ## 1	VISÃO GERAL DO PRODUTO
 ### 1.1	Declaração de Posição do Produto
@@ -46,10 +49,10 @@ O objetivo do Dubium é ajudar / dar suporte para a resolução de dúvidas espe
 ### 2.1	Organização do Projeto
 Papel | Atribuições | Responsável | Participantes
 ----- | ----------- | ----------- | -------------
-Desenvolvedor | Codificar o produto, codificar testes unitários, realizar refatoração | Helder | Gian, Giulia, Julio, Silas
-Dono do Produto | Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas | Gian | Giulia, Helder, Julio, Silas
-Analista de Qualidade | Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código | Silas | Gian, Giulia, Helder, Julio
-Mestre do Scrum | Delegar tarefas, duração da sprint e sprint review | Giulia | Gian, Helder, Julio, Silas
+Desenvolvedor | Codificar o produto, codificar testes unitários, realizar refatoração | Helder | Eduarda, Gian, Giulia, Julio, Silas
+Dono do Produto | Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas | Gian | Eduarda, Giulia, Helder, Julio, Silas
+Analista de Qualidade | Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código | Silas | Eduarda, Gian, Giulia, Helder, Julio
+Mestre do Scrum | Delegar tarefas, duração da sprint e sprint review | Giulia | Eduarda, Gian, Helder, Julio, Silas
 
 ### 2.2	Planejamento das Fases e/ou Iterações do Projeto
 Sprint | Produto (Entrega) | Data Início | Data Fim
@@ -109,7 +112,7 @@ Baseado na proposta do Sommerville (2018), foi respondido um conjunto de questõ
 
 - Qual é o tamanho do sistema que está sendo desenvolvido? É um software de pequeno porte.<br/>
 - Que tipo de sistema está sendo desenvolvido? Aplicação Web.<br/>
-- O sistema está sujeito a controle externo? Sim, o sistema será consumido pela instituição de ensino.<br>
+- O sistema está sujeito a controle externo? Sim.<br>
  
 <strong>Questões organizacionais:</strong><br/>
 
@@ -146,6 +149,27 @@ De acordo com a abordagem SCRUM, definiu-se:
 - Retrospectiva: ao final de cada ciclo, para a verificar a qualidade interna do produto e da equipe;
 - Entrega: finalização de cada parte do produto em releases do github.
 
+#### 3.3.1	ELICITAÇÃO DE REQUISITOS
+Atividade | Método | Ferramenta | Entrega
+--------- | ------ | ----------- | ------
+Definição do Produto e do Projeto | Reunião em grupo e estudo/análise individual | Google Meets |  Documento de Visão do Produto e do Projeto no Pages
+
+#### 3.3.2	ANÁLISE DE REQUISITOS
+Atividade | Método | Ferramenta | Entrega
+--------- | ------ | ----------- | ------
+
+#### 3.3.3	DOCUMENTAÇÃO DE REQUISITOS
+Atividade | Método | Ferramenta | Entrega
+--------- | ------ | ----------- | ------
+
+#### 3.3.4	VERIFICAÇÃO E VALIDAÇÃO DE REQUISITOS
+Atividade | Método | Ferramenta | Entrega
+--------- | ------ | ----------- | ------
+
+#### 3.3.5	GERENCIAMENTO DE REQUISITOS
+Atividade | Método | Ferramenta | Entrega
+--------- | ------ | ----------- | ------
+
 ### 3.4 Arquitetura do Projeto
 Com base na escolha de frameworks e foca na visualização e organização do projeto, definiu-se a escolha da aplicação MVC (Model-View-Controller), que é um padrão de arquitetura dividido logicamente em três partes:
 
@@ -154,38 +178,6 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 3. Controller: Intermédio entre as requisições feitas pela camada View e as respostas oferecidas pela camada Model;
 
 ![mvc](img/image2.png)
-
-### 3.5 Atividades da Engenharia de Requisitos
-
-#### 3.5.1	ELICITAÇÃO
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-Definição do Produto e do Projeto | Reunião em grupo e estudo/análise individual | Google Meets |  Documento de Visão do Produto e do Projeto no Pages
-Definição dos requisitos | Definição dos requisitos em reunião da equipe junto ao cliente, utilizando | Miro, trello, google meet | Produto de Backlog
-
-
-
-#### 3.5.2	ANÁLISE
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-Refinamento de backlogs | Maior detalhamento dos Requisitos do produto de backlog para cada sprint | trello ,google meet | Produto de backlog para a sprint mais detalhada
-
-
-
-#### 3.5.3	DOCUMENTAÇÃO
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-
-#### 3.5.4	VERIFICAÇÃO E VALIDAÇÃO
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-Teste unitários | Teste unitário das issues trabalhado ao final de cada sprint | Utilização do framework Jest para realizar os testes unitários | Documento de cobertura dos testes da aplicação.
-
-
-
-#### 3.5.5	GERENCIAMENTO
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
 
 ## 4 LIÇÕES APRENDIDAS
 ### 4.1	Unidade 1
@@ -200,14 +192,21 @@ Atividade | Método | Ferramenta | Entrega
     - Análise
     - Gerência
 
-### 4.2	Unidade 2
-### 4.3	Unidade 3
-### 4.4	Unidade 4
-
 ## 5 A MELHORAR
 ### 5.1	Unidade 1
 
 - Demora para solucionar dificuldades
 - Organização para trabalhar em grupo
 
-## 6 REFERÊNCIAS BIBLIOGRÁFICAS
+## 6 REFERÊNCIAS BIBLIOGRÁFICAS 
+
+1. https://www.atlassian.com/br/agile/scrum/roles#:~: texto%20 Scrum%20 tem%20 tr%C3%AAs%20 pap%C3%A9is,membros%20da%20 equipe%20de%20desenvolvimento.
+2. https://www.lewagon.com/pt-BR/blog/o-que-e-padrao-mvc
+3. Sommerville, I. and Sawyer, P. (1997) Requirements Engineering: A Good Practice Guide. John Wiley & Sons, Inc., Hoboken
+4. PPRESSMAN, R S. Engenharia de Software. 6.ed. São Paulo: Mc Graw Hill Internacional, 2006
+
+
+
+
+
+

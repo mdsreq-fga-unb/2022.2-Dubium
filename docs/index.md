@@ -1,7 +1,4 @@
----
-hide:
-  - navigation
----
+
 
 <h1 align="center"> Discipulus </h1>
 <h3 align="center"> 2022.2 </h3>
@@ -24,7 +21,7 @@ hide:
 
 ## Documentação
 
-**Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/visao/">documentação</a> ou abra por um servidor web**
+**Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/">documentação</a> ou abra por um servidor web**
 
 ## Clonando o repositório
 ```bash
@@ -46,6 +43,7 @@ $ cd 2022.2-Dubium
 ### REQ
 | [<img src="https://avatars.githubusercontent.com/u/60516644?v=4" width=50><br><sub>Eduarda</sub>](https://github.com/erteduarda) 
 | :---: |
+| [<img src="https://avatars.githubusercontent.com/u/54555302?v=4" width=50><br><sub>Gian</sub>](https://github.com/GianMedeiros) | :---: |
 | [<img src="https://avatars.githubusercontent.com/u/54143767?v=4" width=50><br><sub>Giulia</sub>](https://github.com/alcantaragiubs) | :---: |
 | [<img src="https://avatars.githubusercontent.com/u/78378116?v=4" width=50><br><sub>Julio</sub>](https://github.com/Julio-eng) | :---: |
 | [<img src="https://avatars.githubusercontent.com/u/78388335?v=4" width=50><br><sub>Helder</sub>](https://github.com/F1reFinger) | :---: |
