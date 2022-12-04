@@ -25,6 +25,11 @@ nav:
     - Unidade 1:
       - Visão Geral do Produto: "entrega-visao.md"
       - Material do Seminario - OpenUp/AUP: "entrega-seminario.md"
+  - Sprints:
+    - Sprint 6:
+      - Planning: "sprints/sprint_06/planning.md"
+      - Review: "sprints/sprint_06/review.md"
+
 
 repo_url: https://github.com/mdsreq-fga-unb/2022.2-Dubium
 repo_name: 2022.2-Dubium
