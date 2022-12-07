@@ -1,7 +1,4 @@
----
-hide:
-  - navigation
----
+
 
 # VISÃO DO PRODUTO E PROJETO
 
