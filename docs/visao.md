@@ -54,17 +54,17 @@ Mestre do Scrum | Delegar tarefas, duração da sprint e sprint review | Giulia 
 ### 2.2	Planejamento das Fases e/ou Iterações do Projeto
 Sprint | Produto (Entrega) | Data Início | Data Fim
 ------ | ----------------- | ----------- | --------
-Sprint 1 | Definição do Produto | 25/10/22 | 01/10/22
-Sprint 2 | Alinhamento do Produto | 01/11/22 | 08/11/22
-Sprint 3 | Análise Visão de Produto e Projeto | 08/11/22 | 15/11/22
-Sprint 4 | Visão de Produto e Projeto | 15/1122 | 22/11/22
-Sprint 5 | Definição do Backlog do Produto | 22/11/22 | 29/11/22
-Sprint 6 | Definição de MVP | 29/11/22 | 06/12/22
-Sprint 7 | Refinamento de backlog da sprint | 06/12/22 | 13/12/22
-Sprint 8 | Validação do MVP-1 | 27/12/22 | 03/01/22
-Sprint 9 | MVP-1 | 03/01/22 | 10/01/22
-Sprint 10 | Validação do MVP-2 | 24/01/22 | 31/01/22
-Sprint 11 | MVP-2 | 31/01/22 | 07/02/22
+Sprint 1 | Produto definido | 25/10/22 | 30/10/22
+Sprint 2 | Produto Alinhado | 30/10/22 | 07/11/22
+Sprint 3 | Análise Visão de Produto e Projeto | 07/11/22 | 14/11/22
+Sprint 4 | Visão de Produto e Projeto finalizado | 14/11/22 | 21/11/22
+Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 21/11/22 | 30/11/22
+Sprint 6 | Backlog do Produto, CI/CD configurados, escopo dos MVPs 1 e 2 definidos | 30/11/22 | 07/12/22
+Sprint 7 | Backlog da sprint refinado | 07/12/22 | 13/12/22
+Sprint 8 | MVP-1 validado| 27/12/22 | 03/01/22
+Sprint 9 | MVP-1 finalizado | 03/01/22 | 10/01/22
+Sprint 10 | MVP-2 validado | 24/01/22 | 31/01/22
+Sprint 11 | MVP-2 finalizado| 31/01/22 | 07/02/22
 
 ### 2.3	Matriz de Comunicação
 Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
@@ -141,10 +141,16 @@ De acordo com a abordagem SCRUM, definiu-se:
 - Dailys: ao fim do dia;
 - Backlog do Produto e da Sprint: definidos em cada Planning;
 - Planning: realizada no primeiro dia de cada sprint;
-- Implementação: codificação - modelagem de banco de dados, programação back-end e front-end, criação de cenários de testes e documentação dos requisitos;
 - Review: ao final de cada ciclo para validar os requisitos com o Product Owner e com o cliente.
 - Retrospectiva: ao final de cada ciclo, para a verificar a qualidade interna do produto e da equipe;
 - Entrega: finalização de cada parte do produto em releases do github.
+- Implementação: codificação - modelagem de banco de dados, programação back-end e front-end, criação de cenários de testes e documentação dos requisitos
+    - Codificação: A codificação é composta pelas seguintes partes:
+        - Implementação do banco de dados: Será feito um pareamento entre dois membros da equipe que utilizaram o MySQL e ferramentas de modelagem para implementar a tarefa a ser feita.
+        - Implementação do front-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework React e a ferramenta Figma para implementar a tarefa a ser feita.
+        - Implementação do back-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework NestJS para implementar a tarefa a ser feita.
+        - Implementação dos testes: Os dois membros da equipe que realizaram a implementação da tarefa utilizaram a biblioteca Jest para a implementação de testes unitários referente ao código desenvolvido.
+- As entregas da Implementação do front-end, back-end e testes serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
 
 #### 3.3.1	ELICITAÇÃO DE REQUISITOS
 Atividade | Método | Ferramenta | Entrega
