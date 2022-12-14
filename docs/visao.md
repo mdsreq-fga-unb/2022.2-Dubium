@@ -15,6 +15,11 @@ Data | Versão | Descrição | Autor
 15/11 | 1.1 | Atualização do GitPages | Júlio
 16/11 | 1.2 | Gravação do Vídeo da Unidade 1 | Helder, Silas
 16/11 | 1.3 | Atualização do Documento | Gian, Giulia, Helder, Júlio e Silas
+30/11 | 1.0 | Configuração do ambiente | Giulia, Júlio e Silas
+01/12 | 1.1 | Criação das pastas de back-end e front-end | Giulia, Júlio e Silas
+02/12 | 1.0 | Criação do Documento de Backlog | Gian, Giulia, Júlio e Silas
+06/12 | 1.3 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio
+07/12 | 1.4 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
 
 
 
@@ -60,7 +65,7 @@ Sprint 3 | Análise Visão de Produto e Projeto | 07/11/22 | 14/11/22
 Sprint 4 | Visão de Produto e Projeto finalizado | 14/11/22 | 21/11/22
 Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 21/11/22 | 30/11/22
 Sprint 6 | Backlog do Produto, CI/CD configurados, escopo dos MVPs 1 e 2 definidos | 30/11/22 | 07/12/22
-Sprint 7 | Backlog da sprint refinado | 07/12/22 | 13/12/22
+Sprint 7 | Backlog da sprint refinado, protótipo do projeto aprovado | 07/12/22 | 13/12/22
 Sprint 8 | MVP-1 validado| 27/12/22 | 03/01/22
 Sprint 9 | MVP-1 finalizado | 03/01/22 | 10/01/22
 Sprint 10 | MVP-2 validado | 24/01/22 | 31/01/22
@@ -69,10 +74,10 @@ Sprint 11 | MVP-2 finalizado| 31/01/22 | 07/02/22
 ### 2.3	Matriz de Comunicação
 Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
 --------- | ----------------- | ----------- | ----------------
-Daily | Equipe do Projeto | Diário | Relatório da daily, Relatório de situação do projeto, Atualização sobre o andamento do projeto
+Daily | Equipe do Projeto | Diário | Relato por parte dos membros da equipe no telegram sobre o andamento individual das partes do projeto
 Sprint Planning | Equipe do Projeto e Cliente | Semanal | Relatório Sprint Planning, Planejamento do que será feito no ciclo da Sprint
 Sprint Review | Equipe do Projeto e Cliente | Junto ao Sprint Planning | Relatório Sprint Review, Validação do Produto
-Retrospectiva | Equipe do Projeto | Quinzenalmente | Verificação do Produto
+Retrospectiva | Equipe do Projeto | Quinzenalmente | Tabela de check com uma verificação da implementação dos requisitos não funcionais
 Comunicar a situação do projeto | Equipe do Projeto e Professor | Mensalmente | Apresentações da Entrega de cada Unidade
 
 ### 2.4	Gerenciamento de Riscos
@@ -152,26 +157,42 @@ De acordo com a abordagem SCRUM, definiu-se:
         - Implementação dos testes: Os dois membros da equipe que realizaram a implementação da tarefa utilizaram a biblioteca Jest para a implementação de testes unitários referente ao código desenvolvido.
 - As entregas da Implementação do front-end, back-end e testes serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
 
-#### 3.3.1	ELICITAÇÃO DE REQUISITOS
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-Definição do Produto e do Projeto | Reunião em grupo e estudo/análise individual | Google Meets |  Documento de Visão do Produto e do Projeto no Pages
+#### 3.3.1	PLANEJAMENTO
+##### 3.3.1.1	ELICITAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+ELI-01 | Definição do Produto e do Projeto | Reunião em grupo e estudo/análise individual | Google Meets |  Documento de Visão do Produto e do Projeto no Pages
+ELI-02 | Identificação de Requisitos | Reunião de grupo e brainstorm | Google Meets; Miro | Backlog do Produto
+ELI-03 | identificação de necessidades dos stakeholders | Questionário | Google Forms | Necessidades e desejos dos stakeholders
+ELI-04 | Estruturação do conjunto de requisitos em grupos coerentes | Agrupando por temas coerentes | Google Meets; Miro | Conjunto de requisitos estruturados por tema
 
-#### 3.3.2	ANÁLISE DE REQUISITOS
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
+##### 3.3.1.2	ANÁLISE E NEGOCIAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+ANA-01 | Priorização e negociação dos requisitos | Reunião em grupo e brainstorm | Google Meets; Miro | MVP1<br/>MVP2
+ANA-02 | Refinamento dos requisitos | Reunião semanal em grupo junto ao cliente (Sprint Planning)  e de forma assíncrona pelo (dono do produto e demais participantes) | Google Meets; Miro | Backlog da sprint
 
-#### 3.3.3	DOCUMENTAÇÃO DE REQUISITOS
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
+#### 3.3.2 EXECUÇÃO 
+##### 3.3.2.1	GERENCIAMENTO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+GEREN-01 | Organização dos requisitos | Framework de organização SAFe | Miro | Backlog do produto organizado na estrutura do SAFe
+GEREN-02 | Delegação de requisitos dentro do time de desenvolvedores | Atribuição de issues no github referentes aos requisitos do backlog da sprint | Google Meets; Github; Trello | Issues referentes aos requisitos da sprint para o time de desenvolvedores
+GEREN-03 | Realizar a rastreabilidade dos requisitos | Adicionar a rastreabilidade nos IDs dos requisitos, tanto no Github | Google Meets Github; Trello | Issues e requisitos relacionamos e rastreáveis
 
-#### 3.3.4	VERIFICAÇÃO E VALIDAÇÃO DE REQUISITOS
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
+#### 3.3.3 VALIDAÇÃO    
+##### 3.3.3.1	VERIFICAÇÃO E VALIDAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+VER/VAL-01 | Validação das User Stories | Reunião semanal em grupo junto ao cliente (sprint review) para validar os requisitos do backlog da sprint | Google Meets; Miro; Github | Validação dos requisitos da sprint
+VER/VAL-02 | Verificação da implementação dos requisitos | Reunião quinzenal em grupo junto (retrospectiva) para validar os requisitos do backlog da sprint | google Meets; Github | Verificação das implementação dos requisitos
 
-#### 3.3.5	GERENCIAMENTO DE REQUISITOS
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
+#### 3.3.4 ENTREGA
+##### 3.3.4.1 DOCUMENTAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+DOC-01 | Registro dos requisitos do produto | Transcrição do backlog de produto para o Git Pages | Git Pages; Miro; Google Meets | Documentação do backlog do produto no Git Pages
+DOC-02 | Registro do refinamento do backlog da sprint | Transcrição semanal do backlog da sprint para o Git Pages | Git Pages; Miro; Google Meets | Documentação do backlog da sprint no Git Pages
 
 ### 3.4 Arquitetura do Projeto
 Com base na escolha de frameworks e foca na visualização e organização do projeto, definiu-se a escolha da aplicação MVC (Model-View-Controller), que é um padrão de arquitetura dividido logicamente em três partes:
@@ -183,23 +204,27 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 ![mvc](img/image2.png)
 
 ## 4 LIÇÕES APRENDIDAS
-### 4.1	Unidade 1
-- Fundamentos de Engenharia de Software
-- Disciplinas de Engenharia de Software
-- Metodologias de Desenvolvimento de Software
-- Ciclos de Vida
-- Atividades da Engenharia de Requisitos:
-    - Elicitação
-    - Documentação
-    - Validação e Verificação
-    - Análise
-    - Gerência
+### Unidade 1
+- Contatar um cliente
+- Organização e comunicação entre uma equipe de projeto
+- Criar uma documentação de um projeto a partir de um produto
+
+### Unidade 2
+- Definir prioridade e necessidades de um produto
+- Transcrever ideias e funcionalidades em requisitos
+- Elicitar requisitos 
+- Abrir um canal de comunicação contínuo com o cliente
+
 
 ## 5 A MELHORAR
-### 5.1	Unidade 1
-
+### Unidade 1
 - Demora para solucionar dificuldades
 - Organização para trabalhar em grupo
+
+### Unidade 2
+- Gestão de tempo e tarefas
+- Comunicação da equipe com relação a reuniões e imprevistos
+
 
 ## 6 REFERÊNCIAS BIBLIOGRÁFICAS 
 
