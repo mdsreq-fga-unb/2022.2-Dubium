@@ -40,6 +40,7 @@ O objetivo do Dubium é ajudar / dar suporte para a resolução de dúvidas espe
 ### 1.3	Tecnologias a Serem Utilizadas
 - JavaScript
 - Typescript
+- FireBase
 - MySQL
 - NodeJS
 - NestJS
