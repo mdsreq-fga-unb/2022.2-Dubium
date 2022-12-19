@@ -1,3 +1,5 @@
+
+
 # VISÃO DO PRODUTO E PROJETO
 
 ## Historico de revisão
@@ -9,8 +11,17 @@ Data | Versão | Descrição | Autor
 09/11 | 1.1 | Atualização do documento | Giulia, Helder e Silas
 10/11 | 1.0 | Criação do GitPages | Júlio
 14/11 | 1.2 | Atualização do documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
+15/11 | 1.0 | Criação do Read.Me | Giulia
 15/11 | 1.1 | Atualização do GitPages | Júlio
-16/11 | 1.2 | Gravação do Vídeo da Unidade 1 | Gian
+16/11 | 1.2 | Gravação do Vídeo da Unidade 1 | Helder, Silas
+16/11 | 1.3 | Atualização do Documento | Gian, Giulia, Helder, Júlio e Silas
+30/11 | 1.0 | Configuração do ambiente | Giulia, Júlio e Silas
+01/12 | 1.1 | Criação das pastas de back-end e front-end | Giulia, Júlio e Silas
+02/12 | 1.0 | Criação do Documento de Backlog | Gian, Giulia, Júlio e Silas
+06/12 | 1.3 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio
+07/12 | 1.4 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
+
+
 
 ## 1	VISÃO GERAL DO PRODUTO
 ### 1.1	Declaração de Posição do Produto
@@ -40,33 +51,33 @@ O objetivo do Dubium é ajudar / dar suporte para a resolução de dúvidas espe
 ### 2.1	Organização do Projeto
 Papel | Atribuições | Responsável | Participantes
 ----- | ----------- | ----------- | -------------
-Desenvolvedor | Codificar o produto, codificar testes unitários, realizar refatoração | Helder | Gian, Giulia, Julio, Silas
-Dono do Produto | Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas | Gian | Giulia, Helder, Julio, Silas
-Analista de Qualidade | Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código | Silas | Gian, Giulia, Helder, Julio
-Mestre do Scrum | Delegar tarefas, duração da sprint e sprint review | Giulia | Gian, Helder, Julio, Silas
+Desenvolvedor | Codificar o produto, codificar testes unitários, realizar refatoração | Helder | Eduarda, Gian, Giulia, Julio, Silas
+Dono do Produto | Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas | Gian | Eduarda, Giulia, Helder, Julio, Silas
+Analista de Qualidade | Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código | Silas | Eduarda, Gian, Giulia, Helder, Julio
+Mestre do Scrum | Delegar tarefas, duração da sprint e sprint review | Giulia | Eduarda, Gian, Helder, Julio, Silas
 
 ### 2.2	Planejamento das Fases e/ou Iterações do Projeto
 Sprint | Produto (Entrega) | Data Início | Data Fim
 ------ | ----------------- | ----------- | --------
-Sprint 1 | Definição do Produto | 25/10/22 | 01/10/22
-Sprint 2 | Alinhamento do Produto | 01/11/22 | 08/11/22
-Sprint 3 | Análise Visão de Produto e Projeto | 08/11/22 | 15/11/22
-Sprint 4 | Visão de Produto e Projeto | 15/1122 | 22/11/22
-Sprint 5 | Definição do Backlog do Produto | 22/11/22 | 29/11/22
-Sprint 6 | Definição de MVP | 29/11/22 | 06/12/22
-Sprint 7 | Refinamento de backlog da sprint | 06/12/22 | 13/12/22
-Sprint 8 | Validação do MVP-1 | 27/12/22 | 03/01/22
-Sprint 9 | MVP-1 | 03/01/22 | 10/01/22
-Sprint 10 | Validação do MVP-2 | 24/01/22 | 31/01/22
-Sprint 11 | MVP-2 | 31/01/22 | 07/02/22
+Sprint 1 | Produto definido | 25/10/22 | 30/10/22
+Sprint 2 | Produto Alinhado | 30/10/22 | 07/11/22
+Sprint 3 | Análise Visão de Produto e Projeto | 07/11/22 | 14/11/22
+Sprint 4 | Visão de Produto e Projeto finalizado | 14/11/22 | 21/11/22
+Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 21/11/22 | 30/11/22
+Sprint 6 | Backlog do Produto, CI/CD configurados, escopo dos MVPs 1 e 2 definidos | 30/11/22 | 07/12/22
+Sprint 7 | Backlog da sprint refinado, protótipo do projeto aprovado | 07/12/22 | 13/12/22
+Sprint 8 | MVP-1 validado| 27/12/22 | 03/01/22
+Sprint 9 | MVP-1 finalizado | 03/01/22 | 10/01/22
+Sprint 10 | MVP-2 validado | 24/01/22 | 31/01/22
+Sprint 11 | MVP-2 finalizado| 31/01/22 | 07/02/22
 
 ### 2.3	Matriz de Comunicação
 Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
 --------- | ----------------- | ----------- | ----------------
-Daily | Equipe do Projeto | Diário | Relatório da daily, Relatório de situação do projeto, Atualização sobre o andamento do projeto
+Daily | Equipe do Projeto | Diário | Relato por parte dos membros da equipe no telegram sobre o andamento individual das partes do projeto
 Sprint Planning | Equipe do Projeto e Cliente | Semanal | Relatório Sprint Planning, Planejamento do que será feito no ciclo da Sprint
 Sprint Review | Equipe do Projeto e Cliente | Junto ao Sprint Planning | Relatório Sprint Review, Validação do Produto
-Retrospectiva | Equipe do Projeto | Quinzenalmente | Verificação do Produto
+Retrospectiva | Equipe do Projeto | Quinzenalmente | Tabela de check com uma verificação da implementação dos requisitos não funcionais
 Comunicar a situação do projeto | Equipe do Projeto e Professor | Mensalmente | Apresentações da Entrega de cada Unidade
 
 ### 2.4	Gerenciamento de Riscos
@@ -103,7 +114,7 @@ Baseado na proposta do Sommerville (2018), foi respondido um conjunto de questõ
 
 - Qual é o tamanho do sistema que está sendo desenvolvido? É um software de pequeno porte.<br/>
 - Que tipo de sistema está sendo desenvolvido? Aplicação Web.<br/>
-- O sistema está sujeito a controle externo? Sim, o sistema será consumido pela instituição de ensino.<br>
+- O sistema está sujeito a controle externo? Sim.<br>
  
 <strong>Questões organizacionais:</strong><br/>
 
@@ -135,10 +146,53 @@ De acordo com a abordagem SCRUM, definiu-se:
 - Dailys: ao fim do dia;
 - Backlog do Produto e da Sprint: definidos em cada Planning;
 - Planning: realizada no primeiro dia de cada sprint;
-- Implementação: codificação - modelagem de banco de dados, programação back-end e front-end, criação de cenários de testes e documentação dos requisitos;
 - Review: ao final de cada ciclo para validar os requisitos com o Product Owner e com o cliente.
 - Retrospectiva: ao final de cada ciclo, para a verificar a qualidade interna do produto e da equipe;
 - Entrega: finalização de cada parte do produto em releases do github.
+- Implementação: codificação - modelagem de banco de dados, programação back-end e front-end, criação de cenários de testes e documentação dos requisitos
+    - Codificação: A codificação é composta pelas seguintes partes:
+        - Implementação do banco de dados: Será feito um pareamento entre dois membros da equipe que utilizaram o MySQL e ferramentas de modelagem para implementar a tarefa a ser feita.
+        - Implementação do front-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework React e a ferramenta Figma para implementar a tarefa a ser feita.
+        - Implementação do back-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework NestJS para implementar a tarefa a ser feita.
+        - Implementação dos testes: Os dois membros da equipe que realizaram a implementação da tarefa utilizaram a biblioteca Jest para a implementação de testes unitários referente ao código desenvolvido.
+- As entregas da Implementação do front-end, back-end e testes serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
+
+#### 3.3.1	PLANEJAMENTO
+##### 3.3.1.1	ELICITAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+ELI-01 | Definição do Produto e do Projeto | Reunião em grupo e estudo/análise individual | Google Meets |  Documento de Visão do Produto e do Projeto no Pages
+ELI-02 | Identificação de Requisitos | Reunião de grupo e brainstorm | Google Meets; Miro | Backlog do Produto
+ELI-03 | identificação de necessidades dos stakeholders | Questionário | Google Forms | Necessidades e desejos dos stakeholders
+ELI-04 | Estruturação do conjunto de requisitos em grupos coerentes | Agrupando por temas coerentes | Google Meets; Miro | Conjunto de requisitos estruturados por tema
+
+##### 3.3.1.2	ANÁLISE E NEGOCIAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+ANA-01 | Priorização e negociação dos requisitos | Reunião em grupo e brainstorm | Google Meets; Miro | MVP1<br/>MVP2
+ANA-02 | Refinamento dos requisitos | Reunião semanal em grupo junto ao cliente (Sprint Planning)  e de forma assíncrona pelo (dono do produto e demais participantes) | Google Meets; Miro | Backlog da sprint
+
+#### 3.3.2 EXECUÇÃO 
+##### 3.3.2.1	GERENCIAMENTO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+GEREN-01 | Organização dos requisitos | Framework de organização SAFe | Miro | Backlog do produto organizado na estrutura do SAFe
+GEREN-02 | Delegação de requisitos dentro do time de desenvolvedores | Atribuição de issues no github referentes aos requisitos do backlog da sprint | Google Meets; Github; Trello | Issues referentes aos requisitos da sprint para o time de desenvolvedores
+GEREN-03 | Realizar a rastreabilidade dos requisitos | Adicionar a rastreabilidade nos IDs dos requisitos, tanto no Github | Google Meets Github; Trello | Issues e requisitos relacionamos e rastreáveis
+
+#### 3.3.3 VALIDAÇÃO    
+##### 3.3.3.1	VERIFICAÇÃO E VALIDAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+VER/VAL-01 | Validação das User Stories | Reunião semanal em grupo junto ao cliente (sprint review) para validar os requisitos do backlog da sprint | Google Meets; Miro; Github | Validação dos requisitos da sprint
+VER/VAL-02 | Verificação da implementação dos requisitos | Reunião quinzenal em grupo junto (retrospectiva) para validar os requisitos do backlog da sprint | google Meets; Github | Verificação das implementação dos requisitos
+
+#### 3.3.4 ENTREGA
+##### 3.3.4.1 DOCUMENTAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+DOC-01 | Registro dos requisitos do produto | Transcrição do backlog de produto para o Git Pages | Git Pages; Miro; Google Meets | Documentação do backlog do produto no Git Pages
+DOC-02 | Registro do refinamento do backlog da sprint | Transcrição semanal do backlog da sprint para o Git Pages | Git Pages; Miro; Google Meets | Documentação do backlog da sprint no Git Pages
 
 ### 3.4 Arquitetura do Projeto
 Com base na escolha de frameworks e foca na visualização e organização do projeto, definiu-se a escolha da aplicação MVC (Model-View-Controller), que é um padrão de arquitetura dividido logicamente em três partes:
@@ -149,59 +203,38 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 
 ![mvc](img/image2.png)
 
-### 3.5 Atividades da Engenharia de Requisitos
-
-#### 3.5.1	ELICITAÇÃO
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-Definição do Produto e do Projeto | Reunião em grupo e estudo/análise individual | Google Meets |  Documento de Visão do Produto e do Projeto no Pages
-Definição dos requisitos | Definição dos requisitos em reunião da equipe junto ao cliente, utilizando | Miro, trello, google meet | Produto de Backlog
-
-
-
-#### 3.5.2	ANÁLISE
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-Refinamento de backlogs | Maior detalhamento dos Requisitos do produto de backlog para cada sprint | trello ,google meet | Produto de backlog para a sprint mais detalhada
-
-
-
-#### 3.5.3	DOCUMENTAÇÃO
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-
-#### 3.5.4	VERIFICAÇÃO E VALIDAÇÃO
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-Teste unitários | Teste unitário das issues trabalhado ao final de cada sprint | Utilização do framework Jest para realizar os testes unitários | Documento de cobertura dos testes da aplicação.
-
-
-
-#### 3.5.5	GERENCIAMENTO
-Atividade | Método | Ferramenta | Entrega
---------- | ------ | ----------- | ------
-
 ## 4 LIÇÕES APRENDIDAS
-### 4.1	Unidade 1
-- Fundamentos de Engenharia de Software
-- Disciplinas de Engenharia de Software
-- Metodologias de Desenvolvimento de Software
-- Ciclos de Vida
-- Atividades da Engenharia de Requisitos:
-    - Elicitação
-    - Documentação
-    - Validação e Verificação
-    - Análise
-    - Gerência
+### Unidade 1
+- Contatar um cliente
+- Organização e comunicação entre uma equipe de projeto
+- Criar uma documentação de um projeto a partir de um produto
 
-### 4.2	Unidade 2
-### 4.3	Unidade 3
-### 4.4	Unidade 4
+### Unidade 2
+- Definir prioridade e necessidades de um produto
+- Transcrever ideias e funcionalidades em requisitos
+- Elicitar requisitos 
+- Abrir um canal de comunicação contínuo com o cliente
+
 
 ## 5 A MELHORAR
-### 5.1	Unidade 1
-
+### Unidade 1
 - Demora para solucionar dificuldades
 - Organização para trabalhar em grupo
 
-## 6 REFERÊNCIAS BIBLIOGRÁFICAS
+### Unidade 2
+- Gestão de tempo e tarefas
+- Comunicação da equipe com relação a reuniões e imprevistos
+
+
+## 6 REFERÊNCIAS BIBLIOGRÁFICAS 
+
+1. https://www.atlassian.com/br/agile/scrum/roles#:~: texto%20 Scrum%20 tem%20 tr%C3%AAs%20 pap%C3%A9is,membros%20da%20 equipe%20de%20desenvolvimento.
+2. https://www.lewagon.com/pt-BR/blog/o-que-e-padrao-mvc
+3. Sommerville, I. and Sawyer, P. (1997) Requirements Engineering: A Good Practice Guide. John Wiley & Sons, Inc., Hoboken
+4. PPRESSMAN, R S. Engenharia de Software. 6.ed. São Paulo: Mc Graw Hill Internacional, 2006
+
+
+
+
+
+
