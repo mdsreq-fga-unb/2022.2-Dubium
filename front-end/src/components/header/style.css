@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 2px -2px gray;    
+}
+
+.logo {
+    height: inherit;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
