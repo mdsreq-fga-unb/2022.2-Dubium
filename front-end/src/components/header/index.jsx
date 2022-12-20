@@ -8,16 +8,27 @@ import { Link } from "@mui/material";
 function Header() {
     return(
         <header className="header">
-            <img src={logo} alt="logo" className="logo"/>
-            <span>SOBRE</span>
-            <span>FORUM</span>
-            <span>CHAT</span>
+            
+                <img src={logo} alt="logo" className="logo"/>
+                <ul className="list">
+                    <li className="item">
+                        <Link href="/sobre">SOBRE</Link>
+                    </li>
+                    <li className="item">
+                        <Link href="/">FÓRUM</Link>
+                    </li>
+                    <li className="item">
+                        <Link href="/chat">CHAT</Link>
+                    </li>
+                </ul>
             <div className="input">
                 <SearchIcon/>
                 <input type="text" placeholder="Buscar"/>
             </div>
             <div className="input">
-                <span>SAIR</span>
+                <li>
+                    <Link href="/">SAIR</Link>
+                </li>
                 <LogoutIcon/>
             </div>
         </header>
