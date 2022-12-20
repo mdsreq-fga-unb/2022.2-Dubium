@@ -36,7 +36,7 @@ E1|FT01|US04|Eu como usuário gostaria de ter mensagens automáticas disponibili
 E1|FT02|US05|Eu como usuário gostaria de ser capaz de fixar conversas para facilitar minha vizualização da barra de chat| O número de conversar fixadas pode ser ilimitado <br/><br/> A ordem dos fixados deve funcionar como um drag and drop | Alta
 E1|FT02|US06|Eu como usuario gostaria de ser capaz de buscar minhas conversas com outros usuários para facilitar o encontro de mensagens| A busca deve ser somente pelo nome do contato desejado |Alta
 E1|FT02|US07|Eu como usuário gostaria de ser capaz de excluir conversas para fins de limpar o historico| O chat pode ser excluído sem a garantia de um backup | Alta
-E2|FT03|US08|Eu como usuário gostaria de ser capaz de criar e publicar perguntas para tirar minhas dúvidas | qualquer usuário da plataforma pode responder qualquer pergunta <br><br> As perguntas publicadas devem permitir anexo de arquivos |Alta
+E2|FT03|US08|US08: Eu como usuário gostaria de ser capaz de publicar perguntas para tirar minhas dúvidas | qualquer usuário da plataforma pode responder qualquer pergunta <br><br> As perguntas publicadas devem permitir anexo de arquivos |Alta
 E2|FT03|US09|Eu como usuário gostaria de visualizar perguntas  para fins de busca e estudo| O usuário pode visualizar todas as perguntas publicadas | Alta
 E2|FT03|US10|Eu como usuário gostaria de pesquisar perguntas por tema ou usuário para fins de estudo| A pesquisa pode ser por matérias, conteúdo ou trecho do assunto |Alta
 E2|FT03|US11|Eu como usuário gostaria de poder deletar as minhas perguntas para caso de escrita incorreta| A exclusão pode ser feita a qualquer momento sem limite de tempo após sua publicação | Alta
