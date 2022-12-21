@@ -13,8 +13,8 @@ export default function Footer() {
           <CopyrightIcon />
         </li>
       </ul>
-      <p>
-        <Link href="https://github.com/mdsreq-fga-unb/2022.2-Dubium ">
+      <p className="p">
+        <Link href="https://github.com/mdsreq-fga-unb/2022.2-Dubium">
           2022 Dubium
         </Link>
       </p>

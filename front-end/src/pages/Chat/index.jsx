@@ -1,5 +1,5 @@
-import ConversationHistory from "../../components/ConversationHistory";
+import SidebarChat from "../../components/sidebar/chat";
 
 export default function Chat() {
-  return <ConversationHistory />;
+  return <SidebarChat />;
 }

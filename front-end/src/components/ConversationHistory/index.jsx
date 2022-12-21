@@ -1,5 +1,5 @@
 import "./style.css";
-import HistoryCard from "../HistoyCard";
+import HistoryCard from "../HistoryCard";
 import { userData } from "./data";
 
 export default function ConversationHistory() {

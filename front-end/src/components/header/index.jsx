@@ -10,10 +10,7 @@ function Header() {
       <img src={logo} alt="logo" className="logo" />
       <ul className="list">
         <li className="item">
-          <Link to="/">HOME</Link>
-        </li>
-        <li className="item">
-          <Link to="/forum">FÓRUM</Link>
+          <Link to="/">FÓRUM</Link>
         </li>
         <li className="item">
           <Link to="/chat">CHAT</Link>
@@ -27,9 +24,7 @@ function Header() {
         <input type="text" placeholder="Buscar" />
       </div>
       <div className="input">
-        <li>
-          <Link to="/forum">SAIR</Link>
-        </li>
+          <Link to="/">SAIR</Link>
         <LogoutIcon />
       </div>
     </header>

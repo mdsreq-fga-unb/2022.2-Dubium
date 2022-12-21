@@ -1,5 +1,5 @@
+import SidebarForum from "../../components/sidebar/forum";
+
 export default function Forum() {
-    return (
-        <h1>Forum</h1>
-    )
+  return <SidebarForum />;
 }

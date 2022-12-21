@@ -4,8 +4,9 @@
     list-style-type: none;
     flex-direction: row;
     align-items: center;
-    height: 80px;
-    background-color: #FFFFFF;
+    height: 40px;
+    background-color: #1b1a1a;
+    color: antiquewhite;
     box-shadow: 0 4px 2px -2px gray;
     margin-top: auto;
 }
