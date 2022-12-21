@@ -1,8 +1,9 @@
 import "./style.css";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/logo-dubium.png";
 import { Link } from "react-router-dom";
+import bichinho from "../../assets/images/question-sem-fundo.png";
 
 function Header() {
   return (
@@ -27,6 +28,7 @@ function Header() {
           <Link to="/">SAIR</Link>
         <LogoutIcon />
       </div>
+      <img src={bichinho} alt="bichinho" className="logo" />
     </header>
   );
 }
