@@ -1,0 +1,39 @@
+.user-pergunta-foto {
+    width: 50px;
+}
+
+.container-pergunta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    gap: 50px;
+}
+
+.container-card {
+    background-color: rgb(221, 221, 221);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pergunta {
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+}
+
+.resposta {
+    padding-top: 10px;
+}
+
+.teste {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: flex-end;
+}
+
+.criar-pergunta {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

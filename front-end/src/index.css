@@ -68,3 +68,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+.avatar {
+  width: 50px;
+  border-radius: 50%;
+}

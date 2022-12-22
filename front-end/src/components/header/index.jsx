@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
-      <img src={logo} alt="logo" className="logo" />
+      <Link className="logo">
+        <img src={logo} alt="logo" className="logo" />
+      </Link>
       <ul className="list">
         <li className="item">
           <Link to="/">FÓRUM</Link>
@@ -24,7 +26,7 @@ function Header() {
         <input type="text" placeholder="Buscar" />
       </div>
       <div className="input">
-          <Link to="/">SAIR</Link>
+        <Link to="/">SAIR</Link>
         <LogoutIcon />
       </div>
     </header>
