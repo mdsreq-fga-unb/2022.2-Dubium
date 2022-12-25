@@ -1,39 +1,82 @@
-.user-pergunta-foto {
-    width: 50px;
-}
-
 .container-pergunta {
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 500px;
     gap: 50px;
-}
-
-.container-card {
-    background-color: rgb(221, 221, 221);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.pergunta {
-    border-bottom: 1px solid grey;
-    padding-bottom: 10px;
-}
-
-.resposta {
-    padding-top: 10px;
-}
-
-.teste {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    justify-content: flex-end;
 }
 
 .criar-pergunta {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+}
+
+.criar-pergunta button {
+    color: white;
+    background-color: #0F5986;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.criar-pergunta button:hover {
+    background-color: #125D89 ;
+}
+
+.card-pergunta {
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.usuario-pergunta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.usuario-informacao-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container-interacao {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: flex-end;
+    border-top: 1px solid #414141;
+    padding-top: 2px;
+}
+
+.item-interacao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-resposta {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+    background-color: #F5F5F5;
+    padding: 10px;
+}
+
+.resposta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.texto-resposta {
+    padding-top: 20px;
 }

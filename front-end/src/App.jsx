@@ -14,8 +14,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Forum />} />
-          <Route path="/about" element={<About />} />
           <Route path="/formulario-pergunta" element={<FormularioPergunta />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
       </Router>

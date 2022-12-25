@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import "./style.css";
 import { forumData } from "../Sidebar/data";
 import jose from "../../../assets/images/jose.webp";
+import janderson from "../../../assets/images/janderson.jpg";
+import maria from "../../../assets/images/maria.jpg";
 
-export default function FormularioPergunta() {
+export default function FormularioPergunta(props) {
   const {
     register,
     handleSubmit,
@@ -11,7 +13,28 @@ export default function FormularioPergunta() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data.titulo);
+    props.setIsFormOpen(false);
+    props.setPerguntas([
+      ...props.perguntas,
+      {
+        pergunta: data.pergunta,
+        data: "15/02/2022",
+        user: {
+          nome: "José",
+          foto: jose,
+        },
+        respostas: [
+          {
+            resposta: "azuis",
+            user: {
+              nome: "Janserson",
+              foto: janderson,
+            },
+          },
+        ],
+        engenharia: props.engenharia,
+      },
+    ]);
   };
 
   return (
@@ -24,8 +47,10 @@ export default function FormularioPergunta() {
         <div className="group-input">
           <input type="text" name="titulo" {...register("titulo")} />
           <select name="engenharia" {...register("engenharia")}>
-            {forumData.map((data) => (
-              <option value={data.name}>{data.name}</option>
+            {forumData.map((data, index) => (
+              <option value={data.name} key={index}>
+                {data.name}
+              </option>
             ))}
           </select>
         </div>

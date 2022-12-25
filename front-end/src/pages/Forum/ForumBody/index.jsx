@@ -1,37 +1,54 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./style.css";
+
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import StarIcon from "@mui/icons-material/Star";
 
 export default function ForumBody(props) {
   return (
     <div className="container-pergunta">
       <div className="criar-pergunta">
-        <Link to="/formulario-pergunta">FAÇA UMA PERGUNTA</Link>
+        <button onClick={() => props.setIsFormOpen(true)}>
+          FAÇA UMA PERGUNTA
+        </button>
       </div>
       {props.perguntas.map((pergunta, index) => {
         return (
-          <div className="container-card">
-            <div>
-              <img
-                src={pergunta.user.foto}
-                alt=""
-                className="user-pergunta-foto"
-              />
-              <span className="user-name">{pergunta.user.nome}</span>
+          <div className="card-pergunta" key={index}>
+            <div className="usuario-pergunta">
+              <img src={pergunta.userPergunta.foto} alt="" className="avatar" />
+              <div className="usuario-informacao-texto">
+                <span>{pergunta.userPergunta.nome}</span>
+                <span>{pergunta.userPergunta.curso}</span>
+              </div>
             </div>
-            <div className="pergunta">{pergunta.pergunta}</div>
-            <div className="teste">
-              <button>Responder</button>
-              <button>Avaliar</button>
-            </div>
-            <div className="resposta">
-              <img
-                src={pergunta.respostas[0].user.foto}
-                alt=""
-                className="user-pergunta-foto"
-              />
-              <span>{pergunta.respostas[0].resposta}</span>
-            </div>
+            <div>{pergunta.textoPergunta}</div>
+            <ul className="container-interacao">
+              <li className="item-interacao">
+                <StarIcon />
+                <span>Favoritar</span>
+              </li>
+              <li className="item-interacao">
+                <QuestionAnswerIcon />
+                <span>Responder</span>
+              </li>
+            </ul>
+            {pergunta.respostas.length != 0 && (
+              <div className="card-resposta">
+                <img
+                  src={pergunta.respostas[0].userResposta.foto}
+                  alt=""
+                  className="avatar"
+                />
+
+                <div className="resposta-info">
+                  <div>{pergunta.respostas[0].userResposta.nome}</div>
+                  <div>{pergunta.respostas[0].userResposta.curso}</div>
+                  <div className="texto-resposta">
+                    {pergunta.respostas[0].textoResposta}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         );
       })}

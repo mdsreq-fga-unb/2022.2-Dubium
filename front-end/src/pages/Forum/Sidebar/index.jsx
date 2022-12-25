@@ -6,9 +6,9 @@ const Sidebar = () => {
   return (
     <ul className="sidebarforum">
       {forumData.map((data, index) => (
-        <Link to="/">
-          <li className="engenharias">{data.name} </li>
-        </Link>
+        <li className="engenharias" key={index}>
+          <Link to="/">{data.name}</Link>{" "}
+        </li>
       ))}
     </ul>
   );
