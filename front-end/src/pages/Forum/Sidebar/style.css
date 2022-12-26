@@ -1,4 +1,4 @@
-.sidebarforum {
+/* .sidebarforum {
     width: 250px;
     border-right: 2px solid gray;
     height: 75vh;
@@ -17,4 +17,26 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    padding: 10px;
+} */
+
+.sidebar-forum {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 25%;
+  padding: 10px;
+}
+
+.item-sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  gap: 8px;
+  border-radius: 15px;
+}
+
+.is-active {
+  border: 2px solid #125d89;
 }

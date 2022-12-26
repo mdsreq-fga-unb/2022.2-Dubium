@@ -1,58 +1,59 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 80px;
-    background-color: #FFFFFF;
-    box-shadow: 0 4px 2px -2px gray;    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 2px -2px gray;
+  position: sticky;
+  top: 0;
 }
 
 .logo {
-    height: inherit;
+  height: inherit;
 }
 
 .list {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .item {
-    margin-right: 8em;
+  margin-right: 8em;
 }
 
-.item a:hover{
-    color:cadetblue;
+.item a:hover {
+  color: cadetblue;
 }
-
 
 .input {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.input a{
-    color: black;
-    text-decoration: none;
+.input a {
+  color: black;
+  text-decoration: none;
 }
 
-.input a:hover{
-    color:cadetblue;
+.input a:hover {
+  color: cadetblue;
 }
 
 .pesquisa {
-    width: 20%;
-    display: flex;
-    flex-direction: row;
-    border-radius: 5px;
-    background-color: #414141;
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  background-color: #414141;
 }
 
 .pesquisa svg {
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
 .pesquisa input {
-    width: 100%;
+  width: 100%;
 }

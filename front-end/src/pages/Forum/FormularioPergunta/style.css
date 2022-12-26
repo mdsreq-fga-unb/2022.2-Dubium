@@ -2,4 +2,29 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: #FAFAFA;
+    padding: 50px;
+    width: 50%;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.group-input {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.form-card input, select, textarea, .file-input {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+}
+
+.titulo-input, .engenharia-input {
+    padding: 10px;
 }
