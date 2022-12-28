@@ -1,0 +1,30 @@
+.dubium {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.imagem {   
+    padding-left: 90px;
+    padding-right: 100px;
+    max-width: 380px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+}
+
+.texto {  
+    padding-left: 100px; 
+    padding-right: 100px;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+}
+
+
