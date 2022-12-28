@@ -7,7 +7,7 @@
  -->
  Início | Fim | Duração
  ------ | --- | -------
- 30/11/2022 | 07/12/2022 | 7 dias
+ 21/12/2022 | 28/12/2022 | 7 dias
 
 ## 1.2. Papéis
 <!-- Papeis que cada membro exerceu durante essa sprint -->
@@ -20,9 +20,8 @@ Mestre do Scrum | Giulia | Eduarda, Gian, Helder, Julio, Silas
 
 ## 1.3. Objetivos da Sprint
 <!-- descrever de forma geral o objetivo da sprint -->
-* Definição do Backlog
-* Definição de equipes
-* Definição do escopo do mvp 1 e mvp 2
+* Replanejamento do escopo dos MVPs 1 e 2
+* Execução do MVP1 (US8, US9, US10, US11, US12)
 
 ## 1.4. Tarefas
 <!-- descrever as issues que definimos para essa sprint e alocar um responsavel por ela -->

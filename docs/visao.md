@@ -20,7 +20,9 @@ Data | Versão | Descrição | Autor
 02/12 | 1.0 | Criação do Documento de Backlog | Gian, Giulia, Júlio e Silas
 06/12 | 1.3 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio
 07/12 | 1.4 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
-
+13/12 | 1.5 | Atualização do Documento | Helder e Júlio
+14/12 | 1.6 | Atualização do Documento | Gian, Giulia, Helder e Júlio
+14/12 | 1.7 | Atualização do Documento | Giulia
 
 
 ## 1	VISÃO GERAL DO PRODUTO
@@ -38,6 +40,8 @@ Nosso produto | Possuirá um acesso a aplicação por meio de cadastro dos aluno
 O objetivo do Dubium é ajudar / dar suporte para a resolução de dúvidas específicas de alunos, provendo agendamentos de reuniões presenciais, se for do desejo dos solicitantes, ou simplesmente solucioná-las via fórum. Além de ajudar professores a perceberem o maior foco de dificuldade em suas matérias, fazendo-os melhorar o planejamento de conteúdos complexos.
 
 ### 1.3	Tecnologias a Serem Utilizadas
+- HTML
+- CSS
 - JavaScript
 - Typescript
 - MySQL
@@ -59,17 +63,21 @@ Mestre do Scrum | Delegar tarefas, duração da sprint e sprint review | Giulia 
 ### 2.2	Planejamento das Fases e/ou Iterações do Projeto
 Sprint | Produto (Entrega) | Data Início | Data Fim
 ------ | ----------------- | ----------- | --------
-Sprint 1 | Produto definido | 25/10/22 | 30/10/22
-Sprint 2 | Produto Alinhado | 30/10/22 | 07/11/22
-Sprint 3 | Análise Visão de Produto e Projeto | 07/11/22 | 14/11/22
-Sprint 4 | Visão de Produto e Projeto finalizado | 14/11/22 | 21/11/22
-Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 21/11/22 | 30/11/22
+Sprint 1 | Declaração de Posição do Produto | 28/10/22 | 2/11/22
+Sprint 2 | Objetivo do Produto e Tecnologias Definidas | 2/11/22 | 09/11/22
+Sprint 3 | Metodologia, processos e procedimentos definidos | 07/11/22 | 16/11/22
+Sprint 4 | Visão do Produto e Projeto | 16/11/22 | 23/11/22
+Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 23/11/22 | 30/11/22
 Sprint 6 | Backlog do Produto, CI/CD configurados, escopo dos MVPs 1 e 2 definidos | 30/11/22 | 07/12/22
-Sprint 7 | Backlog da sprint refinado, protótipo do projeto aprovado | 07/12/22 | 13/12/22
-Sprint 8 | MVP-1 validado| 27/12/22 | 03/01/22
-Sprint 9 | MVP-1 finalizado | 03/01/22 | 10/01/22
-Sprint 10 | MVP-2 validado | 24/01/22 | 31/01/22
-Sprint 11 | MVP-2 finalizado| 31/01/22 | 07/02/22
+Sprint 7 | Backlog da sprint refinado, protótipo do projeto | 07/12/22 | 14/12/22
+Sprint 8 | PBB, BDD| 14/12/22 | 21/12/22
+Sprint 9 | US8, US9, US10, US11, US12 | 21/12/22 | 28/12/22
+Sprint 10 | US13, US14, US15, US16, US17 | 28/12/22 | 04/01/22
+Sprint 11 | MVP 1 | 04/01/22 | 11/01/22
+Sprint 12 | US18, US19, US20, US21 | 11/01/22 | 18/02/22
+Sprint 13 | US22, US23, US24 | 18/01/22 | 25/01/22
+Sprint 14 | US1, US2, US3, US4, US5, US6, US7 | 25/01/22 | 01/02/22
+Sprint 15 | MVP 2 | 01/01/22 | 07/02/22
 
 ### 2.3	Matriz de Comunicação
 Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
@@ -77,7 +85,7 @@ Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
 Daily | Equipe do Projeto | Diário | Relato por parte dos membros da equipe no telegram sobre o andamento individual das partes do projeto
 Sprint Planning | Equipe do Projeto e Cliente | Semanal | Relatório Sprint Planning, Planejamento do que será feito no ciclo da Sprint
 Sprint Review | Equipe do Projeto e Cliente | Junto ao Sprint Planning | Relatório Sprint Review, Validação do Produto
-Retrospectiva | Equipe do Projeto | Quinzenalmente | Tabela de check com uma verificação da implementação dos requisitos não funcionais
+Retrospectiva | Equipe do Projeto | Quinzenalmente | Tabela de check com uma verificação da implementação
 Comunicar a situação do projeto | Equipe do Projeto e Professor | Mensalmente | Apresentações da Entrega de cada Unidade
 
 ### 2.4	Gerenciamento de Riscos
@@ -94,15 +102,18 @@ Riscos de negócio ameaçam a viabilidade do software e do produto. Existem cinc
 Sprint | Risco Encontrado | Nível
 ------ | ---------------- | -----
 3 | Adição de um novo membro na equipe | Negligenciável
+9 | Problema no escopo do MVP1 | Crítico
 
 ### 2.5	Critérios de Replanejamento
 Os critérios de replanejamento referem-se à identificação dos pontos que, se ocorrerem, necessariamente, vão causar um replanejamento do projeto. Precisam ser acompanhados a cada sprint, se referindo assim, ao projeto como um todo e não apenas ao produto.
 
 - Entrada de um novo membro na equipe
+- Alteração no escopo do MVP1
 
 Sprint | Solução Encontrada | Resultado Esperado
 ------ | ------------------ | ------------------
 3 | Explicações sobre o projeto e nova divisão de tarefas | Capacitação da Equipe
+9 | Alterar o escopo do MVP1 | Finalização do MVP1 no prazo imposto
 
 Os critérios de replanejamento do projeto devem ser acompanhados e atualizados a cada ciclo. E, aplicados, conforme necessidade.
 
@@ -157,7 +168,7 @@ De acordo com a abordagem SCRUM, definiu-se:
         - Implementação dos testes: Os dois membros da equipe que realizaram a implementação da tarefa utilizaram a biblioteca Jest para a implementação de testes unitários referente ao código desenvolvido.
 - As entregas da Implementação do front-end, back-end e testes serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
 
-#### 3.3.1	PLANEJAMENTO
+#### 3.3.1	PLANNING
 ##### 3.3.1.1	ELICITAÇÃO DE REQUISITOS
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
@@ -166,13 +177,6 @@ ELI-02 | Identificação de Requisitos | Reunião de grupo e brainstorm | Google
 ELI-03 | identificação de necessidades dos stakeholders | Questionário | Google Forms | Necessidades e desejos dos stakeholders
 ELI-04 | Estruturação do conjunto de requisitos em grupos coerentes | Agrupando por temas coerentes | Google Meets; Miro | Conjunto de requisitos estruturados por tema
 
-##### 3.3.1.2	ANÁLISE E NEGOCIAÇÃO DE REQUISITOS
-Identificador | Atividade | Método | Ferramenta | Entrega
-------------- | --------- | ------ | ---------- | -------
-ANA-01 | Priorização e negociação dos requisitos | Reunião em grupo e brainstorm | Google Meets; Miro | MVP1<br/>MVP2
-ANA-02 | Refinamento dos requisitos | Reunião semanal em grupo junto ao cliente (Sprint Planning)  e de forma assíncrona pelo (dono do produto e demais participantes) | Google Meets; Miro | Backlog da sprint
-
-#### 3.3.2 EXECUÇÃO 
 ##### 3.3.2.1	GERENCIAMENTO DE REQUISITOS
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
@@ -180,19 +184,43 @@ GEREN-01 | Organização dos requisitos | Framework de organização SAFe | Miro
 GEREN-02 | Delegação de requisitos dentro do time de desenvolvedores | Atribuição de issues no github referentes aos requisitos do backlog da sprint | Google Meets; Github; Trello | Issues referentes aos requisitos da sprint para o time de desenvolvedores
 GEREN-03 | Realizar a rastreabilidade dos requisitos | Adicionar a rastreabilidade nos IDs dos requisitos, tanto no Github | Google Meets Github; Trello | Issues e requisitos relacionamos e rastreáveis
 
-#### 3.3.3 VALIDAÇÃO    
-##### 3.3.3.1	VERIFICAÇÃO E VALIDAÇÃO DE REQUISITOS
-Identificador | Atividade | Método | Ferramenta | Entrega
-------------- | --------- | ------ | ---------- | -------
-VER/VAL-01 | Validação das User Stories | Reunião semanal em grupo junto ao cliente (sprint review) para validar os requisitos do backlog da sprint | Google Meets; Miro; Github | Validação dos requisitos da sprint
-VER/VAL-02 | Verificação da implementação dos requisitos | Reunião quinzenal em grupo junto (retrospectiva) para validar os requisitos do backlog da sprint | google Meets; Github | Verificação das implementação dos requisitos
+#### 3.3.2 EXECUÇÃO 
 
-#### 3.3.4 ENTREGA
-##### 3.3.4.1 DOCUMENTAÇÃO DE REQUISITOS
+##### 3.3.2.1 DOCUMENTAÇÃO DE REQUISITOS
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
 DOC-01 | Registro dos requisitos do produto | Transcrição do backlog de produto para o Git Pages | Git Pages; Miro; Google Meets | Documentação do backlog do produto no Git Pages
 DOC-02 | Registro do refinamento do backlog da sprint | Transcrição semanal do backlog da sprint para o Git Pages | Git Pages; Miro; Google Meets | Documentação do backlog da sprint no Git Pages
+
+##### 3.3.2.2	ANÁLISE E NEGOCIAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+ANA-01 | Priorização e negociação dos requisitos | Reunião em grupo e brainstorm | Google Meets; Miro | MVP1<br/>MVP2
+ANA-02 | Refinamento dos requisitos | Reunião semanal em grupo junto ao cliente (Sprint Planning)  e de forma assíncrona pelo (dono do produto e demais participantes) | Google Meets; Miro | Backlog da sprint
+
+##### 3.3.2.3 PROTOTIPAÇÃO
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+PRO-01 | Prototipar interface | Discord e validação com o cliente | Paint; Adobe XP | Protótipo de interface de média e alta fidelidade
+PRO-02 | Implementação dos protótipos de alta fidelidade | Pair Programming | VSCode; Discord | Interface de usuário
+
+##### 3.3.3.3 IMPLEMENTAÇÃO
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+IMP-01 | Implementar os MVPs 1 e 2 de acordo com o Backlog | Pair Programming | VSCode; MySQL Workbench; Discord | MVP1; MVP2
+IMP-02 | Testes do produto | Testes Unitários | VSCode | Identificação de erros
+
+#### 3.3.3 REVIEW   
+##### 3.3.3.1	VALIDAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+VAL-01 | Validação das User Stories | Reunião semanal em grupo junto ao cliente (sprint review) para validar os requisitos do backlog da sprint | Google Meets; Miro; Github | - Relatório Sprint Review; - Validação do Produto
+
+#### 3.3.4 RETRO
+##### 3.3.4.1 VERIFICAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+VER-01 | Verificação da implementação dos requisitos | Reunião quinzenal em grupo junto (retrospectiva) para verificar a produção do produto | Google Meets; Github | Tabela de check com uma verificação da implementação
 
 ### 3.4 Arquitetura do Projeto
 Com base na escolha de frameworks e foca na visualização e organização do projeto, definiu-se a escolha da aplicação MVC (Model-View-Controller), que é um padrão de arquitetura dividido logicamente em três partes:
@@ -215,6 +243,11 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 - Elicitar requisitos 
 - Abrir um canal de comunicação contínuo com o cliente
 
+### Unidade 3
+- Replanejar o escopo de um projeto
+- Organizar o Backlog do projeto de diferentes formas (SAFe, PBB e USM)
+- Arrumar o planejamento da equipe
+- Fazer documentação no formato CANVAS
 
 ## 5 A MELHORAR
 ### Unidade 1
@@ -225,6 +258,9 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 - Gestão de tempo e tarefas
 - Comunicação da equipe com relação a reuniões e imprevistos
 
+### Unidade 3
+- Gestão de tempo e tarefas
+- Organização da equipe
 
 ## 6 REFERÊNCIAS BIBLIOGRÁFICAS 
 

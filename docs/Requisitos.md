@@ -53,3 +53,7 @@ E4|FT07|US21|Eu como usuário gostaria de editar os dados do meu perfil para cas
 E4|FT07|US22|Eu como usuario gostaria de ter a possibilidade de deltar minha conta para caso não deseje mais utilizá-la| Ao excluir a conta,  todas as atividades do usuário serão excluídas |Alta
 E4|FT08|US23|Eu como usuário gostaria de realizar login com email e senha para adentrar no sistema| O login pode ser feito por google e facebook, além do e-mail e senha |Alta
 E4|FT08|US24|Eu como usuário gostaria de ter a possibilidade de recuperar minha senha através do email caso eu a esqueça| O e-mail deve ser autenticado em até 10 minutos | Alta
+
+# SAFe - Canvas
+
+<iframe width="768" height="432" src="https://miro.com/app/board/uXjVP-ZXHz0=/?share_link_id=277451054040" frameborder="0" scrolling="no" allowfullscreen></iframe>
