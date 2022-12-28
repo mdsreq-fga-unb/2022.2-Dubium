@@ -66,8 +66,7 @@
 * US01: Eu, como professora, quero filtrar perguntas por matéria no fórum de dúvidas, parar conseguir encontrar mais facilmente as dúvidas referentes a minha matéria
 * US02: Eu, como professora, quero visualizar perguntas mais votadas na página de cada engenharia, para ter um feedback sobre quais os principais tópicos de dúvidas na minha matéria
 
-### FAZER PERGUTAS
- EM UM SÓ AMBIENTE
+### FAZER PERGUTAS EM UM SÓ AMBIENTE
 * US03: Eu, como estudante gostaria de visualizar as perguntas existentes nos fóruns desejados, para tentar solucionar minhas dúvidas mais rapidamente
 * US04: Eu, como estudante gostaria de criar uma nova pergunta no fórum desejado, para tirar minha dúvida caso não a encontre anteriormente
 * US05: Eu, como estudante gostaria de apagar minhas próprias perguntas no fórum de dúvidas, para caso eu note que elas já haviam sido feitas ou perceba que esteja escrita
