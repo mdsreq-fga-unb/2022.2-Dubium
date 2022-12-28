@@ -24,7 +24,7 @@ nav:
     - Backlog SAFe: "Requisitos.md"
     - MVPS: "mvps.md"
     - URPS+: "urps.md" 
-    - PBB: "pbb.md"
+    - PBB & BDD: "pbb.md"
     - USM: "usm.md"
   - Entregas:
     - Unidade 1:
@@ -33,6 +33,7 @@ nav:
     - Unidade 2: "entrega-unidade-2.md"
     - Unidade 3: "entrega-unidade-3.md"
   - Sprints:
+    - Sprints Backlog: 
     - Sprint 1:
       - Planning: "sprints/sprint_01/planning.md"
       - Review: "sprints/sprint_01/review.md"

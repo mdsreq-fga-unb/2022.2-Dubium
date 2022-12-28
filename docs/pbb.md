@@ -89,30 +89,32 @@
 
 ## CENÁRIO 1: US08
 ### TÍTULO: Dúvida a ser respondida
-Dado que a pergunta feita possui caracteres válidos e até 1000 caracteres.
-Quando o aluno enviar sua pergunta
-Então, a pergunta deverá ser subida para o fórum
+* Dado que a pergunta feita possui caracteres válidos e até 1000 caracteres.
+* Quando o aluno enviar sua pergunta.
+* Então, a pergunta deverá ser subida para o fórum.
 
 ## CENÁRIO 2: US09
 ### TÍTULO: Resposta da pergunta feita
-Dado que a resposta feita possui caracteres válidos e até 1000 caracteres Quando o aluno enviar sua resposta Então, a resposta deverá ser subida para o fórum abaixo da pergunta feita
+* Dado que a resposta feita possui caracteres válidos e até 1000 caracteres.
+* Quando o aluno enviar sua resposta.
+* Então, a resposta deverá ser subida para o fórum abaixo da pergunta feita
 
 ## CENÁRIO 3: US03
 ### TÍTULO: Visualizar pergunta disponível
-Dado que a pergunta feita faz parte de uma lista e seja aberta sozinha numa nova página
-Quando o aluno clicar na pergunta
-Então, o sistema deverá exibir a pergunta que o aluno selecionar
+* Dado que a pergunta feita faz parte de uma lista e seja aberta sozinha numa nova página.
+* Quando o aluno clicar na pergunta.
+* Então, o sistema deverá exibir a pergunta que o aluno selecionar.
 
 ## CENÁRIO 4: US01
 ### TÍTULO: Perguntas mais votadas
-Dado que as perguntas estejam na tag correspondente e dentro do seu respectivo tema
-Quando o professor clicar para buscar perguntas por tema de matéria
-Então, o sistema deve exibir as perguntas mais votadas feitas pelos alunos
+* Dado que as perguntas estejam na tag correspondente e dentro do seu respectivo tema.
+* Quando o professor clicar para buscar perguntas por tema de matéria.
+* Então, o sistema deve exibir as perguntas mais votadas feitas pelos alunos.
 
 
 ## CENÁRIO 5: US06
 ### TÍTULO: Criar aviso de monitoria
-Dado que o aviso tenha até 1000 caracteres e possua um filtro para notificar que é um aviso
-Quando o aluno monitor escrever um aviso
-Então, o sistema deverá postar no fórum o aviso criad
+* Dado que o aviso tenha até 1000 caracteres e possua um filtro para notificar que é um aviso.
+* Quando o aluno monitor escrever um aviso.
+* Então, o sistema deverá postar no fórum o aviso criado.
 
