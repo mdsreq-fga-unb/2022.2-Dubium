@@ -3,10 +3,13 @@
 ## MVP1: Prover o serviço de retirada de duvidas
 ### E2: Disponibilizar forum de duvidas
 #### F3: Gerenciar perguntas
-- US8: Eu como usuário gostaria de ser capaz de criar e publicar perguntas para tirar minhas dúvidas
+- US8: Eu como usuário gostaria de ser capaz publicar perguntas para tirar minhas dúvidas
 - US9: Eu como usuário gostaria de visualizar perguntas  para fins de busca e estudo
 - US10: Eu como usuário gostaria de pesquisar perguntas por tema ou usuário para fins de estudo
 - US11: Eu como usuário gostaria de poder deletar as minhas perguntas para caso de escrita incorreta
+#### F4: Gerenciar respostas
+- US12: Eu como usuário gostaria de poder responder todas as perguntas disponibilizadas no forum para fins de ajudar outros usuarios
+- US13: Eu como usuário gostaria de ser capaz de visualizar as respostas para fins de soluções de dúvidas
 
 ### E3: Estabelecer ranking
 #### F5: Gerenciar rankeamento de perguntas e respostas
