@@ -15,7 +15,13 @@ export default function ForumBody(props) {
         return (
           <div className="card-pergunta" key={index}>
             <div className="usuario-pergunta">
-              <img src={pergunta.userPergunta.foto} alt="" className="avatar" />
+              <div className="avatar">
+                <img
+                  src={pergunta.userPergunta.foto}
+                  alt=""
+                  className="picture"
+                />
+              </div>
               <div className="usuario-informacao-texto">
                 <span>{pergunta.userPergunta.nome}</span>
                 <span>{pergunta.userPergunta.curso}</span>
@@ -34,12 +40,13 @@ export default function ForumBody(props) {
             </ul>
             {pergunta.respostas.length != 0 && (
               <div className="card-resposta">
-                <img
-                  src={pergunta.respostas[0].userResposta.foto}
-                  alt=""
-                  className="avatar"
-                />
-
+                <div className="avatar">
+                  <img
+                    src={pergunta.respostas[0].userResposta.foto}
+                    alt=""
+                    className="picture"
+                  />
+                </div>
                 <div className="resposta-info">
                   <div>{pergunta.respostas[0].userResposta.nome}</div>
                   <div>{pergunta.respostas[0].userResposta.curso}</div>
