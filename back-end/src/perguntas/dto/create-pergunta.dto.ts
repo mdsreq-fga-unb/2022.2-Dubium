@@ -1,5 +1,7 @@
 export class CreatePerguntaDto {
+    
     id_usuario: number;
-
-    textoPergunta: string;
+    tituloPergunta: string;
+    corpoPergunta: string;
+    cursoPergunta: string;
 }

@@ -1,28 +1,34 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { RespostasService } from './respostas.service';
 import { CreateRespostaDto } from './dto/create-resposta.dto';
+import { Resposta } from './entities/resposta.entity';
 
 @Controller('respostas')
 export class RespostasController {
-  constructor(private readonly respostasService: RespostasService) {}
+  constructor(private readonly service: RespostasService) {}
 
   @Post()
-  create(@Body() createRespostaDto: CreateRespostaDto) {
-    return this.respostasService.create(createRespostaDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.respostasService.findAll();
+  async create(@Body() data: CreateRespostaDto) {
+    return this.service.create(data);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.respostasService.findOne(+id);
+  async findRespostaById(@Param('id') id: number) {
+    return this.service.findRespostaById(id);
+  }
+
+  @Get()
+  async findAll(): Promise<Resposta[]> {
+    return this.service.findAll();
+  }
+
+  @Get(':id_pergunta')
+  async findAllByPergunta(@Param('id_pergunta') id_pergunta: number): Promise<Resposta[]> {
+    return this.service.findAllByPergunta(id_pergunta);
   }
   
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.respostasService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return this.service.remove(+id);
   }
 }

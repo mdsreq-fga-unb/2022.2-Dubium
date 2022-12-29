@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Pergunta } from "src/perguntas/entities/pergunta.entity";
+import { Usuario } from "src/usuarios/entities/usuario.entity";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 
 @Entity()
 export class Resposta {
@@ -12,5 +14,11 @@ export class Resposta {
     id_pergunta: number;
 
     @Column({ length: 1000 })
-    textoResposta: string;
+    corpoResposta: string;
+
+    @ManyToOne(() => Usuario, usuario => usuario.resposta)
+    usuario: Usuario[];
+
+    @ManyToOne(() => Pergunta, pergunta => pergunta.resposta)
+    pergunta: Pergunta[];
 }

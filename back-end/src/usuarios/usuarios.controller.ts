@@ -4,25 +4,25 @@ import { CreateUsuarioDto } from './dto/create-usuario.dto';
 
 @Controller('usuarios')
 export class UsuariosController {
-  constructor(private readonly usuariosService: UsuariosService) {}
+  constructor(private readonly service: UsuariosService) {}
 
   @Post()
   create(@Body() createUsuarioDto: CreateUsuarioDto) {
-    return this.usuariosService.create(createUsuarioDto);
+    return this.service.create(createUsuarioDto);
   }
 
   @Get()
   findAll() {
-    return this.usuariosService.findAll();
+    return this.service.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usuariosService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return this.service.findOne(+id);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.usuariosService.remove(+id);
+    return this.service.remove(+id);
   }
 }

@@ -3,5 +3,5 @@ export class CreateRespostaDto {
 
     id_pergunta: number;
 
-    textoResposta: string;
+    corpoResposta: string;
 }
