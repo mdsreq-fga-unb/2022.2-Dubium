@@ -27,6 +27,11 @@ export class PerguntasController {
     return this.service.findAllByUsuario(id_usuario);
   }
 
+  @Get('/curso/:id_cursoPergunta')
+  async findAllByCurso(@Param('id_cursoPergunta') id_cursoPergunta: number): Promise<Pergunta[]> {
+    return this.service.findAllByCurso(id_cursoPergunta);
+  }
+
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.service.remove(+id);

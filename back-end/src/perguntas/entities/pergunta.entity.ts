@@ -16,8 +16,8 @@ export class Pergunta {
     @Column({ length: 1000 })
     corpoPergunta: string;
     
-    @Column({ length: 100 })
-    cursoPergunta: string;
+    @Column()
+    id_cursoPergunta: number;
 
     @ManyToOne(() => Usuario, usuario => usuario.pergunta)
     usuario: Usuario[];

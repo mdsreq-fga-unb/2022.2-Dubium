@@ -27,7 +27,7 @@ export class PerguntasService {
       pergunta.id_usuario = data.id_usuario;
       pergunta.tituloPergunta = data.tituloPergunta;
       pergunta.corpoPergunta = data.corpoPergunta;
-      pergunta.cursoPergunta = data.cursoPergunta;
+      pergunta.id_cursoPergunta = data.id_cursoPergunta;
       return this.perguntasRepository.save(pergunta);
     }
     catch(error) {
@@ -46,6 +46,10 @@ export class PerguntasService {
 
   async findAllByUsuario(id_usuario: number){
     return await this.perguntasRepository.find({where: {id_usuario}})
+  }
+
+  async findAllByCurso(id_cursoPergunta: number){
+    return await this.perguntasRepository.find({where: {id_cursoPergunta}})
   }
 
   async remove(id: number) {
