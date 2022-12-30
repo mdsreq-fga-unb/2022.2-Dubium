@@ -24,7 +24,7 @@ export class PerguntasService {
     try{
       const pergunta = new Pergunta();
 
-      pergunta.id_usuario = data.id_usuario;
+      pergunta.usuario.id = data.id_usuario;
       pergunta.tituloPergunta = data.tituloPergunta;
       pergunta.corpoPergunta = data.corpoPergunta;
       pergunta.id_cursoPergunta = data.id_cursoPergunta;
@@ -46,7 +46,7 @@ export class PerguntasService {
   }
 
   async findAllByUsuario(id_usuario: number){
-    return await this.perguntasRepository.find({where: {id_usuario}})
+    return await this.perguntasRepository.find({where: {id_usuario}});
   }
 
   async findAllByCurso(id_cursoPergunta: number){
@@ -64,6 +64,7 @@ export class PerguntasService {
 
   async rankingPerguntas(){
     const perguntas = await this.perguntasRepository.find();
+    //sql nativo - comando order by
     //percorrer todas as perguntas
     //ordenar do maior numero de votos pro maior
     //exibir a lista do ranking

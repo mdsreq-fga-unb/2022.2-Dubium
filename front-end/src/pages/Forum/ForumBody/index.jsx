@@ -23,11 +23,12 @@ export default function ForumBody(props) {
                 />
               </div> */}
               <div className="usuario-informacao-texto">
-                <span>{pergunta.userPergunta.nome}</span>
-                <span>{pergunta.userPergunta.curso}</span>
+                <span>{pergunta.id_usuario}</span>
+                {/* <span>{pergunta.userPergunta.curso}</span> */}
               </div>
             </div>
-            <div>{pergunta.textoPergunta}</div>
+            <div>{pergunta.tituloPergunta}</div>
+            <div>{pergunta.corpoPergunta}</div>
             <ul className="container-interacao">
               <li className="item-interacao">
                 <StarIcon />
