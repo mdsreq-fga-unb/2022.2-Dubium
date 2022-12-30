@@ -19,12 +19,25 @@ export class UsuariosService {
     return `This action returns all usuarios`;
   }
 
-  async findOne(id: number) {
+  async findUsuarioById(id: number) {
     return await this.usuarioRepository.findOneBy({id});
   }
 
-
   remove(id: number) {
     return `This action removes a #${id} usuario`;
+  }
+
+  async updateVotosUsuario(){
+    //findUsuarioById pra achar o id do usuario que ta atualizando
+    //update - votosTotais
+  }
+
+  async rankingUsuarios(){
+    const usuarios = await this.usuarioRepository.find();
+    //percorrer todos os usuarios
+    //ordenar do maior numero de votos pro maior
+    //exibir a lista do ranking
+    
+    return usuarios;
   }
 }

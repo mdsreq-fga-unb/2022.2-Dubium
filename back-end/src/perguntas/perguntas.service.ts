@@ -15,7 +15,7 @@ export class PerguntasService {
   ) {}
 
   async create(data: CreatePerguntaDto) {
-    const usuario = await this.usuarioService.findOne(data.id_usuario);
+    const usuario = await this.usuarioService.findUsuarioById(data.id_usuario);
     if(!usuario) {
       throw new BadRequestException('Usuário inválido!');
     }
@@ -27,7 +27,8 @@ export class PerguntasService {
       pergunta.id_usuario = data.id_usuario;
       pergunta.tituloPergunta = data.tituloPergunta;
       pergunta.corpoPergunta = data.corpoPergunta;
-      pergunta.cursoPergunta = data.cursoPergunta;
+      pergunta.id_cursoPergunta = data.id_cursoPergunta;
+      pergunta.votosTotais = data.votosTotais;
       return this.perguntasRepository.save(pergunta);
     }
     catch(error) {
@@ -48,7 +49,25 @@ export class PerguntasService {
     return await this.perguntasRepository.find({where: {id_usuario}})
   }
 
+  async findAllByCurso(id_cursoPergunta: number){
+    return await this.perguntasRepository.find({where: {id_cursoPergunta}})
+  }
+
   async remove(id: number) {
     return await this.perguntasRepository.delete(id);
+  }
+
+  async updateVotosPergunta(){
+    //findPerguntaById pra achar o id da pergunta que ta atualizando
+    //update - votosTotais
+  }
+
+  async rankingPerguntas(){
+    const perguntas = await this.perguntasRepository.find();
+    //percorrer todas as perguntas
+    //ordenar do maior numero de votos pro maior
+    //exibir a lista do ranking
+    
+    return perguntas;
   }
 }

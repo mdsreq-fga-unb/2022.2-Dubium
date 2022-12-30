@@ -27,8 +27,23 @@ export class PerguntasController {
     return this.service.findAllByUsuario(id_usuario);
   }
 
+  @Get('/curso/:id_cursoPergunta')
+  async findAllByCurso(@Param('id_cursoPergunta') id_cursoPergunta: number): Promise<Pergunta[]> {
+    return this.service.findAllByCurso(id_cursoPergunta);
+  }
+
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.service.remove(+id);
+  }
+
+  // @Patch(':id')
+  // updateVotosPergunta(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  //   return this.service.updateVotosPergunta(+id, updateUserDto);
+  // }
+
+  @Get('ranking')
+  async rankingPerguntas(): Promise<Pergunta[]> {
+    return this.service.rankingPerguntas();
   }
 }

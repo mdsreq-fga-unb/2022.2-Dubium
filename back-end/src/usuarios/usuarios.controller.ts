@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { UsuariosService } from './usuarios.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
+import { Usuario } from './entities/usuario.entity';
 
 @Controller('usuarios')
 export class UsuariosController {
@@ -17,12 +18,22 @@ export class UsuariosController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return this.service.findOne(+id);
+  async findUsuarioById(@Param('id') id: string) {
+    return this.service.findUsuarioById(+id);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.service.remove(+id);
+  }
+
+  // @Patch(':id')
+  // updateVotosUsuario(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  //   return this.service.updateVotosUsuario(+id, updateUserDto);
+  // }
+
+  @Get('ranking')
+  async rankingUsuarios(): Promise<Usuario[]> {
+    return this.service.rankingUsuarios();
   }
 }

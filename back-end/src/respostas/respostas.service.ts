@@ -14,7 +14,7 @@ export class RespostasService {
     private readonly perguntaService: PerguntasService
   ){}
   async create(data: CreateRespostaDto) {
-    const usuario = await this.usuarioService.findOne(data.id_usuario);
+    const usuario = await this.usuarioService.findUsuarioById(data.id_usuario);
     const pergunta = await this.perguntaService.findPerguntaById(data.id_pergunta);
 
     if(!usuario) {
