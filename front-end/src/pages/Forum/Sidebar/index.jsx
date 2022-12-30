@@ -1,10 +1,13 @@
 import "./style.css";
 import { forumData } from "./data";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import SidebarContext from "../../../context/SidebarProvider";
 
 const Sidebar = (props) => {
   const [isActive, setIsActive] = useState(0);
+  const { setElementoSidebar } = useContext(SidebarContext);
 
   return (
     <ul className="sidebar-forum">
@@ -18,6 +21,7 @@ const Sidebar = (props) => {
             setIsActive(index);
             props.setIsPerguntaOpen(false);
             props.setIsFormOpen(false);
+            setElementoSidebar(index);
           }}
         >
           {data.icon}
