@@ -68,7 +68,9 @@ nav:
           - Planning: "sprints/sprint_10/planning.md"
           - Review: "sprints/sprint_10/review.md"
           - Retrospectiva: "sprints/sprint_10/retrospectiva.md"
-  - Protótipos: ""
+  - Protótipos:
+      - MVP1: "prototipos/prototipos-mvp1.md"
+      - MVP2: "prototipos/prototipos-mvp2.md"
 
 repo_url: https://github.com/mdsreq-fga-unb/2022.2-Dubium
 repo_name: 2022.2-Dubium
