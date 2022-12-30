@@ -77,12 +77,12 @@ export default function FormularioPergunta(props) {
         {/* <div className="file-input">
           <input type="file" name="imagem" {...register("imagem")} />
         </div> */}
-        <div className="group-input">
-          <button type="submit" className="botao-enviar">
+        <div className="group-input" style={{ justifyContent: "center" }}>
+          <button type="submit" className="botao-geral">
             Enviar
           </button>
           <button
-            className="botao-cancelar"
+            className="botao-geral botao-cancelar"
             onClick={() => props.setIsFormOpen(false)}
           >
             Cancelar

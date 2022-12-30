@@ -1,30 +1,47 @@
 .form-card {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: #FAFAFA;
-    padding: 50px;
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fafafa;
+  padding: 50px;
+  width: 50%;
 }
 
 .formulario {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .group-input {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
 }
 
-.form-card input, select, textarea, .file-input {
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 10px;
+.form-card input,
+select,
+textarea,
+.file-input {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
 }
 
-.titulo-input, .engenharia-input {
-    padding: 10px;
+.titulo-input,
+.engenharia-input {
+  padding: 10px;
+}
+
+.botao-geral {
+  padding: 6px;
+  width: 20%;
+  background-color: #0f5986;
+  color: rgb(250, 250, 250);
+  border: none;
+  border-radius: 15px;
+}
+
+.botao-cancelar {
+  background-color: #747576;
 }

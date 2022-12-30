@@ -6,7 +6,6 @@ export default function Pergunta(props) {
   return (
     <div className="card-pergunta unica-pergunta">
       <div className="usuario-informacao-texto">
-        teste
         <span>{props.pergunta.userPergunta.nome}</span>
         <span>{props.pergunta.userPergunta.curso}</span>
       </div>
@@ -22,14 +21,7 @@ export default function Pergunta(props) {
         </li>
         <li className="item-interacao">
           <QuestionAnswerIcon />
-          <span
-            onClick={() => {
-              props.setIsPerguntaOpen(true);
-              props.setPergunta(index);
-            }}
-          >
-            Responder
-          </span>
+          <span>Responder</span>
         </li>
       </ul>
       <textarea
@@ -58,7 +50,7 @@ export default function Pergunta(props) {
                 <span
                   onClick={() => {
                     props.setIsPerguntaOpen(true);
-                    props.setPergunta(index);
+                    props.setIndexPergunta(index);
                   }}
                 >
                   Responder

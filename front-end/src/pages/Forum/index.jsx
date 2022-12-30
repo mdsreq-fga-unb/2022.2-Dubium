@@ -22,14 +22,19 @@ export default function Forum() {
         />
       );
     } else if (isPerguntaOpen) {
-      return <Pergunta pergunta={dadosPergunta[indexPergunta]} />;
+      return (
+        <Pergunta
+          pergunta={dadosPergunta[indexPergunta]}
+          setIndexPergunta={setIndexPergunta}
+        />
+      );
     } else {
       return (
         <ForumBody
           perguntas={arrayPerguntas}
           setIsFormOpen={setIsFormOpen}
           setIsPerguntaOpen={setIsPerguntaOpen}
-          setPergunta={setIndexPergunta}
+          setIndexPergunta={setIndexPergunta}
         />
       );
     }

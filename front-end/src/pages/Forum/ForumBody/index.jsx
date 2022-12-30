@@ -38,7 +38,7 @@ export default function ForumBody(props) {
                 <span
                   onClick={() => {
                     props.setIsPerguntaOpen(true);
-                    props.setPergunta(index);
+                    props.setIndexPergunta(index);
                   }}
                 >
                   Responder
