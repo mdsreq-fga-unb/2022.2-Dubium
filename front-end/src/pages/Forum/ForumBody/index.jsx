@@ -15,13 +15,13 @@ export default function ForumBody(props) {
         return (
           <div className="card-pergunta" key={index}>
             <div className="usuario-pergunta">
-              <div className="avatar">
+              {/* <div className="avatar">
                 <img
                   src={pergunta.userPergunta.foto}
                   alt=""
                   className="picture"
                 />
-              </div>
+              </div> */}
               <div className="usuario-informacao-texto">
                 <span>{pergunta.userPergunta.nome}</span>
                 <span>{pergunta.userPergunta.curso}</span>
@@ -35,27 +35,16 @@ export default function ForumBody(props) {
               </li>
               <li className="item-interacao">
                 <QuestionAnswerIcon />
-                <span>Responder</span>
+                <span
+                  onClick={() => {
+                    props.setIsPerguntaOpen(true);
+                    props.setPergunta(index);
+                  }}
+                >
+                  Responder
+                </span>
               </li>
             </ul>
-            {pergunta.respostas.length != 0 && (
-              <div className="card-resposta">
-                <div className="avatar">
-                  <img
-                    src={pergunta.respostas[0].userResposta.foto}
-                    alt=""
-                    className="picture"
-                  />
-                </div>
-                <div className="resposta-info">
-                  <div>{pergunta.respostas[0].userResposta.nome}</div>
-                  <div>{pergunta.respostas[0].userResposta.curso}</div>
-                  <div className="texto-resposta">
-                    {pergunta.respostas[0].textoResposta}
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         );
       })}

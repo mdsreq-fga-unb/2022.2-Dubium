@@ -34,7 +34,7 @@ export default function FormularioPergunta(props) {
   return (
     <div className="form-card">
       <div className="usuario-pergunta">
-        <img src={jose} alt="" className="avatar" />
+        {/* <img src={jose} alt="" className="avatar" /> */}
         <div className="usuario-informacao-texto">
           <span>José</span>
           <span>Engenharia de Software</span>
@@ -74,9 +74,9 @@ export default function FormularioPergunta(props) {
           className="texto-pergunta"
           placeholder="Pergunta"
         ></textarea>
-        <div className="file-input">
+        {/* <div className="file-input">
           <input type="file" name="imagem" {...register("imagem")} />
-        </div>
+        </div> */}
         <div className="group-input">
           <button type="submit" className="botao-enviar">
             Enviar

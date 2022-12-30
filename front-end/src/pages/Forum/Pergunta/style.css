@@ -1,0 +1,26 @@
+.unica-pergunta {
+  width: 60%;
+}
+
+.like-comentario {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.resposta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.container-resposta-interacao {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: flex-end;
+  padding-top: 2px;
+}
