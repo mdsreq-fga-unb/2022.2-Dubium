@@ -23,7 +23,7 @@ export class Pergunta {
     votosTotais: number;
 
     @ManyToOne(() => Usuario, usuario => usuario.pergunta)
-    usuario: Usuario[];
+    usuario: Usuario;
 
     @OneToMany(() => Resposta, resposta => resposta)
     resposta: Resposta[];

@@ -22,7 +22,7 @@ export class PerguntasController {
     return this.service.findAll();
   }
 
-  @Get(':id_usuario')
+  @Get('/usuario/:id_usuario')
   async findAllByUsuario(@Param('id_usuario') id_usuario: number): Promise<Pergunta[]> {
     return this.service.findAllByUsuario(id_usuario);
   }

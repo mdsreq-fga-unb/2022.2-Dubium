@@ -12,8 +12,8 @@ export class Usuario {
     @Column({ length: 100 })
     nome_completo: string;
 
-    @Column({ length: 100 })
-    curso: string;
+    @Column()
+    curso: number;
 
     @OneToMany(() => Pergunta, pergunta => pergunta)
     pergunta: Pergunta[];

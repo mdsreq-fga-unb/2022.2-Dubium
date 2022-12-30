@@ -1,16 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ForumBody from "./ForumBody";
 import { dadosPergunta } from "./data.js";
 import "./style.css";
 import Sidebar from "./Sidebar";
 import FormularioPergunta from "./FormularioPergunta";
 import Pergunta from "./Pergunta";
+import apiRequest from "../../services/api";
 
 export default function Forum() {
   const [arrayPerguntas, setArrayPerguntas] = useState(dadosPergunta);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isPerguntaOpen, setIsPerguntaOpen] = useState(false);
   const [indexPergunta, setIndexPergunta] = useState();
+
+
+  useEffect(() => {
+    apiRequest
+    .get("perguntas")
+    .then((response) => {
+      setArrayPerguntas(response.data)
+    }).catch((err) => {
+      console.log("Ops")
+    });
+  }, [])
 
   const handleComponent = () => {
     if (isFormOpen) {
