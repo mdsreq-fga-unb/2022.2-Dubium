@@ -23,7 +23,7 @@ function Header() {
       </ul>
       <div className="pesquisa">
         <SearchIcon />
-        <input type="text" placeholder="Buscar" />
+        <input type="text" placeholder="BUSCAR" />
       </div>
       <div className="input">
         <Link to="/">SAIR</Link>

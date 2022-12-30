@@ -6,6 +6,7 @@ export default function Pergunta(props) {
   return (
     <div className="card-pergunta unica-pergunta">
       <div className="usuario-informacao-texto">
+        teste
         <span>{props.pergunta.userPergunta.nome}</span>
         <span>{props.pergunta.userPergunta.curso}</span>
       </div>

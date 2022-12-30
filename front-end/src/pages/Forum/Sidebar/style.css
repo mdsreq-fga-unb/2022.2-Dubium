@@ -39,9 +39,9 @@
   align-items: center;
   padding: 10px;
   gap: 8px;
-  border-radius: 15px;
+  border-radius: 17px;
 }
 
 .is-active {
-  border: 2px solid #125d89;
+  border: 2px solid #166799;
 }
