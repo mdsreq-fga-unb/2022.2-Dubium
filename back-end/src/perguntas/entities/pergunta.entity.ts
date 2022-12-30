@@ -19,6 +19,9 @@ export class Pergunta {
     @Column()
     id_cursoPergunta: number;
 
+    @Column()
+    votosTotais: number;
+
     @ManyToOne(() => Usuario, usuario => usuario.pergunta)
     usuario: Usuario[];
 

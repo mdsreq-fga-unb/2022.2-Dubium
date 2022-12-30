@@ -36,4 +36,14 @@ export class PerguntasController {
   async remove(@Param('id') id: string) {
     return this.service.remove(+id);
   }
+
+  // @Patch(':id')
+  // updateVotosPergunta(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  //   return this.service.updateVotosPergunta(+id, updateUserDto);
+  // }
+
+  @Get('ranking')
+  async rankingPerguntas(): Promise<Pergunta[]> {
+    return this.service.rankingPerguntas();
+  }
 }
