@@ -5,8 +5,11 @@ import jose from "../../../assets/images/jose.webp";
 import janderson from "../../../assets/images/janderson.jpg";
 import maria from "../../../assets/images/maria.jpg";
 import { Link } from "react-router-dom";
+import apiRequest from "../../../services/api";
+import { useState } from "react";
 
 export default function FormularioPergunta(props) {
+  const [data, setData] = useState()
   const {
     register,
     handleSubmit,
@@ -15,20 +18,9 @@ export default function FormularioPergunta(props) {
 
   const onSubmit = (data) => {
     props.setIsFormOpen(false);
-    props.setPerguntas([
-      ...props.perguntas,
-      {
-        textoPergunta: data.textoPergunta,
-        dataPergunta: "15/02/2022",
-        userPergunta: {
-          nome: "José",
-          curso: "Engenharia de Software",
-          foto: jose,
-        },
-        respostas: [],
-        engenharia: data.engenharia,
-      },
-    ]);
+    let novaPergunta = {}
+
+    apiRequest.post("perguntas")
   };
 
   return (

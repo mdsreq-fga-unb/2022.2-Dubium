@@ -29,23 +29,10 @@ export default function ForumBody(props) {
             </div>
             <div>{pergunta.tituloPergunta}</div>
             <div>{pergunta.corpoPergunta}</div>
-            <ul className="container-interacao">
-              <li className="item-interacao">
-                <StarIcon />
-                <span>Favoritar</span>
-              </li>
-              <li className="item-interacao">
-                <QuestionAnswerIcon />
-                <span
-                  onClick={() => {
-                    props.setIsPerguntaOpen(true);
-                    props.setIndexPergunta(index);
-                  }}
-                >
-                  Responder
-                </span>
-              </li>
-            </ul>
+            <div className="like-comentario">
+              <StarIcon />
+              <span>{pergunta.votosTotais} favoritos</span>
+            </div>
           </div>
         );
       })}

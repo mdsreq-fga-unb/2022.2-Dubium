@@ -56,7 +56,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 25px;
-  justify-content: flex-end;
   border-top: 1px solid #414141;
   padding-top: 2px;
 }

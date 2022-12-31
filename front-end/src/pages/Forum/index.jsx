@@ -16,18 +16,20 @@ export default function Forum() {
   const [indexPergunta, setIndexPergunta] = useState();
   const {elementoSidebar} = useContext(SidebarContext);
 
-  async function getPerguntas() {
+
+   function getPerguntas() {
+    return elementoSidebar == 0 ? "perguntas" : `perguntas/curso/${elementoSidebar}`;
     //const resInicio = await apiRequest.get("perguntas");
   //  const resEngenharias = await apiRequest.get("perguntas/curso/" + elementoSidebar); //router.query.turma_id
-    if(elementoSidebar == 0) {
-      apiRequest
-      .get("perguntas")
-      .then((response) => {
-        setArrayPerguntas(response.data);
-      }).catch((err) => {
-        console.log(err);
-      });
-    }
+    // if(elementoSidebar == 0) {
+    //   apiRequest
+    //   .get("perguntas")
+    //   .then((response) => {
+    //     setArrayPerguntas(response.data);
+    //   }).catch((err) => {
+    //     console.log(err);
+    //   });
+    // }
     // else {
     //   apiRequest
     //   .get("perguntas/curso/" + elementoSidebar)
@@ -38,10 +40,14 @@ export default function Forum() {
     //   });
     // }
   } 
-  console.log(getPerguntas())
   useEffect(() => {
-    getPerguntas();
-  }, []);
+    apiRequest
+      .get(getPerguntas())
+      .then((response) => setArrayPerguntas(response.data))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, [elementoSidebar]);
 
 
   const handleComponent = () => {
