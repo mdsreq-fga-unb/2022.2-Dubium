@@ -10,7 +10,7 @@ import { useContext } from "react";
 import SidebarContext from "../../context/SidebarProvider";
 
 export default function Forum() {
-  const [arrayPerguntas, setArrayPerguntas] = useState(dadosPergunta);
+  const [arrayPerguntas, setArrayPerguntas] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isPerguntaOpen, setIsPerguntaOpen] = useState(false);
   const [indexPergunta, setIndexPergunta] = useState();

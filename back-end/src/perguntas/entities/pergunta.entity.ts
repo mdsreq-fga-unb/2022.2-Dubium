@@ -7,9 +7,6 @@ export class Pergunta {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    id_usuario: number;
-
     @Column({ length: 100 })
     tituloPergunta: string;
 

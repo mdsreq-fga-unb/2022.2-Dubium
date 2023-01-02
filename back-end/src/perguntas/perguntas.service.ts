@@ -23,8 +23,8 @@ export class PerguntasService {
 
     try{
       const pergunta = new Pergunta();
-
-      pergunta.usuario.id = data.id_usuario;
+      
+      pergunta.usuario = usuario;
       pergunta.tituloPergunta = data.tituloPergunta;
       pergunta.corpoPergunta = data.corpoPergunta;
       pergunta.id_cursoPergunta = data.id_cursoPergunta;
@@ -32,25 +32,40 @@ export class PerguntasService {
       return this.perguntasRepository.save(pergunta);
     }
     catch(error) {
+      console.log(error.message)
       throw new UnprocessableEntityException('Erro ao cadastrar a pergunta!');
     }
     
   }
 
   async findPerguntaById(id: number) {
-    return await this.perguntasRepository.findOneBy({ id });
+    return await this.perguntasRepository.findOne({ 
+      where: {id},
+      relations: {
+      usuario: true,
+      },
+    });
   }
 
  async findAll() {
-    return this.perguntasRepository.find();
+    return this.perguntasRepository.find({
+        relations: {
+        usuario: true,
+    },
+    });
   }
 
-  async findAllByUsuario(id_usuario: number){
-    return await this.perguntasRepository.find({where: {id_usuario}});
-  }
+  // async findAllByUsuario(id_usuario: number){
+  //   return await this.perguntasRepository.find({where: {id_usuario}});
+  // }
 
   async findAllByCurso(id_cursoPergunta: number){
-    return await this.perguntasRepository.find({where: {id_cursoPergunta}})
+    return await this.perguntasRepository.find({
+      where: {id_cursoPergunta}, 
+      relations: {
+      usuario: true,
+      },
+    })
   }
 
   async remove(id: number) {

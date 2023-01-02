@@ -6,10 +6,22 @@ import janderson from "../../../assets/images/janderson.jpg";
 import maria from "../../../assets/images/maria.jpg";
 import { Link } from "react-router-dom";
 import apiRequest from "../../../services/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function FormularioPergunta(props) {
   const [data, setData] = useState()
+  const [usuario, setUsuarios] = useState([])
+
+  useEffect(() => {
+    apiRequest
+      .get("usuarios")
+      .then((response) => setUsuarios(response.data))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, []);
+  
+
   const {
     register,
     handleSubmit,
@@ -20,17 +32,33 @@ export default function FormularioPergunta(props) {
     props.setIsFormOpen(false);
     let novaPergunta = {}
 
-    apiRequest.post("perguntas")
+    // apiRequest.post("perguntas")
   };
 
   return (
     <div className="form-card">
-      <div className="usuario-pergunta">
-        {/* <img src={jose} alt="" className="avatar" /> */}
+      {/* <div className="usuario-pergunta">
         <div className="usuario-informacao-texto">
-          <span>José</span>
-          <span>Engenharia de Software</span>
+        <span>{pergunta.usuario.nome_completo}</span>
+        <span>{pergunta.usuario.curso}</span>
         </div>
+      </div> */}
+      <div>
+      <select
+            name="usuario"
+            {...register("usuario")}
+            className="engenharia-input"
+          >
+            {usuario.map((usuario, index) => (
+              <option
+                value={usuario.nome_completo}
+                key={index}
+                className="opcao-engenharia"
+              >
+                {usuario.nome_completo}
+              </option>
+            ))}
+          </select>
       </div>
       <form action="" onSubmit={handleSubmit(onSubmit)} className="formulario">
         <div className="group-input">
