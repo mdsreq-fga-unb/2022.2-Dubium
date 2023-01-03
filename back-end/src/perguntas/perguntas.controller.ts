@@ -41,9 +41,4 @@ export class PerguntasController {
   // updateVotosPergunta(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
   //   return this.service.updateVotosPergunta(+id, updateUserDto);
   // }
-
-  @Get('ranking')
-  async rankingPerguntas(): Promise<Pergunta[]> {
-    return this.service.rankingPerguntas();
-  }
 }

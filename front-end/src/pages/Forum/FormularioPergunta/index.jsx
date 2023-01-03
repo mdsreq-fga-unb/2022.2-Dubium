@@ -17,7 +17,7 @@ export default function FormularioPergunta(props) {
       .get("usuarios")
       .then((response) => {
         console.log("teste");
-        console.log(response.data);
+        setUsuarios(response.data);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -60,15 +60,16 @@ export default function FormularioPergunta(props) {
     }
 
     let novaPergunta = {
+      id_usuario: data.id_usuario,
       tituloPergunta: data.titulo,
       corpoPergunta: data.textoPergunta,
       id_cursoPergunta: indexEngenharia,
-      votosTotais: 0,
-      usuario: {
-        id: 3,
-        nome_completo: "Marcos Pereira",
-        curso: 3,
-      },
+      votosTotais: 1000,
+      // usuario: {
+      //   id: 3,
+      //   nome_completo: "Marcos Pereira",
+      //   curso: 3,
+      // },
     };
 
     apiRequest.post("perguntas", novaPergunta);
@@ -76,10 +77,23 @@ export default function FormularioPergunta(props) {
 
   return (
     <div className="form-card">
+      <div>
+        <select name="usuarios" id="usuarios">
+          {usuario.map((data, index) => (
+            <option
+            value={data.nome_completo}
+            key={index}
+            className="opcao-engenharia"
+            >
+              {data.nome_completo}
+            </option>
+          ))}
+        </select>
+      </div>
       {/* <div className="usuario-pergunta">
         <div className="usuario-informacao-texto">
-        <span>{pergunta.usuario.nome_completo}</span>
-        <span>{pergunta.usuario.curso}</span>
+        <span>{usuario.nome_completo}</span>
+        <span>{usuario.curso}</span>
         </div>
       </div> */}
       <form action="" onSubmit={handleSubmit(onSubmit)} className="formulario">

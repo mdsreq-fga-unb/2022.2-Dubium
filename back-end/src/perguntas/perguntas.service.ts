@@ -42,16 +42,19 @@ export class PerguntasService {
     return await this.perguntasRepository.findOne({ 
       where: {id},
       relations: {
-      usuario: true,
+        usuario: true,
       },
     });
   }
 
  async findAll() {
-    return this.perguntasRepository.find({
-        relations: {
+    return await this.perguntasRepository.find({
+      relations: {
         usuario: true,
-    },
+      },
+      order: {
+        votosTotais: 'desc'
+      }
     });
   }
 
@@ -63,8 +66,11 @@ export class PerguntasService {
     return await this.perguntasRepository.find({
       where: {id_cursoPergunta}, 
       relations: {
-      usuario: true,
+        usuario: true,
       },
+      order: {
+        votosTotais: 'desc'
+      }
     })
   }
 
@@ -75,15 +81,5 @@ export class PerguntasService {
   async updateVotosPergunta(){
     //findPerguntaById pra achar o id da pergunta que ta atualizando
     //update - votosTotais
-  }
-
-  async rankingPerguntas(){
-    const perguntas = await this.perguntasRepository.find();
-    //sql nativo - comando order by
-    //percorrer todas as perguntas
-    //ordenar do maior numero de votos pro maior
-    //exibir a lista do ranking
-    
-    return perguntas;
   }
 }

@@ -15,8 +15,8 @@ export class UsuariosService {
     return 'This action adds a new usuario';
   }
 
-  findAll() {
-    return `This action returns all usuarios`;
+  async findAll() {
+    return await this.usuarioRepository.find();
   }
 
   async findUsuarioById(id: number) {
