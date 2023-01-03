@@ -9,7 +9,6 @@ import apiRequest from "../../../services/api";
 import { useEffect, useState } from "react";
 
 export default function FormularioPergunta(props) {
-  const [data, setData] = useState();
   const [usuario, setUsuarios] = useState([]);
 
   useEffect(() => {
@@ -59,17 +58,14 @@ export default function FormularioPergunta(props) {
         break;
     }
 
+    console.log(data.usuarios);
+
     let novaPergunta = {
-      id_usuario: data.id_usuario,
+      id_usuario: data.usuarios,
       tituloPergunta: data.titulo,
-      corpoPergunta: data.textoPergunta,
       id_cursoPergunta: indexEngenharia,
-      votosTotais: 1000,
-      // usuario: {
-      //   id: 3,
-      //   nome_completo: "Marcos Pereira",
-      //   curso: 3,
-      // },
+      corpoPergunta: data.textoPergunta,
+      votosTotais: 0,
     };
 
     apiRequest.post("perguntas", novaPergunta);
@@ -78,13 +74,9 @@ export default function FormularioPergunta(props) {
   return (
     <div className="form-card">
       <div>
-        <select name="usuarios" id="usuarios">
+        <select name="usuarios" {...register("usuarios")}>
           {usuario.map((data, index) => (
-            <option
-            value={data.nome_completo}
-            key={index}
-            className="opcao-engenharia"
-            >
+            <option value={data.id} key={index} className="opcao-engenharia">
               {data.nome_completo}
             </option>
           ))}
