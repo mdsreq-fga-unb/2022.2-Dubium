@@ -10,29 +10,36 @@ export const forumData = [
   {
     name: "INÍCIO",
     icon: <HomeIcon />,
+    path: "/inicio",
   },
   {
     name: "ENGENHARIAS",
     icon: <EngineeringIcon />,
+    path: "/engenharias",
   },
   {
     name: "ENGENHARIA AEROESPACIAL",
     icon: <RocketIcon />,
+    path: "/aeroespacial",
   },
   {
     name: "ENGENHARIA AUTOMOTIVA",
     icon: <CarRepairIcon />,
+    path: "/automotiva",
   },
   {
     name: "ENGENHARIA ELETRÔNICA",
     icon: <MemoryIcon />,
+    path: "/eletronica",
   },
   {
     name: "ENGENHARIA DE ENERGIA",
     icon: <EnergySavingsLeafIcon />,
+    path: "/energia",
   },
   {
     name: "ENGENHARIA DE SOFTWARE",
     icon: <TerminalIcon />,
+    path: "/software",
   },
 ];

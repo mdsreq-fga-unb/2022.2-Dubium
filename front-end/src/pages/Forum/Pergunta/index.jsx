@@ -4,15 +4,16 @@ import StarIcon from "@mui/icons-material/Star";
 
 export default function Pergunta(props) {
   return (
-    <div className="card-pergunta unica-pergunta">
+    <div className="card-pergunta pergunta-selecionada">
       <div className="usuario-informacao-texto">
-        <span>{props.pergunta.userPergunta.nome}</span>
-        <span>{props.pergunta.userPergunta.curso}</span>
+        <span>{props.perguntaSelecionada.usuario.nome_completo}</span>
+        <span>{props.perguntaSelecionada.usuario.curso}</span>
       </div>
-      <span>{props.pergunta.textoPergunta}</span>
+      <span>{props.perguntaSelecionada.corpoPergunta}</span>
       <div className="like-comentario">
-        <span>Pedro santos e mais 19 pessoas</span>
-        <span>1 comentário</span>
+        <StarIcon />
+        <span>{props.perguntaSelecionada.votosTotais} favoritos</span>
+        {/* <span>1 comentário</span> */}
       </div>
       <ul className="container-interacao">
         <li className="item-interacao">
@@ -32,7 +33,7 @@ export default function Pergunta(props) {
         placeholder="Comentar"
         className="comentar"
       ></textarea>
-      {props.pergunta.respostas.map((resposta, index) => {
+      {/* {props.pergunta.respostas.map((resposta, index) => {
         return (
           <div className="resposta">
             <div className="usuario-informacao-texto">
@@ -59,7 +60,7 @@ export default function Pergunta(props) {
             </ul>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 }

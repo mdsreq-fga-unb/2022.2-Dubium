@@ -9,18 +9,20 @@ import apiRequest from "../../../services/api";
 import { useEffect, useState } from "react";
 
 export default function FormularioPergunta(props) {
-  const [data, setData] = useState()
-  const [usuario, setUsuarios] = useState([])
+  const [data, setData] = useState();
+  const [usuario, setUsuarios] = useState([]);
 
   useEffect(() => {
     apiRequest
       .get("usuarios")
-      .then((response) => setUsuarios(response.data))
+      .then((response) => {
+        console.log("teste");
+        console.log(response.data);
+      })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, []);
-  
 
   const {
     register,
@@ -30,9 +32,46 @@ export default function FormularioPergunta(props) {
 
   const onSubmit = (data) => {
     props.setIsFormOpen(false);
-    let novaPergunta = {}
 
-    // apiRequest.post("perguntas")
+    let indexEngenharia;
+
+    switch (data.engenharia) {
+      case "INÍCIO":
+        indexEngenharia = 0;
+        break;
+      case "ENGENHARIAS":
+        indexEngenharia = 1;
+        break;
+      case "ENGENHARIA AEROESPACIAL":
+        indexEngenharia = 2;
+        break;
+      case "ENGENHARIA AUTOMOTIVA":
+        indexEngenharia = 3;
+        break;
+      case "ENGENHARIA ELETRÔNICA":
+        indexEngenharia = 4;
+        break;
+      case "ENGENHARIA DE ENERGIA":
+        indexEngenharia = 5;
+        break;
+      case "ENGENHARIA DE SOFTWARE":
+        indexEngenharia = 6;
+        break;
+    }
+
+    let novaPergunta = {
+      tituloPergunta: data.titulo,
+      corpoPergunta: data.textoPergunta,
+      id_cursoPergunta: indexEngenharia,
+      votosTotais: 0,
+      usuario: {
+        id: 3,
+        nome_completo: "Marcos Pereira",
+        curso: 3,
+      },
+    };
+
+    apiRequest.post("perguntas", novaPergunta);
   };
 
   return (
@@ -43,23 +82,6 @@ export default function FormularioPergunta(props) {
         <span>{pergunta.usuario.curso}</span>
         </div>
       </div> */}
-      <div>
-      <select
-            name="usuario"
-            {...register("usuario")}
-            className="engenharia-input"
-          >
-            {usuario.map((usuario, index) => (
-              <option
-                value={usuario.nome_completo}
-                key={index}
-                className="opcao-engenharia"
-              >
-                {usuario.nome_completo}
-              </option>
-            ))}
-          </select>
-      </div>
       <form action="" onSubmit={handleSubmit(onSubmit)} className="formulario">
         <div className="group-input">
           <input

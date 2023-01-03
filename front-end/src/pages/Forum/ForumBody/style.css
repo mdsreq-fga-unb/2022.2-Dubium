@@ -31,6 +31,7 @@
   gap: 25px;
   padding: 20px;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .card-pergunta svg {
@@ -58,6 +59,7 @@
   gap: 25px;
   border-top: 1px solid #414141;
   padding-top: 2px;
+  justify-content: space-between;
 }
 
 .item-interacao {

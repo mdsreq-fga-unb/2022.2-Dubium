@@ -1,12 +1,14 @@
-.unica-pergunta {
+.pergunta-selecionada {
   width: 60%;
+  cursor: auto;
 }
 
 .like-comentario {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  align-items: center;
+  gap: 5px;
 }
 
 .resposta {

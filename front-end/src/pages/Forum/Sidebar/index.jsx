@@ -25,7 +25,7 @@ const Sidebar = (props) => {
           }}
         >
           {data.icon}
-          <Link to="/">{data.name}</Link>{" "}
+          <Link to="/">{data.name}</Link>
         </li>
       ))}
     </ul>

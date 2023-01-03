@@ -14,41 +14,24 @@ export default function Forum() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isPerguntaOpen, setIsPerguntaOpen] = useState(false);
   const [indexPergunta, setIndexPergunta] = useState();
-  const {elementoSidebar} = useContext(SidebarContext);
+  const { elementoSidebar } = useContext(SidebarContext);
 
+  function getPerguntas() {
+    return elementoSidebar == 0
+      ? "perguntas"
+      : `perguntas/curso/${elementoSidebar}`;
+  }
 
-   function getPerguntas() {
-    return elementoSidebar == 0 ? "perguntas" : `perguntas/curso/${elementoSidebar}`;
-    //const resInicio = await apiRequest.get("perguntas");
-  //  const resEngenharias = await apiRequest.get("perguntas/curso/" + elementoSidebar); //router.query.turma_id
-    // if(elementoSidebar == 0) {
-    //   apiRequest
-    //   .get("perguntas")
-    //   .then((response) => {
-    //     setArrayPerguntas(response.data);
-    //   }).catch((err) => {
-    //     console.log(err);
-    //   });
-    // }
-    // else {
-    //   apiRequest
-    //   .get("perguntas/curso/" + elementoSidebar)
-    //   .then((response) => {
-    //     setArrayPerguntas(response.data);
-    //   }).catch((err) => {
-    //     console.log(err);
-    //   });
-    // }
-  } 
   useEffect(() => {
     apiRequest
       .get(getPerguntas())
-      .then((response) => setArrayPerguntas(response.data))
+      .then((response) => {
+        setArrayPerguntas(response.data);
+      })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [elementoSidebar]);
-
 
   const handleComponent = () => {
     if (isFormOpen) {
@@ -62,7 +45,7 @@ export default function Forum() {
     } else if (isPerguntaOpen) {
       return (
         <Pergunta
-          pergunta={dadosPergunta[indexPergunta]}
+          perguntaSelecionada={arrayPerguntas[indexPergunta]}
           setIndexPergunta={setIndexPergunta}
         />
       );

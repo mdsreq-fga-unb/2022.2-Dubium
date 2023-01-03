@@ -23,7 +23,7 @@
 .sidebar-forum {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border-right: 1px solid #414141;
   width: 280px;
   padding: 10px;
   top: 0;

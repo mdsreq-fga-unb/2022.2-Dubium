@@ -2,6 +2,8 @@ import "./style.css";
 
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import StarIcon from "@mui/icons-material/Star";
+import { useEffect, useState } from "react";
+import apiRequest from "../../../services/api";
 
 export default function ForumBody(props) {
   return (
@@ -13,7 +15,14 @@ export default function ForumBody(props) {
       </div>
       {props.perguntas.map((pergunta, index) => {
         return (
-          <div className="card-pergunta" key={index}>
+          <div
+            className="card-pergunta"
+            key={index}
+            onClick={() => {
+              props.setIndexPergunta(index);
+              props.setIsPerguntaOpen(true);
+            }}
+          >
             <div className="usuario-pergunta">
               {/* <div className="avatar">
                 <img
