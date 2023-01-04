@@ -27,8 +27,8 @@ export class RespostasService {
     try{
       const resposta = new Resposta();
 
-      resposta.id_pergunta = data.id_pergunta;
-      resposta.id_usuario = data.id_usuario;
+      resposta.pergunta = pergunta;
+      resposta.usuario = usuario;
       resposta.corpoResposta = data.corpoResposta;
       return this.respostaRepository.save(resposta);
     }
@@ -38,16 +38,27 @@ export class RespostasService {
   }
 
   async findRespostaById(id: number) {
-    return await this.respostaRepository.findOneBy({ id });
+    return await this.respostaRepository.findOne({
+      where: {id},
+      relations: {
+        pergunta: true,
+        usuario: true,
+      }
+    });
   }
 
   async findAll() {
-    return this.respostaRepository.find();
+    return this.respostaRepository.find({
+      relations: {
+        pergunta: true,
+        usuario: true,
+      }
+    });
   }
 
-  async findAllByPergunta(id_pergunta: number){
-    return await this.respostaRepository.find({where: {id_pergunta}})
-  }
+  // async findAllByPergunta(id_pergunta: number){
+  //   return await this.respostaRepository.find({where: {id_pergunta}})
+  // }
 
   async remove(id: number) {
     return await this.respostaRepository.delete(id);

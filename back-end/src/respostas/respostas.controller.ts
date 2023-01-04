@@ -22,10 +22,10 @@ export class RespostasController {
     return this.service.findAll();
   }
 
-  @Get(':id_pergunta')
-  async findAllByPergunta(@Param('id_pergunta') id_pergunta: number): Promise<Resposta[]> {
-    return this.service.findAllByPergunta(id_pergunta);
-  }
+  // @Get(':id_pergunta')
+  // async findAllByPergunta(@Param('id_pergunta') id_pergunta: number): Promise<Resposta[]> {
+  //   return this.service.findAllByPergunta(id_pergunta);
+  // }
   
   @Delete(':id')
   async remove(@Param('id') id: string) {

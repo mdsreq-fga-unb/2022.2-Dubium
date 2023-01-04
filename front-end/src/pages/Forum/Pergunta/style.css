@@ -26,3 +26,14 @@
   justify-content: flex-end;
   padding-top: 2px;
 }
+
+.delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.corFavorito {
+  color: #ffa722;
+}

@@ -43,7 +43,7 @@ export class PerguntasService {
       where: {id},
       relations: {
         usuario: true,
-      },
+      }
     });
   }
 
