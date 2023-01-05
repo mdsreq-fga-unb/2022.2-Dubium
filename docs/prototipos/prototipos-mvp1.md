@@ -9,12 +9,10 @@
 ![](../img/prototipos-mvp1/pagina-especifica.png)
 
 ## Visualizar Pergunta
-
-![](../img/prototipos-mvp1/pag-especifica-pergunta.png)
+![](../img/prototipos-mvp1/tela-pergunta.png)
 
 ## Fazer Pergunta
-
-![](../img/prototipos-mvp1/tela-pergunta.png)
+![](../img/prototipos-mvp1/pag-especifica-pergunta.png)
 
 ## Resposta
 
