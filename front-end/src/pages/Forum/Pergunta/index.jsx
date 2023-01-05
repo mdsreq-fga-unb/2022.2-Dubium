@@ -1,43 +1,41 @@
 import "./style.css";
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import StarIcon from "@mui/icons-material/Star";
-import DeleteIcon from '@mui/icons-material/Delete';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { useState } from "react";
+
 import apiRequest from "../../../services/api";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
+import StarIcon from "@mui/icons-material/Star";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 
 export default function Pergunta(props) {
-  
-  const [favorito, setFavorito] = useState(false)
-  // const [handleDelete, setDelete] = useState(false)
-  // const navigate = useNavigate()
-  // useEffect(() => {
-  //   apiRequest
-  //   .delete(`perguntas/${props.perguntaSelecionada.id}`)
-  //   .then((response) => {
-  //     navigate(-1);
-  //   }).catch((err) => {
-  //     console.error("ops! ocorreu um erro" + err);
-  //   });
-  //   // navigate(-1);
-  // }, [handleDelete]);
+  const [favorito, setFavorito] = useState(false);
 
-  const handleDelete = async() => {
-    apiRequest.delete(`perguntas/${props.perguntaSelecionada.id}`)
+  function deletePergunta() {
+    apiRequest.delete(`perguntas/${props.perguntaSelecionada.id}`).then(() => {
+      alert("Post deleted!");
+    });
+    props.setIsPerguntaOpen(false);
+  }
+
+  function updateFavotito() {
+    apiRequest
+      .patch(
+        favorito
+          ? `perguntas/menos/${props.perguntaSelecionada.id}`
+          : `perguntas/${props.perguntaSelecionada.id}`
+      )
+      .then((response) => {});
   }
 
   return (
     <div className="card-pergunta pergunta-selecionada">
       <div className="usuario-informacao-texto">
         <div className="delete">
-        <span>{props.perguntaSelecionada.usuario.nome_completo}</span>
-        <IconButton style={{width: '20'}} onClick={()=> {handleDelete()}}>
-          <DeleteIcon />
-        </IconButton>
-        
+          <span>{props.perguntaSelecionada.usuario.nome_completo}</span>
+          <IconButton style={{ width: "20" }} onClick={deletePergunta}>
+            <DeleteIcon />
+          </IconButton>
         </div>
         <span>{props.perguntaSelecionada.usuario.curso}</span>
       </div>
@@ -47,9 +45,15 @@ export default function Pergunta(props) {
         <span>{props.perguntaSelecionada.votosTotais} favoritos</span>
       </div> */}
       <ul className="container-interacao">
-        <li className="item-interacao" onClick={()=> {setFavorito(!favorito)}}>
+        <li
+          className="item-interacao"
+          onClick={() => {
+            setFavorito(!favorito);
+            updateFavotito();
+          }}
+        >
           <IconButton>
-           <StarIcon className={favorito&&"corFavorito"}/>
+            <StarIcon className={favorito ? "corFavorito" : ""} />
           </IconButton>
           <span>Favoritar</span>
         </li>

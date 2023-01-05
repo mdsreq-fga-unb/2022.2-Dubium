@@ -14,6 +14,7 @@ export default function Forum() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isPerguntaOpen, setIsPerguntaOpen] = useState(false);
   const [indexPergunta, setIndexPergunta] = useState();
+  
   const { elementoSidebar } = useContext(SidebarContext);
 
   function getPerguntas() {
@@ -31,7 +32,7 @@ export default function Forum() {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, [elementoSidebar]);
+  }, [elementoSidebar, isFormOpen, isPerguntaOpen]);
 
   const handleComponent = () => {
     if (isFormOpen) {
@@ -47,6 +48,7 @@ export default function Forum() {
         <Pergunta
           perguntaSelecionada={arrayPerguntas[indexPergunta]}
           setIndexPergunta={setIndexPergunta}
+          setIsPerguntaOpen={setIsPerguntaOpen}
         />
       );
     } else {

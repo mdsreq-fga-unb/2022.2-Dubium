@@ -1,0 +1,11 @@
+.ranking-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.usuario-ranqueado {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

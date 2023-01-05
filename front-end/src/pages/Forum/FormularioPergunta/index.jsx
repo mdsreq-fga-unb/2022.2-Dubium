@@ -1,12 +1,11 @@
-import { useForm } from "react-hook-form";
 import "./style.css";
-import { forumData } from "../Sidebar/data";
-import jose from "../../../assets/images/jose.webp";
-import janderson from "../../../assets/images/janderson.jpg";
-import maria from "../../../assets/images/maria.jpg";
-import { Link } from "react-router-dom";
-import apiRequest from "../../../services/api";
+
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+
+import { forumData } from "../Sidebar/data";
+
+import apiRequest from "../../../services/api";
 
 export default function FormularioPergunta(props) {
   const [usuario, setUsuarios] = useState([]);
@@ -15,7 +14,6 @@ export default function FormularioPergunta(props) {
     apiRequest
       .get("usuarios")
       .then((response) => {
-        console.log("teste");
         setUsuarios(response.data);
       })
       .catch((err) => {
@@ -30,13 +28,11 @@ export default function FormularioPergunta(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    props.setIsFormOpen(false);
-
     let indexEngenharia;
 
     switch (data.engenharia) {
       case "INÍCIO":
-        indexEngenharia = 0;
+        indexEngenharia = 1;
         break;
       case "ENGENHARIAS":
         indexEngenharia = 1;
@@ -58,8 +54,6 @@ export default function FormularioPergunta(props) {
         break;
     }
 
-    console.log(data.usuarios);
-
     let novaPergunta = {
       id_usuario: data.usuarios,
       tituloPergunta: data.titulo,
@@ -69,6 +63,8 @@ export default function FormularioPergunta(props) {
     };
 
     apiRequest.post("perguntas", novaPergunta);
+
+    props.setIsFormOpen(false);
   };
 
   return (
