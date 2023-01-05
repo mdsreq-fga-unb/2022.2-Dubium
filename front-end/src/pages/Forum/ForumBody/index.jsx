@@ -4,6 +4,7 @@ import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import StarIcon from "@mui/icons-material/Star";
 import { useEffect, useState } from "react";
 import apiRequest from "../../../services/api";
+import { Link } from "react-router-dom";
 
 export default function ForumBody(props) {
   return (
@@ -12,6 +13,13 @@ export default function ForumBody(props) {
         <button onClick={() => props.setIsFormOpen(true)}>
           FAÇA UMA PERGUNTA
         </button>
+      </div>
+      <div className="criar-pergunta">
+        <Link to="/ranking-usuarios">
+          <button>
+            RANKING GERAL DE USUÁRIOS
+          </button>
+        </Link>
       </div>
       {props.perguntas.map((pergunta, index) => {
         return (
