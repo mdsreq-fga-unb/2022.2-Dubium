@@ -16,7 +16,11 @@ export class UsuariosService {
   }
 
   async findAll() {
-    return await this.usuarioRepository.find();
+    return await this.usuarioRepository.find({
+      order: {
+        votosTotais: 'desc'
+      }
+    });
   }
 
   async findUsuarioById(id: number) {
@@ -27,17 +31,27 @@ export class UsuariosService {
     return `This action removes a #${id} usuario`;
   }
 
-  async updateVotosUsuario(){
-    //findUsuarioById pra achar o id do usuario que ta atualizando
-    //update - votosTotais
+  async updateMaisVotosUsuario(id: number){
+
+    return await this.usuarioRepository
+    .createQueryBuilder()
+    .update(Usuario)
+    .set({
+      votosTotais: () => "votosTotais + 1"
+    })
+    .where({id})
+    .execute()
   }
 
-  async rankingUsuarios(){
-    const usuarios = await this.usuarioRepository.find();
-    //percorrer todos os usuarios
-    //ordenar do maior numero de votos pro maior
-    //exibir a lista do ranking
-    
-    return usuarios;
+  async updateMenosVotosUsuario(id: number){
+
+    return await this.usuarioRepository
+    .createQueryBuilder()
+    .update(Usuario)
+    .set({
+      votosTotais: () => "votosTotais - 1"
+    })
+    .where({id})
+    .execute()
   }
 }

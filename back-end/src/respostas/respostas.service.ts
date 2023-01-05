@@ -23,6 +23,9 @@ export class RespostasService {
     else if(!pergunta) {
       throw new BadRequestException('Pergunta inválida!');
     }
+    // else if(pergunta.usuario.id == usuario.id) {
+    //   throw new BadRequestException('Pergunta inválida!');
+    // }
 
     try{
       const resposta = new Resposta();
@@ -56,9 +59,16 @@ export class RespostasService {
     });
   }
 
-  // async findAllByPergunta(id_pergunta: number){
-  //   return await this.respostaRepository.find({where: {id_pergunta}})
-  // }
+  async findAllByPergunta(id_pergunta: number){
+    const pergunta = await this.perguntaService.findPerguntaById(id_pergunta);
+    return await this.respostaRepository.find({
+      where: {pergunta},
+      relations: {
+        pergunta: true,
+        usuario: true
+      }
+    })
+  }
 
   async remove(id: number) {
     return await this.respostaRepository.delete(id);

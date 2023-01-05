@@ -78,8 +78,27 @@ export class PerguntasService {
     return await this.perguntasRepository.delete(id);
   }
 
-  async updateVotosPergunta(){
-    //findPerguntaById pra achar o id da pergunta que ta atualizando
-    //update - votosTotais
+  async updateMaisVotosPergunta(id: number){
+
+    return await this.perguntasRepository
+    .createQueryBuilder()
+    .update(Pergunta)
+    .set({
+      votosTotais: () => "votosTotais + 1"
+    })
+    .where({id})
+    .execute()
+  }
+
+  async updateMenosVotosPergunta(id: number){
+
+    return await this.perguntasRepository
+    .createQueryBuilder()
+    .update(Pergunta)
+    .set({
+      votosTotais: () => "votosTotais - 1"
+    })
+    .where({id})
+    .execute()
   }
 }

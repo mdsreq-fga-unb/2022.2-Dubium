@@ -27,13 +27,12 @@ export class UsuariosController {
     return this.service.remove(+id);
   }
 
-  // @Patch(':id')
-  // updateVotosUsuario(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-  //   return this.service.updateVotosUsuario(+id, updateUserDto);
-  // }
-
-  @Get('ranking')
-  async rankingUsuarios(): Promise<Usuario[]> {
-    return this.service.rankingUsuarios();
+  @Patch(':id')
+  updateMaisVotosUsuario(@Param('id') id: string) {
+    return this.service.updateMaisVotosUsuario(+id);
+  }
+  @Patch('/menos/:id')
+  updateMenosVotosUsuario(@Param('id') id: string) {
+    return this.service.updateMenosVotosUsuario(+id);
   }
 }

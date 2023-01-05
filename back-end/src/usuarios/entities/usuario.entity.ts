@@ -15,6 +15,9 @@ export class Usuario {
     @Column()
     curso: number;
 
+    @Column()
+    votosTotais: number;
+
     @OneToMany(() => Pergunta, pergunta => pergunta)
     pergunta: Pergunta[];
 

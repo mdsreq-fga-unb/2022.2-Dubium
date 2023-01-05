@@ -37,8 +37,13 @@ export class PerguntasController {
     return this.service.remove(+id);
   }
 
-  // @Patch(':id')
-  // updateVotosPergunta(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-  //   return this.service.updateVotosPergunta(+id, updateUserDto);
-  // }
+  @Patch(':id')
+  updateMaisVotosPergunta(@Param('id') id: string) {
+    return this.service.updateMaisVotosPergunta(+id);
+  }
+
+  @Patch('/menos/:id')
+  updateMenosVotosPergunta(@Param('id') id: string) {
+    return this.service.updateMenosVotosPergunta(+id);
+  }
 }
