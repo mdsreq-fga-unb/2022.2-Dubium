@@ -18,13 +18,8 @@
 
 #### F6: Gerenciar rankeamento de usuários
 - US16: Eu como usuário gostaria de visualizar as perguntas do fórum conforme a ordem de rankeamento para saber as perguntas mais e menos relevantes
-- US17: Eu como usuário gostaria de avaliar as perguntas e as respostas feitas por outros usuários para fins de nivelamento
-
-#### F4: Gerenciar respostas
-- US12: Eu como usuário gostaria de poder responder todas as perguntas disponibilizadas no forum para fins de ajudar outros usuarios
-- US13: Eu como usuário gostaria de ser capaz de visualizar as respostas para fins de soluções de dúvidas
+- US17: Eu como usuário gostaria de avaliar as perguntas feitas por outros usuários para fins de nivelamento
 	
-
 ## MVP2: Prover acesso a aplicaçao
 
 

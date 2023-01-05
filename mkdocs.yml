@@ -32,7 +32,7 @@ nav:
       - Unidade 3: "entrega-unidade-3.md"
   - Sprints:
       - Sprints Backlog:
-          - Trello: "trello.md"
+          - Kanbam: "trello.md"
       - Sprint 1:
           - Planning: "sprints/sprint_01/planning.md"
           - Review: "sprints/sprint_01/review.md"
@@ -68,6 +68,9 @@ nav:
           - Planning: "sprints/sprint_10/planning.md"
           - Review: "sprints/sprint_10/review.md"
           - Retrospectiva: "sprints/sprint_10/retrospectiva.md"
+      - Sprint 11:
+          - Planning: "sprints/sprint_11/planning.md"
+          - Review: "sprints/sprint_11/review.md"
   - Protótipos:
       - MVP1: "prototipos/prototipos-mvp1.md"
       - MVP2: "prototipos/prototipos-mvp2.md"
