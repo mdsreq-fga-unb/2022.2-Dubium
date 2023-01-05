@@ -58,9 +58,15 @@ export class PerguntasService {
     });
   }
 
-  // async findAllByUsuario(id_usuario: number){
-  //   return await this.perguntasRepository.find({where: {id_usuario}});
-  // }
+  async findAllByUsuario(id_usuario: number){
+    const usuario = await this.usuarioService.findUsuarioById(id_usuario)
+    return await this.perguntasRepository.find({
+      where: {usuario},
+      relations: {
+        usuario: true
+      }
+    });
+  }
 
   async findAllByCurso(id_cursoPergunta: number){
     return await this.perguntasRepository.find({

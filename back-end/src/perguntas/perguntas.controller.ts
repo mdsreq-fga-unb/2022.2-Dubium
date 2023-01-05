@@ -22,10 +22,10 @@ export class PerguntasController {
     return this.service.findAll();
   }
 
-  // @Get('/usuario/:id_usuario')
-  // async findAllByUsuario(@Param('id_usuario') id_usuario: number): Promise<Pergunta[]> {
-  //   return this.service.findAllByUsuario(id_usuario);
-  // }
+  @Get('/usuario/:id_usuario')
+  async findAllByUsuario(@Param('id_usuario') id_usuario: number): Promise<Pergunta[]> {
+    return this.service.findAllByUsuario(id_usuario);
+  }
 
   @Get('/curso/:id_cursoPergunta')
   async findAllByCurso(@Param('id_cursoPergunta') id_cursoPergunta: number): Promise<Pergunta[]> {
