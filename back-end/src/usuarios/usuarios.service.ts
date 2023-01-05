@@ -15,6 +15,12 @@ export class UsuariosService {
     return 'This action adds a new usuario';
   }
 
+  //update
+
+  async remove(id: number) {
+    return await this.usuarioRepository.delete(id);
+  }
+
   async findAll() {
     return await this.usuarioRepository.find({
       order: {
@@ -25,10 +31,6 @@ export class UsuariosService {
 
   async findUsuarioById(id: number) {
     return await this.usuarioRepository.findOneBy({id});
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} usuario`;
   }
 
   async updateMaisVotosUsuario(id: number){
