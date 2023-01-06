@@ -13,10 +13,10 @@ export class UsuariosController {
     return this.service.create(createUsuarioDto);
   }
 
-  @Patch(':id')
-  updateUsuario(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
-    return this.service.updateUsuario(+id, updateUsuarioDto);
-  }
+  // @Patch(':id')
+  // updateUsuario(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
+  //   return this.service.updateUsuario(+id, updateUsuarioDto);
+  // }
 
   @Delete(':id')
   async remove(@Param('id') id: string) {

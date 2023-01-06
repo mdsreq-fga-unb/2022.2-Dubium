@@ -16,18 +16,18 @@ export class UsuariosService {
     return 'This action adds a new usuario';
   }
 
-  async updateUsuario(id: number, updateUsuarioDto: UpdateUsuarioDto){
+  // async updateUsuario(id: number, updateUsuarioDto: UpdateUsuarioDto){
 
-    return await this.usuarioRepository
-    .createQueryBuilder()
-    .update(Usuario)
-    .set({
-      nome_completo: () => updateUsuarioDto.nome_completo,
-      curso: () => updateUsuarioDto.curso
-    })
-    .where({id})
-    .execute()
-  }
+  //   return await this.usuarioRepository
+  //   .createQueryBuilder()
+  //   .update(Usuario)
+  //   .set({
+  //     nome_completo: () => updateUsuarioDto.nome_completo,
+  //     curso: () => updateUsuarioDto.curso
+  //   })
+  //   .where({id})
+  //   .execute()
+  // }
 
   async remove(id: number) {
     return await this.usuarioRepository.delete(id);
