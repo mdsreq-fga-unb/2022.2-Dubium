@@ -169,9 +169,11 @@ export default function Pergunta(props) {
       <div className="resposta">
         {respostas.map((data, index) => (
           <option value={data.id} key={index}>
-            {data.usuario.nome_completo}
-            {data.usuario.curso}
-            {data.corpoResposta}
+            <div className="usuario-informacao-texto">
+            <span>{data.usuario.nome_completo}</span>
+            <span>{data.usuario.curso}</span>
+            </div>
+            <div className="container-resposta-interacao"><span>{data.corpoResposta}</span></div>
           </option>
         ))}
       </div>
