@@ -10,6 +10,7 @@ import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 
 export default function Pergunta(props) {
   const [favorito, setFavorito] = useState(false);
+  const [comentar, setComentar] = useState(false);
 
   function deletePergunta() {
     apiRequest.delete(`perguntas/${props.perguntaSelecionada.id}`).then(() => {
@@ -87,21 +88,23 @@ export default function Pergunta(props) {
           </IconButton>
           <span>Favoritar</span>
         </li>
-        <li className="item-interacao">
+        <li className="item-interacao" onClick={() => setComentar(!comentar)}>
           <IconButton>
             <QuestionAnswerIcon />
           </IconButton>
           <span>Responder</span>
         </li>
       </ul>
-      <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="2"
-        placeholder="Comentar"
-        className="comentar"
-      ></textarea>
+      {comentar && (
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="2"
+          placeholder="Comentar"
+          className="comentar"
+        ></textarea>
+      )}
       {/* {props.pergunta.respostas.map((resposta, index) => {
         return (
           <div className="resposta">

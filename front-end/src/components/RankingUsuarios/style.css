@@ -1,4 +1,5 @@
 .ranking-usuario {
+  width: 70%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -11,8 +12,13 @@
   flex-direction: column;
   gap: 5px;
   width: 20%;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   padding: 30px;
   align-items: center;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.usuario-ranqueado:hover {
+  background-color: #eeeeee;
 }

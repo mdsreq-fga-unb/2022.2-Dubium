@@ -1,0 +1,27 @@
+.usuario-selecionado {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f5f5f5;
+  width: 20%;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.usuario-selecionado-informacao {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.usuario-interacao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.usuario-interacao:hover {
+  background-color: #eeeeee;
+}

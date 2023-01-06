@@ -7,7 +7,6 @@ import apiRequest from "../../../services/api";
 import { Link } from "react-router-dom";
 
 export default function ForumBody(props) {
-
   function handleCurso(curso) {
     let nomeCurso;
 
@@ -44,13 +43,6 @@ export default function ForumBody(props) {
         <button onClick={() => props.setIsFormOpen(true)}>
           FAÇA UMA PERGUNTA
         </button>
-      </div>
-      <div className="criar-pergunta">
-        
-          <button onClick={() => props.setIsRankingOpen(true)}>
-            RANKING GERAL DE USUÁRIOS
-          </button>
-        
       </div>
       {props.perguntas.map((pergunta, index) => {
         return (
