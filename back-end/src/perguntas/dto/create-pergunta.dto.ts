@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsNumber } from "class-validator";
+import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsNumber, MaxLength } from "class-validator";
 
 export class CreatePerguntaDto {
 
@@ -8,11 +8,15 @@ export class CreatePerguntaDto {
     @IsOptional()
     tituloPergunta: string;
 
+    @MaxLength(1000)
     @IsNotEmpty()
     corpoPergunta: string;
 
     @IsNotEmpty()
     id_cursoPergunta: number;
+
+    @IsOptional()
+    midia: string;
 
     @IsNumber()
     votosTotais: number;
