@@ -12,6 +12,13 @@ export class UsuariosController {
     return this.service.create(createUsuarioDto);
   }
 
+  //update
+
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    return this.service.remove(+id);
+  }
+
   @Get()
   findAll() {
     return this.service.findAll();
@@ -20,11 +27,6 @@ export class UsuariosController {
   @Get(':id')
   async findUsuarioById(@Param('id') id: string) {
     return this.service.findUsuarioById(+id);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.service.remove(+id);
   }
 
   @Patch(':id')
