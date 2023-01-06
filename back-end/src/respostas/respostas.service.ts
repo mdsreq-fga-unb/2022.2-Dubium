@@ -23,9 +23,6 @@ export class RespostasService {
     else if(!pergunta) {
       throw new BadRequestException('Pergunta inválida!');
     }
-    // else if(pergunta.usuario.id == usuario.id) {
-    //   throw new BadRequestException('Pergunta inválida!');
-    // }
 
     try{
       const resposta = new Resposta();
@@ -66,6 +63,9 @@ export class RespostasService {
       relations: {
         pergunta: true,
         usuario: true
+      },
+      order: {
+        create_at: 'asc'
       }
     })
   }

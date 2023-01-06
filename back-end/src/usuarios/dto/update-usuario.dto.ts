@@ -1,7 +1,7 @@
 import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsNumber } from "class-validator";
 
 
-export class CreateUsuarioDto {
+export class UpdateUsuarioDto {
     @IsString()
     @IsNotEmpty()
     nome_completo: string;
