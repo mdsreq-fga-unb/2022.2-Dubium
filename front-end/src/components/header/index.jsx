@@ -8,10 +8,15 @@ import bichinho from "../../assets/images/question-sem-fundo.png";
 function Header() {
   return (
     <header className="header">
-      <img src={logo} alt="logo" className="logo" />
+      <Link to="/" className="logo">
+        <img src={logo} alt="logo" className="logo" />
+      </Link>
       <ul className="list">
         <li className="item">
           <Link to="/">FÓRUM</Link>
+        </li>
+        <li className="item">
+          <Link to="/ranking-usuarios">USUARIOS</Link>
         </li>
         <li className="item">
           <Link to="/chat">CHAT</Link>
@@ -20,12 +25,12 @@ function Header() {
           <Link to="/about">SOBRE</Link>
         </li>
       </ul>
-      <div className="input">
+      <div className="pesquisa">
         <SearchIcon />
-        <input type="text" placeholder="Buscar" />
+        <input type="text" placeholder="BUSCAR" />
       </div>
       <div className="input">
-          <Link to="/">SAIR</Link>
+        <Link to="/">SAIR</Link>
         <LogoutIcon />
       </div>
       <img src={bichinho} alt="bichinho" className="logo" />

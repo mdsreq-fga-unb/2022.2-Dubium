@@ -1,12 +1,25 @@
-.footer{
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    flex-direction: row;
-    align-items: center;
-    height: 40px;
-    background-color: #1b1a1a;
-    color: antiquewhite;
-    box-shadow: 0 4px 2px -2px gray;
-    margin-top: auto;
+.footer {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+  background-color: #1b1a1a;
+  color: antiquewhite;
+  box-shadow: 0 4px 2px -2px gray;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.p {
+  text-decoration: none;
+}
+
+.footer svg {
+  width: 16px;
+  margin-left: 5px;
+  margin-right: 5px;
 }

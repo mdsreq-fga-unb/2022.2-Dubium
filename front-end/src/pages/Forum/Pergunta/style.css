@@ -1,0 +1,47 @@
+.pergunta-selecionada {
+  width: 60%;
+  cursor: auto;
+}
+
+.like-comentario {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 5px;
+}
+
+.resposta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.container-resposta-interacao {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: flex-end;
+  padding-top: 2px;
+}
+
+.delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.corFavorito {
+  color: #ffa722;
+}
+
+.comentar {
+  padding: 10px;
+}
+
+.comentario {
+  color: #166799;
+}

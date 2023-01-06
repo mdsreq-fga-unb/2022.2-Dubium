@@ -39,9 +39,3 @@
 .read-the-docs {
   color: #888;
 } */
-
-.body-app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
