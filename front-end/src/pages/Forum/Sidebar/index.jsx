@@ -19,9 +19,11 @@ const Sidebar = (props) => {
           key={index}
           onClick={() => {
             setIsActive(index);
+            setElementoSidebar(index);
             props.setIsPerguntaOpen(false);
             props.setIsFormOpen(false);
-            setElementoSidebar(index);
+            props.setIsRankingOpen(false)
+            props.setIsUsuarioOpen(false)
           }}
         >
           {data.icon}

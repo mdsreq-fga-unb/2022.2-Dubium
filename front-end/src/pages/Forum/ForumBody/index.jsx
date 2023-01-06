@@ -46,11 +46,11 @@ export default function ForumBody(props) {
         </button>
       </div>
       <div className="criar-pergunta">
-        <Link to="/ranking-usuarios">
-          <button>
+        
+          <button onClick={() => props.setIsRankingOpen(true)}>
             RANKING GERAL DE USUÁRIOS
           </button>
-        </Link>
+        
       </div>
       {props.perguntas.map((pergunta, index) => {
         return (

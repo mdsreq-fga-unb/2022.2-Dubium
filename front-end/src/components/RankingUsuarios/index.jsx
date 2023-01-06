@@ -2,20 +2,20 @@ import { useEffect, useState } from "react";
 import apiRequest from "../../services/api";
 import "./style.css";
 
-export default function RankingUsuarios() {
-  const [usuarios, setUsuarios] = useState([]);
+export default function RankingUsuarios(props) {
+  // const [usuarios, setUsuarios] = useState([]);
 
-  useEffect(() => {
-    apiRequest
-      .get("usuarios")
-      .then((response) => {
-        setUsuarios(response.data);
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   apiRequest
+  //     .get("usuarios")
+  //     .then((response) => {
+  //       setUsuarios(response.data);
+  //       console.log(response.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error("ops! ocorreu um erro" + err);
+  //     });
+  // }, []);
 
   function handleCurso(curso) {
     let nomeCurso;
@@ -49,8 +49,13 @@ export default function RankingUsuarios() {
 
   return (
     <ul className="ranking-usuario">
-      {usuarios.map((usuario, index) => (
-        <li className="usuario-ranqueado">
+      {props.usuarios.map((usuario, index) => (
+        <li key={index} className="usuario-ranqueado" onClick={() => {
+          props.setIndexUsuario(index)
+          props.setIsUsuarioOpen(true);
+          props.setIsRankingOpen(false);
+          console.log("usuario")
+        }}>
           <span>{usuario.nome_completo}</span>
           <span>{handleCurso(usuario.curso)}</span>
           <span>Favoritos: {usuario.votosTotais}</span>
