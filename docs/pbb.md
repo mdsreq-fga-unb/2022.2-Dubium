@@ -1,4 +1,4 @@
-# PBB & BDD Canvas (Kanbam)
+# PBB & BDD Canvas
 
 <iframe width="768" height="432" src="https://miro.com/app/board/uXjVP5R0Pa0=/?share_link_id=614337566623" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
@@ -66,8 +66,7 @@
 * US01: Eu, como professora, quero filtrar perguntas por matéria no fórum de dúvidas, parar conseguir encontrar mais facilmente as dúvidas referentes a minha matéria
 * US02: Eu, como professora, quero visualizar perguntas mais votadas na página de cada engenharia, para ter um feedback sobre quais os principais tópicos de dúvidas na minha matéria
 
-### FAZER PERGUTAS
- EM UM SÓ AMBIENTE
+### FAZER PERGUTAS EM UM SÓ AMBIENTE
 * US03: Eu, como estudante gostaria de visualizar as perguntas existentes nos fóruns desejados, para tentar solucionar minhas dúvidas mais rapidamente
 * US04: Eu, como estudante gostaria de criar uma nova pergunta no fórum desejado, para tirar minha dúvida caso não a encontre anteriormente
 * US05: Eu, como estudante gostaria de apagar minhas próprias perguntas no fórum de dúvidas, para caso eu note que elas já haviam sido feitas ou perceba que esteja escrita
@@ -87,17 +86,16 @@
 
 # Behavior Driven Development
 
-## CENÁRIO 1: US08
+## CENÁRIO 1: US04
 ### TÍTULO: Dúvida a ser respondida
-* Dado que a pergunta feita possui caracteres válidos e até 1000 caracteres.
+* Dado que a pergunta feita possui caracteres válidos e seja feita por um usuário cadastrado.
 * Quando o aluno enviar sua pergunta.
 * Então, a pergunta deverá ser subida para o fórum.
 
 ## CENÁRIO 2: US09
 ### TÍTULO: Resposta da pergunta feita
-* Dado que a resposta feita possui caracteres válidos e até 1000 caracteres.
-* Quando o aluno enviar sua resposta.
-* Então, a resposta deverá ser subida para o fórum abaixo da pergunta feita
+* Dado que a pergunta feita exista, possua caracteres válidos e não tenha sido feita pelo próprio usuário.
+* Quando o aluno enviar sua resposta. Então, a resposta deverá ser subida para o fórum abaixo da pergunta feita.
 
 ## CENÁRIO 3: US03
 ### TÍTULO: Visualizar pergunta disponível
@@ -111,10 +109,8 @@
 * Quando o professor clicar para buscar perguntas por tema de matéria.
 * Então, o sistema deve exibir as perguntas mais votadas feitas pelos alunos.
 
-
 ## CENÁRIO 5: US06
 ### TÍTULO: Criar aviso de monitoria
-* Dado que o aviso tenha até 1000 caracteres e possua um filtro para notificar que é um aviso.
+* Dado que o aviso possua um filtro para notificar que é um aviso.
 * Quando o aluno monitor escrever um aviso.
 * Então, o sistema deverá postar no fórum o aviso criado.
-

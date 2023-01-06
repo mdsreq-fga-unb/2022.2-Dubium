@@ -6,23 +6,25 @@
 
 Data | Versão | Descrição | Autor
 ---- | ------ | --------- | -----
-26/10 | 1.0 | Criação do documento | Gian, Giulia, Helder, Júlio e Silas
-02/11 | 1.1 | Atualização do documento | Gian, Giulia, Helder, Júlio e Silas
-09/11 | 1.1 | Atualização do documento | Giulia, Helder e Silas
-10/11 | 1.0 | Criação do GitPages | Júlio
-14/11 | 1.2 | Atualização do documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
-15/11 | 1.0 | Criação do Read.Me | Giulia
-15/11 | 1.1 | Atualização do GitPages | Júlio
-16/11 | 1.2 | Gravação do Vídeo da Unidade 1 | Helder, Silas
-16/11 | 1.3 | Atualização do Documento | Gian, Giulia, Helder, Júlio e Silas
-30/11 | 1.0 | Configuração do ambiente | Giulia, Júlio e Silas
-01/12 | 1.1 | Criação das pastas de back-end e front-end | Giulia, Júlio e Silas
-02/12 | 1.0 | Criação do Documento de Backlog | Gian, Giulia, Júlio e Silas
-06/12 | 1.3 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio
-07/12 | 1.4 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
-13/12 | 1.5 | Atualização do Documento | Helder e Júlio
-14/12 | 1.6 | Atualização do Documento | Gian, Giulia, Helder e Júlio
-14/12 | 1.7 | Atualização do Documento | Giulia
+26/10/22 | 1.0 | Criação do documento | Gian, Giulia, Helder, Júlio e Silas
+02/11/22 | 1.1 | Atualização do documento | Gian, Giulia, Helder, Júlio e Silas
+09/11/22 | 1.1 | Atualização do documento | Giulia, Helder e Silas
+10/11/22 | 1.0 | Criação do GitPages | Júlio
+14/11/22 | 1.2 | Atualização do documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
+15/11/22 | 1.0 | Criação do Read.Me | Giulia
+15/11/22 | 1.1 | Atualização do GitPages | Júlio
+16/11/22 | 1.2 | Gravação do Vídeo da Unidade 1 | Helder, Silas
+16/11/22 | 1.3 | Atualização do Documento | Gian, Giulia, Helder, Júlio e Silas
+30/11/22 | 1.0 | Configuração do ambiente | Giulia, Júlio e Silas
+01/12/22 | 1.1 | Criação das pastas de back-end e front-end | Giulia, Júlio e Silas
+02/12/22 | 1.0 | Criação do Documento de Backlog | Gian, Giulia, Júlio e Silas
+06/12/22 | 1.3 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio
+07/12/22 | 1.4 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
+13/12/22 | 1.5 | Atualização do Documento | Helder e Júlio
+14/12/22 | 1.6 | Atualização do Documento | Gian, Giulia, Helder e Júlio
+14/12/22 | 1.7 | Atualização do Documento | Giulia
+23/12/22 | 1.7 | Atualização do Documento | Giulia
+03/01/23 | 1.8 | Atualização do Documento | Giulia, Helder
 
 
 ## 1	VISÃO GERAL DO PRODUTO
@@ -70,9 +72,9 @@ Sprint 4 | Visão do Produto e Projeto | 16/11/22 | 23/11/22
 Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 23/11/22 | 30/11/22
 Sprint 6 | Backlog do Produto, CI/CD configurados, escopo dos MVPs 1 e 2 definidos | 30/11/22 | 07/12/22
 Sprint 7 | Backlog da sprint refinado, protótipo do projeto | 07/12/22 | 14/12/22
-Sprint 8 | PBB, BDD| 14/12/22 | 21/12/22
-Sprint 9 | US8, US9, US10, US11, US12 | 21/12/22 | 28/12/22
-Sprint 10 | US13, US14, US15, US16, US17 | 28/12/22 | 04/01/22
+Sprint 8 | PBB, BDD, Sprint Review, Sprint Planning, Retrospectiva da Sprint| 14/12/22 | 21/12/22
+Sprint 9 | US8, US9, US10, US11, US12, US13 | 21/12/22 | 28/12/22
+Sprint 10 | USM, US14, US15, US16, US17 | 28/12/22 | 04/01/22
 Sprint 11 | MVP 1 | 04/01/22 | 11/01/22
 Sprint 12 | US18, US19, US20, US21 | 11/01/22 | 18/02/22
 Sprint 13 | US22, US23, US24 | 18/01/22 | 25/01/22
@@ -248,6 +250,7 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 - Organizar o Backlog do projeto de diferentes formas (SAFe, PBB e USM)
 - Arrumar o planejamento da equipe
 - Fazer documentação no formato CANVAS
+- Implementação de um fórum de dúvidas
 
 ## 5 A MELHORAR
 ### Unidade 1

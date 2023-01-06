@@ -4,10 +4,10 @@
 Unidade | Entrega
 ------- | -------  
 3 | [Visão de Produto e Projeto (Atualizado)](https://mdsreq-fga-unb.github.io/2022.2-Dubium/visao/)
-3 | [Backlog de Produto - SAFe (Atualizado + Kanbam)](https://mdsreq-fga-unb.github.io/2022.2-Dubium/Requisitos/)
-3 | [PBB & BDD (+ Kanbam)]()
-3 | [USM (+ Kanbam)]()
-3 | [Registros Sprint: Planning, Review e Retrospectiva]()
+3 | [Backlog de Produto - SAFe (Atualizado)](https://mdsreq-fga-unb.github.io/2022.2-Dubium/Requisitos/)
+3 | [PBB & BDD](https://mdsreq-fga-unb.github.io/2022.2-Dubium/pbb/)
+3 | [USM](https://mdsreq-fga-unb.github.io/2022.2-Dubium/usm/)
+3 | [Registros Sprint: Planning, Review e Retrospectiva](https://mdsreq-fga-unb.github.io/2022.2-Dubium/sprints/sprint_01/planning/)
 3 | [MVP1]()
 
 ## Vídeo de Apresentação da Unidade
