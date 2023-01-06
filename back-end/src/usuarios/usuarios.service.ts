@@ -1,6 +1,7 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
+import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { Usuario } from './entities/usuario.entity';
 
 @Injectable()
@@ -15,7 +16,18 @@ export class UsuariosService {
     return 'This action adds a new usuario';
   }
 
-  //update
+  async updateUsuario(id: number, updateUsuarioDto: UpdateUsuarioDto){
+
+    return await this.usuarioRepository
+    .createQueryBuilder()
+    .update(Usuario)
+    .set({
+      nome_completo: () => updateUsuarioDto.nome_completo,
+      curso: () => updateUsuarioDto.curso
+    })
+    .where({id})
+    .execute()
+  }
 
   async remove(id: number) {
     return await this.usuarioRepository.delete(id);
