@@ -63,6 +63,7 @@ export default function ForumBody(props) {
                 />
               </div> */}
               <div className="usuario-informacao-texto">
+                <span>{pergunta.usuario.fotoPerfil}</span>
                 <span>{pergunta.usuario.nome_completo}</span>
                 <span>{handleCurso(pergunta.usuario.curso)}</span>
               </div>

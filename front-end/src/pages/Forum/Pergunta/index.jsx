@@ -108,6 +108,7 @@ export default function Pergunta(props) {
     <div className="card-pergunta pergunta-selecionada">
       <div className="usuario-informacao-texto">
         <div className="delete">
+          <span>{props.perguntaSelecionada.usuario.fotoPerfil}</span>
           <span>{props.perguntaSelecionada.usuario.nome_completo}</span>
           <IconButton style={{ width: "20" }} onClick={deletePergunta}>
             <DeleteIcon />
@@ -170,6 +171,7 @@ export default function Pergunta(props) {
         {respostas.map((data, index) => (
           <option value={data.id} key={index}>
             <div className="usuario-informacao-texto">
+              <span>{data.usuario.fotoPerfil}</span>
             <span>{data.usuario.nome_completo}</span>
             <span>{data.usuario.curso}</span>
             </div>

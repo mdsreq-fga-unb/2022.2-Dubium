@@ -61,6 +61,7 @@ export default function (props) {
   return (
     <ul className="ranking-usuario">
       <li className="usuario-ranqueado">
+        <span>{usuario.fotoPerfil}</span>
         <span>{usuario.nome_completo}</span>
         <span>{handleCurso(usuario.curso)}</span>
         <div

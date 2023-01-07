@@ -59,6 +59,7 @@ export default function RankingUsuarios(props) {
             navigate("/usuario");
           }}
         >
+          <span>{usuario.fotoPerfil}</span>
           <span>{usuario.nome_completo}</span>
           <span>{handleCurso(usuario.curso)}</span>
           <span>Favoritos: {usuario.votosTotais}</span>

@@ -9,4 +9,8 @@ export class CreateUsuarioDto {
     @IsNumber()
     @IsNotEmpty()
     curso: string;
+
+    @IsString()
+    @IsOptional()
+    fotoPerfil: string;
 }

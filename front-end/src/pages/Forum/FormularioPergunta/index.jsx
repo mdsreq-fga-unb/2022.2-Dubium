@@ -59,9 +59,10 @@ export default function FormularioPergunta(props) {
       tituloPergunta: data.titulo,
       id_cursoPergunta: indexEngenharia,
       corpoPergunta: data.textoPergunta,
+      arquivo: data.midia,
       votosTotais: 0,
     };
-
+    console.log(novaPergunta)
     apiRequest.post("perguntas", novaPergunta);
 
     props.setIsFormOpen(false);
@@ -119,7 +120,7 @@ export default function FormularioPergunta(props) {
           placeholder="Pergunta"
         ></textarea>
         {/* <div className="file-input">
-          <input type="file" name="imagem" {...register("imagem")} />
+          <input type="file" name="arquivo" {...register("arquivo")} />
         </div> */}
         <div className="group-input" style={{ justifyContent: "center" }}>
           <button type="submit" className="botao-geral">
