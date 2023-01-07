@@ -118,7 +118,8 @@ export default function FormularioPergunta(props) {
             name="filtro"
             {...register("filtro")}
             className="filtro-input"
-            placeholder="Tag"
+            placeholder="Matéria"
+            required
           />
         </div>
         <textarea

@@ -13,13 +13,17 @@ import PerfilUsuario from "./components/PerfilUsuario";
 
 function App() {
   const [idUsuario, setIdUsuario] = useState();
+  const [materiaPesquisada, setMateriaPesquisada] = useState("");
 
   return (
     <div className="body-app">
       <Router>
-        <Header />
+        <Header setMateriaPesquisada={setMateriaPesquisada} />
         <Routes>
-          <Route path="/" element={<Forum />} />
+          <Route
+            path="/"
+            element={<Forum materiaPesquisada={materiaPesquisada} />}
+          />
           <Route path="/formulario-pergunta" element={<FormularioPergunta />} />
           <Route path="/about" element={<About />} />
           <Route

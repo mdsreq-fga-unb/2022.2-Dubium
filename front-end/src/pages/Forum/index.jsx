@@ -8,7 +8,7 @@ import apiRequest from "../../services/api";
 import { useContext } from "react";
 import SidebarContext from "../../context/SidebarProvider";
 
-export default function Forum() {
+export default function Forum(props) {
   const [arrayPerguntas, setArrayPerguntas] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isPerguntaOpen, setIsPerguntaOpen] = useState(false);
@@ -33,19 +33,34 @@ export default function Forum() {
       });
   }, [elementoSidebar, isFormOpen, isPerguntaOpen]);
 
+  const perguntasFiltradas = arrayPerguntas.filter(
+    (e) =>
+      e.filtro
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .startsWith(
+          props.materiaPesquisada
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+        ) ||
+      // eslint-disable-next-line eqeqeq
+      e.filtro == props.materiaPesquisada
+  );
+
   const handleComponent = () => {
     if (isFormOpen) {
       return (
         <FormularioPergunta
           setIsFormOpen={setIsFormOpen}
-          perguntas={arrayPerguntas}
+          perguntas={perguntasFiltradas}
           setPerguntas={setIndexPergunta}
         />
       );
     } else if (isPerguntaOpen) {
       return (
         <Pergunta
-          perguntaSelecionada={arrayPerguntas[indexPergunta]}
+          perguntaSelecionada={perguntasFiltradas[indexPergunta]}
           setIndexPergunta={setIndexPergunta}
           setIsPerguntaOpen={setIsPerguntaOpen}
         />
@@ -53,7 +68,7 @@ export default function Forum() {
     } else {
       return (
         <ForumBody
-          perguntas={arrayPerguntas}
+          perguntas={perguntasFiltradas}
           setIsFormOpen={setIsFormOpen}
           setIsPerguntaOpen={setIsPerguntaOpen}
           setIndexPergunta={setIndexPergunta}
