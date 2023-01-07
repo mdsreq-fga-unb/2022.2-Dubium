@@ -118,6 +118,7 @@ export default function FormularioPergunta(props) {
           {...register("textoPergunta")}
           className="texto-pergunta"
           placeholder="Pergunta"
+          maxLength={1000}
         ></textarea>
         {/* <div className="file-input">
           <input type="file" name="arquivo" {...register("arquivo")} />

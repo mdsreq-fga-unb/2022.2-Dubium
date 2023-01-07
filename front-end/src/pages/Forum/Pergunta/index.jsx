@@ -9,6 +9,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import SendIcon from '@mui/icons-material/Send';
+import AttachmentIcon from '@mui/icons-material/Attachment';
 
 export default function Pergunta(props) {
   const [favorito, setFavorito] = useState(false);
@@ -108,7 +109,7 @@ export default function Pergunta(props) {
     <div className="card-pergunta pergunta-selecionada">
       <div className="usuario-informacao-texto">
         <div className="delete">
-          <span>{props.perguntaSelecionada.usuario.fotoPerfil}</span>
+          {/* <span>{props.perguntaSelecionada.usuario.fotoPerfil}</span> */}
           <span>{props.perguntaSelecionada.usuario.nome_completo}</span>
           <IconButton style={{ width: "20" }} onClick={deletePergunta}>
             <DeleteIcon />
@@ -161,7 +162,9 @@ export default function Pergunta(props) {
             rows="2"
             placeholder="Comentar"
             className="comentar"
-          ></textarea>
+            maxLength={500}
+          >
+          </textarea>
           <IconButton>
             <SendIcon className="comentario" onSubmit={handleSubmit(onSubmit)} />
           </IconButton>
