@@ -240,11 +240,38 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 - Organização e comunicação entre uma equipe de projeto
 - Criar uma documentação de um projeto a partir de um produto
 
+Graças aos enormes esforços de pessoas como George Marcicano Pudemos nos deleitar sobre 
+Assuntos relacionados a Engenharia de requisitos e a trabalharmos em equipe um dos grandes
+desafios dessa etapa do projeto foi o fato de mal nos conhecendo precisariamos entender e nos 
+adaptarmos a essa nova realidade sorteada em sala de aula.Mas apesar de tudo tiramos a sorte grande
+pois a equipe demonstrou ser deveras participativa e se entrosaram bem desde o começo dessa longa aventura 
+chamada Engenharia de requisitos.Entretanto nem tudo são flores pois desde o começo dessa jornada tinhamos 
+objetivos bem claros e tempo deveras curto. O primeiro dos desafios foi acharmos o cliente tafera essa que 
+ficou sob os cuidados do nosso nobre guerreiro Gian Medeiros.Mas não pense que a equipe ficou para tras esperando
+Gian retornar com os espólios dessa aventura muito pelo contrario toda a equipe embarcou na ardua tarefa de 
+Criar e documentar toda nossa jornada nesse vasto mundo de conhecimentos...
+
 ### Unidade 2
 - Definir prioridade e necessidades de um produto
 - Transcrever ideias e funcionalidades em requisitos
 - Elicitar requisitos 
 - Abrir um canal de comunicação contínuo com o cliente
+
+De inicio tinhamos um sonho e uma equipe disposta a trabalhar duro para isso Criar uma aplicação 
+capaz de ajudar alunos a saciarem suas duvidas sejam elas pequenas ou gigantes Porem não tinhamos um mapa
+algo para sabermos onde começarmos foi então que Gian chegou de sua jornada trazendo consigo nosso Mais novo cliente 
+Arthur rapaz este que seria nosso guia nessa aventura Com apenas um objetivo Ajudar a espalhar o conhecimento
+Entretanto chegamos a um ponto ao qual chegamos a um ponto ao qual o cliente teve de se dividir do grupo, Pensamos 
+e agora? como faremos para interagirmos com nosso guia nessa jornada foi onde apareceu a solução dos nossos problemas 
+alguem disse: "precisamos abrir um canal de comunicação com o cliente!". assim podemos seguir nossa jornada sem que ele esteja 
+presente o tempo todo mas ainda sim conseguirá nos guiar.Todos concordaram com essa ideia e assim seguimos com o canal de comunicação
+aberto com o cliente a cada ciclo lunar ele nos guiava. Então em um desses ciclos lunares (os primeiros na verdade) Arthur nosso cliente 
+nos disse que precisavamos definir bem o que fariamos para então a equipe se dividir em equipes menores e alcançar o objetivo mais rapidamente
+(SCRUM/XP). Assim ficou definido tinhamos os nossos Objetivos em mente os nossos requisistos estavam definidos e nosso cliente disposto a ajudar.
+Partimos então em uma jornada de transcrever ideias e estrategias em requisitos para o projeto. A partir deste ponto precisamos definir uma ordem 
+de execução qual atividade executariamos primeiro pois um passo em falso e seria nosso fim...
+
+
 
 ### Unidade 3
 - Replanejar o escopo de um projeto
@@ -252,6 +279,14 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 - Arrumar o planejamento da equipe
 - Fazer documentação no formato CANVAS
 - Implementação de um fórum de dúvidas
+
+Já no inicio da execução esbarramos num grade inimigo O replanejamento de escopo esse que seria o mais arduo trabalho pois os mais poderosos esforços da 
+equipe falharam perante esta fera. Com um pouco de sorte conseguimos evadir desta complicação em nosso caminho pelo menos momentaneamente Replanejando nossos atos
+e Observando nossas opções e nossos requisitos de outras perspectivas Precisamos ficar "SAFe" em um lugar então construimos um forte de observação chamado Product Baclog Building
+uma torre que nos deu uma perspectiva melhor da situação. Com isso conseguimos arrumar o planejamento da equipe e construimos nossa estrategia de combate que chamamos de 
+User Story Mapping com nossa USM em mãos Sabiamos o que necessitavamos fazer Atualizar nosso mapa que Chamamos de Canvas nele pudemos organizar nossas ideias nossos USM e ate mesmo
+PBB de modo a estarmos tão bem organizados que resolvemos expandir Com a criação de um forúm de duvidas Com nosso forúm de duvidas e nosso Escopo semi replanejados Partimos então para a 
+ultima etapa desta jornada um lugar desafiador e extremamente desconhecido não sabemos o que acontecerá de agora em diante...
 
 ## 5 A MELHORAR
 ### Unidade 1
