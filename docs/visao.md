@@ -25,6 +25,7 @@ Data | Versão | Descrição | Autor
 14/12/22 | 1.7 | Atualização do Documento | Giulia
 23/12/22 | 1.7 | Atualização do Documento | Giulia
 03/01/23 | 1.8 | Atualização do Documento | Giulia, Helder
+07/01/23 | 1.9 | Atualização do Documento | Giulia, Helder
 
 
 ## 1	VISÃO GERAL DO PRODUTO
@@ -76,8 +77,8 @@ Sprint 8 | PBB, BDD, Sprint Review, Sprint Planning, Retrospectiva da Sprint| 14
 Sprint 9 | US8, US9, US10, US11, US12, US13 | 21/12/22 | 28/12/22
 Sprint 10 | USM, US14, US15, US16, US17 | 28/12/22 | 04/01/22
 Sprint 11 | MVP 1 | 04/01/22 | 11/01/22
-Sprint 12 | US18, US19, US20, US21 | 11/01/22 | 18/02/22
-Sprint 13 | US22, US23, US24 | 18/01/22 | 25/01/22
+Sprint 12 | US18, US19, US20, US21, US22 | 11/01/22 | 18/02/22
+Sprint 13 | US23, US24 | 18/01/22 | 25/01/22
 Sprint 14 | US1, US2, US3, US4, US5, US6, US7 | 25/01/22 | 01/02/22
 Sprint 15 | MVP 2 | 01/01/22 | 07/02/22
 

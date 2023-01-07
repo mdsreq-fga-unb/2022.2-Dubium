@@ -7,7 +7,7 @@
  -->
 Início | Fim | Duração
 ------ | --- | -------
-28/12/2022 | 04/01/2023 | 7 dias
+11/01/2023 | 18/01/2023 | 7 dias
 
 ## 2. Conclusão
 <!-- adicionar a issue, sua descrição, o responsavel e se a issue foi terminada ou não -->
