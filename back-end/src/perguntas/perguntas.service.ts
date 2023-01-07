@@ -29,6 +29,7 @@ export class PerguntasService {
       pergunta.corpoPergunta = data.corpoPergunta;
       pergunta.id_cursoPergunta = data.id_cursoPergunta;
       pergunta.midia = data.midia;
+      pergunta.filtro = data.filtro;
       pergunta.votosTotais = data.votosTotais;
       return this.perguntasRepository.save(pergunta);
     }

@@ -17,6 +17,9 @@ export class Pergunta {
     id_cursoPergunta: number;
 
     @Column({nullable:true})
+    filtro: string;
+
+    @Column({nullable:true})
     midia: string;
 
     @Column({default: 0})

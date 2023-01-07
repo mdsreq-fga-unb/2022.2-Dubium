@@ -59,6 +59,7 @@ export default function FormularioPergunta(props) {
       tituloPergunta: data.titulo,
       id_cursoPergunta: indexEngenharia,
       corpoPergunta: data.textoPergunta,
+      filtro: data.filtro,
       arquivo: data.midia,
       votosTotais: 0,
     };
@@ -109,6 +110,13 @@ export default function FormularioPergunta(props) {
               </option>
             ))}
           </select>
+          <input
+            type="text"
+            name="filtro"
+            {...register("filtro")}
+            className="filtro-input"
+            placeholder="Tag"
+          />
         </div>
         <textarea
           name="textoPergunta"
