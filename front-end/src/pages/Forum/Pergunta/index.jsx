@@ -8,14 +8,21 @@ import StarIcon from "@mui/icons-material/Star";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import SendIcon from '@mui/icons-material/Send';
-import AttachmentIcon from '@mui/icons-material/Attachment';
+import SendIcon from "@mui/icons-material/Send";
+import AttachmentIcon from "@mui/icons-material/Attachment";
 
 export default function Pergunta(props) {
   const [favorito, setFavorito] = useState(false);
   const [comentar, setComentar] = useState(false);
   const [usuario, setUsuarios] = useState([]);
   const [respostas, setRespostas] = useState([]);
+  const [novaResposta, setNovaResposta] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     apiRequest
@@ -37,13 +44,7 @@ export default function Pergunta(props) {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, []);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  }, [novaResposta]);
 
   function deletePergunta() {
     apiRequest.delete(`perguntas/${props.perguntaSelecionada.id}`).then(() => {
@@ -59,20 +60,23 @@ export default function Pergunta(props) {
           ? `perguntas/menos/${props.perguntaSelecionada.id}`
           : `perguntas/${props.perguntaSelecionada.id}`
       )
-      .then((response) => { });
+      .then((response) => {});
   }
 
   const onSubmit = (data) => {
-
-    let novaResposta = {
+    let teste = {
       id_usuario: data.usuarios,
-      id_pergunta: data.perguntaSelecionada.id,
-      corpoResposta: data.textoResposta
+      id_pergunta: props.perguntaSelecionada.id,
+      corpoResposta: data.resposta,
     };
 
-    apiRequest.post("respostas", novaResposta);
+    console.log(novaResposta);
 
-    props.setIsFormOpen(true);
+    setNovaResposta(true);
+
+    console.log(novaResposta);
+
+    // apiRequest.post("respostas", teste);
   };
 
   function handleCurso(curso) {
@@ -144,73 +148,45 @@ export default function Pergunta(props) {
       </ul>
       {comentar && (
         <div>
-          <div>
+          <form action="" onSubmit={handleSubmit(onSubmit)}>
             <select name="usuarios" {...register("usuarios")}>
               {usuario.map((data, index) => (
-                <option value={data.id} key={index} className="opcao-engenharia">
+                <option
+                  value={data.id}
+                  key={index}
+                  className="opcao-engenharia"
+                >
                   {data.nome_completo}
                 </option>
               ))}
             </select>
-
-          </div>
-
-          <textarea
-            name=""
-            id=""
-            cols="30"
-            rows="2"
-            placeholder="Comentar"
-            className="comentar"
-            maxLength={500}
-          >
-          </textarea>
-          <IconButton>
-            <SendIcon className="comentario" onSubmit={handleSubmit(onSubmit)} />
-          </IconButton>
+            <textarea
+              name="resposta"
+              {...register("resposta")}
+              cols="30"
+              rows="2"
+              placeholder="Comentar"
+              className="comentar"
+              maxLength={500}
+            ></textarea>
+            <IconButton type="submit">
+              <SendIcon className="comentario" />
+            </IconButton>
+          </form>
         </div>
       )}
-      <div className="resposta">
+      <ul className="resposta">
         {respostas.map((data, index) => (
-          <option value={data.id} key={index}>
+          <li value={data.id} key={index} className="teste">
             <div className="usuario-informacao-texto">
-              <span>{data.usuario.fotoPerfil}</span>
-            <span>{data.usuario.nome_completo}</span>
-            <span>{data.usuario.curso}</span>
+              {/* <span>{data.usuario.fotoPerfil}</span> */}
+              <span>{data.usuario.nome_completo}</span>
+              <span>{handleCurso(data.usuario.curso)}</span>
             </div>
-            <div className="container-resposta-interacao"><span>{data.corpoResposta}</span></div>
-          </option>
+            <span>{data.corpoResposta}</span>
+          </li>
         ))}
-      </div>
-
-      {/* {props.pergunta.respostas.map((resposta, index) => {
-        return (
-          <div className="resposta">
-            <div className="usuario-informacao-texto">
-              <span>{resposta.userResposta.nome}</span>
-              <span>{resposta.userResposta.curso}</span>
-            </div>
-            <div>{resposta.textoResposta}</div>
-            <ul className="container-resposta-interacao">
-              <li className="item-interacao">
-                <StarIcon />
-                <span>Favoritar</span>
-              </li>
-              <li className="item-interacao">
-                <QuestionAnswerIcon />
-                <span
-                  onClick={() => {
-                    props.setIsPerguntaOpen(true);
-                    props.setIndexPergunta(index);
-                  }}
-                >
-                  Responder
-                </span>
-              </li>
-            </ul>
-          </div>
-        );
-      })} */}
+      </ul>
     </div>
   );
 }

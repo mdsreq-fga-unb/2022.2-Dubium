@@ -14,8 +14,6 @@ import PerfilUsuario from "./components/PerfilUsuario";
 function App() {
   const [idUsuario, setIdUsuario] = useState();
 
-  console.log(idUsuario);
-
   return (
     <div className="body-app">
       <Router>

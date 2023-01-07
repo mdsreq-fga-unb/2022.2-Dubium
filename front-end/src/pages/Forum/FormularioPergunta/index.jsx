@@ -62,7 +62,6 @@ export default function FormularioPergunta(props) {
       arquivo: data.midia,
       votosTotais: 0,
     };
-    console.log(novaPergunta)
     apiRequest.post("perguntas", novaPergunta);
 
     props.setIsFormOpen(false);
@@ -71,7 +70,7 @@ export default function FormularioPergunta(props) {
   return (
     <div className="form-card">
       <div>
-        <select name="usuarios" {...register("usuarios")}>
+        <select name="usuarios" {...register("usuarios")} required>
           {usuario.map((data, index) => (
             <option value={data.id} key={index} className="opcao-engenharia">
               {data.nome_completo}
@@ -98,16 +97,20 @@ export default function FormularioPergunta(props) {
             name="engenharia"
             {...register("engenharia")}
             className="engenharia-input"
+            required
           >
-            {forumData.map((data, index) => (
-              <option
-                value={data.name}
-                key={index}
-                className="opcao-engenharia"
-              >
-                {data.name}
-              </option>
-            ))}
+            {forumData.map(
+              (data, index) =>
+                index != 0 && (
+                  <option
+                    value={data.name}
+                    key={index}
+                    className="opcao-engenharia"
+                  >
+                    {data.name}
+                  </option>
+                )
+            )}
           </select>
         </div>
         <textarea
@@ -119,6 +122,7 @@ export default function FormularioPergunta(props) {
           className="texto-pergunta"
           placeholder="Pergunta"
           maxLength={1000}
+          required
         ></textarea>
         {/* <div className="file-input">
           <input type="file" name="arquivo" {...register("arquivo")} />

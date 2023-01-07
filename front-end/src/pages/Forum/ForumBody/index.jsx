@@ -71,7 +71,7 @@ export default function ForumBody(props) {
             <div>{pergunta.tituloPergunta}</div>
             <div>{pergunta.corpoPergunta}</div>
             <div className="like-comentario">
-              <StarIcon />
+              <StarIcon style={{ color: "#ffa722" }} />
               <span>{pergunta.votosTotais} favoritos</span>
             </div>
           </div>

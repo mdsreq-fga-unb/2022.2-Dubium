@@ -5,6 +5,7 @@
   background-color: #fafafa;
   padding: 50px;
   width: 50%;
+  border-radius: 20px;
 }
 
 .formulario {
@@ -44,4 +45,8 @@ textarea,
 
 .botao-cancelar {
   background-color: #747576;
+}
+
+.texto-pergunta {
+  padding: 10px;
 }
