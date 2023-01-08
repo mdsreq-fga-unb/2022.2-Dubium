@@ -13,9 +13,13 @@ export class Resposta {
     @CreateDateColumn()
     create_at: Date;
 
-    @ManyToOne(() => Usuario, usuario => usuario.resposta)
+    @ManyToOne(() => Usuario, usuario => usuario.resposta, {
+        onDelete: 'CASCADE'
+    })
     usuario: Usuario;
 
-    @ManyToOne(() => Pergunta, pergunta => pergunta.resposta)
+    @ManyToOne(() => Pergunta, pergunta => pergunta.resposta, {
+        onDelete: 'CASCADE'
+    })
     pergunta: Pergunta;
 }
