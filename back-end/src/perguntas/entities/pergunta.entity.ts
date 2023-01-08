@@ -25,7 +25,9 @@ export class Pergunta {
     @Column({default: 0})
     votosTotais: number;
 
-    @ManyToOne(() => Usuario, usuario => usuario.pergunta)
+    @ManyToOne(() => Usuario, usuario => usuario.pergunta, {
+        onDelete: 'CASCADE'
+    })
     usuario: Usuario;
 
     @OneToMany(() => Resposta, resposta => resposta)
