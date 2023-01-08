@@ -16,28 +16,26 @@ function App() {
   const [materiaPesquisada, setMateriaPesquisada] = useState("");
 
   return (
-    <div className="body-app">
-      <Router>
-        <Header setMateriaPesquisada={setMateriaPesquisada} />
-        <Routes>
-          <Route
-            path="/"
-            element={<Forum materiaPesquisada={materiaPesquisada} />}
-          />
-          <Route path="/formulario-pergunta" element={<FormularioPergunta />} />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/ranking-usuarios"
-            element={<RankingUsuarios setIdUsuario={setIdUsuario} />}
-          />
-          <Route
-            path="/usuario"
-            element={<PerfilUsuario idUsuario={idUsuario} />}
-          />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
+    <Router>
+      <Header setMateriaPesquisada={setMateriaPesquisada} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Forum materiaPesquisada={materiaPesquisada} />}
+        />
+        <Route path="/formulario-pergunta" element={<FormularioPergunta />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/ranking-usuarios"
+          element={<RankingUsuarios setIdUsuario={setIdUsuario} />}
+        />
+        <Route
+          path="/usuario"
+          element={<PerfilUsuario idUsuario={idUsuario} />}
+        />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
