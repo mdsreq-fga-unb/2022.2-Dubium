@@ -10,6 +10,9 @@ export class Resposta {
     @Column({ length: 1000 })
     corpoResposta: string;
 
+    @Column({nullable:true})
+    midia: string;
+
     @CreateDateColumn()
     create_at: Date;
 
