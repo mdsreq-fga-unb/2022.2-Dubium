@@ -3,6 +3,10 @@
   cursor: auto;
 }
 
+.pergunta-selecionada:hover {
+  background-color: #fafafa;
+}
+
 .like-comentario {
   display: flex;
   flex-direction: row;

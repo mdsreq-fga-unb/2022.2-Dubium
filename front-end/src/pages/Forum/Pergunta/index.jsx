@@ -1,22 +1,22 @@
 import "./style.css";
-import { useEffect, useState } from "react";
 
-import apiRequest from "../../../services/api";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import StarIcon from "@mui/icons-material/Star";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { IconButton } from "@mui/material";
+import apiRequest from "../../../services/api";
+import handleCurso from "../../../services/curso";
+
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import DeleteIcon from "@mui/icons-material/Delete";
+import StarIcon from "@mui/icons-material/Star";
 import SendIcon from "@mui/icons-material/Send";
-import AttachmentIcon from "@mui/icons-material/Attachment";
+import { IconButton } from "@mui/material";
 
 export default function Pergunta(props) {
-  const [favorito, setFavorito] = useState(false);
-  const [comentar, setComentar] = useState(false);
   const [usuario, setUsuarios] = useState([]);
   const [respostas, setRespostas] = useState([]);
-  const [novaResposta, setNovaResposta] = useState(false);
+  const [favorito, setFavorito] = useState(false);
+  const [comentar, setComentar] = useState(false);
 
   const {
     register,
@@ -44,7 +44,7 @@ export default function Pergunta(props) {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, [novaResposta]);
+  }, []);
 
   function deletePergunta() {
     apiRequest.delete(`perguntas/${props.perguntaSelecionada.id}`).then(() => {
@@ -64,50 +64,14 @@ export default function Pergunta(props) {
   }
 
   const onSubmit = (data) => {
-    let teste = {
+    let novaResposta = {
       id_usuario: data.usuarios,
       id_pergunta: props.perguntaSelecionada.id,
       corpoResposta: data.resposta,
     };
 
-    console.log(novaResposta);
-
-    setNovaResposta(true);
-
-    console.log(novaResposta);
-
-    // apiRequest.post("respostas", teste);
+    apiRequest.post("respostas", novaResposta);
   };
-
-  function handleCurso(curso) {
-    let nomeCurso;
-
-    switch (curso) {
-      case 1:
-        nomeCurso = "Engenharias";
-        break;
-      case 2:
-        nomeCurso = "Engenharia Aeroespacial";
-        break;
-      case 3:
-        nomeCurso = "Engenharia Automotiva";
-        break;
-      case 4:
-        nomeCurso = "Engenharia Eletrônica";
-        break;
-      case 5:
-        nomeCurso = "Engenharia de Energia";
-        break;
-      case 6:
-        nomeCurso = "Engenharia Software";
-        break;
-
-      default:
-        break;
-    }
-
-    return nomeCurso;
-  }
 
   return (
     <div className="card-pergunta pergunta-selecionada">
@@ -148,8 +112,16 @@ export default function Pergunta(props) {
       </ul>
       {comentar && (
         <div>
-          <form action="" onSubmit={handleSubmit(onSubmit)}>
-            <select name="usuarios" {...register("usuarios")}>
+          <form
+            action=""
+            onSubmit={handleSubmit(onSubmit)}
+            className="formulario"
+          >
+            <select
+              name="usuarios"
+              {...register("usuarios")}
+              style={{ padding: "5px", width: "15%" }}
+            >
               {usuario.map((data, index) => (
                 <option
                   value={data.id}
@@ -160,18 +132,20 @@ export default function Pergunta(props) {
                 </option>
               ))}
             </select>
-            <textarea
-              name="resposta"
-              {...register("resposta")}
-              cols="30"
-              rows="2"
-              placeholder="Comentar"
-              className="comentar"
-              maxLength={500}
-            ></textarea>
-            <IconButton type="submit">
-              <SendIcon className="comentario" />
-            </IconButton>
+            <div>
+              <textarea
+                name="resposta"
+                {...register("resposta")}
+                cols="30"
+                rows="2"
+                placeholder="Comentar"
+                className="comentar"
+                maxLength={500}
+              ></textarea>
+              <IconButton type="submit">
+                <SendIcon className="comentario" />
+              </IconButton>
+            </div>
           </form>
         </div>
       )}

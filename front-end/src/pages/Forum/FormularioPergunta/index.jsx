@@ -31,9 +31,6 @@ export default function FormularioPergunta(props) {
     let indexEngenharia;
 
     switch (data.engenharia) {
-      case "INÍCIO":
-        indexEngenharia = 1;
-        break;
       case "ENGENHARIAS":
         indexEngenharia = 1;
         break;
@@ -70,15 +67,6 @@ export default function FormularioPergunta(props) {
 
   return (
     <div className="form-card">
-      <div>
-        <select name="usuarios" {...register("usuarios")} required>
-          {usuario.map((data, index) => (
-            <option value={data.id} key={index} className="opcao-engenharia">
-              {data.nome_completo}
-            </option>
-          ))}
-        </select>
-      </div>
       {/* <div className="usuario-pergunta">
         <div className="usuario-informacao-texto">
         <span>{usuario.nome_completo}</span>
@@ -86,6 +74,19 @@ export default function FormularioPergunta(props) {
         </div>
       </div> */}
       <form action="" onSubmit={handleSubmit(onSubmit)} className="formulario">
+        <select
+          name="usuarios"
+          {...register("usuarios")}
+          required
+          className="engenharia-input"
+          style={{ width: "23.3%" }}
+        >
+          {usuario.map((data, index) => (
+            <option value={data.id} key={index}>
+              {data.nome_completo}
+            </option>
+          ))}
+        </select>
         <div className="group-input">
           <input
             type="text"
