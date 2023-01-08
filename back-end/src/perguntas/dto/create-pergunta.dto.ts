@@ -15,7 +15,7 @@ export class CreatePerguntaDto {
     @IsNotEmpty()
     id_cursoPergunta: number;
 
-    @IsOptional()
+    @IsNotEmpty()
     filtro: string;
 
     @IsOptional()
