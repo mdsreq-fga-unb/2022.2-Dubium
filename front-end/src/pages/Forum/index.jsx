@@ -41,6 +41,7 @@ export default function Forum(props) {
       e.filtro
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
         .startsWith(
           props.materiaPesquisada
             .normalize("NFD")
@@ -48,7 +49,14 @@ export default function Forum(props) {
             .toLowerCase()
         ) ||
       // eslint-disable-next-line eqeqeq
-      e.filtro == props.materiaPesquisada
+      e.filtro
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase() ==
+        props.materiaPesquisada
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
   );
 
   const handleComponent = () => {
