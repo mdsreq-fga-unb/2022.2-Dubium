@@ -16,7 +16,7 @@ function Header() {
           <Link to="/">FÓRUM</Link>
         </li>
         <li className="item">
-          <Link to="/chat">CHAT</Link>
+          <Link to="/ranking-usuarios">USUARIOS</Link>
         </li>
         <li className="item">
           <Link to="/about">SOBRE</Link>
