@@ -5,9 +5,9 @@
      data de finalização da sprint
      duraração da sprint
  -->
-Início | Fim | Duração
------- | --- | -------
-25/10/22 | 30/10/22 | 7 dias
+ Início | Fim | Duração
+ ------ | --- | -------
+ 28/10/2022 | 02/11/2022 | 5 dias
 
 ## 1.2. Papéis
 <!-- Papeis que cada membro exerceu durante essa sprint -->
@@ -20,4 +20,10 @@ Mestre do Scrum | Giulia | Eduarda, Gian, Helder, Julio, Silas
 
 ## 1.3. Objetivos da Sprint
 <!-- descrever de forma geral o objetivo da sprint -->
-Definir o produto
+* Declarar a posição do produto
+
+## 1.4. Tarefas
+<!-- descrever as issues que definimos para essa sprint e alocar um responsavel por ela -->
+Tarefas | Descrição | Responsáveis
+------ | --------- | -----------
+01 | Documentação | [Helder](https://github.com/F1reFinger), [Júlio](https://github.com/Julio-eng), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres), [Gian](https://github.com/GianMedeiros) e [Eduarda](https://github.com/erteduarda)

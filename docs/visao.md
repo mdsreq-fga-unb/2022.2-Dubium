@@ -6,21 +6,26 @@
 
 Data | Versão | Descrição | Autor
 ---- | ------ | --------- | -----
-26/10 | 1.0 | Criação do documento | Gian, Giulia, Helder, Júlio e Silas
-02/11 | 1.1 | Atualização do documento | Gian, Giulia, Helder, Júlio e Silas
-09/11 | 1.1 | Atualização do documento | Giulia, Helder e Silas
-10/11 | 1.0 | Criação do GitPages | Júlio
-14/11 | 1.2 | Atualização do documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
-15/11 | 1.0 | Criação do Read.Me | Giulia
-15/11 | 1.1 | Atualização do GitPages | Júlio
-16/11 | 1.2 | Gravação do Vídeo da Unidade 1 | Helder, Silas
-16/11 | 1.3 | Atualização do Documento | Gian, Giulia, Helder, Júlio e Silas
-30/11 | 1.0 | Configuração do ambiente | Giulia, Júlio e Silas
-01/12 | 1.1 | Criação das pastas de back-end e front-end | Giulia, Júlio e Silas
-02/12 | 1.0 | Criação do Documento de Backlog | Gian, Giulia, Júlio e Silas
-06/12 | 1.3 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio
-07/12 | 1.4 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
-
+26/10/22 | 1.0 | Criação do documento | Gian, Giulia, Helder, Júlio e Silas
+02/11/22 | 1.1 | Atualização do documento | Gian, Giulia, Helder, Júlio e Silas
+09/11/22 | 1.1 | Atualização do documento | Giulia, Helder e Silas
+10/11/22 | 1.0 | Criação do GitPages | Júlio
+14/11/22 | 1.2 | Atualização do documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
+15/11/22 | 1.0 | Criação do Read.Me | Giulia
+15/11/22 | 1.1 | Atualização do GitPages | Júlio
+16/11/22 | 1.2 | Gravação do Vídeo da Unidade 1 | Helder, Silas
+16/11/22 | 1.3 | Atualização do Documento | Gian, Giulia, Helder, Júlio e Silas
+30/11/22 | 1.0 | Configuração do ambiente | Giulia, Júlio e Silas
+01/12/22 | 1.1 | Criação das pastas de back-end e front-end | Giulia, Júlio e Silas
+02/12/22 | 1.0 | Criação do Documento de Backlog | Gian, Giulia, Júlio e Silas
+06/12/22 | 1.3 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio
+07/12/22 | 1.4 | Atualização do Documento | Eduarda, Gian, Giulia, Helder, Júlio e Silas
+13/12/22 | 1.5 | Atualização do Documento | Helder e Júlio
+14/12/22 | 1.6 | Atualização do Documento | Gian, Giulia, Helder e Júlio
+14/12/22 | 1.7 | Atualização do Documento | Giulia
+23/12/22 | 1.7 | Atualização do Documento | Giulia
+03/01/23 | 1.8 | Atualização do Documento | Giulia, Helder
+07/01/23 | 1.9 | Atualização do Documento | Giulia, Helder
 
 
 ## 1	VISÃO GERAL DO PRODUTO
@@ -38,6 +43,8 @@ Nosso produto | Possuirá um acesso a aplicação por meio de cadastro dos aluno
 O objetivo do Dubium é ajudar / dar suporte para a resolução de dúvidas específicas de alunos, provendo agendamentos de reuniões presenciais, se for do desejo dos solicitantes, ou simplesmente solucioná-las via fórum. Além de ajudar professores a perceberem o maior foco de dificuldade em suas matérias, fazendo-os melhorar o planejamento de conteúdos complexos.
 
 ### 1.3	Tecnologias a Serem Utilizadas
+- HTML
+- CSS
 - JavaScript
 - Typescript
 - MySQL
@@ -59,17 +66,21 @@ Mestre do Scrum | Delegar tarefas, duração da sprint e sprint review | Giulia 
 ### 2.2	Planejamento das Fases e/ou Iterações do Projeto
 Sprint | Produto (Entrega) | Data Início | Data Fim
 ------ | ----------------- | ----------- | --------
-Sprint 1 | Produto definido | 25/10/22 | 30/10/22
-Sprint 2 | Produto Alinhado | 30/10/22 | 07/11/22
-Sprint 3 | Análise Visão de Produto e Projeto | 07/11/22 | 14/11/22
-Sprint 4 | Visão de Produto e Projeto finalizado | 14/11/22 | 21/11/22
-Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 21/11/22 | 30/11/22
+Sprint 1 | Declaração de Posição do Produto | 28/10/22 | 2/11/22
+Sprint 2 | Objetivo do Produto e Tecnologias Definidas | 2/11/22 | 09/11/22
+Sprint 3 | Metodologia, processos e procedimentos definidos | 07/11/22 | 16/11/22
+Sprint 4 | Visão do Produto e Projeto | 16/11/22 | 23/11/22
+Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 23/11/22 | 30/11/22
 Sprint 6 | Backlog do Produto, CI/CD configurados, escopo dos MVPs 1 e 2 definidos | 30/11/22 | 07/12/22
-Sprint 7 | Backlog da sprint refinado, protótipo do projeto aprovado | 07/12/22 | 13/12/22
-Sprint 8 | MVP-1 validado| 27/12/22 | 03/01/22
-Sprint 9 | MVP-1 finalizado | 03/01/22 | 10/01/22
-Sprint 10 | MVP-2 validado | 24/01/22 | 31/01/22
-Sprint 11 | MVP-2 finalizado| 31/01/22 | 07/02/22
+Sprint 7 | Backlog da sprint refinado, protótipo do projeto | 07/12/22 | 14/12/22
+Sprint 8 | PBB, BDD, Sprint Review, Sprint Planning, Retrospectiva da Sprint| 14/12/22 | 21/12/22
+Sprint 9 | US8, US9, US10, US11, US12, US13 | 21/12/22 | 28/12/22
+Sprint 10 | USM, US14, US15, US16, US17 | 28/12/22 | 04/01/22
+Sprint 11 | MVP 1 | 04/01/22 | 11/01/22
+Sprint 12 | US18, US19, US20, US21, US22 | 11/01/22 | 18/02/22
+Sprint 13 | US23, US24 | 18/01/22 | 25/01/22
+Sprint 14 | US1, US2, US3, US4, US5, US6, US7 | 25/01/22 | 01/02/22
+Sprint 15 | MVP 2 | 01/01/22 | 07/02/22
 
 ### 2.3	Matriz de Comunicação
 Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
@@ -77,7 +88,7 @@ Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
 Daily | Equipe do Projeto | Diário | Relato por parte dos membros da equipe no telegram sobre o andamento individual das partes do projeto
 Sprint Planning | Equipe do Projeto e Cliente | Semanal | Relatório Sprint Planning, Planejamento do que será feito no ciclo da Sprint
 Sprint Review | Equipe do Projeto e Cliente | Junto ao Sprint Planning | Relatório Sprint Review, Validação do Produto
-Retrospectiva | Equipe do Projeto | Quinzenalmente | Tabela de check com uma verificação da implementação dos requisitos não funcionais
+Retrospectiva | Equipe do Projeto | Quinzenalmente | Tabela de check com uma verificação da implementação
 Comunicar a situação do projeto | Equipe do Projeto e Professor | Mensalmente | Apresentações da Entrega de cada Unidade
 
 ### 2.4	Gerenciamento de Riscos
@@ -94,15 +105,18 @@ Riscos de negócio ameaçam a viabilidade do software e do produto. Existem cinc
 Sprint | Risco Encontrado | Nível
 ------ | ---------------- | -----
 3 | Adição de um novo membro na equipe | Negligenciável
+9 | Problema no escopo do MVP1 | Crítico
 
 ### 2.5	Critérios de Replanejamento
 Os critérios de replanejamento referem-se à identificação dos pontos que, se ocorrerem, necessariamente, vão causar um replanejamento do projeto. Precisam ser acompanhados a cada sprint, se referindo assim, ao projeto como um todo e não apenas ao produto.
 
 - Entrada de um novo membro na equipe
+- Alteração no escopo do MVP1
 
 Sprint | Solução Encontrada | Resultado Esperado
 ------ | ------------------ | ------------------
 3 | Explicações sobre o projeto e nova divisão de tarefas | Capacitação da Equipe
+9 | Alterar o escopo do MVP1 | Finalização do MVP1 no prazo imposto
 
 Os critérios de replanejamento do projeto devem ser acompanhados e atualizados a cada ciclo. E, aplicados, conforme necessidade.
 
@@ -157,7 +171,7 @@ De acordo com a abordagem SCRUM, definiu-se:
         - Implementação dos testes: Os dois membros da equipe que realizaram a implementação da tarefa utilizaram a biblioteca Jest para a implementação de testes unitários referente ao código desenvolvido.
 - As entregas da Implementação do front-end, back-end e testes serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
 
-#### 3.3.1	PLANEJAMENTO
+#### 3.3.1	PLANNING
 ##### 3.3.1.1	ELICITAÇÃO DE REQUISITOS
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
@@ -166,13 +180,6 @@ ELI-02 | Identificação de Requisitos | Reunião de grupo e brainstorm | Google
 ELI-03 | identificação de necessidades dos stakeholders | Questionário | Google Forms | Necessidades e desejos dos stakeholders
 ELI-04 | Estruturação do conjunto de requisitos em grupos coerentes | Agrupando por temas coerentes | Google Meets; Miro | Conjunto de requisitos estruturados por tema
 
-##### 3.3.1.2	ANÁLISE E NEGOCIAÇÃO DE REQUISITOS
-Identificador | Atividade | Método | Ferramenta | Entrega
-------------- | --------- | ------ | ---------- | -------
-ANA-01 | Priorização e negociação dos requisitos | Reunião em grupo e brainstorm | Google Meets; Miro | MVP1<br/>MVP2
-ANA-02 | Refinamento dos requisitos | Reunião semanal em grupo junto ao cliente (Sprint Planning)  e de forma assíncrona pelo (dono do produto e demais participantes) | Google Meets; Miro | Backlog da sprint
-
-#### 3.3.2 EXECUÇÃO 
 ##### 3.3.2.1	GERENCIAMENTO DE REQUISITOS
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
@@ -180,19 +187,43 @@ GEREN-01 | Organização dos requisitos | Framework de organização SAFe | Miro
 GEREN-02 | Delegação de requisitos dentro do time de desenvolvedores | Atribuição de issues no github referentes aos requisitos do backlog da sprint | Google Meets; Github; Trello | Issues referentes aos requisitos da sprint para o time de desenvolvedores
 GEREN-03 | Realizar a rastreabilidade dos requisitos | Adicionar a rastreabilidade nos IDs dos requisitos, tanto no Github | Google Meets Github; Trello | Issues e requisitos relacionamos e rastreáveis
 
-#### 3.3.3 VALIDAÇÃO    
-##### 3.3.3.1	VERIFICAÇÃO E VALIDAÇÃO DE REQUISITOS
-Identificador | Atividade | Método | Ferramenta | Entrega
-------------- | --------- | ------ | ---------- | -------
-VER/VAL-01 | Validação das User Stories | Reunião semanal em grupo junto ao cliente (sprint review) para validar os requisitos do backlog da sprint | Google Meets; Miro; Github | Validação dos requisitos da sprint
-VER/VAL-02 | Verificação da implementação dos requisitos | Reunião quinzenal em grupo junto (retrospectiva) para validar os requisitos do backlog da sprint | google Meets; Github | Verificação das implementação dos requisitos
+#### 3.3.2 EXECUÇÃO 
 
-#### 3.3.4 ENTREGA
-##### 3.3.4.1 DOCUMENTAÇÃO DE REQUISITOS
+##### 3.3.2.1 DOCUMENTAÇÃO DE REQUISITOS
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
 DOC-01 | Registro dos requisitos do produto | Transcrição do backlog de produto para o Git Pages | Git Pages; Miro; Google Meets | Documentação do backlog do produto no Git Pages
 DOC-02 | Registro do refinamento do backlog da sprint | Transcrição semanal do backlog da sprint para o Git Pages | Git Pages; Miro; Google Meets | Documentação do backlog da sprint no Git Pages
+
+##### 3.3.2.2	ANÁLISE E NEGOCIAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+ANA-01 | Priorização e negociação dos requisitos | Reunião em grupo e brainstorm | Google Meets; Miro | MVP1<br/>MVP2
+ANA-02 | Refinamento dos requisitos | Reunião semanal em grupo junto ao cliente (Sprint Planning)  e de forma assíncrona pelo (dono do produto e demais participantes) | Google Meets; Miro | Backlog da sprint
+
+##### 3.3.2.3 PROTOTIPAÇÃO
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+PRO-01 | Prototipar interface | Discord e validação com o cliente | Paint; Adobe XP | Protótipo de interface de média e alta fidelidade
+PRO-02 | Implementação dos protótipos de alta fidelidade | Pair Programming | VSCode; Discord | Interface de usuário
+
+##### 3.3.3.3 IMPLEMENTAÇÃO
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+IMP-01 | Implementar os MVPs 1 e 2 de acordo com o Backlog | Pair Programming | VSCode; MySQL Workbench; Discord | MVP1; MVP2
+IMP-02 | Testes do produto | Testes Unitários | VSCode | Identificação de erros
+
+#### 3.3.3 REVIEW   
+##### 3.3.3.1	VALIDAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+VAL-01 | Validação das User Stories | Reunião semanal em grupo junto ao cliente (sprint review) para validar os requisitos do backlog da sprint | Google Meets; Miro; Github | - Relatório Sprint Review; - Validação do Produto
+
+#### 3.3.4 RETRO
+##### 3.3.4.1 VERIFICAÇÃO DE REQUISITOS
+Identificador | Atividade | Método | Ferramenta | Entrega
+------------- | --------- | ------ | ---------- | -------
+VER-01 | Verificação da implementação dos requisitos | Reunião quinzenal em grupo junto (retrospectiva) para verificar a produção do produto | Google Meets; Github | Tabela de check com uma verificação da implementação
 
 ### 3.4 Arquitetura do Projeto
 Com base na escolha de frameworks e foca na visualização e organização do projeto, definiu-se a escolha da aplicação MVC (Model-View-Controller), que é um padrão de arquitetura dividido logicamente em três partes:
@@ -209,12 +240,53 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 - Organização e comunicação entre uma equipe de projeto
 - Criar uma documentação de um projeto a partir de um produto
 
+Graças aos enormes esforços de pessoas como George Marcicano Pudemos nos deleitar sobre 
+Assuntos relacionados a Engenharia de requisitos e a trabalharmos em equipe um dos grandes
+desafios dessa etapa do projeto foi o fato de mal nos conhecendo precisariamos entender e nos 
+adaptarmos a essa nova realidade sorteada em sala de aula.Mas apesar de tudo tiramos a sorte grande
+pois a equipe demonstrou ser deveras participativa e se entrosaram bem desde o começo dessa longa aventura 
+chamada Engenharia de requisitos.Entretanto nem tudo são flores pois desde o começo dessa jornada tinhamos 
+objetivos bem claros e tempo deveras curto. O primeiro dos desafios foi acharmos o cliente tafera essa que 
+ficou sob os cuidados do nosso nobre guerreiro Gian Medeiros.Mas não pense que a equipe ficou para tras esperando
+Gian retornar com os espólios dessa aventura muito pelo contrario toda a equipe embarcou na ardua tarefa de 
+Criar e documentar toda nossa jornada nesse vasto mundo de conhecimentos...
+
 ### Unidade 2
 - Definir prioridade e necessidades de um produto
 - Transcrever ideias e funcionalidades em requisitos
 - Elicitar requisitos 
 - Abrir um canal de comunicação contínuo com o cliente
 
+De inicio tinhamos um sonho e uma equipe disposta a trabalhar duro para isso Criar uma aplicação 
+capaz de ajudar alunos a saciarem suas duvidas sejam elas pequenas ou gigantes Porem não tinhamos um mapa
+algo para sabermos onde começarmos foi então que Gian chegou de sua jornada trazendo consigo nosso Mais novo cliente 
+Arthur rapaz este que seria nosso guia nessa aventura Com apenas um objetivo Ajudar a espalhar o conhecimento
+Entretanto chegamos a um ponto ao qual chegamos a um ponto ao qual o cliente teve de se dividir do grupo, Pensamos 
+e agora? como faremos para interagirmos com nosso guia nessa jornada foi onde apareceu a solução dos nossos problemas 
+alguem disse: "precisamos abrir um canal de comunicação com o cliente!". assim podemos seguir nossa jornada sem que ele esteja 
+presente o tempo todo mas ainda sim conseguirá nos guiar.Todos concordaram com essa ideia e assim seguimos com o canal de comunicação
+aberto com o cliente a cada ciclo lunar ele nos guiava. Então em um desses ciclos lunares (os primeiros na verdade) Arthur nosso cliente 
+nos disse que precisavamos definir bem o que fariamos para então a equipe se dividir em equipes menores e alcançar o objetivo mais rapidamente
+(SCRUM/XP). Assim ficou definido tinhamos os nossos Objetivos em mente os nossos requisistos estavam definidos e nosso cliente disposto a ajudar.
+Partimos então em uma jornada de transcrever ideias e estrategias em requisitos para o projeto. A partir deste ponto precisamos definir uma ordem 
+de execução qual atividade executariamos primeiro pois um passo em falso e seria nosso fim...
+
+
+
+### Unidade 3
+- Replanejar o escopo de um projeto
+- Organizar o Backlog do projeto de diferentes formas (SAFe, PBB e USM)
+- Arrumar o planejamento da equipe
+- Fazer documentação no formato CANVAS
+- Implementação de um fórum de dúvidas
+
+Já no inicio da execução esbarramos num grade inimigo O replanejamento de escopo esse que seria o mais arduo trabalho pois os mais poderosos esforços da 
+equipe falharam perante esta fera. Com um pouco de sorte conseguimos evadir desta complicação em nosso caminho pelo menos momentaneamente Replanejando nossos atos
+e Observando nossas opções e nossos requisitos de outras perspectivas Precisamos ficar "SAFe" em um lugar então construimos um forte de observação chamado Product Baclog Building
+uma torre que nos deu uma perspectiva melhor da situação. Com isso conseguimos arrumar o planejamento da equipe e construimos nossa estrategia de combate que chamamos de 
+User Story Mapping com nossa USM em mãos Sabiamos o que necessitavamos fazer Atualizar nosso mapa que Chamamos de Canvas nele pudemos organizar nossas ideias nossos USM e ate mesmo
+PBB de modo a estarmos tão bem organizados que resolvemos expandir Com a criação de um forúm de duvidas Com nosso forúm de duvidas e nosso Escopo semi replanejados Partimos então para a 
+ultima etapa desta jornada um lugar desafiador e extremamente desconhecido não sabemos o que acontecerá de agora em diante...
 
 ## 5 A MELHORAR
 ### Unidade 1
@@ -225,6 +297,9 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 - Gestão de tempo e tarefas
 - Comunicação da equipe com relação a reuniões e imprevistos
 
+### Unidade 3
+- Gestão de tempo e tarefas
+- Organização da equipe
 
 ## 6 REFERÊNCIAS BIBLIOGRÁFICAS 
 

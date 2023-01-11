@@ -7,7 +7,7 @@
  -->
  Início | Fim | Duração
  ------ | --- | -------
- 07/12/22 | 13/12/22 | 7 dias
+ 07/12/2022 | 14/12/2022 | 7 dias
 
 ## 1.2. Papéis
 <!-- Papeis que cada membro exerceu durante essa sprint -->
@@ -20,12 +20,13 @@ Mestre do Scrum | Giulia | Eduarda, Gian, Helder, Julio, Silas
 
 ## 1.3. Objetivos da Sprint
 <!-- descrever de forma geral o objetivo da sprint -->
-Refinar o Backlog e aprovar o protótipo com o cliente
+* Estudo de bancos de dados mais aprofundado
+* Criação dos protótipos do produto
 
 ## 1.4. Tarefas
 <!-- descrever as issues que definimos para essa sprint e alocar um responsavel por ela -->
 Tarefas | Descrição | Responsáveis
 ------ | --------- | -----------
-Criar a logo e protótipo | criar a logo e o protótipo do MVP1 e validar com o cliente | Eduarda e Giulia
-Estudo de implementação do E1 | Estudar e fazer uma implementação inicial do chat de mensagens |  Gian e Silas
-Documentar Review, Planning e Retrospectiva | Fazer a documentação das sprints e atualização dos documentos | Helder e Júlio
+01 | Documentação | [Giúlia](https://github.com/alcantaragiubs), [Júlio](https://github.com/Julio-eng) e [Helder](https://github.com/F1reFinger)
+02 | Front-end | [Giúlia](https://github.com/alcantaragiubs), [Eduarda](https://github.com/erteduarda) e [Júlio](https://github.com/Julio-eng)
+03 | Back-End | [Gian](https://github.com/GianMedeiros), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres) e [Helder](https://github.com/F1reFinger)

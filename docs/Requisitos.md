@@ -45,7 +45,7 @@ E2|FT04|US13|Eu como usuário gostaria de ser capaz de visualizar as respostas p
 E3|FT05|US14|Eu como usuário gostaria de dar nota para os outros usuários para mudar suas posições no ranking | A quantidade de likes recebidas por pergunta ou resposta <br><br> O usuário não pode atribuir uma nota a si mesmo|Alta
 E3|FT05|US15|Eu como usuário gostaria de visualizar a minha posição no ranking geral para fins de melhora-la| O usuário pode visualizar a nota média dentre todos no ranking, tanto no de perguntas como no de respostas |Alta
 E3|FT06|US16|Eu como usuário gostaria de visualizar as perguntas do fórum conforme a ordem de rankeamento para saber as perguntas mais e menos relevantes| A quantidade de likes recebidas por pergunta<br><br> O usuário não pode atribuir uma nota a si mesmo |Alta
-E3|FT06|US17|Eu como usuário gostaria de avaliar as perguntas e as respostas feitas por outros usuários para fins de nivelamento| O usuário pode dar like ou deslike de forma ilimitada |Alta
+E3|FT06|US17|Eu como usuário gostaria de avaliar as perguntas feitas por outros usuários para fins de nivelamento| O usuário pode dar like ou deslike de forma ilimitada |Alta
 E4|FT07|US18|Eu como usuário gostaria de me cadastrar no sistema para utilizar suas funcionalidades| O cadastro pode ser feito por google e facebook, além do e-mail e senha <br><br> Nome, matrícula, curso, e-mail, telefone, usuário e avatar desejado |Alta
 E4|FT07|US19|Eu como usuário gostaria de visualizar os meus dados cadastrais em uma aba de perfil para poder conferir se as informações estão corretas| Todas as informações utilizadas no cadastro devem estar disponíveis nesta aba |Alta
 E4|FT07|US20|Eu como usuário gostaria de ter a possibilidade de buscar outros usuáiros para caso eu deseje conversar com algum deles diretamente num chat privado| A busca deve ser feita por nome ou e-mail; |Alta
@@ -53,3 +53,7 @@ E4|FT07|US21|Eu como usuário gostaria de editar os dados do meu perfil para cas
 E4|FT07|US22|Eu como usuario gostaria de ter a possibilidade de deltar minha conta para caso não deseje mais utilizá-la| Ao excluir a conta,  todas as atividades do usuário serão excluídas |Alta
 E4|FT08|US23|Eu como usuário gostaria de realizar login com email e senha para adentrar no sistema| O login pode ser feito por google e facebook, além do e-mail e senha |Alta
 E4|FT08|US24|Eu como usuário gostaria de ter a possibilidade de recuperar minha senha através do email caso eu a esqueça| O e-mail deve ser autenticado em até 10 minutos | Alta
+
+# SAFe - Canvas
+
+<iframe width="768" height="432" src="https://miro.com/app/board/uXjVP-ZXHz0=/?share_link_id=277451054040" frameborder="0" scrolling="no" allowfullscreen></iframe>

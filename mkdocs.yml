@@ -3,7 +3,6 @@ site_author: Discipulus - 2022.1 - MDS - FGA - UnB
 copyright: |
   &copy; 2022.1 <a href="https://github.com/mdsreq-fga-unb/2022.2-Dubium"  target="_blank" rel="noopener">Discipulus - MDS - FGA - UnB</a>
 
-
 theme:
   name: material
   language: pt-BR
@@ -16,50 +15,70 @@ theme:
 plugins:
   - mkdocs-video
 
-
 nav:
   - Início: "index.md"
   - Documentação:
-    - Visão do Produto e Projeto: "visao.md"
-    - Backlog de Produto: "Requisitos.md"
-    - MVPS: "mvps.md"
-    - URPS+: "urps.md" 
+      - Visão do Produto e Projeto: "visao.md"
+      - Backlog SAFe: "Requisitos.md"
+      - MVPS: "mvps.md"
+      - URPS+: "urps.md"
+      - PBB & BDD: "pbb.md"
+      - USM: "usm.md"
   - Entregas:
-    - Unidade 1:
-      - Visão Geral do Produto: "entrega-visao.md"
-      - Material do Seminario - OpenUp/AUP: "entrega-seminario.md"
-    - Unidade 2: "entrega-unidade-2.md"
+      - Unidade 1:
+          - Visão Geral do Produto: "entrega-visao.md"
+          - Material do Seminario - OpenUp/AUP: "entrega-seminario.md"
+      - Unidade 2: "entrega-unidade-2.md"
+      - Unidade 3: "entrega-unidade-3.md"
   - Sprints:
-    - Sprint 1:
-      - Planning: "sprints/sprint_01/planning.md"
-      - Review: "sprints/sprint_01/review.md"
-      - Retrospectiva: "sprints/sprint_01/retrospectiva.md"
-    - Sprint 2:
-      - Planning: "sprints/sprint_02/planning.md"
-      - Review: "sprints/sprint_02/review.md"
-      - Retrospectiva: "sprints/sprint_02/retrospectiva.md"
-    - Sprint 3:
-      - Planning: "sprints/sprint_03/planning.md"
-      - Review: "sprints/sprint_03/review.md"
-      - Retrospectiva: "sprints/sprint_03/retrospectiva.md"
-    - Sprint 4:
-      - Planning: "sprints/sprint_04/planning.md"
-      - Review: "sprints/sprint_04/review.md"
-      - Retrospectiva: "sprints/sprint_04/retrospectiva.md"
-    - Sprint 5:
-      - Planning: "sprints/sprint_05/planning.md"
-      - Review: "sprints/sprint_05/review.md"
-      - Retrospectiva: "sprints/sprint_05/retrospectiva.md"
-    - Sprint 6:
-      - Planning: "sprints/sprint_06/planning.md"
-      - Review: "sprints/sprint_06/review.md"
-      - Retrospectiva: "sprints/sprint_06/retrospectiva.md"
-    - Sprint 7:
-      - Planning: "sprints/sprint_07/planning.md"
-      - Review: "sprints/sprint_07/review.md"
-      - Retrospectiva: "sprints/sprint_07/retrospectiva.md"
-  - Protótipos: ""
-
+      - Sprints Backlog:
+          - Kanbam: "trello.md"
+      - Sprint 1:
+          - Planning: "sprints/sprint_01/planning.md"
+          - Review: "sprints/sprint_01/review.md"
+      - Sprint 2:
+          - Planning: "sprints/sprint_02/planning.md"
+          - Review: "sprints/sprint_02/review.md"
+          - Retrospectiva: "sprints/sprint_02/retrospectiva.md"
+      - Sprint 3:
+          - Planning: "sprints/sprint_03/planning.md"
+          - Review: "sprints/sprint_03/review.md"
+      - Sprint 4:
+          - Planning: "sprints/sprint_04/planning.md"
+          - Review: "sprints/sprint_04/review.md"
+          - Retrospectiva: "sprints/sprint_04/retrospectiva.md"
+      - Sprint 5:
+          - Planning: "sprints/sprint_05/planning.md"
+          - Review: "sprints/sprint_05/review.md"
+      - Sprint 6:
+          - Planning: "sprints/sprint_06/planning.md"
+          - Review: "sprints/sprint_06/review.md"
+          - Retrospectiva: "sprints/sprint_06/retrospectiva.md"
+      - Sprint 7:
+          - Planning: "sprints/sprint_07/planning.md"
+          - Review: "sprints/sprint_07/review.md"
+      - Sprint 8:
+          - Planning: "sprints/sprint_08/planning.md"
+          - Review: "sprints/sprint_08/review.md"
+          - Retrospectiva: "sprints/sprint_08/retrospectiva.md"
+      - Sprint 9:
+          - Planning: "sprints/sprint_09/planning.md"
+          - Review: "sprints/sprint_09/review.md"
+      - Sprint 10:
+          - Planning: "sprints/sprint_10/planning.md"
+          - Review: "sprints/sprint_10/review.md"
+          - Retrospectiva: "sprints/sprint_10/retrospectiva.md"
+      - Sprint 11:
+          - Planning: "sprints/sprint_11/planning.md"
+          - Review: "sprints/sprint_11/review.md"
+      - Sprint 12:
+          - Planning: "sprints/sprint_12/planning.md"
+          - Review: "sprints/sprint_12/review.md"
+          - Retrospectiva: "sprints/sprint_12/retrospectiva.md"
+  - Protótipos:
+      - MVP1: "prototipos/prototipos-mvp1.md"
+      - MVP2: "prototipos/prototipos-mvp2.md"
+      
 
 repo_url: https://github.com/mdsreq-fga-unb/2022.2-Dubium
 repo_name: 2022.2-Dubium
