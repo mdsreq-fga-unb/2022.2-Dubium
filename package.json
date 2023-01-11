@@ -1,0 +1,23 @@
+{
+  "name": "2022.2-dubium",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\"> Discipulus </h1> <h3 align=\"center\"> 2022.2 </h3>",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdsreq-fga-unb/2022.2-Dubium.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdsreq-fga-unb/2022.2-Dubium/issues"
+  },
+  "homepage": "https://github.com/mdsreq-fga-unb/2022.2-Dubium#readme"
+}
