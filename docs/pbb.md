@@ -88,29 +88,30 @@
 
 ## CENÁRIO 1: US04
 ### TÍTULO: Dúvida a ser respondida
-* Dado que a pergunta feita possui caracteres válidos e seja feita por um usuário cadastrado.
-* Quando o aluno enviar sua pergunta.
-* Então, a pergunta deverá ser subida para o fórum.
+* Dado que a pergunta feita: "Como resolver a integral (4x+3)dx?" possui caracteres válidos, seja colocada no topico engenharias, marcada na materia "Calculo 1" e seja feita por um usuário cadastrado.
+* Quando o aluno enviar a pergunta: "Como resolver a integral (4x+3)dx?".
+* Então, a pergunta: "Como resolver a integral (4x+3)dx?" deverá ser subida para o fórum.
 
 ## CENÁRIO 2: US09
 ### TÍTULO: Resposta da pergunta feita
-* Dado que a pergunta feita exista, possua caracteres válidos e não tenha sido feita pelo próprio usuário.
-* Quando o aluno enviar sua resposta. Então, a resposta deverá ser subida para o fórum abaixo da pergunta feita.
+* Dado que a pergunta feita: "Qual o resultado da integral (4x+3)dx?" exista e possua caracteres válidos.
+* Quando o aluno cadastrado enviar a resposta: "2x^2 + 3x + C é o resultado".
+* Então, a resposta: "2x^2 + 3x + C é o resultado" deverá ser subida para o fórum abaixo da pergunta feita.
 
 ## CENÁRIO 3: US03
 ### TÍTULO: Visualizar pergunta disponível
-* Dado que a pergunta feita faz parte de uma lista e seja aberta sozinha numa nova página.
-* Quando o aluno clicar na pergunta.
-* Então, o sistema deverá exibir a pergunta que o aluno selecionar.
+* Dado que a pergunta: "Preciso de ajuda na questão Soma de dois números de FAC. Alguém pode me ajudar? SomaDosNumeros.pdf" feita faz parte de uma lista e seja aberta sozinha numa nova página.
+* Quando o aluno cadastrado clicar na pergunta.
+* Então, a pergunta: "Preciso de ajuda na questão Soma de dois números de FAC. Alguém pode me ajudar? SomaDosNumeros.pdf" deverá ser exibida destacada.
 
 ## CENÁRIO 4: US01
 ### TÍTULO: Perguntas mais votadas
-* Dado que as perguntas estejam na tag correspondente e dentro do seu respectivo tema.
-* Quando o professor clicar para buscar perguntas por tema de matéria.
-* Então, o sistema deve exibir as perguntas mais votadas feitas pelos alunos.
+* Dado que as perguntas: "Como criar um USM completo?", "Como definir as funcionalidades de um PBB?" e "O que é um BDD?" estejam na tag:"Requisitos de Software" e dentro da sua respectiva materia: "Engenharia de software".
+* Quando o professor George Marscicano clicar para buscar perguntas de "Requisitos de Software".
+* Então, as perguntas: "Como criar um USM completo?", "Como definir as funcionalidades de um PBB?" e "O que é um BDD?" estejam na tag:"Requisitos de Software" deverão ser exibidas ordem crescente de votos.
 
 ## CENÁRIO 5: US06
 ### TÍTULO: Criar aviso de monitoria
-* Dado que o aviso possua um filtro para notificar que é um aviso.
-* Quando o aluno monitor escrever um aviso.
-* Então, o sistema deverá postar no fórum o aviso criado.
+* Dado que o aviso: "Monitoria de Engenharia e Ambiente do professor Scardua dia 26/02 na sala I8" possua um filtro para notificar que é um aviso.
+* Quando o aluno monitor escrever o aviso: "Monitoria de Engenharia e Ambiente do professor Scardua dia 26/02 na sala I8".
+* Então, o aviso: "Monitoria de Engenharia e Ambiente do professor Scardua dia 26/02 na sala I8" deverá ser postado no fórum.
