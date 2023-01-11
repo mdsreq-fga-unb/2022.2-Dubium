@@ -1,12 +1,11 @@
-import { useForm } from "react-hook-form";
 import "./style.css";
-import { forumData } from "../Sidebar/data";
-import jose from "../../../assets/images/jose.webp";
-import janderson from "../../../assets/images/janderson.jpg";
-import maria from "../../../assets/images/maria.jpg";
-import { Link } from "react-router-dom";
-import apiRequest from "../../../services/api";
+
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+
+import { forumData } from "../Sidebar/data";
+
+import apiRequest from "../../../services/api";
 
 export default function FormularioPergunta(props) {
   const [usuario, setUsuarios] = useState([]);
@@ -15,7 +14,6 @@ export default function FormularioPergunta(props) {
     apiRequest
       .get("usuarios")
       .then((response) => {
-        console.log("teste");
         setUsuarios(response.data);
       })
       .catch((err) => {
@@ -30,14 +28,9 @@ export default function FormularioPergunta(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    props.setIsFormOpen(false);
-
     let indexEngenharia;
 
     switch (data.engenharia) {
-      case "INÍCIO":
-        indexEngenharia = 0;
-        break;
       case "ENGENHARIAS":
         indexEngenharia = 1;
         break;
@@ -58,30 +51,22 @@ export default function FormularioPergunta(props) {
         break;
     }
 
-    console.log(data.usuarios);
-
     let novaPergunta = {
       id_usuario: data.usuarios,
       tituloPergunta: data.titulo,
       id_cursoPergunta: indexEngenharia,
       corpoPergunta: data.textoPergunta,
+      filtro: data.filtro,
+      arquivo: data.midia,
       votosTotais: 0,
     };
-
     apiRequest.post("perguntas", novaPergunta);
+
+    props.setIsFormOpen(false);
   };
 
   return (
     <div className="form-card">
-      <div>
-        <select name="usuarios" {...register("usuarios")}>
-          {usuario.map((data, index) => (
-            <option value={data.id} key={index} className="opcao-engenharia">
-              {data.nome_completo}
-            </option>
-          ))}
-        </select>
-      </div>
       {/* <div className="usuario-pergunta">
         <div className="usuario-informacao-texto">
         <span>{usuario.nome_completo}</span>
@@ -89,6 +74,19 @@ export default function FormularioPergunta(props) {
         </div>
       </div> */}
       <form action="" onSubmit={handleSubmit(onSubmit)} className="formulario">
+        <select
+          name="usuarios"
+          {...register("usuarios")}
+          required
+          className="engenharia-input"
+          style={{ width: "23.3%" }}
+        >
+          {usuario.map((data, index) => (
+            <option value={data.id} key={index}>
+              {data.nome_completo}
+            </option>
+          ))}
+        </select>
         <div className="group-input">
           <input
             type="text"
@@ -101,17 +99,29 @@ export default function FormularioPergunta(props) {
             name="engenharia"
             {...register("engenharia")}
             className="engenharia-input"
+            required
           >
-            {forumData.map((data, index) => (
-              <option
-                value={data.name}
-                key={index}
-                className="opcao-engenharia"
-              >
-                {data.name}
-              </option>
-            ))}
+            {forumData.map(
+              (data, index) =>
+                index != 0 && (
+                  <option
+                    value={data.name}
+                    key={index}
+                    className="opcao-engenharia"
+                  >
+                    {data.name}
+                  </option>
+                )
+            )}
           </select>
+          <input
+            type="text"
+            name="filtro"
+            {...register("filtro")}
+            className="filtro-input"
+            placeholder="Matéria"
+            required
+          />
         </div>
         <textarea
           name="textoPergunta"
@@ -121,9 +131,11 @@ export default function FormularioPergunta(props) {
           {...register("textoPergunta")}
           className="texto-pergunta"
           placeholder="Pergunta"
+          maxLength={1000}
+          required
         ></textarea>
         {/* <div className="file-input">
-          <input type="file" name="imagem" {...register("imagem")} />
+          <input type="file" name="arquivo" {...register("arquivo")} />
         </div> */}
         <div className="group-input" style={{ justifyContent: "center" }}>
           <button type="submit" className="botao-geral">

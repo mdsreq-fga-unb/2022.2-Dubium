@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { UsuariosService } from './usuarios.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { Usuario } from './entities/usuario.entity';
+import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 
 @Controller('usuarios')
 export class UsuariosController {
@@ -10,6 +11,16 @@ export class UsuariosController {
   @Post()
   create(@Body() createUsuarioDto: CreateUsuarioDto) {
     return this.service.create(createUsuarioDto);
+  }
+
+  // @Patch(':id')
+  // updateUsuario(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
+  //   return this.service.updateUsuario(+id, updateUsuarioDto);
+  // }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    return this.service.remove(+id);
   }
 
   @Get()
@@ -22,18 +33,12 @@ export class UsuariosController {
     return this.service.findUsuarioById(+id);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.service.remove(+id);
+  @Patch(':id')
+  updateMaisVotosUsuario(@Param('id') id: string) {
+    return this.service.updateMaisVotosUsuario(+id);
   }
-
-  // @Patch(':id')
-  // updateVotosUsuario(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-  //   return this.service.updateVotosUsuario(+id, updateUserDto);
-  // }
-
-  @Get('ranking')
-  async rankingUsuarios(): Promise<Usuario[]> {
-    return this.service.rankingUsuarios();
+  @Patch('/menos/:id')
+  updateMenosVotosUsuario(@Param('id') id: string) {
+    return this.service.updateMenosVotosUsuario(+id);
   }
 }

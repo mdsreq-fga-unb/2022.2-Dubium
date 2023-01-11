@@ -22,10 +22,10 @@ export class PerguntasController {
     return this.service.findAll();
   }
 
-  // @Get('/usuario/:id_usuario')
-  // async findAllByUsuario(@Param('id_usuario') id_usuario: number): Promise<Pergunta[]> {
-  //   return this.service.findAllByUsuario(id_usuario);
-  // }
+  @Get('/usuario/:id_usuario')
+  async findAllByUsuario(@Param('id_usuario') id_usuario: number): Promise<Pergunta[]> {
+    return this.service.findAllByUsuario(id_usuario);
+  }
 
   @Get('/curso/:id_cursoPergunta')
   async findAllByCurso(@Param('id_cursoPergunta') id_cursoPergunta: number): Promise<Pergunta[]> {
@@ -37,8 +37,13 @@ export class PerguntasController {
     return this.service.remove(+id);
   }
 
-  // @Patch(':id')
-  // updateVotosPergunta(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-  //   return this.service.updateVotosPergunta(+id, updateUserDto);
-  // }
+  @Patch(':id')
+  updateMaisVotosPergunta(@Param('id') id: string) {
+    return this.service.updateMaisVotosPergunta(+id);
+  }
+
+  @Patch('/menos/:id')
+  updateMenosVotosPergunta(@Param('id') id: string) {
+    return this.service.updateMenosVotosPergunta(+id);
+  }
 }

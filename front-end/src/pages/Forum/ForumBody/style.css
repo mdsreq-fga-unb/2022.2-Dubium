@@ -21,7 +21,7 @@
 }
 
 .criar-pergunta button:hover {
-  background-color: #125d89;
+  background-color: #0f4a6d;
 }
 
 .card-pergunta {
@@ -35,8 +35,11 @@
 }
 
 .card-pergunta svg {
-  color: #ffa722;
   width: 16px;
+}
+
+.card-pergunta:hover {
+  background-color: #eeeeee;
 }
 
 .usuario-pergunta {
@@ -67,6 +70,7 @@
   flex-direction: row;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 }
 
 .card-resposta {

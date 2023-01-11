@@ -28,6 +28,8 @@ export class PerguntasService {
       pergunta.tituloPergunta = data.tituloPergunta;
       pergunta.corpoPergunta = data.corpoPergunta;
       pergunta.id_cursoPergunta = data.id_cursoPergunta;
+      pergunta.midia = data.midia;
+      pergunta.filtro = data.filtro;
       pergunta.votosTotais = data.votosTotais;
       return this.perguntasRepository.save(pergunta);
     }
@@ -43,7 +45,7 @@ export class PerguntasService {
       where: {id},
       relations: {
         usuario: true,
-      },
+      }
     });
   }
 
@@ -58,9 +60,15 @@ export class PerguntasService {
     });
   }
 
-  // async findAllByUsuario(id_usuario: number){
-  //   return await this.perguntasRepository.find({where: {id_usuario}});
-  // }
+  async findAllByUsuario(id_usuario: number){
+    const usuario = await this.usuarioService.findUsuarioById(id_usuario)
+    return await this.perguntasRepository.find({
+      where: {usuario},
+      relations: {
+        usuario: true
+      }
+    });
+  }
 
   async findAllByCurso(id_cursoPergunta: number){
     return await this.perguntasRepository.find({
@@ -78,8 +86,27 @@ export class PerguntasService {
     return await this.perguntasRepository.delete(id);
   }
 
-  async updateVotosPergunta(){
-    //findPerguntaById pra achar o id da pergunta que ta atualizando
-    //update - votosTotais
+  async updateMaisVotosPergunta(id: number){
+
+    return await this.perguntasRepository
+    .createQueryBuilder()
+    .update(Pergunta)
+    .set({
+      votosTotais: () => "votosTotais + 1"
+    })
+    .where({id})
+    .execute()
+  }
+
+  async updateMenosVotosPergunta(id: number){
+
+    return await this.perguntasRepository
+    .createQueryBuilder()
+    .update(Pergunta)
+    .set({
+      votosTotais: () => "votosTotais - 1"
+    })
+    .where({id})
+    .execute()
   }
 }

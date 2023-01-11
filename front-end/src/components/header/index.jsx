@@ -5,7 +5,12 @@ import logo from "../../assets/images/logo.jpg";
 import bichinho from "../../assets/images/bichinho.png";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
+  const handleChange = (e) => {
+    e.preventDefault();
+    props.setMateriaPesquisada(e.target.value);
+  };
+
   return (
     <header className="header">
       <Link to="/" className="logo">
@@ -16,6 +21,9 @@ function Header() {
           <Link to="/">FÓRUM</Link>
         </li>
         <li className="item">
+          <Link to="/ranking-usuarios">USUARIOS</Link>
+        </li>
+        <li className="item">
           <Link to="/chat">CHAT</Link>
         </li>
         <li className="item">
@@ -24,7 +32,11 @@ function Header() {
       </ul>
       <div className="pesquisa">
         <SearchIcon />
-        <input type="text" placeholder="BUSCAR" />
+        <input
+          type="text"
+          placeholder="BUSCAR POR MATÉRIA"
+          onChange={handleChange}
+        />
       </div>
       <div className="input">
         <Link to="/">SAIR</Link>

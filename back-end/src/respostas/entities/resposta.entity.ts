@@ -1,24 +1,28 @@
 import { Pergunta } from "src/perguntas/entities/pergunta.entity";
 import { Usuario } from "src/usuarios/entities/usuario.entity";
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from "typeorm";
 
 @Entity()
 export class Resposta {
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column()
-    id_usuario: number;
-
-    @Column()
-    id_pergunta: number;
-
+    
     @Column({ length: 1000 })
     corpoResposta: string;
 
-    @ManyToOne(() => Usuario, usuario => usuario.resposta)
-    usuario: Usuario[];
+    @Column({nullable:true})
+    midia: string;
 
-    @ManyToOne(() => Pergunta, pergunta => pergunta.resposta)
-    pergunta: Pergunta[];
+    @CreateDateColumn()
+    create_at: Date;
+
+    @ManyToOne(() => Usuario, usuario => usuario.resposta, {
+        onDelete: 'CASCADE'
+    })
+    usuario: Usuario;
+
+    @ManyToOne(() => Pergunta, pergunta => pergunta.resposta, {
+        onDelete: 'CASCADE'
+    })
+    pergunta: Pergunta;
 }

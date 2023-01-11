@@ -1,9 +1,8 @@
 import "./style.css";
 
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import handleCurso from "../../../services/curso";
+
 import StarIcon from "@mui/icons-material/Star";
-import { useEffect, useState } from "react";
-import apiRequest from "../../../services/api";
 
 export default function ForumBody(props) {
   return (
@@ -32,14 +31,15 @@ export default function ForumBody(props) {
                 />
               </div> */}
               <div className="usuario-informacao-texto">
+                <span>{pergunta.usuario.fotoPerfil}</span>
                 <span>{pergunta.usuario.nome_completo}</span>
-                <span>{pergunta.usuario.curso}</span>
+                <span>{handleCurso(pergunta.usuario.curso)}</span>
               </div>
             </div>
             <div>{pergunta.tituloPergunta}</div>
             <div>{pergunta.corpoPergunta}</div>
             <div className="like-comentario">
-              <StarIcon />
+              <StarIcon style={{ color: "#ffa722" }} />
               <span>{pergunta.votosTotais} favoritos</span>
             </div>
           </div>
