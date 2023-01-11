@@ -1,0 +1,14 @@
+.sobre{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-top: 20px;
+    width: 80%;
+}
+.texto{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
