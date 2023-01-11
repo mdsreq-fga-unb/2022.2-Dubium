@@ -4,6 +4,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { IconButton } from "@mui/material";
 import { useEffect, useState } from "react";
 import apiRequest from "../../services/api";
+import handleCurso from "../../services/curso";
 
 export default function (props) {
   const [usuario, setUsuario] = useState({});
@@ -28,39 +29,10 @@ export default function (props) {
       .then((response) => {});
   }
 
-  function handleCurso(curso) {
-    let nomeCurso;
-
-    switch (curso) {
-      case 1:
-        nomeCurso = "Engenharias";
-        break;
-      case 2:
-        nomeCurso = "Engenharia Aeroespacial";
-        break;
-      case 3:
-        nomeCurso = "Engenharia Automotiva";
-        break;
-      case 4:
-        nomeCurso = "Engenharia Eletrônica";
-        break;
-      case 5:
-        nomeCurso = "Engenharia de Energia";
-        break;
-      case 6:
-        nomeCurso = "Engenharia Software";
-        break;
-
-      default:
-        break;
-    }
-
-    return nomeCurso;
-  }
-
   return (
     <ul className="ranking-usuario">
       <li className="usuario-ranqueado">
+        <span>{usuario.fotoPerfil}</span>
         <span>{usuario.nome_completo}</span>
         <span>{handleCurso(usuario.curso)}</span>
         <div

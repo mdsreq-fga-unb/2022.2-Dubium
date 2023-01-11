@@ -16,6 +16,9 @@ export class Usuario {
     curso: number;
 
     @Column()
+    fotoPerfil: string;
+
+    @Column()
     votosTotais: number;
 
     @OneToMany(() => Pergunta, pergunta => pergunta)

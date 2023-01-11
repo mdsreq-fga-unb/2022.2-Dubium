@@ -9,4 +9,8 @@ export class UpdateUsuarioDto {
     @IsNumber()
     @IsNotEmpty()
     curso: string;
+
+    @IsString()
+    @IsOptional()
+    fotoPerfil: string
 }

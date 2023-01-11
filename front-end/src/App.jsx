@@ -13,29 +13,29 @@ import PerfilUsuario from "./components/PerfilUsuario";
 
 function App() {
   const [idUsuario, setIdUsuario] = useState();
-
-  console.log(idUsuario);
+  const [materiaPesquisada, setMateriaPesquisada] = useState("");
 
   return (
-    <div className="body-app">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Forum />} />
-          <Route path="/formulario-pergunta" element={<FormularioPergunta />} />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/ranking-usuarios"
-            element={<RankingUsuarios setIdUsuario={setIdUsuario} />}
-          />
-          <Route
-            path="/usuario"
-            element={<PerfilUsuario idUsuario={idUsuario} />}
-          />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
+    <Router>
+      <Header setMateriaPesquisada={setMateriaPesquisada} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Forum materiaPesquisada={materiaPesquisada} />}
+        />
+        <Route path="/formulario-pergunta" element={<FormularioPergunta />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/ranking-usuarios"
+          element={<RankingUsuarios setIdUsuario={setIdUsuario} />}
+        />
+        <Route
+          path="/usuario"
+          element={<PerfilUsuario idUsuario={idUsuario} />}
+        />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

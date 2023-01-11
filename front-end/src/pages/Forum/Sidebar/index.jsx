@@ -22,8 +22,6 @@ const Sidebar = (props) => {
             setElementoSidebar(index);
             props.setIsPerguntaOpen(false);
             props.setIsFormOpen(false);
-            props.setIsRankingOpen(false)
-            props.setIsUsuarioOpen(false)
           }}
         >
           {data.icon}

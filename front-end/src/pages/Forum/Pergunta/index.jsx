@@ -1,20 +1,28 @@
 import "./style.css";
-import { useEffect, useState } from "react";
 
-import apiRequest from "../../../services/api";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import StarIcon from "@mui/icons-material/Star";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { IconButton } from "@mui/material";
+import apiRequest from "../../../services/api";
+import handleCurso from "../../../services/curso";
+
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import SendIcon from '@mui/icons-material/Send';
+import DeleteIcon from "@mui/icons-material/Delete";
+import StarIcon from "@mui/icons-material/Star";
+import SendIcon from "@mui/icons-material/Send";
+import { IconButton } from "@mui/material";
 
 export default function Pergunta(props) {
-  const [favorito, setFavorito] = useState(false);
-  const [comentar, setComentar] = useState(false);
   const [usuario, setUsuarios] = useState([]);
   const [respostas, setRespostas] = useState([]);
+  const [favorito, setFavorito] = useState(false);
+  const [comentar, setComentar] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     apiRequest
@@ -38,12 +46,6 @@ export default function Pergunta(props) {
       });
   }, []);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
   function deletePergunta() {
     apiRequest.delete(`perguntas/${props.perguntaSelecionada.id}`).then(() => {
       alert("Post deleted!");
@@ -58,56 +60,24 @@ export default function Pergunta(props) {
           ? `perguntas/menos/${props.perguntaSelecionada.id}`
           : `perguntas/${props.perguntaSelecionada.id}`
       )
-      .then((response) => { });
+      .then((response) => {});
   }
 
   const onSubmit = (data) => {
-
     let novaResposta = {
       id_usuario: data.usuarios,
-      id_pergunta: data.perguntaSelecionada.id,
-      corpoResposta: data.textoResposta
+      id_pergunta: props.perguntaSelecionada.id,
+      corpoResposta: data.resposta,
     };
 
     apiRequest.post("respostas", novaResposta);
-
-    props.setIsFormOpen(true);
   };
-
-  function handleCurso(curso) {
-    let nomeCurso;
-
-    switch (curso) {
-      case 1:
-        nomeCurso = "Engenharias";
-        break;
-      case 2:
-        nomeCurso = "Engenharia Aeroespacial";
-        break;
-      case 3:
-        nomeCurso = "Engenharia Automotiva";
-        break;
-      case 4:
-        nomeCurso = "Engenharia Eletrônica";
-        break;
-      case 5:
-        nomeCurso = "Engenharia de Energia";
-        break;
-      case 6:
-        nomeCurso = "Engenharia Software";
-        break;
-
-      default:
-        break;
-    }
-
-    return nomeCurso;
-  }
 
   return (
     <div className="card-pergunta pergunta-selecionada">
       <div className="usuario-informacao-texto">
         <div className="delete">
+          {/* <span>{props.perguntaSelecionada.usuario.fotoPerfil}</span> */}
           <span>{props.perguntaSelecionada.usuario.nome_completo}</span>
           <IconButton style={{ width: "20" }} onClick={deletePergunta}>
             <DeleteIcon />
@@ -142,68 +112,55 @@ export default function Pergunta(props) {
       </ul>
       {comentar && (
         <div>
-          <div>
-            <select name="usuarios" {...register("usuarios")}>
+          <form
+            action=""
+            onSubmit={handleSubmit(onSubmit)}
+            className="formulario"
+          >
+            <select
+              name="usuarios"
+              {...register("usuarios")}
+              style={{ padding: "5px", width: "15%" }}
+            >
               {usuario.map((data, index) => (
-                <option value={data.id} key={index} className="opcao-engenharia">
+                <option
+                  value={data.id}
+                  key={index}
+                  className="opcao-engenharia"
+                >
                   {data.nome_completo}
                 </option>
               ))}
             </select>
-
-          </div>
-
-          <textarea
-            name=""
-            id=""
-            cols="30"
-            rows="2"
-            placeholder="Comentar"
-            className="comentar"
-          ></textarea>
-          <IconButton>
-            <SendIcon className="comentario" onSubmit={handleSubmit(onSubmit)} />
-          </IconButton>
+            <div>
+              <textarea
+                name="resposta"
+                {...register("resposta")}
+                cols="30"
+                rows="2"
+                placeholder="Comentar"
+                className="comentar"
+                maxLength={500}
+              ></textarea>
+              <IconButton type="submit">
+                <SendIcon className="comentario" />
+              </IconButton>
+            </div>
+          </form>
         </div>
       )}
-      <div className="resposta">
+      <ul className="resposta">
         {respostas.map((data, index) => (
-          <option value={data.id} key={index}>
-            {data.usuario.nome_completo}
-            {data.usuario.curso}
-            {data.corpoResposta}
-          </option>
-        ))}
-      </div>
-
-      {/* {props.pergunta.respostas.map((resposta, index) => {
-        return (
-          <div className="resposta">
+          <li value={data.id} key={index} className="teste">
             <div className="usuario-informacao-texto">
-              <span>{resposta.userResposta.nome}</span>
-              <span>{resposta.userResposta.curso}</span>
+              {/* <span>{data.usuario.fotoPerfil}</span> */}
+              <span>{data.usuario.nome_completo}</span>
+              <span>{handleCurso(data.usuario.curso)}</span>
             </div>
-            <div>{resposta.textoResposta}</div>
-            <ul className="container-resposta-interacao">
-              <li className="item-interacao">
-                <StarIcon />
-                <span>Favoritar</span>
-              </li>
-              <li className="item-interacao">
-                <QuestionAnswerIcon />
-                <span
-                  onClick={() => {
-                    props.setIsPerguntaOpen(true);
-                    props.setIndexPergunta(index);
-                  }}
-                >
-                  Responder
-                </span>
-              </li>
-            </ul>
-          </div>
-        );
-      })} */}
+            <span>{data.corpoResposta}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

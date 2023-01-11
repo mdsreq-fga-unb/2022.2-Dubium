@@ -16,13 +16,18 @@ export class Pergunta {
     @Column()
     id_cursoPergunta: number;
 
-    @Column()
+    @Column({nullable:true})
+    filtro: string;
+
+    @Column({nullable:true})
     midia: string;
 
-    @Column()
+    @Column({default: 0})
     votosTotais: number;
 
-    @ManyToOne(() => Usuario, usuario => usuario.pergunta)
+    @ManyToOne(() => Usuario, usuario => usuario.pergunta, {
+        onDelete: 'CASCADE'
+    })
     usuario: Usuario;
 
     @OneToMany(() => Resposta, resposta => resposta)

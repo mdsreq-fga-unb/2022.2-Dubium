@@ -11,4 +11,7 @@ export class CreateRespostaDto {
     @MaxLength(500)
     @IsNotEmpty()
     corpoResposta: string;
+
+    @IsOptional()
+    midia: string;
 }

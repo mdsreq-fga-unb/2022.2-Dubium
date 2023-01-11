@@ -30,6 +30,7 @@ export class RespostasService {
       resposta.pergunta = pergunta;
       resposta.usuario = usuario;
       resposta.corpoResposta = data.corpoResposta;
+      resposta.midia = data.midia;
       return this.respostaRepository.save(resposta);
     }
     catch(error) {

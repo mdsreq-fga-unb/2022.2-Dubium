@@ -10,12 +10,19 @@ export class Resposta {
     @Column({ length: 1000 })
     corpoResposta: string;
 
+    @Column({nullable:true})
+    midia: string;
+
     @CreateDateColumn()
     create_at: Date;
 
-    @ManyToOne(() => Usuario, usuario => usuario.resposta)
+    @ManyToOne(() => Usuario, usuario => usuario.resposta, {
+        onDelete: 'CASCADE'
+    })
     usuario: Usuario;
 
-    @ManyToOne(() => Pergunta, pergunta => pergunta.resposta)
+    @ManyToOne(() => Pergunta, pergunta => pergunta.resposta, {
+        onDelete: 'CASCADE'
+    })
     pergunta: Pergunta;
 }

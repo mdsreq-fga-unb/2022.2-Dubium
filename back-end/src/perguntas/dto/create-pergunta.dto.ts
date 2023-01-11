@@ -15,6 +15,9 @@ export class CreatePerguntaDto {
     @IsNotEmpty()
     id_cursoPergunta: number;
 
+    @IsNotEmpty()
+    filtro: string;
+
     @IsOptional()
     midia: string;
 

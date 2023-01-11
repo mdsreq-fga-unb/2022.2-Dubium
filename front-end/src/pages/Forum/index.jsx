@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react";
-import ForumBody from "./ForumBody";
 import "./style.css";
-import Sidebar from "./Sidebar";
+
+import { useEffect, useState, useContext } from "react";
+
 import FormularioPergunta from "./FormularioPergunta";
+import ForumBody from "./ForumBody";
 import Pergunta from "./Pergunta";
-import apiRequest from "../../services/api";
-import { useContext } from "react";
+import Sidebar from "./Sidebar";
+
 import SidebarContext from "../../context/SidebarProvider";
 
-export default function Forum() {
+import apiRequest from "../../services/api";
+
+export default function Forum(props) {
   const [arrayPerguntas, setArrayPerguntas] = useState([]);
-  const [isFormOpen, setIsFormOpen] = useState(false);
   const [isPerguntaOpen, setIsPerguntaOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [indexPergunta, setIndexPergunta] = useState();
 
   const { elementoSidebar } = useContext(SidebarContext);
@@ -33,19 +36,42 @@ export default function Forum() {
       });
   }, [elementoSidebar, isFormOpen, isPerguntaOpen]);
 
+  const perguntasFiltradas = arrayPerguntas.filter(
+    (e) =>
+      e.filtro
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .startsWith(
+          props.materiaPesquisada
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+        ) ||
+      // eslint-disable-next-line eqeqeq
+      e.filtro
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase() ==
+        props.materiaPesquisada
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+  );
+
   const handleComponent = () => {
     if (isFormOpen) {
       return (
         <FormularioPergunta
           setIsFormOpen={setIsFormOpen}
-          perguntas={arrayPerguntas}
+          perguntas={perguntasFiltradas}
           setPerguntas={setIndexPergunta}
         />
       );
     } else if (isPerguntaOpen) {
       return (
         <Pergunta
-          perguntaSelecionada={arrayPerguntas[indexPergunta]}
+          perguntaSelecionada={perguntasFiltradas[indexPergunta]}
           setIndexPergunta={setIndexPergunta}
           setIsPerguntaOpen={setIsPerguntaOpen}
         />
@@ -53,7 +79,7 @@ export default function Forum() {
     } else {
       return (
         <ForumBody
-          perguntas={arrayPerguntas}
+          perguntas={perguntasFiltradas}
           setIsFormOpen={setIsFormOpen}
           setIsPerguntaOpen={setIsPerguntaOpen}
           setIndexPergunta={setIndexPergunta}

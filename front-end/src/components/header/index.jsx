@@ -5,7 +5,12 @@ import logo from "../../assets/images/logo-dubium.png";
 import { Link } from "react-router-dom";
 import bichinho from "../../assets/images/question-sem-fundo.png";
 
-function Header() {
+function Header(props) {
+  const handleChange = (e) => {
+    e.preventDefault();
+    props.setMateriaPesquisada(e.target.value);
+  };
+
   return (
     <header className="header">
       <Link to="/" className="logo">
@@ -27,7 +32,11 @@ function Header() {
       </ul>
       <div className="pesquisa">
         <SearchIcon />
-        <input type="text" placeholder="BUSCAR" />
+        <input
+          type="text"
+          placeholder="BUSCAR POR MATÉRIA"
+          onChange={handleChange}
+        />
       </div>
       <div className="input">
         <Link to="/">SAIR</Link>
