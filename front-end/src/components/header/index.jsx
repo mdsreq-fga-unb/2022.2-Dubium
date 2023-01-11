@@ -2,6 +2,7 @@ import "./style.css";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import logo from "../../assets/images/logo.jpg";
+import bichinho from "../../assets/images/bichinho.png";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -29,6 +30,7 @@ function Header() {
         <Link to="/">SAIR</Link>
         <LogoutIcon />
       </div>
+      <div className="fundo-bichinho"><img src={bichinho} alt="bichinho" className="bichinho"/></div>
     </header>
   );
 }

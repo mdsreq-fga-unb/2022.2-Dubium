@@ -17,6 +17,18 @@
   height: inherit;
 }
 
+.bichinho {
+  width: auto;
+  height: auto;
+}
+
+.fundo-bichinho {
+  width: auto;
+  height: inherit;
+  display: flex;
+  justify-content: end;
+}
+
 .list {
   display: flex;
   align-items: center;
