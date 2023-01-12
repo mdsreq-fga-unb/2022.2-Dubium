@@ -42,7 +42,7 @@ function Header(props) {
         <Link to="/">SAIR</Link>
         <LogoutIcon />
       </div>
-      <img src={bichinho} alt="bichinho" className="logo" />
+      <img src={bichinho} alt="bichinho" className="fundo-bichinho" />
     </header>
   );
 }
