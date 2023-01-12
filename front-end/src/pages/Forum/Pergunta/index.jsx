@@ -40,16 +40,20 @@ export default function Pergunta(props) {
       .get(`respostas/pergunta/${props.perguntaSelecionada.id}`)
       .then((response) => {
         setRespostas(response.data);
+        console.log("qualquer");
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, []);
+  }, [comentar]);
 
   function deletePergunta() {
-    apiRequest.delete(`perguntas/${props.perguntaSelecionada.id}`).then(() => {
-      alert("Post deleted!");
-    });
+    apiRequest
+      .delete(`perguntas/${props.perguntaSelecionada.id}`)
+      .then(() => {
+        alert("Pergunta deletada!");
+      })
+      .catch((error) => console.log(error));
     props.setIsPerguntaOpen(false);
   }
 
@@ -63,14 +67,18 @@ export default function Pergunta(props) {
       .then((response) => {});
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     let novaResposta = {
       id_usuario: data.usuarios,
       id_pergunta: props.perguntaSelecionada.id,
       corpoResposta: data.resposta,
     };
 
-    apiRequest.post("respostas", novaResposta);
+    await apiRequest
+      .post("respostas", novaResposta)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+    setComentar(!comentar);
   };
 
   return (

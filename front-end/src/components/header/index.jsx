@@ -18,6 +18,9 @@ function Header() {
         <li className="item">
           <Link to="/ranking-usuarios">USUARIOS</Link>
         </li>
+        {/* <li className="item">
+          <Link to="/chat">CHAT</Link>
+        </li> */}
         <li className="item">
           <Link to="/about">SOBRE</Link>
         </li>
