@@ -78,6 +78,7 @@ export default function Pergunta(props) {
       .post("respostas", novaResposta)
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
+
     setComentar(!comentar);
   };
 
