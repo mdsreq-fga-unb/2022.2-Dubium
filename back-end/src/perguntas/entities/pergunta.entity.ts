@@ -32,4 +32,16 @@ export class Pergunta {
 
     @OneToMany(() => Resposta, resposta => resposta)
     resposta: Resposta[];
+
+    constructor(pergunta?:Partial<Pergunta>){
+        this.id = pergunta?.id;
+        this.corpoPergunta = pergunta?.corpoPergunta;
+        this.filtro = pergunta?.filtro;
+        this.id_cursoPergunta = pergunta?.id_cursoPergunta;
+        this.midia = pergunta?.midia;
+        this.resposta = pergunta?.resposta;
+        this.tituloPergunta = pergunta?.tituloPergunta;
+        this.usuario = pergunta?.usuario;
+        this.votosTotais = pergunta?.votosTotais;
+    }
 }
