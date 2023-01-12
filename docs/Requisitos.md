@@ -21,8 +21,8 @@ E1|FT01|Gerenciar mensagens
 E1|FT02|Gerenciar historico de conversas
 E2|FT03|Gerenciar perguntas
 E2|FT04|Gerenciar respostas
-E3|FT05|Estabelecer ranking
-E3|FT06|Gerenciar rankeamento de usuários
+E3|FT05|Gerenciar rankeamento de usuários
+E3|FT06|Gerenciar rankeamento de perguntas
 E4|FT07|Gerenciar  usuarios
 E4|FT08|Gerenciar autenticação de dados do usuario
 
@@ -42,10 +42,10 @@ E2|FT03|US10|Eu como usuário gostaria de pesquisar perguntas por tema ou usuár
 E2|FT03|US11|Eu como usuário gostaria de poder deletar as minhas perguntas para caso de escrita incorreta| A exclusão pode ser feita a qualquer momento sem limite de tempo após sua publicação <br><br> Somente o autor da pergunta pode apagá-la | Alta
 E2|FT04|US12|Eu como usuário gostaria de poder responder todas as perguntas disponibilizadas no forum para fins de ajudar outros usuarios| Caracteres especiais devem ser aceitos ao criar respostas <br><br> Números devem ser aceitos ao criar respostas <br><br> Respostas devem ter identificações diferentes <br><br> Uma pergunta não poderá existir se não existir um usuário e uma pergunta para criá-la | Alta
 E2|FT04|US13|Eu como usuário gostaria de ser capaz de visualizar as respostas para fins de soluções de dúvidas| Uma lista de respostas deve ser visualizada <br><br> A visualização deve conter o nome e o curso do usuário que fez a pergunta <br><br> As respostas devem ser visualizadas somente em perguntas específicas |Alta
-E3|FT05|US14|Eu como usuário gostaria de dar nota para os outros usuários para mudar suas posições no ranking | A quantidade de likes recebidas por pergunta ou resposta |Alta
+E3|FT05|US14|Eu como usuário gostaria de dar nota para os outros usuários para mudar suas posições no ranking | A votação será feita por estrelas |Alta
 E3|FT05|US15|Eu como usuário gostaria de visualizar a minha posição no ranking geral para fins de melhora-la| O usuário pode visualizar a nota por meio de quantidade de estrelas |Alta
 E3|FT06|US16|Eu como usuário gostaria de visualizar as perguntas do fórum conforme a ordem de rankeamento para saber as perguntas mais e menos relevantes| A quantidade de likes recebidas por usuário |Alta
-E3|FT06|US17|Eu como usuário gostaria de avaliar as perguntas feitas por outros usuários para fins de nivelamento| O usuário pode dar like ou deslike de forma ilimitada |Alta
+E3|FT06|US17|Eu como usuário gostaria de avaliar as perguntas feitas por outros usuários para fins de nivelamento| A votação será feita por estrelas |Alta
 E4|FT07|US18|Eu como usuário gostaria de me cadastrar no sistema para utilizar suas funcionalidades| O cadastro pode ser feito por google e facebook, além do e-mail e senha <br><br> Nome, matrícula, curso, e-mail, telefone, usuário e avatar desejado |Alta
 E4|FT07|US19|Eu como usuário gostaria de visualizar os meus dados cadastrais em uma aba de perfil para poder conferir se as informações estão corretas| Todas as informações utilizadas no cadastro devem estar disponíveis nesta aba |Alta
 E4|FT07|US20|Eu como usuário gostaria de ter a possibilidade de buscar outros usuáiros para caso eu deseje conversar com algum deles diretamente num chat privado| A busca deve ser feita por nome ou e-mail |Alta
