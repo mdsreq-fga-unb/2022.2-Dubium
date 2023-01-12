@@ -27,7 +27,7 @@ export default function FormularioPergunta(props) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     let indexEngenharia;
 
     switch (data.engenharia) {
@@ -49,10 +49,12 @@ export default function FormularioPergunta(props) {
       case "ENGENHARIA DE SOFTWARE":
         indexEngenharia = 6;
         break;
+      default:
+        indexEngenharia = 1;
     }
 
     let novaPergunta = {
-      id_usuario: data.usuarios,
+      id_usuario: data.usuarios | usuario[0].id,
       tituloPergunta: data.titulo,
       id_cursoPergunta: indexEngenharia,
       corpoPergunta: data.textoPergunta,
@@ -60,7 +62,12 @@ export default function FormularioPergunta(props) {
       arquivo: data.midia,
       votosTotais: 0,
     };
-    apiRequest.post("perguntas", novaPergunta);
+    await apiRequest
+      .post("perguntas", novaPergunta)
+      .then((response) => {
+        alert("Pergunta cadastrada com sucesso!");
+      })
+      .catch((error) => console.log(error));
 
     props.setIsFormOpen(false);
   };
@@ -94,6 +101,7 @@ export default function FormularioPergunta(props) {
             {...register("titulo")}
             className="titulo-input"
             placeholder="Título"
+            required
           />
           <select
             name="engenharia"

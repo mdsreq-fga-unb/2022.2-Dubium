@@ -23,9 +23,9 @@ function Header(props) {
         <li className="item">
           <Link to="/ranking-usuarios">USUARIOS</Link>
         </li>
-        <li className="item">
+        {/* <li className="item">
           <Link to="/chat">CHAT</Link>
-        </li>
+        </li> */}
         <li className="item">
           <Link to="/about">SOBRE</Link>
         </li>

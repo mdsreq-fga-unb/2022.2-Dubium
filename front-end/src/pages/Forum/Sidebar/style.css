@@ -42,6 +42,10 @@
   border-radius: 17px;
 }
 
+.item-sidebar:hover {
+  color: #0f4a6d;
+}
+
 .is-active {
   border: 2px solid #166799;
 }

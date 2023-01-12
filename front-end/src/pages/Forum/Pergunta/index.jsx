@@ -48,9 +48,12 @@ export default function Pergunta(props) {
   }, [comentar]);
 
   function deletePergunta() {
-    apiRequest.delete(`perguntas/${props.perguntaSelecionada.id}`).then(() => {
-      alert("Post deleted!");
-    });
+    apiRequest
+      .delete(`perguntas/${props.perguntaSelecionada.id}`)
+      .then(() => {
+        alert("Pergunta deletada!");
+      })
+      .catch((error) => console.log(error));
     props.setIsPerguntaOpen(false);
   }
 
