@@ -58,7 +58,7 @@ O objetivo do Dubium é ajudar / dar suporte para a resolução de dúvidas espe
 ### 2.1	Organização do Projeto
 Papel | Atribuições | Responsável | Participantes
 ----- | ----------- | ----------- | -------------
-Desenvolvedor | Codificar o produto, codificar testes unitários, realizar refatoração | Helder | Eduarda, Gian, Giulia, Julio, Silas
+Desenvolvedor | Codificar o produto, realizar refatoração | Helder | Eduarda, Gian, Giulia, Julio, Silas
 Dono do Produto | Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas | Gian | Eduarda, Giulia, Helder, Julio, Silas
 Analista de Qualidade | Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código | Silas | Eduarda, Gian, Giulia, Helder, Julio
 Mestre do Scrum | Delegar tarefas, duração da sprint e sprint review | Giulia | Eduarda, Gian, Helder, Julio, Silas
@@ -163,13 +163,12 @@ De acordo com a abordagem SCRUM, definiu-se:
 - Review: ao final de cada ciclo para validar os requisitos com o Product Owner e com o cliente.
 - Retrospectiva: ao final de cada ciclo, para a verificar a qualidade interna do produto e da equipe;
 - Entrega: finalização de cada parte do produto em releases do github.
-- Implementação: codificação - modelagem de banco de dados, programação back-end e front-end, criação de cenários de testes e documentação dos requisitos
+- Implementação: codificação - modelagem de banco de dados, programação back-end e front-end e documentação dos requisitos
     - Codificação: A codificação é composta pelas seguintes partes:
         - Implementação do banco de dados: Será feito um pareamento entre dois membros da equipe que utilizaram o MySQL e ferramentas de modelagem para implementar a tarefa a ser feita.
         - Implementação do front-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework React e a ferramenta Figma para implementar a tarefa a ser feita.
         - Implementação do back-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework NestJS para implementar a tarefa a ser feita.
-        - Implementação dos testes: Os dois membros da equipe que realizaram a implementação da tarefa utilizaram a biblioteca Jest para a implementação de testes unitários referente ao código desenvolvido.
-- As entregas da Implementação do front-end, back-end e testes serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
+- As entregas da Implementação do front-end e back-end serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
 
 #### 3.3.1	PLANNING
 ##### 3.3.1.1	ELICITAÇÃO DE REQUISITOS
@@ -211,7 +210,6 @@ PRO-02 | Implementação dos protótipos de alta fidelidade | Pair Programming |
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
 IMP-01 | Implementar os MVPs 1 e 2 de acordo com o Backlog | Pair Programming | VSCode; MySQL Workbench; Discord | MVP1; MVP2
-IMP-02 | Testes do produto | Testes Unitários | VSCode | Identificação de erros
 
 #### 3.3.3 REVIEW   
 ##### 3.3.3.1	VALIDAÇÃO DE REQUISITOS

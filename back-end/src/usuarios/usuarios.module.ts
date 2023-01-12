@@ -8,7 +8,7 @@ import { respostaProviders } from 'src/respostas/respostas.providers';
 
 @Module({
   imports: [DatabaseModule],
-  controllers: [UsuariosController],
+  service: [UsuariosController],
   providers: [UsuariosService, ...usuarioProviders, ...perguntasProviders, ...respostaProviders],
   exports: [UsuariosService]
 })

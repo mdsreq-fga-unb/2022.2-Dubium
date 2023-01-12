@@ -8,7 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [PerguntasModule, RespostasModule, UsuariosModule, ConfigModule.forRoot({ isGlobal: true })],
-  controllers: [AppController],
+  service: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
