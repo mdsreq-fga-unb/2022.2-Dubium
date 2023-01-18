@@ -15,7 +15,7 @@
     
     
       
-        <title>Product Backlog - Dubium</title>
+        <title>Backlog SAFe - Dubium</title>
       
     
     
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Product Backlog
+              Backlog SAFe
             
           </span>
         </div>
@@ -148,13 +148,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../visao/" class="md-tabs__link">
+      <a href="../visao/" class="md-tabs__link md-tabs__link--active">
         Documentação
       </a>
     </li>
@@ -294,12 +296,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -334,11 +338,73 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Requisitos.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Backlog SAFe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Backlog SAFe
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-revisao" class="md-nav__link">
+    Histórico de Revisão
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-epicos" class="md-nav__link">
+    1. Épicos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-features" class="md-nav__link">
+    2. Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-user-stories" class="md-nav__link">
+    3. User Stories
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1580,6 +1646,12 @@
 <td align="center">Versão inicial</td>
 <td align="center">Toda a equipe</td>
 </tr>
+<tr>
+<td align="center">17/01/2023</td>
+<td align="center">2.0</td>
+<td align="center">Versão Final</td>
+<td align="center">Giulia, Julio, Silas, Helder</td>
+</tr>
 </tbody>
 </table>
 <h2 id="1-epicos">1. Épicos</h2>
@@ -1593,18 +1665,14 @@
 <tbody>
 <tr>
 <td>E1</td>
-<td>Estabelecer chat de comunicaçao</td>
-</tr>
-<tr>
-<td>E2</td>
 <td>Disponibilizar forum de duvidas</td>
 </tr>
 <tr>
-<td>E3</td>
+<td>E2</td>
 <td>Estabelecer ranking</td>
 </tr>
 <tr>
-<td>E4</td>
+<td>E3</td>
 <td>Realizar administraçao de pessoas</td>
 </tr>
 </tbody>
@@ -1622,46 +1690,55 @@
 <tr>
 <td>E1</td>
 <td>FT01</td>
-<td>Gerenciar mensagens</td>
+<td>Gerenciar avisos</td>
 </tr>
 <tr>
 <td>E1</td>
 <td>FT02</td>
-<td>Gerenciar historico de conversas</td>
+<td>Gerenciar perguntas</td>
 </tr>
 <tr>
-<td>E2</td>
+<td>E1</td>
 <td>FT03</td>
-<td>Gerenciar perguntas</td>
+<td>Gerenciar respostas</td>
 </tr>
 <tr>
 <td>E2</td>
 <td>FT04</td>
-<td>Gerenciar respostas</td>
-</tr>
-<tr>
-<td>E3</td>
-<td>FT05</td>
 <td>Gerenciar rankeamento de usuários</td>
 </tr>
 <tr>
-<td>E3</td>
-<td>FT06</td>
+<td>E2</td>
+<td>FT05</td>
 <td>Gerenciar rankeamento de perguntas</td>
 </tr>
 <tr>
-<td>E4</td>
-<td>FT07</td>
-<td>Gerenciar  usuarios</td>
+<td>E2</td>
+<td>FT06</td>
+<td>Gerenciar rankeamento de respostas</td>
 </tr>
 <tr>
-<td>E4</td>
+<td>E2</td>
+<td>FT07</td>
+<td>Gerenciar rankeamento de avisos</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>FT08</td>
+<td>Gerenciar usuarios</td>
+</tr>
+<tr>
+<td>E3</td>
 <td>FT08</td>
 <td>Gerenciar autenticação de dados do usuario</td>
 </tr>
 </tbody>
 </table>
 <h2 id="3-user-stories">3. User Stories</h2>
+<!-- -> mudar o numero dos epicos, o numero das features, o numero das historias
+-> adicionar as historias 1, 2, 3, 4, 9, 12, 17 e 18 segundo o novo mvp
+adicionar os criterios e a prioridade que estão no documento do bacdklog -->
+
 <table>
 <thead>
 <tr>
@@ -1678,190 +1755,214 @@
 <td>E1</td>
 <td>FT01</td>
 <td>US01</td>
-<td>Eu como usuário gostaria de poder enviar mensagens para outros usuários para tirar dúvidas no privado ou agendar reuniões presenciais</td>
-<td>O chat deve ter recurso de texto e de imagem .png, .jpg, etc.</td>
+<td>Eu, como usuário, gostaria de cadastrar avisos para informar notícias de acontecimentos como monitorias</td>
+<td>Preencher</td>
 <td>Alta</td>
 </tr>
 <tr>
 <td>E1</td>
 <td>FT01</td>
 <td>US02</td>
-<td>Eu como usuário gostaria de ser capaz de visualizar as mensagens recebidas e enviadas para poder conversar com outros usuários</td>
-<td>A aplicação deve notificar sobre novas mensagens recebidas</td>
+<td>Eu, como usuário, gostaria de visualizar uma lista de avisos feitos para ficar ciente dos acontecimentos da Universidade.</td>
+<td>Preencher</td>
 <td>Alta</td>
 </tr>
 <tr>
 <td>E1</td>
 <td>FT01</td>
 <td>US03</td>
-<td>Eu como usuário gostaria de ser capaz de apagar minhas mensagens para caso elas tenham sido enviadas errado ou escritas erroneamente</td>
-<td>As mensagens podem ser apagadas a qualquer momento <br/><br/> O usuário receptor não deve visualizar quando a mensagem foi apagada</td>
+<td>Eu, como usuário, gostaria de apagar meus avisos para caso de escrita incorreta ou passagem de prazo</td>
+<td>Preencher</td>
 <td>Alta</td>
 </tr>
 <tr>
 <td>E1</td>
 <td>FT01</td>
 <td>US04</td>
-<td>Eu como usuário gostaria de ter mensagens automáticas disponibilizadas para facilitar minha comunicação com outros usuários</td>
-<td>Deve-se conter mensagens de saudação, agradecimento e despedida</td>
+<td>Eu, como usuário gostaria de salvar os avisos que me interessem, para não perde-los e poder verifica-los mais facilmente depois</td>
+<td>Preencher</td>
 <td>Alta</td>
 </tr>
 <tr>
 <td>E1</td>
 <td>FT02</td>
 <td>US05</td>
-<td>Eu como usuário gostaria de ser capaz de fixar conversas para facilitar minha vizualização da barra de chat</td>
-<td>O número de conversar fixadas pode ser ilimitado <br/><br/> A ordem dos fixados deve funcionar como um drag and drop</td>
+<td>Eu como usuário gostaria de ser capaz de publicar perguntas para tirar minhas dúvidas</td>
+<td>Caracteres especiais devem ser aceitos ao criar pergunta <br><br> Números devem ser aceitos ao criar pergunta <br><br> Perguntas devem ter identificações diferentes <br><br> As perguntas devem ser adicionadas em alguma engenharia</td>
 <td>Alta</td>
 </tr>
 <tr>
 <td>E1</td>
 <td>FT02</td>
 <td>US06</td>
-<td>Eu como usuario gostaria de ser capaz de buscar minhas conversas com outros usuários para facilitar o encontro de mensagens</td>
-<td>A busca deve ser somente pelo nome do contato desejado</td>
+<td>Eu como usuário gostaria de visualizar perguntas para fins de busca e estudo</td>
+<td>É permitida a visualização de uma perguntas por vez <br><br> Uma lista de perguntas já feitas anteriormente deve ser visualizada <br><br> As perguntas podem estar separadas por área de conhecimento <br><br> A visualização deve conter o nome e o curso do usuário que fez a pergunta</td>
 <td>Alta</td>
 </tr>
 <tr>
 <td>E1</td>
 <td>FT02</td>
 <td>US07</td>
-<td>Eu como usuário gostaria de ser capaz de excluir conversas para fins de limpar o historico</td>
-<td>O chat pode ser excluído sem a garantia de um backup</td>
-<td>Alta</td>
-</tr>
-<tr>
-<td>E2</td>
-<td>FT03</td>
-<td>US08</td>
-<td>US08: Eu como usuário gostaria de ser capaz de publicar perguntas para tirar minhas dúvidas</td>
-<td>Caracteres especiais devem ser aceitos ao criar pergunta <br><br> Números devem ser aceitos ao criar pergunta <br><br> Perguntas devem ter identificações diferentes <br><br> As perguntas devem ser adicionadas em alguma engenharia</td>
-<td>Alta</td>
-</tr>
-<tr>
-<td>E2</td>
-<td>FT03</td>
-<td>US09</td>
-<td>Eu como usuário gostaria de visualizar perguntas  para fins de busca e estudo</td>
-<td>É permitida a visualização de uma perguntas por vez <br><br> Uma lista de perguntas já feitas anteriormente deve ser visualizada <br><br> As perguntas podem estar separadas por área de conhecimento <br><br> A visualização deve conter o nome e o curso do usuário que fez a pergunta</td>
-<td>Alta</td>
-</tr>
-<tr>
-<td>E2</td>
-<td>FT03</td>
-<td>US10</td>
-<td>Eu como usuário gostaria de pesquisar perguntas por tema ou usuário para fins de estudo</td>
+<td>Eu como usuário gostaria de pesquisar perguntas por tema para fins de estudo</td>
 <td>A busca deve ser feita através de um filtro por matérias</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E2</td>
-<td>FT03</td>
-<td>US11</td>
+<td>E1</td>
+<td>FT02</td>
+<td>US08</td>
 <td>Eu como usuário gostaria de poder deletar as minhas perguntas para caso de escrita incorreta</td>
 <td>A exclusão pode ser feita a qualquer momento sem limite de tempo após sua publicação <br><br> Somente o autor da pergunta pode apagá-la</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E2</td>
-<td>FT04</td>
-<td>US12</td>
+<td>E1</td>
+<td>FT02</td>
+<td>US09</td>
+<td>Eu como usuário gostaria de salvar as perguntas que me interessem, para não perde-los e poder verifica-los mais facilmente depois</td>
+<td>Preencher</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>FT03</td>
+<td>US10</td>
 <td>Eu como usuário gostaria de poder responder todas as perguntas disponibilizadas no forum para fins de ajudar outros usuarios</td>
 <td>Caracteres especiais devem ser aceitos ao criar respostas <br><br> Números devem ser aceitos ao criar respostas <br><br> Respostas devem ter identificações diferentes <br><br> Uma pergunta não poderá existir se não existir um usuário e uma pergunta para criá-la</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>FT03</td>
+<td>US11</td>
+<td>Eu como usuário gostaria de ser capaz de visualizar as respostas para fins de soluções de dúvidas</td>
+<td>Uma lista de respostas deve ser visualizada <br><br> A visualização deve conter o nome e o curso do usuário que fez a pergunta <br><br> As respostas devem ser visualizadas somente em perguntas específicas</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>FT03</td>
+<td>US12</td>
+<td>Eu, como usuário, gostaria de deletar minhas respostas para fim de escrita incorreta</td>
+<td>preencher</td>
 <td>Alta</td>
 </tr>
 <tr>
 <td>E2</td>
 <td>FT04</td>
 <td>US13</td>
-<td>Eu como usuário gostaria de ser capaz de visualizar as respostas para fins de soluções de dúvidas</td>
-<td>Uma lista de respostas deve ser visualizada <br><br> A visualização deve conter o nome e o curso do usuário que fez a pergunta <br><br> As respostas devem ser visualizadas somente em perguntas específicas</td>
-<td>Alta</td>
-</tr>
-<tr>
-<td>E3</td>
-<td>FT05</td>
-<td>US14</td>
 <td>Eu como usuário gostaria de dar nota para os outros usuários para mudar suas posições no ranking</td>
 <td>A votação será feita por estrelas</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E3</td>
-<td>FT05</td>
-<td>US15</td>
+<td>E2</td>
+<td>FT04</td>
+<td>US14</td>
 <td>Eu como usuário gostaria de visualizar a minha posição no ranking geral para fins de melhora-la</td>
 <td>O usuário pode visualizar a nota por meio de quantidade de estrelas</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E3</td>
-<td>FT06</td>
-<td>US16</td>
+<td>E2</td>
+<td>FT05</td>
+<td>US15</td>
 <td>Eu como usuário gostaria de visualizar as perguntas do fórum conforme a ordem de rankeamento para saber as perguntas mais e menos relevantes</td>
 <td>A quantidade de likes recebidas por usuário</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E3</td>
-<td>FT06</td>
-<td>US17</td>
+<td>E2</td>
+<td>FT05</td>
+<td>US16</td>
 <td>Eu como usuário gostaria de avaliar as perguntas feitas por outros usuários para fins de nivelamento</td>
 <td>A votação será feita por estrelas</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E4</td>
-<td>FT07</td>
+<td>E2</td>
+<td>FT06</td>
+<td>US17</td>
+<td>Eu, como usuário, gostaria de avaliar as respostas fornecidas para fim de destaque das melhores respostas</td>
+<td>A votação será feita por estrelas</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>FT06</td>
 <td>US18</td>
+<td>Eu, como usuário, gostaria de visualizar as respostas em ordem de rankeamento, para saber as melhores respostas fornecidas</td>
+<td>A votação será feita por estrelas</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>FT07</td>
+<td>US19</td>
+<td>Eu, como usuário, gostaria de avaliar os avisos postados para fim de destaque dos mais importantes</td>
+<td>preencher</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>FT07</td>
+<td>US20</td>
+<td>Eu, como usuário, gostaria de visualizar os avisos em ordem de rankeamento, para saber quais sao os principais avisos da faculdade</td>
+<td>preencher</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>FT08</td>
+<td>US21</td>
 <td>Eu como usuário gostaria de me cadastrar no sistema para utilizar suas funcionalidades</td>
 <td>O cadastro pode ser feito por google e facebook, além do e-mail e senha <br><br> Nome, matrícula, curso, e-mail, telefone, usuário e avatar desejado</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E4</td>
-<td>FT07</td>
-<td>US19</td>
+<td>E3</td>
+<td>FT08</td>
+<td>US22</td>
 <td>Eu como usuário gostaria de visualizar os meus dados cadastrais em uma aba de perfil para poder conferir se as informações estão corretas</td>
 <td>Todas as informações utilizadas no cadastro devem estar disponíveis nesta aba</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E4</td>
-<td>FT07</td>
-<td>US20</td>
-<td>Eu como usuário gostaria de ter a possibilidade de buscar outros usuáiros para caso eu deseje conversar com algum deles diretamente num chat privado</td>
+<td>E3</td>
+<td>FT08</td>
+<td>US23</td>
+<td>Eu como usuário gostaria de ter a possibilidade de buscar outros usuários para caso eu deseje conversar com algum deles diretamente num chat privado</td>
 <td>A busca deve ser feita por nome ou e-mail</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E4</td>
-<td>FT07</td>
-<td>US21</td>
+<td>E3</td>
+<td>FT08</td>
+<td>US24</td>
 <td>Eu como usuário gostaria de editar os dados do meu perfil para caso alguma informação tenha sido preenchida incorretamente possa ser mudada</td>
 <td>Todos os dados podem ser atualizados a qualquer momento sem limite de quantidade</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E4</td>
-<td>FT07</td>
-<td>US22</td>
-<td>Eu como usuario gostaria de ter a possibilidade de deltar minha conta para caso não deseje mais utilizá-la</td>
-<td>Ao excluir a conta,  todas as atividades do usuário serão excluídas</td>
+<td>E3</td>
+<td>FT08</td>
+<td>US25</td>
+<td>Eu como usuario gostaria de ter a possibilidade de deletar minha conta para caso não deseje mais utilizá-la</td>
+<td>Ao excluir a conta, todas as atividades do usuário serão excluídas</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E4</td>
-<td>FT08</td>
-<td>US23</td>
+<td>E3</td>
+<td>FT09</td>
+<td>US26</td>
 <td>Eu como usuário gostaria de realizar login com email e senha para adentrar no sistema</td>
 <td>O login pode ser feito por google e facebook, além do e-mail e senha</td>
 <td>Alta</td>
 </tr>
 <tr>
-<td>E4</td>
-<td>FT08</td>
-<td>US24</td>
+<td>E3</td>
+<td>FT09</td>
+<td>US27</td>
 <td>Eu como usuário gostaria de ter a possibilidade de recuperar minha senha através do email caso eu a esqueça</td>
 <td>O e-mail deve ser autenticado em até 10 minutos</td>
 <td>Alta</td>
@@ -1885,6 +1986,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../visao/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Visão do Produto e Projeto" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Visão do Produto e Projeto
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mvps/" class="md-footer__link md-footer__link--next" aria-label="Próximo: MVPS" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              MVPS
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
