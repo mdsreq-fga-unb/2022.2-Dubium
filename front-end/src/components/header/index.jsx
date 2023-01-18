@@ -27,7 +27,7 @@ function Header(props) {
           <Link to="/chat">CHAT</Link>
         </li> */}
         <li className="item">
-          <Link to="/about">SOBRE</Link>
+          <Link to="/sobre">SOBRE</Link>
         </li>
       </ul>
       <div className="pesquisa">

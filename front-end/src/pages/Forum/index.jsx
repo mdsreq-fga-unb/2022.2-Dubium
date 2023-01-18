@@ -4,7 +4,7 @@ import { useEffect, useState, useContext } from "react";
 
 import FormularioPergunta from "./FormularioPergunta";
 import ForumBody from "./ForumBody";
-import Pergunta from "./Pergunta";
+// import Pergunta from "./PerguntaSelecionada";
 import Sidebar from "./Sidebar";
 
 import SidebarContext from "../../context/SidebarProvider";

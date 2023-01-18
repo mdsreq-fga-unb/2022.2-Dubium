@@ -12,20 +12,20 @@ const Sidebar = (props) => {
   return (
     <ul className="sidebar-forum">
       {forumData.map((data, index) => (
-        <li
-          className={
-            isActive === index ? "item-sidebar is-active" : "item-sidebar"
-          }
-          key={index}
-          onClick={() => {
-            setIsActive(index);
-            setElementoSidebar(index);
-            props.setIsPerguntaOpen(false);
-            props.setIsFormOpen(false);
-          }}
-        >
-          {data.icon}
-          <Link to="/">{data.name}</Link>
+        <li key={index}>
+          <Link
+            className={
+              isActive === index ? "item-sidebar is-active" : "item-sidebar"
+            }
+            to={data.path}
+            onClick={() => {
+              setIsActive(index);
+              setElementoSidebar(index);
+            }}
+          >
+            {data.icon}
+            {data.name}
+          </Link>
         </li>
       ))}
     </ul>

@@ -11,12 +11,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import StarIcon from "@mui/icons-material/Star";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function Pergunta(props) {
-  const [usuario, setUsuarios] = useState([]);
+export default function PerguntaSelecionada({ usuarios }) {
+  const [perguntaSelecionada, setPerguntaSelecionada] = useState({});
   const [respostas, setRespostas] = useState([]);
   const [favorito, setFavorito] = useState(false);
   const [comentar, setComentar] = useState(false);
+
+  const { idPergunta } = useParams();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -26,9 +30,9 @@ export default function Pergunta(props) {
 
   useEffect(() => {
     apiRequest
-      .get("usuarios")
+      .get(`perguntas/${idPergunta}`)
       .then((response) => {
-        setUsuarios(response.data);
+        setPerguntaSelecionada(response.data);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -37,40 +41,41 @@ export default function Pergunta(props) {
 
   useEffect(() => {
     apiRequest
-      .get(`respostas/pergunta/${props.perguntaSelecionada.id}`)
+      .get(`respostas/pergunta/${idPergunta}`)
       .then((response) => {
         setRespostas(response.data);
-        console.log("qualquer");
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [comentar]);
 
-  function deletePergunta() {
-    apiRequest
-      .delete(`perguntas/${props.perguntaSelecionada.id}`)
+  const deletePergunta = async () => {
+    await apiRequest
+      .delete(`perguntas/${idPergunta}`)
       .then(() => {
         alert("Pergunta deletada!");
       })
       .catch((error) => console.log(error));
-    props.setIsPerguntaOpen(false);
-  }
 
-  function updateFavotito() {
-    apiRequest
+    navigate(-1);
+  };
+
+  const updateFavotito = async () => {
+    await apiRequest
       .patch(
-        favorito
-          ? `perguntas/menos/${props.perguntaSelecionada.id}`
-          : `perguntas/${props.perguntaSelecionada.id}`
+        favorito ? `perguntas/menos/${idPergunta}` : `perguntas/${idPergunta}`
       )
-      .then((response) => {});
-  }
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const onSubmit = async (data) => {
     let novaResposta = {
       id_usuario: data.usuarios,
-      id_pergunta: props.perguntaSelecionada.id,
+      id_pergunta: idPergunta,
       corpoResposta: data.resposta,
     };
 
@@ -86,18 +91,18 @@ export default function Pergunta(props) {
     <div className="card-pergunta pergunta-selecionada">
       <div className="usuario-informacao-texto">
         <div className="delete">
-          {/* <span>{props.perguntaSelecionada.usuario.fotoPerfil}</span> */}
-          <span>{props.perguntaSelecionada.usuario.nome_completo}</span>
+          {/* <span>{perguntaSelecionada?.usuario?.fotoPerfil}</span> */}
+          <span>{perguntaSelecionada?.usuario?.nome_completo}</span>
           <IconButton style={{ width: "20" }} onClick={deletePergunta}>
             <DeleteIcon />
           </IconButton>
         </div>
-        <span>{handleCurso(props.perguntaSelecionada.usuario.curso)}</span>
+        <span>{handleCurso(perguntaSelecionada?.usuario?.curso)}</span>
       </div>
-      <span>{props.perguntaSelecionada.corpoPergunta}</span>
+      <span>{perguntaSelecionada?.corpoPergunta}</span>
       {/* <div className="like-comentario">
         <StarIcon />
-        <span>{props.perguntaSelecionada.votosTotais} favoritos</span>
+        <span>{perguntaSelecionada?.votosTotais} favoritos</span>
       </div> */}
       <ul className="container-interacao">
         <li
@@ -131,7 +136,7 @@ export default function Pergunta(props) {
               {...register("usuarios")}
               style={{ padding: "5px", width: "15%" }}
             >
-              {usuario.map((data, index) => (
+              {usuarios.map((data, index) => (
                 <option
                   value={data.id}
                   key={index}
