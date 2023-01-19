@@ -1,11 +1,13 @@
 import "./style.css";
 
+import handleCurso from "../../services/curso";
+import apiRequest from "../../services/api";
+
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import StarIcon from "@mui/icons-material/Star";
 import { IconButton } from "@mui/material";
-import { useEffect, useState } from "react";
-import apiRequest from "../../services/api";
-import handleCurso from "../../services/curso";
-import { useParams } from "react-router-dom";
 
 export default function () {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});

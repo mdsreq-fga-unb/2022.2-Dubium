@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import apiRequest from "../../services/api";
-import { Link, redirect, useNavigate } from "react-router-dom";
-import handleCurso from "../../services/curso";
 import "./style.css";
+
+import handleCurso from "../../services/curso";
+
+import { Link } from "react-router-dom";
 
 export default function RankingUsuarios({ usuarios }) {
   return (

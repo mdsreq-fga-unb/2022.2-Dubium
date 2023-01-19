@@ -5,7 +5,7 @@ import { useState, useContext } from "react";
 
 import SidebarContext from "../../../context/SidebarProvider";
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   const [isActive, setIsActive] = useState(0);
   const { setElementoSidebar } = useContext(SidebarContext);
 

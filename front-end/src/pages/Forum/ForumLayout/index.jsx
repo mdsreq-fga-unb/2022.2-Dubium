@@ -1,6 +1,8 @@
-import { Outlet } from "react-router-dom";
-import Sidebar from "../Sidebar";
 import "./style.css";
+
+import Sidebar from "../Sidebar";
+
+import { Outlet } from "react-router-dom";
 
 export default function ForumLayout() {
   return (

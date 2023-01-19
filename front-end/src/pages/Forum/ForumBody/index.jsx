@@ -1,11 +1,13 @@
 import "./style.css";
 
 import handleCurso from "../../../services/curso";
+import apiRequest from "../../../services/api";
+import SidebarContext from "../../../context/SidebarProvider";
+
+import { useContext, useEffect, useState } from "react";
 
 import StarIcon from "@mui/icons-material/Star";
-import SidebarContext from "../../../context/SidebarProvider";
-import { useContext, useEffect, useState } from "react";
-import apiRequest from "../../../services/api";
+
 import { Link } from "react-router-dom";
 
 export default function ForumBody({ materiaPesquisada }) {

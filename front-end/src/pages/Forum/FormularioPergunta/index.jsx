@@ -1,11 +1,11 @@
 import "./style.css";
 
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import apiRequest from "../../../services/api";
 
 import { forumData } from "../Sidebar/data";
 
-import apiRequest from "../../../services/api";
+import { useForm } from "react-hook-form";
+
 import { useNavigate } from "react-router-dom";
 
 export default function FormularioPergunta({ usuarios }) {

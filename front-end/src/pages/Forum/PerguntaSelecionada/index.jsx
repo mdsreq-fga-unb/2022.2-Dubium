@@ -2,6 +2,7 @@ import "./style.css";
 
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate, useParams } from "react-router-dom";
 
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
@@ -11,7 +12,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import StarIcon from "@mui/icons-material/Star";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
 
 export default function PerguntaSelecionada({ usuarios }) {
   const [perguntaSelecionada, setPerguntaSelecionada] = useState({});
@@ -20,6 +20,7 @@ export default function PerguntaSelecionada({ usuarios }) {
   const [comentar, setComentar] = useState(false);
 
   const { idPergunta } = useParams();
+
   const navigate = useNavigate();
 
   const {
