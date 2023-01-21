@@ -169,7 +169,6 @@ De acordo com a abordagem SCRUM, definiu-se:
         - Implementação do banco de dados: Será feito um pareamento entre dois membros da equipe que utilizaram o MySQL e ferramentas de modelagem para implementar a tarefa a ser feita.
         - Implementação do front-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework React e a ferramenta Figma para implementar a tarefa a ser feita.
         - Implementação do back-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework NestJS para implementar a tarefa a ser feita.
-        - Fazer o deploy do projeto: Subir o ambiente e gerar build da aplicação.
 - As entregas da Implementação do front-end e back-end serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
 
 #### 3.3.1	PLANNING
@@ -212,6 +211,7 @@ PRO-02 | Implementação dos protótipos de alta fidelidade | Pair Programming |
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
 IMP-01 | Implementar os MVPs 1 e 2 de acordo com o Backlog | Pair Programming | VSCode; MySQL Workbench; Discord | MVP1; MVP2
+IMP-02 | Subir o ambiente e gerar build da aplicação | Pair Programming | Digital Ocean; Github | Deploy do Projeto
 
 #### 3.3.3 REVIEW   
 ##### 3.3.3.1	VALIDAÇÃO DE REQUISITOS
