@@ -1,8 +1,11 @@
 import "./style.css";
+
+import bichinho from "../../assets/images/bichinho.png";
+import logo from "../../assets/images/logo.jpg";
+
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
-import logo from "../../assets/images/logo.jpg";
-import bichinho from "../../assets/images/bichinho.png";
+
 import { Link } from "react-router-dom";
 
 function Header(props) {
@@ -23,11 +26,8 @@ function Header(props) {
         <li className="item">
           <Link to="/ranking-usuarios">USUARIOS</Link>
         </li>
-        {/* <li className="item">
-          <Link to="/chat">CHAT</Link>
-        </li> */}
         <li className="item">
-          <Link to="/about">SOBRE</Link>
+          <Link to="/sobre">SOBRE</Link>
         </li>
       </ul>
       <div className="pesquisa">

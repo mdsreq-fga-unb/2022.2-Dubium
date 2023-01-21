@@ -10,7 +10,7 @@ export const forumData = [
   {
     name: "INÍCIO",
     icon: <HomeIcon />,
-    path: "/inicio",
+    path: "/",
   },
   {
     name: "ENGENHARIAS",

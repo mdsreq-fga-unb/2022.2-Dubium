@@ -1,25 +1,15 @@
 import "./style.css";
 
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import apiRequest from "../../../services/api";
 
 import { forumData } from "../Sidebar/data";
 
-import apiRequest from "../../../services/api";
+import { useForm } from "react-hook-form";
 
-export default function FormularioPergunta(props) {
-  const [usuario, setUsuarios] = useState([]);
+import { useNavigate } from "react-router-dom";
 
-  useEffect(() => {
-    apiRequest
-      .get("usuarios")
-      .then((response) => {
-        setUsuarios(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, []);
+export default function FormularioPergunta({ usuarios }) {
+  const navigate = useNavigate();
 
   const {
     register,
@@ -51,10 +41,11 @@ export default function FormularioPergunta(props) {
         break;
       default:
         indexEngenharia = 1;
+        break;
     }
 
     let novaPergunta = {
-      id_usuario: data.usuarios | usuario[0].id,
+      id_usuario: data.usuarios || usuarios[0].id,
       tituloPergunta: data.titulo,
       id_cursoPergunta: indexEngenharia,
       corpoPergunta: data.textoPergunta,
@@ -62,6 +53,7 @@ export default function FormularioPergunta(props) {
       arquivo: data.midia,
       votosTotais: 0,
     };
+
     await apiRequest
       .post("perguntas", novaPergunta)
       .then((response) => {
@@ -69,7 +61,7 @@ export default function FormularioPergunta(props) {
       })
       .catch((error) => console.log(error));
 
-    props.setIsFormOpen(false);
+    navigate(-1);
   };
 
   return (
@@ -88,7 +80,7 @@ export default function FormularioPergunta(props) {
           className="engenharia-input"
           style={{ width: "23.3%" }}
         >
-          {usuario.map((data, index) => (
+          {usuarios.map((data, index) => (
             <option value={data.id} key={index}>
               {data.nome_completo}
             </option>
@@ -151,7 +143,7 @@ export default function FormularioPergunta(props) {
           </button>
           <button
             className="botao-geral botao-cancelar"
-            onClick={() => props.setIsFormOpen(false)}
+            onClick={() => navigate(-1)}
           >
             Cancelar
           </button>

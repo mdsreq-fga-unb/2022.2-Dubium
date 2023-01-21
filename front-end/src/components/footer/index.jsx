@@ -1,6 +1,7 @@
 import "./style.css";
-import { Container, Grid, Box, Link } from "@mui/material";
+
 import CopyrightIcon from "@mui/icons-material/Copyright";
+import { Link } from "@mui/material";
 
 export default function Footer() {
   return (
