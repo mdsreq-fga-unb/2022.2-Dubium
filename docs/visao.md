@@ -105,19 +105,25 @@ Riscos de negócio ameaçam a viabilidade do software e do produto. Existem cinc
 #### 2.4.1 Histórico de Riscos
 Sprint | Risco Encontrado | Nível
 ------ | ---------------- | -----
-3 | Adição de um novo membro na equipe | Negligenciável
-9 | Problema no escopo do MVP1 | Crítico
+03 | Adição de um novo membro na equipe | Negligenciável
+09 | Problemas no escopo do MVP1 | Crítico
+12 | Problemas no escopo do MVP2 | Crítico 
+13 | Saída de um membro da equipe | Crítico
 
 ### 2.5	Critérios de Replanejamento
 Os critérios de replanejamento referem-se à identificação dos pontos que, se ocorrerem, necessariamente, vão causar um replanejamento do projeto. Precisam ser acompanhados a cada sprint, se referindo assim, ao projeto como um todo e não apenas ao produto.
 
 - Entrada de um novo membro na equipe
 - Alteração no escopo do MVP1
+- Alteração no escopo do MVP2
+- Saída de um membro da equipe
 
 Sprint | Solução Encontrada | Resultado Esperado
 ------ | ------------------ | ------------------
-3 | Explicações sobre o projeto e nova divisão de tarefas | Capacitação da Equipe
-9 | Alterar o escopo do MVP1 | Finalização do MVP1 no prazo imposto
+03 | Explicações sobre o projeto e nova divisão de tarefas | Capacitação da Equipe
+09 | Alterar o escopo do MVP1 | Finalização do MVP1 no prazo imposto
+12 | Alterar o escopo do MVP2 | Finalização do MVP2 no prazo imposto
+13 | Nova divisão de tarefas | Finalização do MVP2 no prazo imposto
 
 Os critérios de replanejamento do projeto devem ser acompanhados e atualizados a cada ciclo. E, aplicados, conforme necessidade.
 
