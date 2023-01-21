@@ -1,17 +1,18 @@
 import { BadRequestException, Inject, Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { UsuariosService } from 'src/usuarios/usuarios.service';
 import { Repository } from 'typeorm';
-import { CreatePerguntaDto } from './dto/create-pergunta.dto';
-import {Pergunta} from './entities/pergunta.entity'
+import { Aviso } from './avisos.entity';
+import { CreateAvisoDto } from './dto/create-aviso.dto';
+
 @Injectable()
-export class PerguntasService {
+export class AvisosService {
   constructor(
-    @Inject('PERGUNTAS_REPOSITORY')
-    private perguntasRepository: Repository<Pergunta>,
+    @Inject('AVISOS_REPOSITORY')
+    private avisosRepository: Repository<Aviso>,
     private readonly usuarioService: UsuariosService
   ) {}
 
-  async create(data: CreatePerguntaDto) {
+  async create(data: CreateAvisoDto) {
     const usuario = await this.usuarioService.findUsuarioById(data.id_usuario);
     if(!usuario) {
       throw new BadRequestException('Usuário inválido!');
@@ -19,26 +20,26 @@ export class PerguntasService {
     
 
     try{
-      const pergunta = new Pergunta();
+      const aviso = new Aviso();
       
-      pergunta.usuario = usuario;
-      pergunta.tituloPergunta = data.tituloPergunta;
-      pergunta.corpoPergunta = data.corpoPergunta;
-      pergunta.id_cursoPergunta = data.id_cursoPergunta;
-      pergunta.midia = data.midia;
-      pergunta.filtro = data.filtro;
-      pergunta.votosTotais = data.votosTotais;
-      return this.perguntasRepository.save(pergunta);
+      aviso.usuario = usuario;
+      aviso.tituloAviso = data.tituloAviso;
+      aviso.corpoAviso = data.corpoAviso;
+      aviso.id_cursoAviso = data.id_cursoAviso;
+      aviso.midia = data.midia;
+      aviso.filtro = data.filtro;
+      aviso.votosTotais = data.votosTotais;
+      return this.avisosRepository.save(aviso);
     }
     catch(error) {
       console.log(error.message)
-      throw new UnprocessableEntityException('Erro ao cadastrar a pergunta!');
+      throw new UnprocessableEntityException('Erro ao cadastrar o aviso!');
     }
     
   }
 
-  async findPerguntaById(id: number) {
-    return await this.perguntasRepository.findOne({ 
+  async findAvisoById(id: number) {
+    return await this.avisosRepository.findOne({ 
       where: {id},
       relations: {
         usuario: true,
@@ -47,7 +48,7 @@ export class PerguntasService {
   }
 
  async findAll() {
-    return await this.perguntasRepository.find({
+    return await this.avisosRepository.find({
       relations: {
         usuario: true,
       },
@@ -59,7 +60,7 @@ export class PerguntasService {
 
   async findAllByUsuario(id_usuario: number){
     const usuario = await this.usuarioService.findUsuarioById(id_usuario)
-    return await this.perguntasRepository.find({
+    return await this.avisosRepository.find({
       where: {usuario},
       relations: {
         usuario: true
@@ -67,9 +68,9 @@ export class PerguntasService {
     });
   }
 
-  async findAllByCurso(id_cursoPergunta: number){
-    return await this.perguntasRepository.find({
-      where: {id_cursoPergunta}, 
+  async findAllByCurso(id_cursoAviso: number){
+    return await this.avisosRepository.find({
+      where: {id_cursoAviso}, 
       relations: {
         usuario: true,
       },
@@ -80,14 +81,14 @@ export class PerguntasService {
   }
 
   async remove(id: number) {
-    return await this.perguntasRepository.delete(id);
+    return await this.avisosRepository.delete(id);
   }
 
-  async updateMaisVotosPergunta(id: number){
+  async updateMaisVotosAviso(id: number){
 
-    return await this.perguntasRepository
+    return await this.avisosRepository
     .createQueryBuilder()
-    .update(Pergunta)
+    .update(Aviso)
     .set({
       votosTotais: () => "votosTotais + 1"
     })
@@ -95,11 +96,11 @@ export class PerguntasService {
     .execute()
   }
 
-  async updateMenosVotosPergunta(id: number){
+  async updateMenosVotosAviso(id: number){
 
-    return await this.perguntasRepository
+    return await this.avisosRepository
     .createQueryBuilder()
-    .update(Pergunta)
+    .update(Aviso)
     .set({
       votosTotais: () => "votosTotais - 1"
     })

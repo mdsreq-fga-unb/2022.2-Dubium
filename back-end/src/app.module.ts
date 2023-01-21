@@ -5,10 +5,11 @@ import { PerguntasModule } from './perguntas/perguntas.module';
 import { RespostasModule } from './respostas/respostas.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { ConfigModule } from '@nestjs/config';
+import { AvisosModule } from './avisos/avisos.module';
 
 @Module({
-  imports: [PerguntasModule, RespostasModule, UsuariosModule, ConfigModule.forRoot({ isGlobal: true })],
-  service: [AppController],
+  imports: [PerguntasModule, RespostasModule, UsuariosModule, AvisosModule, ConfigModule.forRoot({ isGlobal: true })],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

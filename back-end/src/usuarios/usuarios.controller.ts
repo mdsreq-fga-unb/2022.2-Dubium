@@ -9,8 +9,8 @@ export class UsuariosController {
   constructor(private readonly service: UsuariosService) {}
 
   @Post()
-  create(@Body() createUsuarioDto: CreateUsuarioDto) {
-    return this.service.create(createUsuarioDto);
+  async create(@Body() data: CreateUsuarioDto) {
+    return this.service.create(data);
   }
 
   // @Patch(':id')

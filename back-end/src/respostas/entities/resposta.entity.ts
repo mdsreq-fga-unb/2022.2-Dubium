@@ -1,6 +1,6 @@
 import { Pergunta } from "src/perguntas/entities/pergunta.entity";
 import { Usuario } from "src/usuarios/entities/usuario.entity";
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 
 @Entity()
 export class Resposta {
@@ -13,8 +13,8 @@ export class Resposta {
     @Column({nullable:true})
     midia: string;
 
-    @CreateDateColumn()
-    create_at: Date;
+    @Column({default: 0})
+    votosTotais: number;
 
     @ManyToOne(() => Usuario, usuario => usuario.resposta, {
         onDelete: 'CASCADE'

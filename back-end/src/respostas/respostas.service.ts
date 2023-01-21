@@ -1,4 +1,4 @@
-import { BadRequestException, Inject, Injectable, UnprocessableEntityException } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable, Res, UnprocessableEntityException } from '@nestjs/common';
 import { PerguntasService } from 'src/perguntas/perguntas.service';
 import { UsuariosService } from 'src/usuarios/usuarios.service';
 import { Repository } from 'typeorm';
@@ -66,12 +66,36 @@ export class RespostasService {
         usuario: true
       },
       order: {
-        create_at: 'asc'
+        votosTotais: 'desc'
       }
     })
   }
 
   async remove(id: number) {
     return await this.respostaRepository.delete(id);
+  }
+
+  async updateMaisVotosResposta(id: number){
+
+    return await this.respostaRepository
+    .createQueryBuilder()
+    .update(Resposta)
+    .set({
+      votosTotais: () => "votosTotais + 1"
+    })
+    .where({id})
+    .execute()
+  }
+
+  async updateMenosVotosResposta(id: number){
+
+    return await this.respostaRepository
+    .createQueryBuilder()
+    .update(Resposta)
+    .set({
+      votosTotais: () => "votosTotais - 1"
+    })
+    .where({id})
+    .execute()
   }
 }

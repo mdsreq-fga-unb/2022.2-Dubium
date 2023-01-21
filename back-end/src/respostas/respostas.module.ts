@@ -11,7 +11,7 @@ import { PerguntasService } from 'src/perguntas/perguntas.service';
 
 @Module({
   imports: [DatabaseModule, UsuariosModule, PerguntasModule],
-  service: [RespostasController],
+  controllers: [RespostasController],
   providers: [RespostasService, ...respostaProviders, ...perguntasProviders],
 })
 export class RespostasModule {}

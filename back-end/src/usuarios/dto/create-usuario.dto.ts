@@ -1,6 +1,13 @@
-import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsNumber } from "class-validator";
+import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsNumber, MinLength, Validate, MaxLength, IsEmail } from "class-validator";
+import { PasswordValidation, PasswordValidationRequirement } from 'class-validator-password-check'
 
 
+var passwordRequirement: PasswordValidationRequirement = {
+    mustContainLowerLetter: true,
+    mustContainNumber: true,
+    mustContainSpecialCharacter: true,
+    mustContainUpperLetter: true
+}
 export class CreateUsuarioDto {
     @IsString()
     @IsNotEmpty()
@@ -8,9 +15,22 @@ export class CreateUsuarioDto {
     
     @IsNumber()
     @IsNotEmpty()
-    curso: string;
+    curso: number;
+
+    @IsOptional()
+    @IsString()
+    matricula: number;
+
+    @IsEmail()
+    @IsNotEmpty()
+    email: string;
+
+    @IsNotEmpty()
+    celular: string;  
 
     @IsString()
-    @IsOptional()
-    fotoPerfil: string;
+    @MinLength(6)
+    @MaxLength(20)
+    @Validate(PasswordValidation, [passwordRequirement])
+    senha: string;
 }

@@ -12,6 +12,9 @@ export class CreateRespostaDto {
     @IsNotEmpty()
     corpoResposta: string;
 
+    @IsNumber()
+    votosTotais: number;
+
     @IsOptional()
     midia: string;
 }

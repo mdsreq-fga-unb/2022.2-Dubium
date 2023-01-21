@@ -27,6 +27,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.0.0",
     "class-validator": "^0.13.2",
+    "class-validator-password-check": "^1.0.8",
     "dotenv": "^16.0.3",
     "firebase-admin": "^11.4.1",
     "mysql": "^2.18.1",
