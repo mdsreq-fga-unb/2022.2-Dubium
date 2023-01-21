@@ -1,8 +1,8 @@
 import { BadRequestException, Inject, Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
-import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { Usuario } from './entities/usuario.entity';
+import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 
 @Injectable()
 export class UsuariosService {
@@ -39,18 +39,21 @@ export class UsuariosService {
     }
   }
 
-  // async updateUsuario(id: number, updateUsuarioDto: UpdateUsuarioDto){
-
-  //   return await this.usuarioRepository
-  //   .createQueryBuilder()
-  //   .update(Usuario)
-  //   .set({
-  //     nome_completo: () => updateUsuarioDto.nome_completo,
-  //     curso: () => updateUsuarioDto.curso
-  //   })
-  //   .where({id})
-  //   .execute()
-  // }
+  async updateUsuario(id: number, data: UpdateUsuarioDto){
+    try {
+      const usuario = await this.findUsuarioById(id);
+      usuario.nome_completo = data.nome_completo;
+      usuario.curso = data.curso;
+      usuario.matricula = data.matricula;
+      usuario.celular = data.celular;
+      usuario.email = data.email;
+      usuario.senha = data.senha;
+      return this.usuarioRepository.save(usuario);
+    } 
+    catch (error) {
+      throw new UnprocessableEntityException('Erro ao editar seus dados!');
+    }
+  }
 
   async remove(id: number) {
     return await this.usuarioRepository.delete(id);

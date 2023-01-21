@@ -8,7 +8,7 @@ import { AvisosService } from "./avisos.service";
 
 @Module({
     imports: [DatabaseModule, UsuariosModule],
-    controllers: [AvisosController],
+    service: [AvisosController],
     providers: [AvisosService, ...avisosProviders, ...respostaProviders],
     exports: [AvisosService]
   })

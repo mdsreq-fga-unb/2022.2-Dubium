@@ -9,7 +9,7 @@ import { AvisosModule } from './avisos/avisos.module';
 
 @Module({
   imports: [PerguntasModule, RespostasModule, UsuariosModule, AvisosModule, ConfigModule.forRoot({ isGlobal: true })],
-  controllers: [AppController],
+  service: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
