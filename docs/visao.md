@@ -26,6 +26,7 @@ Data | Versão | Descrição | Autor
 23/12/22 | 1.7 | Atualização do Documento | Giulia
 03/01/23 | 1.8 | Atualização do Documento | Giulia, Helder
 07/01/23 | 1.9 | Atualização do Documento | Giulia, Helder
+21/01/23 | 2.0 | Atualização do Documento | Giulia, Helder
 
 
 ## 1	VISÃO GERAL DO PRODUTO
@@ -73,14 +74,14 @@ Sprint 4 | Visão do Produto e Projeto | 16/11/22 | 23/11/22
 Sprint 5 | Ambiente configurado no VSCode com React, Material UI e Nest, ambiente testado, reunião de comunicação sobre as tecnologias  | 23/11/22 | 30/11/22
 Sprint 6 | Backlog do Produto, CI/CD configurados, escopo dos MVPs 1 e 2 definidos | 30/11/22 | 07/12/22
 Sprint 7 | Backlog da sprint refinado, protótipo do projeto | 07/12/22 | 14/12/22
-Sprint 8 | PBB, BDD, Sprint Review, Sprint Planning, Retrospectiva da Sprint| 14/12/22 | 21/12/22
-Sprint 9 | US8, US9, US10, US11, US12, US13 | 21/12/22 | 28/12/22
-Sprint 10 | USM, US14, US15, US16, US17 | 28/12/22 | 04/01/22
-Sprint 11 | MVP 1 | 04/01/22 | 11/01/22
-Sprint 12 | US18, US19, US20, US21, US22 | 11/01/22 | 18/02/22
-Sprint 13 | US23, US24 | 18/01/22 | 25/01/22
-Sprint 14 | US1, US2, US3, US4, US5, US6, US7 | 25/01/22 | 01/02/22
-Sprint 15 | MVP 2 | 01/01/22 | 07/02/22
+Sprint 8 | Sprint Review, Sprint Planning, Retrospectiva da Sprint| 14/12/22 | 21/12/22
+Sprint 9 | US05, US06, US07, US08, US10, US11 | 21/12/22 | 28/12/22
+Sprint 10 | US13, US14, US15, US16 | 28/12/22 | 04/01/22
+Sprint 11 | Deploy das US's do MVP1 (subir o ammbiente)| 04/01/22 | 11/01/22
+Sprint 12 | US01, US02, US03, US12, US17 , US18 | 11/01/22 | 18/01/22
+Sprint 13 | US19, US20, US21, US22 , US23, US25 | 18/01/22 | 25/01/22
+Sprint 14 | US04, US09, US24, US26, US27| 25/01/22 | 01/02/22
+Sprint 15 | Deploy das US's do MVP2 (atualizar o ammbiente) | 01/01/22 | 07/02/22
 
 ### 2.3	Matriz de Comunicação
 Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
@@ -168,6 +169,7 @@ De acordo com a abordagem SCRUM, definiu-se:
         - Implementação do banco de dados: Será feito um pareamento entre dois membros da equipe que utilizaram o MySQL e ferramentas de modelagem para implementar a tarefa a ser feita.
         - Implementação do front-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework React e a ferramenta Figma para implementar a tarefa a ser feita.
         - Implementação do back-end: Será feito um pareamento entre dois membros da equipe que utilizaram o framework NestJS para implementar a tarefa a ser feita.
+        - Fazer o deploy do projeto: Subir o ambiente e gerar build da aplicação.
 - As entregas da Implementação do front-end e back-end serão códigos disponibilizados no GitHub, o protótipo será entregue no Figma e o banco de dados serão entregues scripts.
 
 #### 3.3.1	PLANNING
