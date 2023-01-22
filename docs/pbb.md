@@ -1,8 +1,12 @@
 # PBB & BDD Canvas
 
+Link de acesso ao miro: <https://miro.com/app/board/uXjVP5R0Pa0=/?share_link_id=566469054676>
+
 <iframe width="768" height="432" src="https://miro.com/app/board/uXjVP5R0Pa0=/?share_link_id=614337566623" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
 # Product Backlog Building 
+
+![PBB completo](./img/PBB/pbb-completo.png)
 
 ## Problemas
 
@@ -12,6 +16,8 @@
 * Dificuldade de encontrar respostas para suas dúvidas
 * Falta de motivação para os alunos na hora de ajudar seus colegas
 
+![problemas](img/PBB/pbb-problemas.png)
+
 ## Expectativas
 
 * Encontrar em um único lugar questões relacionadas as disciplinas da FGA.
@@ -19,6 +25,8 @@
 * Poder avisar um horário para tirar dúvidas
 * Postagem de respostas para perguntas de pessoas que dominam assuntos de interesse. 
 * Incentivo através de um rankeamento para os outros alunos
+
+![Expectativas](img/PBB/pbb-expectativas.png)
 
 ## Personas
 ### Iracema: 43 anos, formada em Engenharia Ambiental, professora de Desenvolvimento Sustentavel
@@ -37,6 +45,8 @@
 * AVISAR MENTORIA
 * AJUDAR OUTROS ALUNOS RESPONDENDO PERGUNTAS
 * AUMENTAR SEU NÍVEL NO RANKING GERAL
+
+![Personas](img/PBB/pbb-personas.png)
 
 ## Funcionalidades
 
@@ -59,6 +69,8 @@
 ### AUMENTAR SEU NÍVEL NO RANKING GERAL
 * PROBLEMAS: Falta de motivação para os alunos na hora de ajudar seus colegas
 * BENEFÍCIOS: Incentivo através de um rankeamento para os outros alunos
+
+![Funcionalidades](img/PBB/pbb-funcionalidades.png)
 
 ## PBIs
 
@@ -84,7 +96,11 @@
 * US11: Eu, como estudante gostaria de votar no perfil de outro estudante do site, para classificar este usuário como bom
 * US12: Eu, como estudante gostaria de tirar meu voto no perfil de outro estudante do site, para caso eu tenha votado equivocadamente ou não ache que ele solucionou minha dúvida
 
+![PBIs](img/PBB/pbb-pbis.png)
+
 # Behavior Driven Development
+
+![BDD](img/BDD/bdd-completo.png)
 
 ## CENÁRIO 1: US04
 ### TÍTULO: Dúvida a ser respondida
@@ -115,3 +131,5 @@
 * Dado que o aviso: "Monitoria de Engenharia e Ambiente do professor Scardua dia 26/02 na sala I8" possua um filtro para notificar que é um aviso.
 * Quando o aluno monitor escrever o aviso: "Monitoria de Engenharia e Ambiente do professor Scardua dia 26/02 na sala I8".
 * Então, o aviso: "Monitoria de Engenharia e Ambiente do professor Scardua dia 26/02 na sala I8" deverá ser postado no fórum.
+
+![Cenarios](img/BDD/bdd-cenarios.png)
