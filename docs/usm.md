@@ -1,8 +1,12 @@
 # USM Canvas
 
+Link de acesso ao miro: <https://miro.com/app/board/uXjVP33_snA=/?share_link_id=676890663709>
+
 <iframe width="768" height="432" src="https://miro.com/app/board/uXjVP33_snA=/?share_link_id=721105816862" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
 # User Story Mapping
+
+![USM-completo](img/USM/usm-completo.png)
 
 ## **Personas:**
 
@@ -11,6 +15,8 @@
 2 - Aluna
 
 3 - Monitora
+
+![USM-personas](img/USM/usm-personas.png)
 
 ## **Objetivos:**
 
@@ -69,6 +75,8 @@
 - Criar aviso
 - Deletar aviso
 - Filtrar aviso
+
+![USM-obj-ativ](img/USM/usm-obj-ativ.png)
 
 ## **User Storys:**
 
@@ -275,3 +283,5 @@
 
 - **Adicionar aviso a grupos de usuários**
     - **Eu como** monitora **quero** poder adicionar tags de filtro referentes a grupos de usuários nos meus avisos **para** que outros usuários possam ser notificados de determinados avisos.
+
+![USM-user-storys](img/USM/usm-user-storys.png)
