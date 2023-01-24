@@ -40,8 +40,8 @@ export default function PerguntaSelecionada({ usuarios }) {
       });
   }, []);
 
-  useEffect(() => {
-    apiRequest
+  const getResposta = async () => {
+    await apiRequest
       .get(`respostas/pergunta/${idPergunta}`)
       .then((response) => {
         setRespostas(response.data);
@@ -49,9 +49,13 @@ export default function PerguntaSelecionada({ usuarios }) {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
+  };
+
+  useEffect(() => {
+    getResposta();
   }, [comentar]);
 
-  const deletePergunta = async () => {
+  const deletarPergunta = async () => {
     await apiRequest
       .delete(`perguntas/${idPergunta}`)
       .then(() => {
@@ -62,7 +66,29 @@ export default function PerguntaSelecionada({ usuarios }) {
     navigate(-1);
   };
 
-  const updateFavotito = async () => {
+  const deletarResposta = async (idResposta) => {
+    await apiRequest
+      .delete(`respostas/${idResposta}`)
+      .then(() => {
+        alert("Resposta deletada!");
+      })
+      .catch((error) => console.log(error));
+
+    getResposta();
+  };
+
+  const updateFavoritoPergunta = async () => {
+    await apiRequest
+      .patch(
+        favorito ? `perguntas/menos/${idPergunta}` : `perguntas/${idPergunta}`
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const updateFavoritoResposta = async () => {
     await apiRequest
       .patch(
         favorito ? `perguntas/menos/${idPergunta}` : `perguntas/${idPergunta}`
@@ -89,12 +115,12 @@ export default function PerguntaSelecionada({ usuarios }) {
   };
 
   return (
-    <div className="card-pergunta pergunta-selecionada">
+    <div className="pergunta-selecionada">
       <div className="usuario-informacao-texto">
         <div className="delete">
           {/* <span>{perguntaSelecionada?.usuario?.fotoPerfil}</span> */}
           <span>{perguntaSelecionada?.usuario?.nome_completo}</span>
-          <IconButton style={{ width: "20" }} onClick={deletePergunta}>
+          <IconButton style={{ width: "20" }} onClick={deletarPergunta}>
             <DeleteIcon />
           </IconButton>
         </div>
@@ -110,7 +136,7 @@ export default function PerguntaSelecionada({ usuarios }) {
           className="item-interacao"
           onClick={() => {
             setFavorito(!favorito);
-            updateFavotito();
+            updateFavoritoPergunta;
           }}
         >
           <IconButton>
@@ -169,7 +195,22 @@ export default function PerguntaSelecionada({ usuarios }) {
           <li value={data.id} key={index} className="teste">
             <div className="usuario-informacao-texto">
               {/* <span>{data.usuario.fotoPerfil}</span> */}
-              <span>{data.usuario.nome_completo}</span>
+              <span
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {data.usuario.nome_completo}
+                <DeleteIcon
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    deletarResposta(data.id);
+                  }}
+                />
+              </span>
               <span>{handleCurso(data.usuario.curso)}</span>
             </div>
             <span>{data.corpoResposta}</span>

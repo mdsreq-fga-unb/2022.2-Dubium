@@ -1,10 +1,15 @@
 .pergunta-selecionada {
   width: 60%;
-  cursor: auto;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  border-radius: 15px;
 }
 
-.pergunta-selecionada:hover {
-  background-color: #fafafa;
+.pergunta-selecionada svg {
+  width: 16px;
 }
 
 .like-comentario {
