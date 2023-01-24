@@ -57,7 +57,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
       </div>
       {avisosFiltrados.map((aviso, index) => {
         return (
-          <Link to={`/pergunta/`} key={index}>
+          <Link to={`/avisos/aviso/${aviso.id}`} key={index}>
             <div className="card-pergunta">
               <div className="usuario-pergunta">
                 {/* <div className="avatar">

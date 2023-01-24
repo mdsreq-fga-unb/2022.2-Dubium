@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AvisosConteudo from "./pages/Avisos/AvisosConteudo";
 import AvisosFormulario from "./pages/Avisos/AvisosFormulario";
+import AvisoSelecionado from "./pages/Avisos/AvisoSelecionado";
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -63,6 +64,10 @@ function App() {
             <Route
               path="/avisos/:id"
               element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
+            />
+            <Route
+              path="/avisos/aviso/:idAviso"
+              element={<AvisoSelecionado usuarios={usuarios} />}
             />
             <Route
               path="/avisos/criar-aviso"
