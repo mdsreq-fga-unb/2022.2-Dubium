@@ -20,7 +20,7 @@
   gap: 5px;
 }
 
-.resposta {
+.container-resposta {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -54,7 +54,7 @@
   color: #166799;
 }
 
-.teste {
+.card-resposta {
   display: flex;
   flex-direction: column;
   gap: 20px;

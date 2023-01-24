@@ -72,22 +72,3 @@
   gap: 5px;
   cursor: pointer;
 }
-
-.card-resposta {
-  display: flex;
-  flex-direction: row;
-  gap: 25px;
-  align-items: center;
-  background-color: #f5f5f5;
-  padding: 10px;
-}
-
-.resposta-info {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.texto-resposta {
-  padding-top: 20px;
-}

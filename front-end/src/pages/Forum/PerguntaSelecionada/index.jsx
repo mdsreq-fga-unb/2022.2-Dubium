@@ -190,9 +190,9 @@ export default function PerguntaSelecionada({ usuarios }) {
           </form>
         </div>
       )}
-      <ul className="resposta">
+      <ul className="container-resposta">
         {respostas.map((data, index) => (
-          <li value={data.id} key={index} className="teste">
+          <li value={data.id} key={index} className="card-resposta">
             <div className="usuario-informacao-texto">
               {/* <span>{data.usuario.fotoPerfil}</span> */}
               <span
@@ -214,6 +214,18 @@ export default function PerguntaSelecionada({ usuarios }) {
               <span>{handleCurso(data.usuario.curso)}</span>
             </div>
             <span>{data.corpoResposta}</span>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "5px",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+            >
+              <StarIcon />
+              <span>{data.votosTotais}</span>
+            </div>
           </li>
         ))}
       </ul>
