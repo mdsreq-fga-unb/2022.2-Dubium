@@ -51,7 +51,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
   return (
     <div className="container-pergunta">
       <div className="criar-pergunta">
-        <Link to="/criar-pergunta">
+        <Link to="/avisos/criar-aviso">
           <button>CRIAR AVISO</button>
         </Link>
       </div>
