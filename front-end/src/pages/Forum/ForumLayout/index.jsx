@@ -4,10 +4,10 @@ import Sidebar from "../Sidebar";
 
 import { Outlet } from "react-router-dom";
 
-export default function ForumLayout() {
+export default function ForumLayout({ pagina }) {
   return (
     <>
-      <Sidebar />
+      <Sidebar pagina={pagina} />
       <Outlet />
     </>
   );

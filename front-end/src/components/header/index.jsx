@@ -24,6 +24,9 @@ function Header(props) {
           <Link to="/">FÓRUM</Link>
         </li>
         <li className="item">
+          <Link to="/avisos">AVISOS</Link>
+        </li>
+        <li className="item">
           <Link to="/ranking-usuarios">USUARIOS</Link>
         </li>
         <li className="item">

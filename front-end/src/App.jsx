@@ -14,6 +14,7 @@ import Sobre from "./pages/Sobre";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+import AvisosConteudo from "./pages/Avisos/AvisosConteudo";
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -35,7 +36,7 @@ function App() {
       <Router>
         <Header setMateriaPesquisada={setMateriaPesquisada} />
         <Routes>
-          <Route path="/" element={<ForumLayout />}>
+          <Route path="/" element={<ForumLayout pagina="forum" />}>
             <Route
               index
               element={<ForumBody materiaPesquisada={materiaPesquisada} />}
@@ -51,6 +52,16 @@ function App() {
             <Route
               path="/criar-pergunta"
               element={<FormularioPergunta usuarios={usuarios} />}
+            />
+          </Route>
+          <Route path="/avisos" element={<ForumLayout pagina="avisos" />}>
+            <Route
+              index
+              element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
+            />
+            <Route
+              path="/avisos/:id"
+              element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
             />
           </Route>
           <Route
