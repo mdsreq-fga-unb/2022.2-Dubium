@@ -31,4 +31,14 @@ export class RespostasController {
   async remove(@Param('id') id: string) {
     return this.service.remove(+id);
   }
+
+  @Patch(':id')
+  updateMaisVotosResposta(@Param('id') id: string) {
+    return this.service.updateMaisVotosResposta(+id);
+  }
+
+  @Patch('/menos/:id')
+  updateMenosVotosResposta(@Param('id') id: string) {
+    return this.service.updateMenosVotosResposta(+id);
+  }
 }
