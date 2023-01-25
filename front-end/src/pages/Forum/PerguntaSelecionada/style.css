@@ -62,3 +62,7 @@
   padding: 10px;
   border-radius: 10px;
 }
+
+.hover-red:hover {
+  color: #ffa722;
+}

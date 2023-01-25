@@ -16,7 +16,8 @@ import { IconButton } from "@mui/material";
 export default function PerguntaSelecionada({ usuarios }) {
   const [perguntaSelecionada, setPerguntaSelecionada] = useState({});
   const [respostas, setRespostas] = useState([]);
-  const [favorito, setFavorito] = useState(false);
+  const [favoritoPergunta, setFavoritoPergunta] = useState(false);
+  const [favoritoResposta, setFavoritoResposta] = useState(false);
   const [comentar, setComentar] = useState(false);
 
   const { idPergunta } = useParams();
@@ -80,7 +81,9 @@ export default function PerguntaSelecionada({ usuarios }) {
   const updateFavoritoPergunta = async () => {
     await apiRequest
       .patch(
-        favorito ? `perguntas/menos/${idPergunta}` : `perguntas/${idPergunta}`
+        favoritoPergunta
+          ? `perguntas/menos/${idPergunta}`
+          : `perguntas/${idPergunta}`
       )
       .then((response) => {
         console.log(response);
@@ -88,10 +91,12 @@ export default function PerguntaSelecionada({ usuarios }) {
       .catch((error) => console.log(error));
   };
 
-  const updateFavoritoResposta = async () => {
+  const updateFavoritoResposta = async (idResposta) => {
     await apiRequest
       .patch(
-        favorito ? `perguntas/menos/${idPergunta}` : `perguntas/${idPergunta}`
+        favoritoResposta
+          ? `respostas/menos/${idResposta}`
+          : `respostas/${idResposta}`
       )
       .then((response) => {
         console.log(response);
@@ -135,12 +140,12 @@ export default function PerguntaSelecionada({ usuarios }) {
         <li
           className="item-interacao"
           onClick={() => {
-            setFavorito(!favorito);
-            updateFavoritoPergunta;
+            setFavoritoPergunta(!favoritoPergunta);
+            updateFavoritoPergunta();
           }}
         >
           <IconButton>
-            <StarIcon className={favorito ? "corFavorito" : ""} />
+            <StarIcon className={favoritoPergunta ? "corFavorito" : ""} />
           </IconButton>
           <span>Favoritar</span>
         </li>
@@ -215,6 +220,7 @@ export default function PerguntaSelecionada({ usuarios }) {
             </div>
             <span>{data.corpoResposta}</span>
             <div
+              className="hover-red"
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -222,8 +228,12 @@ export default function PerguntaSelecionada({ usuarios }) {
                 alignItems: "center",
                 cursor: "pointer",
               }}
+              onClick={() => {
+                setFavoritoResposta(!favoritoResposta);
+                updateFavoritoResposta(data.id);
+              }}
             >
-              <StarIcon />
+              <StarIcon className={favoritoResposta ? "corFavorito" : ""} />
               <span>{data.votosTotais}</span>
             </div>
           </li>
