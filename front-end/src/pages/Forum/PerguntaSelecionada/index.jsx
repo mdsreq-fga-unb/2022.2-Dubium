@@ -102,6 +102,8 @@ export default function PerguntaSelecionada({ usuarios }) {
         console.log(response);
       })
       .catch((error) => console.log(error));
+
+    getResposta();
   };
 
   const onSubmit = async (data) => {
