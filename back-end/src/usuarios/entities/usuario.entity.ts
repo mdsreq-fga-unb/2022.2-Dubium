@@ -27,6 +27,12 @@ export class Usuario {
     @Column()
     senha: string;
 
+    @Column()
+    tokenRestaurarSenha: string;
+
+    @Column()
+    expiracaoSenha: Date;
+
     @Column({default: 0})
     votosTotais: number;
 
