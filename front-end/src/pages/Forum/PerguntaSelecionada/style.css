@@ -1,10 +1,15 @@
 .pergunta-selecionada {
   width: 60%;
-  cursor: auto;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  border-radius: 15px;
 }
 
-.pergunta-selecionada:hover {
-  background-color: #fafafa;
+.pergunta-selecionada svg {
+  width: 16px;
 }
 
 .like-comentario {
@@ -15,7 +20,7 @@
   gap: 5px;
 }
 
-.resposta {
+.container-resposta {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -49,11 +54,15 @@
   color: #166799;
 }
 
-.teste {
+.card-resposta {
   display: flex;
   flex-direction: column;
   gap: 20px;
   background-color: #f5f5f5;
   padding: 10px;
   border-radius: 10px;
+}
+
+.hover-red:hover {
+  color: #ffa722;
 }

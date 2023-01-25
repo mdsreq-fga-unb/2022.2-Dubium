@@ -16,7 +16,8 @@ import { IconButton } from "@mui/material";
 export default function PerguntaSelecionada({ usuarios }) {
   const [perguntaSelecionada, setPerguntaSelecionada] = useState({});
   const [respostas, setRespostas] = useState([]);
-  const [favorito, setFavorito] = useState(false);
+  const [favoritoPergunta, setFavoritoPergunta] = useState(false);
+  const [favoritoResposta, setFavoritoResposta] = useState(false);
   const [comentar, setComentar] = useState(false);
 
   const { idPergunta } = useParams();
@@ -40,8 +41,8 @@ export default function PerguntaSelecionada({ usuarios }) {
       });
   }, []);
 
-  useEffect(() => {
-    apiRequest
+  const getResposta = async () => {
+    await apiRequest
       .get(`respostas/pergunta/${idPergunta}`)
       .then((response) => {
         setRespostas(response.data);
@@ -49,9 +50,13 @@ export default function PerguntaSelecionada({ usuarios }) {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
+  };
+
+  useEffect(() => {
+    getResposta();
   }, [comentar]);
 
-  const deletePergunta = async () => {
+  const deletarPergunta = async () => {
     await apiRequest
       .delete(`perguntas/${idPergunta}`)
       .then(() => {
@@ -62,15 +67,43 @@ export default function PerguntaSelecionada({ usuarios }) {
     navigate(-1);
   };
 
-  const updateFavotito = async () => {
+  const deletarResposta = async (idResposta) => {
+    await apiRequest
+      .delete(`respostas/${idResposta}`)
+      .then(() => {
+        alert("Resposta deletada!");
+      })
+      .catch((error) => console.log(error));
+
+    getResposta();
+  };
+
+  const updateFavoritoPergunta = async () => {
     await apiRequest
       .patch(
-        favorito ? `perguntas/menos/${idPergunta}` : `perguntas/${idPergunta}`
+        favoritoPergunta
+          ? `perguntas/menos/${idPergunta}`
+          : `perguntas/${idPergunta}`
       )
       .then((response) => {
         console.log(response);
       })
       .catch((error) => console.log(error));
+  };
+
+  const updateFavoritoResposta = async (idResposta) => {
+    await apiRequest
+      .patch(
+        favoritoResposta
+          ? `respostas/menos/${idResposta}`
+          : `respostas/${idResposta}`
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
+
+    getResposta();
   };
 
   const onSubmit = async (data) => {
@@ -89,12 +122,12 @@ export default function PerguntaSelecionada({ usuarios }) {
   };
 
   return (
-    <div className="card-pergunta pergunta-selecionada">
+    <div className="pergunta-selecionada">
       <div className="usuario-informacao-texto">
         <div className="delete">
           {/* <span>{perguntaSelecionada?.usuario?.fotoPerfil}</span> */}
           <span>{perguntaSelecionada?.usuario?.nome_completo}</span>
-          <IconButton style={{ width: "20" }} onClick={deletePergunta}>
+          <IconButton style={{ width: "20" }} onClick={deletarPergunta}>
             <DeleteIcon />
           </IconButton>
         </div>
@@ -109,12 +142,12 @@ export default function PerguntaSelecionada({ usuarios }) {
         <li
           className="item-interacao"
           onClick={() => {
-            setFavorito(!favorito);
-            updateFavotito();
+            setFavoritoPergunta(!favoritoPergunta);
+            updateFavoritoPergunta();
           }}
         >
           <IconButton>
-            <StarIcon className={favorito ? "corFavorito" : ""} />
+            <StarIcon className={favoritoPergunta ? "corFavorito" : ""} />
           </IconButton>
           <span>Favoritar</span>
         </li>
@@ -164,15 +197,47 @@ export default function PerguntaSelecionada({ usuarios }) {
           </form>
         </div>
       )}
-      <ul className="resposta">
+      <ul className="container-resposta">
         {respostas.map((data, index) => (
-          <li value={data.id} key={index} className="teste">
+          <li value={data.id} key={index} className="card-resposta">
             <div className="usuario-informacao-texto">
               {/* <span>{data.usuario.fotoPerfil}</span> */}
-              <span>{data.usuario.nome_completo}</span>
+              <span
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {data.usuario.nome_completo}
+                <DeleteIcon
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    deletarResposta(data.id);
+                  }}
+                />
+              </span>
               <span>{handleCurso(data.usuario.curso)}</span>
             </div>
             <span>{data.corpoResposta}</span>
+            <div
+              className="hover-red"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "5px",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                setFavoritoResposta(!favoritoResposta);
+                updateFavoritoResposta(data.id);
+              }}
+            >
+              <StarIcon className={favoritoResposta ? "corFavorito" : ""} />
+              <span>{data.votosTotais}</span>
+            </div>
           </li>
         ))}
       </ul>
