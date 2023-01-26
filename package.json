@@ -22,5 +22,9 @@
   "homepage": "https://github.com/mdsreq-fga-unb/2022.2-Dubium#readme",
   "devDependencies": {
     "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "@types/nodemailer": "^6.4.7",
+    "nodemailer": "^6.9.0"
   }
 }
