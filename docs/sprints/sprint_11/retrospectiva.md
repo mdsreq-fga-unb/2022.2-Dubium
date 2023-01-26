@@ -17,6 +17,7 @@ Tarefas | Descrição | Resposáveis | Status
 02 | Front-end | [Giúlia](https://github.com/alcantaragiubs), [Eduarda](https://github.com/erteduarda) e [Júlio](https://github.com/Julio-eng) | Concluido
 03 | Back-End | [Gian](https://github.com/GianMedeiros), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres) e [Helder](https://github.com/F1reFinger) | Concluido
 
+foi desenvolvido seguindo o pair programming presente na metodologia.
 ## 3 FeedBack - Health Check
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1-sWmWZ9fADGNUFFPdBJHccLhOLTYTjqHpMyFA5QReok/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 

@@ -15,6 +15,7 @@ Tarefas | Descrição | Resposáveis | Status
 ------ | --------- | ----------- | ------
 01 | Documentação | [Helder](https://github.com/F1reFinger), [Júlio](https://github.com/Julio-eng), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres), [Gian](https://github.com/GianMedeiros) e [Eduarda](https://github.com/erteduarda)  | Concluido
 
+foi desenvolvido seguindo o pair programming e foi desenvolvido segundo a metodologia.
 ## 3 FeedBack - Health Check
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1-sWmWZ9fADGNUFFPdBJHccLhOLTYTjqHpMyFA5QReok/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
