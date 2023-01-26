@@ -6,9 +6,10 @@ import { RespostasModule } from './respostas/respostas.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { ConfigModule } from '@nestjs/config';
 import { AvisosModule } from './avisos/avisos.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [PerguntasModule, RespostasModule, UsuariosModule, AvisosModule, ConfigModule.forRoot({ isGlobal: true })],
+  imports: [PerguntasModule, RespostasModule, UsuariosModule, AvisosModule, AuthModule, ConfigModule.forRoot({ isGlobal: true })],
   controllers: [AppController],
   providers: [AppService],
 })

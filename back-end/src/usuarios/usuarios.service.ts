@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { Usuario } from './entities/usuario.entity';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsuariosService {
@@ -47,7 +48,7 @@ export class UsuariosService {
       usuario.matricula = data.matricula;
       usuario.celular = data.celular;
       usuario.email = data.email;
-      usuario.senha = data.senha;
+      usuario.senha= bcrypt.hashSync(data.senha, 8);
       return this.usuarioRepository.save(usuario);
     } 
     catch (error) {
@@ -101,5 +102,6 @@ async findByMatricula(matricula: number): Promise<Usuario | undefined> {
     })
     .where({id})
     .execute()
+
   }
 }
