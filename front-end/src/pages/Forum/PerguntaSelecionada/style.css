@@ -8,8 +8,23 @@
   border-radius: 15px;
 }
 
-.pergunta-selecionada svg {
-  width: 16px;
+.ps-usuario-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ps-usuario-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.ps-usuario-info-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .like-comentario {
@@ -63,6 +78,9 @@
   border-radius: 10px;
 }
 
-.hover-red:hover {
-  color: #ffa722;
+.ps-favoritar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }

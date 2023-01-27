@@ -1,10 +1,15 @@
+import "./style.css";
+
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 import SidebarContext from "../../../context/SidebarProvider";
+import pesquisaPosts from "../../../services/pesquisa";
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
+
+import PersonIcon from "@mui/icons-material/Person";
 import StarIcon from "@mui/icons-material/Star";
-import "./style.css";
 
 export default function AvisosConteudo({ materiaPesquisada }) {
   const [arrayAvisos, setArrayAvisos] = useState([]);
@@ -25,28 +30,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
       });
   }, [elementoSidebar]);
 
-  const avisosFiltrados = arrayAvisos.filter(
-    (e) =>
-      e.filtro
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .startsWith(
-          materiaPesquisada
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .toLowerCase()
-        ) ||
-      // eslint-disable-next-line eqeqeq
-      e.filtro
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase() ==
-        materiaPesquisada
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .toLowerCase()
-  );
+  const avisosFiltrados = pesquisaPosts(arrayAvisos, materiaPesquisada);
 
   return (
     <div className="container-pergunta">
@@ -60,13 +44,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
           <Link to={`/avisos/aviso/${aviso.id}`} key={index}>
             <div className="card-pergunta">
               <div className="usuario-pergunta">
-                {/* <div className="avatar">
-                  <img
-                    src={pergunta.userPergunta.foto}
-                    alt=""
-                    className="picture"
-                  />
-                </div> */}
+                <PersonIcon fontSize="large" />
                 <div className="usuario-informacao-texto">
                   <span>{aviso.usuario.fotoPerfil}</span>
                   <span>{aviso.usuario.nome_completo}</span>
@@ -76,7 +54,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
               <div>{aviso.tituloAviso}</div>
               <div>{aviso.corpoAviso}</div>
               <div className="like-comentario">
-                <StarIcon style={{ color: "#ffa722" }} />
+                <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
                 <span>{aviso.votosTotais} favoritos</span>
               </div>
             </div>

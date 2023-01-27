@@ -8,6 +8,7 @@ import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
 
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import PersonIcon from "@mui/icons-material/Person";
 import DeleteIcon from "@mui/icons-material/Delete";
 import StarIcon from "@mui/icons-material/Star";
 import SendIcon from "@mui/icons-material/Send";
@@ -123,21 +124,21 @@ export default function PerguntaSelecionada({ usuarios }) {
 
   return (
     <div className="pergunta-selecionada">
-      <div className="usuario-informacao-texto">
-        <div className="delete">
-          {/* <span>{perguntaSelecionada?.usuario?.fotoPerfil}</span> */}
-          <span>{perguntaSelecionada?.usuario?.nome_completo}</span>
-          <IconButton style={{ width: "20" }} onClick={deletarPergunta}>
-            <DeleteIcon />
-          </IconButton>
+      <div className="ps-usuario-container">
+        <div className="ps-usuario-info">
+          <PersonIcon fontSize="large" />
+          <div className="ps-usuario-info-texto">
+            <span>{perguntaSelecionada?.usuario?.nome_completo}</span>
+            <span style={{ color: "#757575" }}>
+              {handleCurso(perguntaSelecionada?.usuario?.curso)}
+            </span>
+          </div>
         </div>
-        <span>{handleCurso(perguntaSelecionada?.usuario?.curso)}</span>
+        <IconButton onClick={deletarPergunta}>
+          <DeleteIcon sx={{ fontSize: 16 }} />
+        </IconButton>
       </div>
       <span>{perguntaSelecionada?.corpoPergunta}</span>
-      {/* <div className="like-comentario">
-        <StarIcon />
-        <span>{perguntaSelecionada?.votosTotais} favoritos</span>
-      </div> */}
       <ul className="container-interacao">
         <li
           className="item-interacao"
@@ -147,13 +148,16 @@ export default function PerguntaSelecionada({ usuarios }) {
           }}
         >
           <IconButton>
-            <StarIcon className={favoritoPergunta ? "corFavorito" : ""} />
+            <StarIcon
+              className={favoritoPergunta ? "corFavorito" : ""}
+              sx={{ fontSize: 16 }}
+            />
           </IconButton>
           <span>Favoritar</span>
         </li>
         <li className="item-interacao" onClick={() => setComentar(!comentar)}>
           <IconButton>
-            <QuestionAnswerIcon />
+            <QuestionAnswerIcon sx={{ fontSize: 16 }} />
           </IconButton>
           <span>Responder</span>
         </li>
@@ -191,7 +195,7 @@ export default function PerguntaSelecionada({ usuarios }) {
                 maxLength={500}
               ></textarea>
               <IconButton type="submit">
-                <SendIcon className="comentario" />
+                <SendIcon className="comentario" sx={{ fontSize: 16 }} />
               </IconButton>
             </div>
           </form>
@@ -201,7 +205,6 @@ export default function PerguntaSelecionada({ usuarios }) {
         {respostas.map((data, index) => (
           <li value={data.id} key={index} className="card-resposta">
             <div className="usuario-informacao-texto">
-              {/* <span>{data.usuario.fotoPerfil}</span> */}
               <span
                 style={{
                   display: "flex",
@@ -211,31 +214,27 @@ export default function PerguntaSelecionada({ usuarios }) {
                 }}
               >
                 {data.usuario.nome_completo}
-                <DeleteIcon
-                  style={{ cursor: "pointer" }}
+                <IconButton
                   onClick={() => {
                     deletarResposta(data.id);
                   }}
-                />
+                >
+                  <DeleteIcon sx={{ fontSize: 16 }} />
+                </IconButton>
               </span>
               <span>{handleCurso(data.usuario.curso)}</span>
             </div>
             <span>{data.corpoResposta}</span>
             <div
-              className="hover-red"
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: "5px",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
+              className="ps-favoritar"
               onClick={() => {
                 setFavoritoResposta(!favoritoResposta);
                 updateFavoritoResposta(data.id);
               }}
             >
-              <StarIcon className={favoritoResposta ? "corFavorito" : ""} />
+              <IconButton>
+                <StarIcon sx={{ fontSize: 16 }} />
+              </IconButton>
               <span>{data.votosTotais}</span>
             </div>
           </li>
