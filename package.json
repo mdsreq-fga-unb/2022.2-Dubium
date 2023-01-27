@@ -22,5 +22,10 @@
   "homepage": "https://github.com/mdsreq-fga-unb/2022.2-Dubium#readme",
   "devDependencies": {
     "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "@nestjs/jwt": "^10.0.1",
+    "bcrypt": "^5.1.0",
+    "passport-jwt": "^4.0.1"
   }
 }

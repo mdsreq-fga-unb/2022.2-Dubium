@@ -6,6 +6,9 @@ import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 
 @Injectable()
 export class UsuariosService {
+    findOneBy(arg0: { email: string; }): Usuario | PromiseLike<Usuario> {
+        throw new Error('Method not implemented.');
+    }
 
   constructor(
     @Inject('USUARIO_REPOSITORY')
