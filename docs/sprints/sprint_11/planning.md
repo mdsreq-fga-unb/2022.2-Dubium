@@ -17,7 +17,7 @@ Dono do Produto | Gian | Eduarda, Giulia, Helder, Julio, Silas
 Analista de Qualidade | Silas | Eduarda, Gian, Giulia, Helder, Julio
 Mestre do Scrum | Giulia | Eduarda, Gian, Helder, Julio, Silas --> 
 
-não houveram atividades desenvolvidas de acordo com a metodologia nessa sprint
+Não houveram atividades desenvolvidas de acordo com a metodologia nessa sprint
 
 <!-- ## 1.4. Tarefas
 <!-- descrever as issues que definimos para essa sprint e alocar um responsavel por ela -->
