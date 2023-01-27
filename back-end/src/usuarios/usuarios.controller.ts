@@ -19,8 +19,8 @@ export class UsuariosController {
   }
 
   @Post('resetPassword')
-  async resetPassword(@Body() email: string, token: string, password: string) {
-    return this.service.resetPassword(email, token, password);
+  async resetPassword(@Body() email: string) {
+    return this.service.resetPassword(email);
   }
 
   @Put(':id')
