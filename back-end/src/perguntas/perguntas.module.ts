@@ -7,7 +7,7 @@ import { UsuariosModule } from 'src/usuarios/usuarios.module';
 import { respostaProviders } from 'src/respostas/respostas.providers';
 @Module({
   imports: [DatabaseModule, UsuariosModule],
-  service: [PerguntasController],
+  controllers: [PerguntasController],
   providers: [PerguntasService, ...perguntasProviders, ...respostaProviders],
   exports: [PerguntasService]
 })
