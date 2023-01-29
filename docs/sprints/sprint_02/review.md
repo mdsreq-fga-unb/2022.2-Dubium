@@ -8,3 +8,5 @@ Definir para, quem o Dubium, que, ao contrario, nosso produto: ok | Definir o ob
                  
 ## Pontos de melhorias
 
+- Necessidade de definir uma metodologia
+- Entender e organizar toda a equipe

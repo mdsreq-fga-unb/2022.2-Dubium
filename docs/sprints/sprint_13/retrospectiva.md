@@ -24,3 +24,7 @@ foi desenvolvido seguindo o pair programming presente na metodologia.
 
 ## 4 Quadro de Conhecimento
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1MeP-q5hIVB0PUKEYZGs4nRC9GpGrQpQy1MaD0SJNBA8/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
+## 5 Melhorias
+
+- Saber lidar com pouco tempo e alta pressão

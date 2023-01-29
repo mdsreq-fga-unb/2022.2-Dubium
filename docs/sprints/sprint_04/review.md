@@ -10,5 +10,10 @@ Metodologia | Ferramentas | Processos e Procedimentos | Arquitetura do Projeto
 ------------| ------------| --------------------------|-----------------------
 Definir a metodologia que será implementada no projeto: ok | Definir as ferramentas de organização da equipe: ok | Definir as atividades os processos e os procedimentos ultilizados na execução do projeto pela equipe: ok | Definir a arquitetura do projeto que será ultilizada pela equipe: ok 
 
+## Melhorados
+- Metodologia definida
+- Equipe e conhecimentos minimos definidos.
 ## Pontos de melhorias
-
+- Definir requisitos
+- Adaptar aos horarios do cliente
+- organizar entregas

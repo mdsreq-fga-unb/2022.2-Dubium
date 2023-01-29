@@ -10,4 +10,11 @@ Criação do prototipo de alta fidelidade da tela de chat: ok | Criação do pro
 --|--
 Definir o escopo do MVP1: ok | Definir o escopo do MVP2: ok
 
+## Melhorados
+
+- Definir ordem logica de execução das tasks para melhor aproveitamento de tempo por us 
+- Organizar tempo e tasks de modo a concluir blocos de US's que agreguem valor ao produto das entregas
 ## Pontos de melhorias
+
+- Ajustes de design e padronização de telas.
+- Adaptar o prototipo de modo a agradar aos olhos.

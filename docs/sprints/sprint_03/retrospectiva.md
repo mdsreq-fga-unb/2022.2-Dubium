@@ -25,5 +25,5 @@ Não havia uma metodologia bem definida para o projeto.
 
 
 ## 5 Melhorias
-- Organizar melhor as tarefas
 - Definir bem as tarefas
+- Organizar melhor as tarefas

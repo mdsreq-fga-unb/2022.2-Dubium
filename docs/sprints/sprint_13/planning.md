@@ -20,7 +20,7 @@ Mestre do Scrum | Giulia | Eduarda, Gian, Helder, Julio, Silas
 
 ## 1.3. Objetivos da Sprint
 <!-- descrever de forma geral o objetivo da sprint -->
-* Declarar a posição do produto
+* Execução do MVP1 (US19, US20, US21, US22 , US23, US25)
 
 ## 1.4. Tarefas
 <!-- descrever as issues que definimos para essa sprint e alocar um responsavel por ela -->
