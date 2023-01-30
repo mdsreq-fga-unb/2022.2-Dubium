@@ -25,7 +25,7 @@ export class Usuario {
     celular: string;
 
     @Column()
-    senha: string;
+    password: string;
 
     @Column({default: 0})
     votosTotais: number;

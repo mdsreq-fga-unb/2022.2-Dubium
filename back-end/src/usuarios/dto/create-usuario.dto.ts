@@ -32,5 +32,5 @@ export class CreateUsuarioDto {
     @MinLength(6)
     @MaxLength(20)
     @Validate(PasswordValidation, [passwordRequirement])
-    senha: string;
+    password: string;
 }

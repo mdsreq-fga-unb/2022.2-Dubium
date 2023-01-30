@@ -1,12 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { RespostasService } from './respostas.service';
 import { CreateRespostaDto } from './dto/create-resposta.dto';
 import { Resposta } from './entities/resposta.entity';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('respostas')
 export class RespostasController {
   constructor(private readonly service: RespostasService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Body() data: CreateRespostaDto) {
     return this.service.create(data);
@@ -27,16 +29,19 @@ export class RespostasController {
     return this.service.findAllByPergunta(id_pergunta);
   }
   
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.service.remove(+id);
-  }
+  } 
 
+  @UseGuards(JwtAuthGuard)
   @Patch(':id')
   updateMaisVotosResposta(@Param('id') id: string) {
     return this.service.updateMaisVotosResposta(+id);
-  }
+  } 
 
+  @UseGuards(JwtAuthGuard)
   @Patch('/menos/:id')
   updateMenosVotosResposta(@Param('id') id: string) {
     return this.service.updateMenosVotosResposta(+id);
