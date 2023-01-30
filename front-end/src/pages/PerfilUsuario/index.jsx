@@ -8,6 +8,10 @@ import { useParams } from "react-router-dom";
 
 import StarIcon from "@mui/icons-material/Star";
 import { IconButton } from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+
 
 export default function () {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
@@ -26,6 +30,17 @@ export default function () {
       });
   }, []);
 
+  const deletarUsuario = async () => {
+    await apiRequest
+      .delete(`usuarios/${idUsuario}`)
+      .then(() => {
+        alert("Conta deletada com sucesso!");
+      })
+      .catch((error) => console.log(error));
+
+    navigate(-1);
+  };
+
   const updateFavotito = async () => {
     await apiRequest
       .patch(favorito ? `usuarios/menos/${idUsuario}` : `usuarios/${idUsuario}`)
@@ -35,10 +50,15 @@ export default function () {
 
   return (
     <ul className="ranking-usuario">
-      <li className="usuario-ranqueado" style={{ width: "60%" }}>
-        <span>{usuarioSelecionado.fotoPerfil}</span>
+      <li className="usuario-ranqueado" style={{ width: "100%" }}>
+      <PersonIcon fontSize="large" />
         <span>{usuarioSelecionado.nome_completo}</span>
         <span>{handleCurso(usuarioSelecionado.curso)}</span>
+        <span>{usuarioSelecionado.celular}</span>
+        <span>{usuarioSelecionado.email}</span>
+        <IconButton onClick={deletarUsuario}>
+          <DeleteIcon sx={{ fontSize: 16 }} />
+        </IconButton>
         <div
           className="item-interacao"
           onClick={() => {
