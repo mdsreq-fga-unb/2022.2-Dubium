@@ -187,12 +187,12 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 3.  O fluxo retorna para o passo 2 do fluxo base
 
 ### Caso de Uso:  UC-02 x Alterar Senha
-#### Por: Júlio - MATRICULA
+#### Por: Júlio - 190015721
 
-Descrição: Caso de Uso: UC-02 Alterar Senha: 
+Descrição: Caso de Uso: UC-02 Alterar Senha: Este caso de uso especifica que o ator altere sua senha cadastrada. Apenas usuários cadastrados podem recuperar sua senha. Para alterar a senha,  o usuário receberá um email com link para alterar a senha, a fim de confirmar sua identidade. 
 * Atores: Professor-Aluno, Email
-* Pré-Condições:
-* Pós-Condições: 
+* Pré-Condições: O ator Professor-Aluno deve estar cadastrado no sistema. 
+* Pós-Condições: O ator Professor-Aluno deverá ser autenticado com a nova senha cadastrada.
 * Requisitos Funcionais: 
 
 Épico | Feature | US | Descrição 
@@ -206,6 +206,23 @@ URPS+ | ID | Descrição
 INTERFACE | RN4 | O sistema deve ser web
 IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
+
+#### Fluxo Básico: Alterar a senha
+1. O ator Professor-Aluno escolhe a opção “esqueceu a senha?”.
+2. O sistema solicita o email cadastrado.
+3. O ator informa as informações necessárias
+4. O sistema valida o email digitado.
+5. O ator Email recebe o token para a alteração da senha
+6. O ator Email envia para o ator Professor-Aluno um email para a alteração da senha
+7. O ator Professor-Aluno acessa seu e-mail cadastrado e clica no link para alterar a senha.
+8. O ator Professor-Aluno informa a nova senha
+9. O sistema retorna a pagina de login
+10. O caso de Uso é encerrado
+
+#### Fluxo de Exceção: Validação de E-mail
+ - No passo 4, caso o e-mail digitado esteja incorreto:
+1. O sistema informa uma mensagem de erro
+2. O fluxo retorna ao passo 2 do fluxo básico.
 
 ### Caso de Uso:  UC-03 x Cadastrar Usuários
 #### Por: Gian- MATRICULA
