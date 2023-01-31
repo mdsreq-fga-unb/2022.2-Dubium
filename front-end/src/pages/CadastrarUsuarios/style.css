@@ -18,7 +18,8 @@
 
 .cdu-form-campos {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   gap: 50px;
   padding: 10px;
@@ -38,6 +39,6 @@
   border: none;
   color: black;
   border-radius: 10px;
-  width: 40%;
+  width: 25%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

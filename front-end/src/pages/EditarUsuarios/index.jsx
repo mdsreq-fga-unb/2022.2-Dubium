@@ -56,12 +56,12 @@ export default function EditarUsuario() {
     }
 
     let usuarioEditado = {
-      nome_completo: data.nome_completo,
-      matricula: data.matricula,
-      curso: indexEngenharia,
-      celular: data.celular,
-      email: data.email,
-      senha: data.senha,
+      nome_completo: data.nome_completo || usuarioSelecionado?.nome_completo,
+      matricula: data.matricula || usuarioSelecionado?.matricula,
+      curso: indexEngenharia || usuarioSelecionado?.curso,
+      celular: data.celular || usuarioSelecionado?.celular,
+      email: data.email || usuarioSelecionado?.email,
+      senha: data.senha || usuarioSelecionado?.senha,
     };
 
     await apiRequest
@@ -121,7 +121,7 @@ export default function EditarUsuario() {
               defaultValue={usuarioSelecionado?.celular}
             />
             <input
-              type="text"
+              type="email"
               name="email"
               {...register("email")}
               placeholder="Email"
@@ -130,7 +130,7 @@ export default function EditarUsuario() {
               defaultValue={usuarioSelecionado?.email}
             />
             <input
-              type="text"
+              type="password"
               name="senha"
               {...register("senha")}
               placeholder="Senha"
