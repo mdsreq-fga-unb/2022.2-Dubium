@@ -7,7 +7,7 @@
  -->
  Início | Fim | Duração
  ------ | --- | -------
- 14/12/2022 | 21/12/2022 | 7 dias
+ 28/10/2022 | 02/11/2022 | 5 dias
 
 ## 1.2. Papéis
 <!-- Papeis que cada membro exerceu durante essa sprint -->
@@ -20,12 +20,10 @@ Mestre do Scrum | Giulia | Eduarda, Gian, Helder, Julio, Silas
 
 ## 1.3. Objetivos da Sprint
 <!-- descrever de forma geral o objetivo da sprint -->
-* Execução das US pertencentes ao MVP1
+* Execução do MVP1 (US19, US20, US21, US22 , US23, US25)
 
 ## 1.4. Tarefas
 <!-- descrever as issues que definimos para essa sprint e alocar um responsavel por ela -->
 Tarefas | Descrição | Responsáveis
 ------ | --------- | -----------
-01 | Documentação | [Giúlia](https://github.com/alcantaragiubs), [Júlio](https://github.com/Julio-eng) e [Helder](https://github.com/F1reFinger)
-02 | Front-end | [Giúlia](https://github.com/alcantaragiubs), [Eduarda](https://github.com/erteduarda) e [Júlio](https://github.com/Julio-eng)
-03 | Back-End | [Gian](https://github.com/GianMedeiros), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres) e [Helder](https://github.com/F1reFinger)
+01 | Documentação | [Helder](https://github.com/F1reFinger), [Júlio](https://github.com/Julio-eng), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres), [Gian](https://github.com/GianMedeiros) e [Eduarda](https://github.com/erteduarda)

@@ -35,46 +35,49 @@ nav:
           - Kanbam: "trello.md"
       - Sprint 1:
           - Planning: "sprints/sprint_01/planning.md"
-          - Review: "sprints/sprint_01/review.md"
+          - Retrospectiva: "sprints/sprint_01/retrospectiva.md"
       - Sprint 2:
           - Planning: "sprints/sprint_02/planning.md"
           - Review: "sprints/sprint_02/review.md"
           - Retrospectiva: "sprints/sprint_02/retrospectiva.md"
       - Sprint 3:
           - Planning: "sprints/sprint_03/planning.md"
-          - Review: "sprints/sprint_03/review.md"
+          - Retrospectiva: "sprints/sprint_03/retrospectiva.md"
       - Sprint 4:
           - Planning: "sprints/sprint_04/planning.md"
           - Review: "sprints/sprint_04/review.md"
           - Retrospectiva: "sprints/sprint_04/retrospectiva.md"
       - Sprint 5:
           - Planning: "sprints/sprint_05/planning.md"
-          - Review: "sprints/sprint_05/review.md"
+          - Retrospectiva: "sprints/sprint_05/retrospectiva.md"
       - Sprint 6:
           - Planning: "sprints/sprint_06/planning.md"
           - Review: "sprints/sprint_06/review.md"
           - Retrospectiva: "sprints/sprint_06/retrospectiva.md"
       - Sprint 7:
           - Planning: "sprints/sprint_07/planning.md"
-          - Review: "sprints/sprint_07/review.md"
+          - Retrospectiva: "sprints/sprint_07/retrospectiva.md"
       - Sprint 8:
           - Planning: "sprints/sprint_08/planning.md"
           - Review: "sprints/sprint_08/review.md"
           - Retrospectiva: "sprints/sprint_08/retrospectiva.md"
       - Sprint 9:
           - Planning: "sprints/sprint_09/planning.md"
-          - Review: "sprints/sprint_09/review.md"
+          - Retrospectiva: "sprints/sprint_09/retrospectiva.md"
       - Sprint 10:
           - Planning: "sprints/sprint_10/planning.md"
           - Review: "sprints/sprint_10/review.md"
           - Retrospectiva: "sprints/sprint_10/retrospectiva.md"
       - Sprint 11:
           - Planning: "sprints/sprint_11/planning.md"
-          - Review: "sprints/sprint_11/review.md"
+          - Retrospectiva: "sprints/sprint_11/retrospectiva.md"
       - Sprint 12:
           - Planning: "sprints/sprint_12/planning.md"
           - Review: "sprints/sprint_12/review.md"
           - Retrospectiva: "sprints/sprint_12/retrospectiva.md"
+      - Sprint 13:
+          - Palanning: "sprints/sprint_13/planning.md"
+          - Retrospectiva: "sprints/sprint_13/retrospectiva.md"
   - Protótipos:
       - MVP1: "prototipos/prototipos-mvp1.md"
       - MVP2: "prototipos/prototipos-mvp2.md"

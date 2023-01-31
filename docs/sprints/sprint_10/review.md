@@ -1,24 +1,15 @@
-# Review
+# Entregas
 
-## 1. Visão Geral
-<!-- data de inicio da sprint
-     data de finalização da sprint
-     duraração da sprint
- -->
-Início | Fim | Duração
------- | --- | -------
-28/12/2022 | 04/01/2023 | 7 dias
+## MVP 1
+US8 | US9 | US10 | US11 | US12 | US13 
+----| ----|------|------|------|------
+Implementação do front, back e conexão entre os dois da US08: ok | Implementação do front, back e conexão entre os dois da US09: ok | Implementação do front, back e conexão entre os dois da US10: ok | Implementação do front, back e conexão entre os dois da US11: ok | Implementação do front, back e conexão entre os dois da US12: ok | Implementação do front, back e conexão entre os dois da US13: ok
 
-## 2. Conclusão
-<!-- adicionar a issue, sua descrição, o responsavel e se a issue foi terminada ou não -->
-Tarefas | Descrição | Resposáveis | Status
------- | --------- | ----------- | ------
-01 | Documentação | [Giúlia](https://github.com/alcantaragiubs), [Júlio](https://github.com/Julio-eng) e [Helder](https://github.com/F1reFinger) | Concluido
-02 | Front-end | [Giúlia](https://github.com/alcantaragiubs), [Eduarda](https://github.com/erteduarda) e [Júlio](https://github.com/Julio-eng) | Concluido
-03 | Back-End | [Gian](https://github.com/GianMedeiros), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres) e [Helder](https://github.com/F1reFinger) | Concluido
+## Melhorados
 
-## 3 FeedBack - Health Check
-<iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1-sWmWZ9fADGNUFFPdBJHccLhOLTYTjqHpMyFA5QReok/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
+- Ajustes de design e padronização de telas.
+- Adaptar o prototipo de modo a agradar aos olhos.
+## Pontos de melhorias
 
-## 4 Quadro de Conhecimento
-<iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1nwaQRzOxsx9KtklRxFmmDceBMDdRw3LBWdOYjTqYZwQ/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
+- Achar um meio termo para não sobrecarregar as equipes
+- Reorganizar as equipes para auxilio em multiplas tarefas
