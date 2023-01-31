@@ -35,35 +35,38 @@ export default function ForumBody({ materiaPesquisada }) {
   const perguntasFiltradas = pesquisaPosts(arrayPerguntas, materiaPesquisada);
 
   return (
-    <div className="container-pergunta">
-      <div className="criar-pergunta">
-        <Link to="/criar-pergunta">
-          <button>FAÇA UMA PERGUNTA</button>
-        </Link>
-      </div>
-      {perguntasFiltradas.map((pergunta, index) => {
-        return (
-          <Link to={`/pergunta/${pergunta.id}`} key={index}>
-            <div className="card-pergunta">
-              <div className="usuario-pergunta">
-                <PersonIcon fontSize="large" />
-                <div className="usuario-informacao-texto">
-                  <span>{pergunta.usuario.nome_completo}</span>
-                  <span style={{ color: "#757575" }}>
-                    {handleCurso(pergunta.usuario.curso)}
-                  </span>
+    <div className="container">
+      <div className="container-pergunta">
+        <div className="criar-pergunta">
+          <Link to="/criar-pergunta">
+            <button>FAÇA UMA PERGUNTA</button>
+          </Link>
+        </div>
+        {perguntasFiltradas.map((pergunta, index) => {
+          return (
+            <Link to={`/pergunta/${pergunta.id}`} key={index}>
+              <div className="card-pergunta">
+                <div className="usuario-pergunta">
+                  <PersonIcon fontSize="large" />
+                  <div className="usuario-informacao-texto">
+                    <span>{pergunta.usuario.nome_completo}</span>
+                    <span style={{ color: "#757575" }}>
+                      {handleCurso(pergunta.usuario.curso)}
+                    </span>
+                  </div>
+                </div>
+                <span className="filtro">{pergunta.filtro.toUpperCase()}</span>
+                <span>{pergunta.tituloPergunta}</span>
+                <span>{pergunta.corpoPergunta}</span>
+                <div className="like-comentario">
+                  <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
+                  <span>{pergunta.votosTotais} favoritos</span>
                 </div>
               </div>
-              <div>{pergunta.tituloPergunta}</div>
-              <div>{pergunta.corpoPergunta}</div>
-              <div className="like-comentario">
-                <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
-                <span>{pergunta.votosTotais} favoritos</span>
-              </div>
-            </div>
-          </Link>
-        );
-      })}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

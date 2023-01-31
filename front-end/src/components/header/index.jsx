@@ -37,7 +37,7 @@ function Header(props) {
         <SearchIcon />
         <input
           type="text"
-          placeholder="BUSCAR POR MATÉRIA"
+          placeholder="BUSCAR POR MATÉRIA OU USUÁRIO"
           onChange={handleChange}
         />
       </div>

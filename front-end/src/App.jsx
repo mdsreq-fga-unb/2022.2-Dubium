@@ -36,58 +36,56 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      <Router>
-        <Header setMateriaPesquisada={setMateriaPesquisada} />
-        <Routes>
-          <Route path="/" element={<ForumLayout pagina="forum" />}>
-            <Route
-              index
-              element={<ForumBody materiaPesquisada={materiaPesquisada} />}
-            />
-            <Route
-              path="/:id"
-              element={<ForumBody materiaPesquisada={materiaPesquisada} />}
-            />
-            <Route
-              path="/pergunta/:idPergunta"
-              element={<PerguntaSelecionada usuarios={usuarios} />}
-            />
-            <Route
-              path="/criar-pergunta"
-              element={<FormularioPergunta usuarios={usuarios} />}
-            />
-          </Route>
-          <Route path="/avisos" element={<ForumLayout pagina="avisos" />}>
-            <Route
-              index
-              element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
-            />
-            <Route
-              path="/avisos/:id"
-              element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
-            />
-            <Route
-              path="/avisos/aviso/:idAviso"
-              element={<AvisoSelecionado usuarios={usuarios} />}
-            />
-            <Route
-              path="/avisos/criar-aviso"
-              element={<AvisosFormulario usuarios={usuarios} />}
-            />
-          </Route>
+    <Router>
+      <Header setMateriaPesquisada={setMateriaPesquisada} />
+      <Routes>
+        <Route path="/" element={<ForumLayout pagina="forum" />}>
           <Route
-            path="/ranking-usuarios"
-            element={<RankingUsuarios usuarios={usuarios} />}
+            index
+            element={<ForumBody materiaPesquisada={materiaPesquisada} />}
           />
-          <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/cadastroUsuario" element={<CadastrarUsuarios />} />
-          <Route path="/editarUsuario/:idUsuario" element={<EditarUsuario />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
+          <Route
+            path="/:id"
+            element={<ForumBody materiaPesquisada={materiaPesquisada} />}
+          />
+          <Route
+            path="/pergunta/:idPergunta"
+            element={<PerguntaSelecionada usuarios={usuarios} />}
+          />
+          <Route
+            path="/criar-pergunta"
+            element={<FormularioPergunta usuarios={usuarios} />}
+          />
+        </Route>
+        <Route path="/avisos" element={<ForumLayout pagina="avisos" />}>
+          <Route
+            index
+            element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
+          />
+          <Route
+            path="/avisos/:id"
+            element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
+          />
+          <Route
+            path="/avisos/aviso/:idAviso"
+            element={<AvisoSelecionado usuarios={usuarios} />}
+          />
+          <Route
+            path="/avisos/criar-aviso"
+            element={<AvisosFormulario usuarios={usuarios} />}
+          />
+        </Route>
+        <Route
+          path="/ranking-usuarios"
+          element={<RankingUsuarios materiaPesquisada={materiaPesquisada} />}
+        />
+        <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
+        <Route path="/cadastro-usuario" element={<CadastrarUsuarios />} />
+        <Route path="/editar-usuario/:idUsuario" element={<EditarUsuario />} />
+        <Route path="/sobre" element={<Sobre />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
