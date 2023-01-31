@@ -17,6 +17,8 @@ import { useEffect, useState } from "react";
 import AvisosConteudo from "./pages/Avisos/AvisosConteudo";
 import AvisosFormulario from "./pages/Avisos/AvisosFormulario";
 import AvisoSelecionado from "./pages/Avisos/AvisoSelecionado";
+import CadastrarUsuarios from "./pages/CadastrarUsuarios";
+import EditarUsuario from "./pages/EditarUsuarios";
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -80,6 +82,8 @@ function App() {
           />
           <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
           <Route path="/sobre" element={<Sobre />} />
+          <Route path="/cadastroUsuario" element={<CadastrarUsuarios />} />
+          <Route path="/editarUsuario/:idUsuario" element={<EditarUsuario />} />
         </Routes>
         <Footer />
       </Router>
