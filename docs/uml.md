@@ -118,3 +118,71 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 
 ##### Fluxo Básico: Criar respostas
 
+### Caso de Uso:  UC-01 x Realizar Login
+#### Por: Silas Neres - 20/0043536
+Descrição: Caso de Uso: UC-01 Realizar Login:
+
+* Atores: Professor-Aluno
+* Pré-Condições: O ator deve estar cadastrado no sistema.
+* Pós-Condições: O ator fica habilitado a realizar ações de modificações nas respostas atualizadas em sua própria área de respostas do sistema.
+* Requisitos Funcionais: 
+
+Épico | Feature | US | Descrição 
+----- | ------- | -- | ---------
+03 | 08 | 26 | Eu como usuário gostaria de realizar login com email e senha para adentrar no sistema
+
+* Requisitos Não-Funcionais:
+
+URPS+ | ID | Descrição 
+----- | -- | ---------
+INTERFACE | RN4 | O sistema deve ser web
+IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
+RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
+
+### Caso de Uso:  UC-02 x Alterar Senha
+#### Por: Júlio - MATRICULA
+
+Descrição: Caso de Uso: UC-02 Alterar Senha: 
+* Atores: Professor-Aluno, Email
+* Pré-Condições:
+* Pós-Condições: 
+* Requisitos Funcionais: 
+
+Épico | Feature | US | Descrição 
+----- | ------- | -- | ---------
+03 | 08 | 27 | Eu como usuário gostaria de ter a possibilidade de recuperar minha senha através do email caso eu a esqueça
+
+* Requisitos Não-Funcionais:
+
+URPS+ | ID | Descrição 
+----- | -- | ---------
+INTERFACE | RN4 | O sistema deve ser web
+IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
+RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
+
+### Caso de Uso:  UC-03 x Cadastrar Usuários
+#### Por: Gian- MATRICULA
+
+Descrição: Caso de Uso: UC-03 Cadastrar Usuários:
+
+* Atores: Professor-Aluno
+* Pré-Condições: 
+* Pós-Condições: 
+* Requisitos Funcionais: 
+
+Épico | Feature | US | Descrição 
+----- | ------- | -- | ---------
+03 | 08 | 21 | Eu como usuário gostaria de me cadastrar no sistema para utilizar suas funcionalidades
+
+* Requisitos Não-Funcionais:
+
+URPS+ | ID | Descrição 
+----- | -- | ---------
+INTERFACE | RN4 | O sistema deve ser web
+IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
+RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
+
+### Informações adicionais
+* Referência: https://www.ic.unicamp.br/~ariadne/mc436/1s2013/Modelo_doc_casos_uso.pdf
+* Projeto:  https://mdsreq-fga-unb.github.io/2022.2-Dubium/mvps/
+* UML: https://cacoo.com/diagrams/zwI6C1sAFXKATlM0/5ADCD
