@@ -24,12 +24,14 @@ nav:
       - URPS+: "urps.md"
       - PBB & BDD: "pbb.md"
       - USM: "usm.md"
+      - UML: "uml.md"
   - Entregas:
       - Unidade 1:
           - Visão Geral do Produto: "entrega-visao.md"
           - Material do Seminario - OpenUp/AUP: "entrega-seminario.md"
       - Unidade 2: "entrega-unidade-2.md"
       - Unidade 3: "entrega-unidade-3.md"
+      - Unidade 4: "entrega-unidade-4.md"
   - Sprints:
       - Sprints Backlog:
           - Kanbam: "trello.md"
