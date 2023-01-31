@@ -187,7 +187,7 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 3.  O fluxo retorna para o passo 2 do fluxo base
 
 ### Caso de Uso:  UC-02 x Alterar Senha
-#### Por: Júlio - 190015721
+#### Por: Júlio César - 19/0015721
 
 Descrição: Caso de Uso: UC-02 Alterar Senha: Este caso de uso especifica que o ator altere sua senha cadastrada. Apenas usuários cadastrados podem recuperar sua senha. Para alterar a senha,  o usuário receberá um email com link para alterar a senha, a fim de confirmar sua identidade. 
 * Atores: Professor-Aluno, Email
@@ -217,7 +217,7 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 7. O ator Professor-Aluno acessa seu e-mail cadastrado e clica no link para alterar a senha.
 8. O ator Professor-Aluno informa a nova senha
 9. O sistema retorna a pagina de login
-10. O caso de Uso é encerrado
+10. O caso de uso se encerra.
 
 #### Fluxo de Exceção: Validação de E-mail
  - No passo 4, caso o e-mail digitado esteja incorreto:
@@ -225,13 +225,13 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 2. O fluxo retorna ao passo 2 do fluxo básico.
 
 ### Caso de Uso:  UC-03 x Cadastrar Usuários
-#### Por: Gian- MATRICULA
+#### Por: Gian Medeiros - 19/0055006
 
-Descrição: Caso de Uso: UC-03 Cadastrar Usuários:
+Descrição: Caso de Uso: UC-03 Cadastrar Usuários: Este caso de uso especifica o cadastro de usuários no sistema, a partir de dados recebidos do ator. O sistema deve tratar esses dados e possibilitar acesso ao ator a partir do US de login.
 
 * Atores: Professor-Aluno
-* Pré-Condições: 
-* Pós-Condições: 
+* Pré-Condições: O ator precisa possuir um email válido
+* Pós-Condições: O ator fica habilitado a realizar o login na aplicação
 * Requisitos Funcionais: 
 
 Épico | Feature | US | Descrição 
@@ -245,6 +245,35 @@ URPS+ | ID | Descrição
 INTERFACE | RN4 | O sistema deve ser web
 IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
+
+### Fluxo Básico: Cadastro de usuário desejado
+1. O ator decide se cadastrar.
+2. O sistema apresenta as informações necessárias para realizar o cadastro (Nome completo, curso, matrícula, celular, email e senha).
+3. O ator informa os dados solicitados.
+4. O sistema vai para a página de login
+5. O caso de uso se encerra.
+
+### Fluxo Alternativo: Preenchendo apenas campos obrigatórios
+ - No passo 3, caso o ator decida só preencher os dados obrigatórios (Nome completo, e-mail e senha)
+1. O ator somente passa esses dados
+2. O sistema realiza o cadastro do usuário na base de dados.
+3. O fluxo retorna ao passo 4 do fluxo básico
+
+### Fluxo de Exceção: Dados incorretos
+ - No passo 3, caso o ator passe os dados em formato incorreto:
+1. O sistema exibe uma mensagem de erro
+2. O fluxo retorna ao passo 2 do fluxo básico.
+
+
+### Fluxo de Exceção: Dados incompletos
+ - No passo 3, caso o ator não passe todos dados obrigatórios necessários:
+1. O sistema exibe uma mensagem de erro
+2. O fluxo retorna ao passo 2 do fluxo básico.
+
+### Fluxo de Exceção:  E-mail já cadastrado
+ - No passo 3, caso o ator passe um e-mail já cadastrado:
+1. O sistema exibe uma mensagem de e-mail já cadastrado
+2. O fluxo retorna ao passo 2 do fluxo básico
 
 ### Informações adicionais
 * Referência: https://www.ic.unicamp.br/~ariadne/mc436/1s2013/Modelo_doc_casos_uso.pdf
