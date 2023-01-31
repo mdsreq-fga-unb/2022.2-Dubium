@@ -77,12 +77,7 @@ function App() {
         </Route>
         <Route
           path="/ranking-usuarios"
-          element={
-            <RankingUsuarios
-              usuarios={usuarios}
-              materiaPesquisada={materiaPesquisada}
-            />
-          }
+          element={<RankingUsuarios materiaPesquisada={materiaPesquisada} />}
         />
         <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
         <Route path="/cadastro-usuario" element={<CadastrarUsuarios />} />

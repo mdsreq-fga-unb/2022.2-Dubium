@@ -87,7 +87,7 @@ export default function PerfilUsuario() {
             <span>Favoritar</span>
           </li>
           <li>
-            <button className="pu-excluir">
+            <button className="pu-excluir" onClick={deletarUsuario}>
               <DeleteIcon sx={{ fontSize: 16 }} />
               EXCLUIR CONTA
             </button>

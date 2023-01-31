@@ -4,8 +4,23 @@ import handleCurso from "../../services/curso";
 
 import { Link } from "react-router-dom";
 import { pesquisaUsuario } from "../../services/pesquisa";
+import { useEffect, useState } from "react";
+import apiRequest from "../../services/api";
 
-export default function RankingUsuarios({ usuarios, materiaPesquisada }) {
+export default function RankingUsuarios({ materiaPesquisada }) {
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    apiRequest
+      .get("usuarios")
+      .then((response) => {
+        setUsuarios(response.data);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, []);
+
   const usuariosFiltrados = pesquisaUsuario(usuarios, materiaPesquisada);
 
   return (
