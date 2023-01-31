@@ -27,6 +27,9 @@ Data | Versão | Descrição | Autor
 03/01/23 | 1.8 | Atualização do Documento | Giulia, Helder
 07/01/23 | 1.9 | Atualização do Documento | Giulia, Helder
 21/01/23 | 2.0 | Atualização do Documento | Giulia, Helder
+25/01/23 | 2.1 | Atualização do Documento | Giulia, Helder
+29/01/23 | 2.2 | Atualização do Documento | Giulia, Helder
+30/01/23 | 2.3 | Atualização do Documento | Giulia, Helder, Júlio, Silas
 
 
 ## 1	VISÃO GERAL DO PRODUTO
@@ -79,9 +82,9 @@ Sprint 9 | US05, US06, US07, US08, US10, US11 | 21/12/22 | 28/12/22
 Sprint 10 | US13, US14, US15, US16 | 28/12/22 | 04/01/22
 Sprint 11 | Não houveram entregas nessa sprint| 04/01/22 | 11/01/22
 Sprint 12 | US01, US02, US03, US12, US17 , US18 | 11/01/22 | 18/01/22
-Sprint 13 | US19, US20, US21, US22 , US23, US25 | 18/01/22 | 25/01/22
-Sprint 14 | US04, US09, US24| 25/01/22 | 01/02/22
-Sprint 15 | US26, US27 | 01/01/22 | 07/02/22
+Sprint 13 | US19, US20 | 18/01/22 | 25/01/22
+Sprint 14 | US21, US22, US23, US24, US25 | 25/01/22 | 01/02/22
+Sprint 15 | US04, US09, US26, US27 | 01/01/22 | 07/02/22
 
 ### 2.3	Matriz de Comunicação
 Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
