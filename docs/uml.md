@@ -22,7 +22,7 @@ UC-07 | Gerenciar Respostas
 
 ## Diagrama de Casos de Uso
 
-![UML completo](./img/UML.png)
+![UML completo](./img/novo_UML.png)
 
 ## Detalhamento de Alguns Casos de Uso
 
