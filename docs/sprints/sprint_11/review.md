@@ -2,7 +2,7 @@
 
 Objetivo | Como
 -------- | ----
-Deploy do site empacotando as US's | site hosteado no Digital Ocean
+Deploy do site empacotando as US's: ok | site hosteado no Digital Ocean: ok
 
 ## Melhorados
 

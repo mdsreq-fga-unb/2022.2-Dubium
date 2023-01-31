@@ -1,8 +1,8 @@
 # Entregas:
 
-## MVP 1
+## MVP 2
 
-US01 | US02 
+US19 | US20 
 -----|-----
 Implementação do front, back e conexão entre os dois da US19: ok | Implementação do front, back e conexão entre os dois da US20: ok 
                  
