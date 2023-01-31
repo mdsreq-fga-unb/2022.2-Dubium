@@ -3,11 +3,15 @@ import "./style.css";
 import handleCurso from "../../services/curso";
 
 import { Link } from "react-router-dom";
+import { pesquisaUsuario } from "../../services/pesquisa";
 
-export default function RankingUsuarios({ usuarios }) {
+export default function RankingUsuarios({ usuarios, materiaPesquisada }) {
+
+  const usuariosFiltrados = pesquisaUsuario(usuarios, materiaPesquisada);
+
   return (
     <ul className="ranking-usuario">
-      {usuarios.map((usuario, index) => (
+      {usuariosFiltrados.map((usuario, index) => (
         <Link
           to={`/usuario/${usuario.id}`}
           key={index}

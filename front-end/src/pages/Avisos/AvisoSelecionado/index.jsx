@@ -67,6 +67,7 @@ export default function AvisoSelecionado({ usuarios }) {
           <DeleteIcon sx={{ fontSize: 16 }} />
         </IconButton>
       </div>
+      <span className="filtro">{avisoSelecionado?.filtro?.toUpperCase()}</span>
       <span>{avisoSelecionado?.corpoAviso}</span>
       <ul className="container-interacao">
         <li

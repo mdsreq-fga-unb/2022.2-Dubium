@@ -48,11 +48,12 @@ export default function AvisosConteudo({ materiaPesquisada }) {
                 <div className="usuario-informacao-texto">
                   <span>{aviso.usuario.fotoPerfil}</span>
                   <span>{aviso.usuario.nome_completo}</span>
-                  <span>{handleCurso(aviso.usuario.curso)}</span>
+                  <span style={{ color: "#757575" }}>{handleCurso(aviso.usuario.curso)}</span>
                 </div>
               </div>
-              <div>{aviso.tituloAviso}</div>
-              <div>{aviso.corpoAviso}</div>
+              <span className="filtro">{aviso.filtro.toUpperCase()}</span>
+              <span>{aviso.tituloAviso}</span>
+              <span>{aviso.corpoAviso}</span>
               <div className="like-comentario">
                 <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
                 <span>{aviso.votosTotais} favoritos</span>

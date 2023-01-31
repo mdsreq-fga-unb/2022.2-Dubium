@@ -138,6 +138,7 @@ export default function PerguntaSelecionada({ usuarios }) {
           <DeleteIcon sx={{ fontSize: 16 }} />
         </IconButton>
       </div>
+      <span className="filtro">{perguntaSelecionada?.filtro?.toUpperCase()}</span>
       <span>{perguntaSelecionada?.corpoPergunta}</span>
       <ul className="container-interacao">
         <li

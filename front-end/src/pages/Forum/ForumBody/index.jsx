@@ -54,8 +54,9 @@ export default function ForumBody({ materiaPesquisada }) {
                   </span>
                 </div>
               </div>
-              <div>{pergunta.tituloPergunta}</div>
-              <div>{pergunta.corpoPergunta}</div>
+              <span className="filtro">{pergunta.filtro.toUpperCase()}</span>
+              <span>{pergunta.tituloPergunta}</span>
+              <span>{pergunta.corpoPergunta}</span>
               <div className="like-comentario">
                 <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
                 <span>{pergunta.votosTotais} favoritos</span>

@@ -78,12 +78,12 @@ function App() {
           </Route>
           <Route
             path="/ranking-usuarios"
-            element={<RankingUsuarios usuarios={usuarios} />}
+            element={<RankingUsuarios usuarios={usuarios} materiaPesquisada={materiaPesquisada}/>}
           />
           <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
+          <Route path="/cadastro-usuario" element={<CadastrarUsuarios />} />
+          <Route path="/editar-usuario/:idUsuario" element={<EditarUsuario />} />
           <Route path="/sobre" element={<Sobre />} />
-          <Route path="/cadastroUsuario" element={<CadastrarUsuarios />} />
-          <Route path="/editarUsuario/:idUsuario" element={<EditarUsuario />} />
         </Routes>
         <Footer />
       </Router>
