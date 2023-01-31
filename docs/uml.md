@@ -139,6 +139,26 @@ INTERFACE | RN4 | O sistema deve ser web
 IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
+#### Fluxo Básico: Login autenticado
+1. O ator acessa a tela de login.
+2. O sistema solicita as informações para login.
+3. O ator informa seu email e sua senha.
+4. O sistema valida as credenciais do usuário.
+5. O sistema informa que a autenticação foi realizada com sucesso
+6. O caso de uso se encerra
+
+#### Fluxo de Exceção A: Usuário não cadastrado
+ - No passo 3, se o ator não estiver cadastrado:
+1. O sistema não valida as credenciais do usuário.
+2. O sistema informa que o ator não está cadastrado
+3. O fluxo retorna para o passo 2 do fluxo base
+
+#### Fluxo de Exceção B: Informações incorretas
+ - No passo 3, caso as credenciais estejam incorretas.
+1. O sistema não valida as credenciais do usuário.
+2. O sistema informa que o email ou a senha está incorreta
+3.  O fluxo retorna para o passo 2 do fluxo base
+
 ### Caso de Uso:  UC-02 x Alterar Senha
 #### Por: Júlio - MATRICULA
 
