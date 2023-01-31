@@ -4,20 +4,20 @@ import handleCurso from "../../services/curso";
 import apiRequest from "../../services/api";
 
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 import StarIcon from "@mui/icons-material/Star";
 import { IconButton } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-
-
-export default function () {
+export default function PerfilUsuario() {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [favorito, setFavorito] = useState(false);
 
   const { idUsuario } = useParams();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     apiRequest
@@ -49,17 +49,29 @@ export default function () {
   };
 
   return (
-    <ul className="ranking-usuario">
-      <li className="usuario-ranqueado" style={{ width: "100%" }}>
-      <PersonIcon fontSize="large" />
-        <span>{usuarioSelecionado.nome_completo}</span>
-        <span>{handleCurso(usuarioSelecionado.curso)}</span>
-        <span>{usuarioSelecionado.celular}</span>
-        <span>{usuarioSelecionado.email}</span>
-        <IconButton onClick={deletarUsuario}>
-          <DeleteIcon sx={{ fontSize: 16 }} />
-        </IconButton>
-        <div
+    <div className="perfil-usuario">
+      <div className="pu-perfil">
+        <PersonIcon sx={{ fontSize: 100 }} />
+        <div className="pu-perfil-texto">
+          <span>{usuarioSelecionado.nome_completo}</span>
+          <span style={{ color: "#757575" }}>
+            {handleCurso(usuarioSelecionado.curso)}
+          </span>
+        </div>
+      </div>
+      <ul className="pu-informacoes">
+        <span style={{ fontSize: "18px" }}>INFORMAÇÕES DE CONTATO</span>
+        <li className="pu-item-informacao">
+          <span>E-mail:</span>
+          <span style={{ color: "#757575" }}>{usuarioSelecionado.email}</span>
+        </li>
+        <li className="pu-item-informacao">
+          <span>Telefone:</span>
+          <span style={{ color: "#757575" }}>{usuarioSelecionado.celular}</span>
+        </li>
+      </ul>
+      <ul className="pu-interecoes">
+        <li
           className="item-interacao"
           onClick={() => {
             updateFavotito();
@@ -70,8 +82,14 @@ export default function () {
             <StarIcon className={favorito ? "corFavorito" : ""} />
           </IconButton>
           <span>Favoritar</span>
-        </div>
-      </li>
-    </ul>
+        </li>
+        <li>
+          <button className="pu-excluir">
+            <DeleteIcon sx={{ fontSize: 16 }} />
+            EXCLUIR CONTA
+          </button>
+        </li>
+      </ul>
+    </div>
   );
 }
