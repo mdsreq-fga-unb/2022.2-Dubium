@@ -1,10 +1,30 @@
-# USM
-Personas | Objetivos | Atividades | User Stories | Tasks 
----------| ----------|------------|--------------|------
-Definir as personas do projeto: ok | Definir os objetivos de cada persona: ok | Definir as atividades de cada objetivo: ok | Separar e aprofundar as atividades em user stories: ok | Especificar as user stories em tasks:ok 
+# Retrospectiva
 
+## 1. Visão Geral
+<!-- data de inicio da sprint
+     data de finalização da sprint
+     duraração da sprint
+ -->
+Início | Fim | Duração
+------ | --- | -------
+11/01/2023 | 18/01/2023 | 7 dias
 
-# MVP 1
-US14 | US15 | US16 | US17 | Casos de teste
------|------|------|------|---------------
-Implementação do front, back e conexão entre os dois da US14: ok | Implementação do front, back e conexão entre os dois da US15: ok | Implementação do front, back e conexão entre os dois da US16: ok | Implementação do front, back e conexão entre os dois da US17: ok | Executar casos de teste unitário para validar o produto: ok 
+## 2. Conclusão
+<!-- adicionar a issue, sua descrição, o responsavel e se a issue foi terminada ou não -->
+Tarefas | Descrição | Resposáveis | Status
+------ | --------- | ----------- | ------
+01 | Documentação | [Giúlia](https://github.com/alcantaragiubs), [Júlio](https://github.com/Julio-eng) e [Helder](https://github.com/F1reFinger) | Concluido
+02 | Front-end | [Giúlia](https://github.com/alcantaragiubs), [Eduarda](https://github.com/erteduarda) e [Júlio](https://github.com/Julio-eng) | Concluido
+03 | Back-End | [Gian](https://github.com/GianMedeiros), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres) e [Helder](https://github.com/F1reFinger) | Concluido
+
+foi desenvolvido seguindo o pair programming presente na metodologia.
+
+## 3 FeedBack - Health Check
+<iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1-sWmWZ9fADGNUFFPdBJHccLhOLTYTjqHpMyFA5QReok/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
+## 4 Quadro de Conhecimento
+<iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1nwaQRzOxsx9KtklRxFmmDceBMDdRw3LBWdOYjTqYZwQ/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
+## 5 Melhorias
+
+- Transparencia nas execuções das US's dentre a equipe

@@ -11,7 +11,7 @@
 - US7: Eu como usuário gostaria de pesquisar perguntas por tema para fins de estudo
 - US8: Eu como usuário gostaria de poder deletar as minhas perguntas para caso de escrita incorreta
 
-#### F3: Gerenciar respostas
+#### F3: Gerenciar respostas de perguntas
 
 - US10: Eu como usuário gostaria de poder responder todas as perguntas disponibilizadas no forum para fins de ajudar outros usuarios
 - US11: Eu como usuário gostaria de ser capaz de visualizar as respostas para fins de soluções de dúvidas
