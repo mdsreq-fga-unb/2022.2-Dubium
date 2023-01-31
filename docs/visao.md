@@ -27,6 +27,9 @@ Data | Versão | Descrição | Autor
 03/01/23 | 1.8 | Atualização do Documento | Giulia, Helder
 07/01/23 | 1.9 | Atualização do Documento | Giulia, Helder
 21/01/23 | 2.0 | Atualização do Documento | Giulia, Helder
+25/01/23 | 2.1 | Atualização do Documento | Giulia, Helder
+29/01/23 | 2.2 | Atualização do Documento | Giulia, Helder
+30/01/23 | 2.3 | Atualização do Documento | Giulia, Helder, Júlio, Silas
 
 
 ## 1	VISÃO GERAL DO PRODUTO
