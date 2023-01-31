@@ -39,12 +39,18 @@
   gap: 10px;
 }
 
+.pu-container {
+  margin-left: -301px;
+  justify-content: flex-start;
+  padding: 50px;
+}
+
 .perfil-usuario {
   display: flex;
   flex-direction: column;
   gap: 50px;
   background-color: #fafafa;
-  width: 70%;
+  width: 60%;
   border-radius: 10px;
   padding: 50px;
 }

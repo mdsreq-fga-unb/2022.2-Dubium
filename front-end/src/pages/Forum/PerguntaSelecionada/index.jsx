@@ -123,124 +123,128 @@ export default function PerguntaSelecionada({ usuarios }) {
   };
 
   return (
-    <div className="pergunta-selecionada">
-      <div className="ps-usuario-container">
-        <div className="ps-usuario-info">
-          <PersonIcon fontSize="large" />
-          <div className="ps-usuario-info-texto">
-            <span>{perguntaSelecionada?.usuario?.nome_completo}</span>
-            <span style={{ color: "#757575" }}>
-              {handleCurso(perguntaSelecionada?.usuario?.curso)}
-            </span>
-          </div>
-        </div>
-        <IconButton onClick={deletarPergunta}>
-          <DeleteIcon sx={{ fontSize: 16 }} />
-        </IconButton>
-      </div>
-      <span className="filtro">{perguntaSelecionada?.filtro?.toUpperCase()}</span>
-      <span>{perguntaSelecionada?.corpoPergunta}</span>
-      <ul className="container-interacao">
-        <li
-          className="item-interacao"
-          onClick={() => {
-            setFavoritoPergunta(!favoritoPergunta);
-            updateFavoritoPergunta();
-          }}
-        >
-          <IconButton>
-            <StarIcon
-              className={favoritoPergunta ? "corFavorito" : ""}
-              sx={{ fontSize: 16 }}
-            />
-          </IconButton>
-          <span>Favoritar</span>
-        </li>
-        <li className="item-interacao" onClick={() => setComentar(!comentar)}>
-          <IconButton>
-            <QuestionAnswerIcon sx={{ fontSize: 16 }} />
-          </IconButton>
-          <span>Responder</span>
-        </li>
-      </ul>
-      {comentar && (
-        <div>
-          <form
-            action=""
-            onSubmit={handleSubmit(onSubmit)}
-            className="formulario"
-          >
-            <select
-              name="usuarios"
-              {...register("usuarios")}
-              style={{ padding: "5px", width: "15%" }}
-            >
-              {usuarios.map((data, index) => (
-                <option
-                  value={data.id}
-                  key={index}
-                  className="opcao-engenharia"
-                >
-                  {data.nome_completo}
-                </option>
-              ))}
-            </select>
-            <div>
-              <textarea
-                name="resposta"
-                {...register("resposta")}
-                cols="30"
-                rows="2"
-                placeholder="Comentar"
-                className="comentar"
-                maxLength={500}
-              ></textarea>
-              <IconButton type="submit">
-                <SendIcon className="comentario" sx={{ fontSize: 16 }} />
-              </IconButton>
+    <div className="container">
+      <div className="pergunta-selecionada">
+        <div className="ps-usuario-container">
+          <div className="ps-usuario-info">
+            <PersonIcon fontSize="large" />
+            <div className="ps-usuario-info-texto">
+              <span>{perguntaSelecionada?.usuario?.nome_completo}</span>
+              <span style={{ color: "#757575" }}>
+                {handleCurso(perguntaSelecionada?.usuario?.curso)}
+              </span>
             </div>
-          </form>
+          </div>
+          <IconButton onClick={deletarPergunta}>
+            <DeleteIcon sx={{ fontSize: 16 }} />
+          </IconButton>
         </div>
-      )}
-      <ul className="container-resposta">
-        {respostas.map((data, index) => (
-          <li value={data.id} key={index} className="card-resposta">
-            <div className="usuario-informacao-texto">
-              <span
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
+        <span className="filtro">
+          {perguntaSelecionada?.filtro?.toUpperCase()}
+        </span>
+        <span>{perguntaSelecionada?.corpoPergunta}</span>
+        <ul className="container-interacao">
+          <li
+            className="item-interacao"
+            onClick={() => {
+              setFavoritoPergunta(!favoritoPergunta);
+              updateFavoritoPergunta();
+            }}
+          >
+            <IconButton>
+              <StarIcon
+                className={favoritoPergunta ? "corFavorito" : ""}
+                sx={{ fontSize: 16 }}
+              />
+            </IconButton>
+            <span>Favoritar</span>
+          </li>
+          <li className="item-interacao" onClick={() => setComentar(!comentar)}>
+            <IconButton>
+              <QuestionAnswerIcon sx={{ fontSize: 16 }} />
+            </IconButton>
+            <span>Responder</span>
+          </li>
+        </ul>
+        {comentar && (
+          <div>
+            <form
+              action=""
+              onSubmit={handleSubmit(onSubmit)}
+              className="formulario"
+            >
+              <select
+                name="usuarios"
+                {...register("usuarios")}
+                style={{ padding: "5px", width: "15%" }}
               >
-                {data.usuario.nome_completo}
-                <IconButton
-                  onClick={() => {
-                    deletarResposta(data.id);
+                {usuarios.map((data, index) => (
+                  <option
+                    value={data.id}
+                    key={index}
+                    className="opcao-engenharia"
+                  >
+                    {data.nome_completo}
+                  </option>
+                ))}
+              </select>
+              <div>
+                <textarea
+                  name="resposta"
+                  {...register("resposta")}
+                  cols="30"
+                  rows="2"
+                  placeholder="Comentar"
+                  className="comentar"
+                  maxLength={500}
+                ></textarea>
+                <IconButton type="submit">
+                  <SendIcon className="comentario" sx={{ fontSize: 16 }} />
+                </IconButton>
+              </div>
+            </form>
+          </div>
+        )}
+        <ul className="container-resposta">
+          {respostas.map((data, index) => (
+            <li value={data.id} key={index} className="card-resposta">
+              <div className="usuario-informacao-texto">
+                <span
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
                 >
-                  <DeleteIcon sx={{ fontSize: 16 }} />
+                  {data.usuario.nome_completo}
+                  <IconButton
+                    onClick={() => {
+                      deletarResposta(data.id);
+                    }}
+                  >
+                    <DeleteIcon sx={{ fontSize: 16 }} />
+                  </IconButton>
+                </span>
+                <span>{handleCurso(data.usuario.curso)}</span>
+              </div>
+              <span>{data.corpoResposta}</span>
+              <div
+                className="ps-favoritar"
+                onClick={() => {
+                  setFavoritoResposta(!favoritoResposta);
+                  updateFavoritoResposta(data.id);
+                }}
+              >
+                <IconButton>
+                  <StarIcon sx={{ fontSize: 16 }} />
                 </IconButton>
-              </span>
-              <span>{handleCurso(data.usuario.curso)}</span>
-            </div>
-            <span>{data.corpoResposta}</span>
-            <div
-              className="ps-favoritar"
-              onClick={() => {
-                setFavoritoResposta(!favoritoResposta);
-                updateFavoritoResposta(data.id);
-              }}
-            >
-              <IconButton>
-                <StarIcon sx={{ fontSize: 16 }} />
-              </IconButton>
-              <span>{data.votosTotais}</span>
-            </div>
-          </li>
-        ))}
-      </ul>
+                <span>{data.votosTotais}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

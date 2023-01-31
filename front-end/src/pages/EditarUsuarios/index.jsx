@@ -73,82 +73,87 @@ export default function EditarUsuario() {
   };
 
   return (
-    <div className="cadastrar-usuario">
-      <form action="" onSubmit={handleSubmit(onSubmit)} className="cdu-form">
-        <div className="cdu-form-campos">
-          <input
-            type="text"
-            name="nome_completo"
-            {...register("nome_completo")}
-            placeholder="Nome Completo"
-            required
-            className="cdu-campos"
-            defaultValue={usuarioSelecionado?.nome_completo}
-          />
-          <input
-            type="number"
-            name="matricula"
-            {...register("matricula")}
-            placeholder="Matrícula"
-            required
-            className="cdu-campos"
-            defaultValue={usuarioSelecionado?.matricula}
-          />
-          <select
-            name="engenharia"
-            {...register("engenharia")}
-            required
-            className="cdu-campos"
-            defaultValue={usuarioSelecionado?.engenharia}
+    <div className="container" style={{ marginLeft: "-301px" }}>
+      <div className="cadastrar-usuario">
+        <form action="" onSubmit={handleSubmit(onSubmit)} className="cdu-form">
+          <div className="cdu-form-campos">
+            <input
+              type="text"
+              name="nome_completo"
+              {...register("nome_completo")}
+              placeholder="Nome Completo"
+              required
+              className="cdu-campos"
+              defaultValue={usuarioSelecionado?.nome_completo}
+            />
+            <input
+              type="number"
+              name="matricula"
+              {...register("matricula")}
+              placeholder="Matrícula"
+              required
+              className="cdu-campos"
+              defaultValue={usuarioSelecionado?.matricula}
+            />
+            <select
+              name="engenharia"
+              {...register("engenharia")}
+              required
+              className="cdu-campos"
+              defaultValue={usuarioSelecionado?.engenharia}
+            >
+              {forumData.map(
+                (data, index) =>
+                  index != 0 && (
+                    <option value={data.name} key={index}>
+                      {data.name}
+                    </option>
+                  )
+              )}
+            </select>
+            <input
+              type="number"
+              name="celular"
+              {...register("celular")}
+              placeholder="Telefone Celular"
+              required
+              className="cdu-campos"
+              defaultValue={usuarioSelecionado?.celular}
+            />
+            <input
+              type="text"
+              name="email"
+              {...register("email")}
+              placeholder="Email"
+              required
+              className="cdu-campos"
+              defaultValue={usuarioSelecionado?.email}
+            />
+            <input
+              type="text"
+              name="senha"
+              {...register("senha")}
+              placeholder="Senha"
+              required
+              className="cdu-campos"
+            />
+          </div>
+          <div
+            className="cdu-form-buttons"
+            style={{ justifyContent: "center" }}
           >
-            {forumData.map(
-              (data, index) =>
-                index != 0 && (
-                  <option value={data.name} key={index}>
-                    {data.name}
-                  </option>
-                )
-            )}
-          </select>
-          <input
-            type="number"
-            name="celular"
-            {...register("celular")}
-            placeholder="Telefone Celular"
-            required
-            className="cdu-campos"
-            defaultValue={usuarioSelecionado?.celular}
-          />
-          <input
-            type="text"
-            name="email"
-            {...register("email")}
-            placeholder="Email"
-            required
-            className="cdu-campos"
-            defaultValue={usuarioSelecionado?.email}
-          />
-          <input
-            type="text"
-            name="senha"
-            {...register("senha")}
-            placeholder="Senha"
-            required
-            className="cdu-campos"
-          />
-        </div>
-        <div className="cdu-form-buttons" style={{ justifyContent: "center" }}>
-          <button type="submit" className="botao-geral">
-            Editar
-          </button>
-          <button
-            className="botao-geral botao-cancelar"
-            onClick={() => navigate(-1)}
-          >
-            Cancelar
-          </button>
-        </div>
-      </form>
+            <button type="submit" className="botao-geral">
+              Editar
+            </button>
+            <button
+              className="botao-geral botao-cancelar"
+              onClick={() => navigate(-1)}
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

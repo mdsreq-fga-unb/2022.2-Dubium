@@ -49,47 +49,51 @@ export default function PerfilUsuario() {
   };
 
   return (
-    <div className="perfil-usuario">
-      <div className="pu-perfil">
-        <PersonIcon sx={{ fontSize: 100 }} />
-        <div className="pu-perfil-texto">
-          <span>{usuarioSelecionado.nome_completo}</span>
-          <span style={{ color: "#757575" }}>
-            {handleCurso(usuarioSelecionado.curso)}
-          </span>
+    <div className="container pu-container">
+      <div className="perfil-usuario">
+        <div className="pu-perfil">
+          <PersonIcon sx={{ fontSize: 100 }} />
+          <div className="pu-perfil-texto">
+            <span>{usuarioSelecionado.nome_completo}</span>
+            <span style={{ color: "#757575" }}>
+              {handleCurso(usuarioSelecionado.curso)}
+            </span>
+          </div>
         </div>
+        <ul className="pu-informacoes">
+          <span style={{ fontSize: "18px" }}>INFORMAÇÕES DE CONTATO</span>
+          <li className="pu-item-informacao">
+            <span>E-mail:</span>
+            <span style={{ color: "#757575" }}>{usuarioSelecionado.email}</span>
+          </li>
+          <li className="pu-item-informacao">
+            <span>Telefone:</span>
+            <span style={{ color: "#757575" }}>
+              {usuarioSelecionado.celular}
+            </span>
+          </li>
+        </ul>
+        <ul className="pu-interecoes">
+          <li
+            className="item-interacao"
+            onClick={() => {
+              updateFavotito();
+              setFavorito(!favorito);
+            }}
+          >
+            <IconButton>
+              <StarIcon className={favorito ? "corFavorito" : ""} />
+            </IconButton>
+            <span>Favoritar</span>
+          </li>
+          <li>
+            <button className="pu-excluir">
+              <DeleteIcon sx={{ fontSize: 16 }} />
+              EXCLUIR CONTA
+            </button>
+          </li>
+        </ul>
       </div>
-      <ul className="pu-informacoes">
-        <span style={{ fontSize: "18px" }}>INFORMAÇÕES DE CONTATO</span>
-        <li className="pu-item-informacao">
-          <span>E-mail:</span>
-          <span style={{ color: "#757575" }}>{usuarioSelecionado.email}</span>
-        </li>
-        <li className="pu-item-informacao">
-          <span>Telefone:</span>
-          <span style={{ color: "#757575" }}>{usuarioSelecionado.celular}</span>
-        </li>
-      </ul>
-      <ul className="pu-interecoes">
-        <li
-          className="item-interacao"
-          onClick={() => {
-            updateFavotito();
-            setFavorito(!favorito);
-          }}
-        >
-          <IconButton>
-            <StarIcon className={favorito ? "corFavorito" : ""} />
-          </IconButton>
-          <span>Favoritar</span>
-        </li>
-        <li>
-          <button className="pu-excluir">
-            <DeleteIcon sx={{ fontSize: 16 }} />
-            EXCLUIR CONTA
-          </button>
-        </li>
-      </ul>
     </div>
   );
 }

@@ -52,40 +52,44 @@ export default function AvisoSelecionado({ usuarios }) {
   };
 
   return (
-    <div className="card-pergunta pergunta-selecionada">
-      <div className="ps-usuario-container">
-        <div className="ps-usuario-info">
-          <PersonIcon fontSize="large" />
-          <div className="ps-usuario-info-texto">
-            <span>{avisoSelecionado?.usuario?.nome_completo}</span>
-            <span style={{ color: "#757575" }}>
-              {handleCurso(avisoSelecionado?.usuario?.curso)}
-            </span>
+    <div className="container">
+      <div className="card-pergunta pergunta-selecionada">
+        <div className="ps-usuario-container">
+          <div className="ps-usuario-info">
+            <PersonIcon fontSize="large" />
+            <div className="ps-usuario-info-texto">
+              <span>{avisoSelecionado?.usuario?.nome_completo}</span>
+              <span style={{ color: "#757575" }}>
+                {handleCurso(avisoSelecionado?.usuario?.curso)}
+              </span>
+            </div>
           </div>
-        </div>
-        <IconButton onClick={deleteAviso}>
-          <DeleteIcon sx={{ fontSize: 16 }} />
-        </IconButton>
-      </div>
-      <span className="filtro">{avisoSelecionado?.filtro?.toUpperCase()}</span>
-      <span>{avisoSelecionado?.corpoAviso}</span>
-      <ul className="container-interacao">
-        <li
-          className="item-interacao"
-          onClick={() => {
-            setFavorito(!favorito);
-            updateFavotito();
-          }}
-        >
-          <IconButton>
-            <StarIcon
-              className={favorito ? "corFavorito" : ""}
-              sx={{ fontSize: 16 }}
-            />
+          <IconButton onClick={deleteAviso}>
+            <DeleteIcon sx={{ fontSize: 16 }} />
           </IconButton>
-          <span>Favoritar</span>
-        </li>
-      </ul>
+        </div>
+        <span className="filtro">
+          {avisoSelecionado?.filtro?.toUpperCase()}
+        </span>
+        <span>{avisoSelecionado?.corpoAviso}</span>
+        <ul className="container-interacao">
+          <li
+            className="item-interacao"
+            onClick={() => {
+              setFavorito(!favorito);
+              updateFavotito();
+            }}
+          >
+            <IconButton>
+              <StarIcon
+                className={favorito ? "corFavorito" : ""}
+                sx={{ fontSize: 16 }}
+              />
+            </IconButton>
+            <span>Favoritar</span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
