@@ -92,7 +92,7 @@ Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
 Daily | Equipe do Projeto | Diário | Relato por parte dos membros da equipe no telegram sobre o andamento individual das partes do projeto
 Sprint Planning | Equipe do Projeto e Cliente | Semanal | Relatório Sprint Planning, Planejamento do que será feito no ciclo da Sprint
 Sprint Review | Equipe do Projeto e Cliente | Junto ao Sprint Planning | Relatório Sprint Review, Validação do Produto
-Retrospectiva | Equipe do Projeto | Quinzenalmente | Tabela de check com uma verificação da implementação
+Retrospectiva | Equipe do Projeto | Semanalmente | Tabela de check com uma verificação da implementação
 Comunicar a situação do projeto | Equipe do Projeto e Professor | Mensalmente | Apresentações da Entrega de cada Unidade
 
 ### 2.4	Gerenciamento de Riscos

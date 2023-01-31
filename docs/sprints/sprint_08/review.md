@@ -12,8 +12,7 @@ Definir o escopo do MVP1: ok | Definir o escopo do MVP2: ok
 
 ## Melhorados
 
-- Definir ordem logica de execução das tasks para melhor aproveitamento de tempo por us 
-- Organizar tempo e tasks de modo a concluir blocos de US's que agreguem valor ao produto das entregas
+- Garantir a integridade dos requisitos de acordo com as necessidades do usuário
 ## Pontos de melhorias
 
 - Ajustes de design e padronização de telas.

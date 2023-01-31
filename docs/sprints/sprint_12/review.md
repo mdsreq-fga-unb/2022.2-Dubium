@@ -1,13 +1,12 @@
 # Entregas 
-## MVP 1
-US14 | US15 | US16 | US17 
------|------|------|------
-Implementação do front, back e conexão entre os dois da US14: ok | Implementação do front, back e conexão entre os dois da US15: ok | Implementação do front, back e conexão entre os dois da US16: ok | Implementação do front, back e conexão entre os dois da US17: ok 
+## MVP 2
+US01 | US02 | US03 | US12 | US17 | US18 
+-----|------|------|------|------|------
+Implementação do front, back e conexão entre os dois da US01: ok | Implementação do front, back e conexão entre os dois da US02: ok | Implementação do front, back e conexão entre os dois da US03: ok | Implementação do front, back e conexão entre os dois da US12: ok | Implementação do front, back e conexão entre os dois da US17: ok | Implementação do front, back e conexão entre os dois da US18: ok 
 
 ## Melhorados
 
-- Achar um meio termo para não sobrecarregar as equipes.
-- Reorganizar as equipes para auxilio em multiplas tarefas.
+- Organizar para não fugir da metodologia 
 ## Pontos de melhorias
 
 - Cuidado com documentação incompleta

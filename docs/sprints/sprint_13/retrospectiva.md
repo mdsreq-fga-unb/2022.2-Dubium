@@ -5,16 +5,16 @@
      data de finalização da sprint
      duraração da sprint
  -->
-Início | Fim | Duração
------- | --- | -------
-25/01/2023 | 01/02/2023 | 7 dias
+ Início | Fim | Duração
+ ------ | --- | -------
+ 18/01/2023 | 25/01/2023 | 7 dias
 
 ## 2. Conclusão
 <!-- adicionar a issue, sua descrição, o responsavel e se a issue foi terminada ou não -->
 Tarefas | Descrição | Resposáveis | Status
 ------ | --------- | ----------- | ------
 01 | Documentação | [Giúlia](https://github.com/alcantaragiubs), [Júlio](https://github.com/Julio-eng) e [Helder](https://github.com/F1reFinger) | Concluido
-02 | Front-end | [Giúlia](https://github.com/alcantaragiubs), [Eduarda](https://github.com/erteduarda) e [Júlio](https://github.com/Julio-eng) | Concluido
+02 | Front-end | [Giúlia](https://github.com/alcantaragiubs), e [Júlio](https://github.com/Julio-eng) | Concluido
 03 | Back-End | [Gian](https://github.com/GianMedeiros), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres) e [Helder](https://github.com/F1reFinger) | Concluido
 
 foi desenvolvido seguindo o pair programming presente na metodologia.
