@@ -116,7 +116,34 @@ URPS+ | ID | Descrição
 INTERFACE | RN4 | O sistema deve ser web
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
-##### Fluxo Básico: Criar respostas
+##### Fluxo Básico: Cadastrar respostas
+1. O ator seleciona a pergunta desejada
+2. O sistema exibe a pergunta desejada e uma lista de respostas da pergunta
+3. O ator seleciona a opção de "Responder"
+4. O sistema solicita as informações para a resposta
+5. O ator informa o corpo da resposta
+6. O sistema exibe a nova lista de respostas 
+7. O sistema volta para a página principal
+8. O caso de uso encerra
+
+#### Fluxo Alternativo A: Deletar resposta
+ - No passo 2 caso o ator deseje deletar uma resposta:
+1. O ator decide qual resposta ele deseja deletar
+2. O sistema exibe a opção de deletar apenas para as respostas do próprio autor
+3. O ator seleciona a resposta que quer deletar
+4. O sistema confirma a delação da resposta
+5. O fluxo retorna ao passo 6 do fluxo básico
+
+#### Fluxo Alternativo B: Favoritar Resposta
+ - No passo 2 caso o ator deseje favoritar uma resposta:
+1. O ator seleciona a opção de "Favoritar" na resposta desejada
+2. O sistema exibe a resposta favoritada em sua nova posição na listagem
+3. O fluxo retorna ao passo 6 do fluxo básico
+
+#### Fluxo de Exceção:
+ - No passo 5 caso os dados da resposta não estejam corretos:
+ 1. O sistema exibe uma mensagem de erro
+ 2. O fluxo retorna para o passo 3 do fluxo base
 
 ### Caso de Uso:  UC-01 x Realizar Login
 #### Por: Silas Neres - 20/0043536
