@@ -1,4 +1,4 @@
- # Casos de Uso
+# Casos de Uso
 
 ## Identificação dos Atores
 
@@ -37,6 +37,7 @@ Data | Versão | Descrição | Autor
 #### Por: Giulia Alcantara - 18/0121308
 
 Descrição: Caso de Uso: UC-04 Gerenciar usuários cadastrados: Este caso de uso especifica a ação de controle que um usuário executa no sistema, com objetivo de gerenciar usuários cadastrados. Apenas usuários cadastrados podem gerenciar outros usuários cadastrados no sistema. O usuário pode buscar um usuário e, a partir dele, gerenciá-lo selecionando-o, visualizando seu perfil e favoritando-o; Também pode gerenciar seus próprios dados, a partir da seleção de seu próprio perfil, podendo visualizá-lo, editar seus dados, excluir sua conta ou até favoritar a si mesmo para melhorar sua posição no ranking. Após a validação no sistema, o usuário torna-se apto a realizar as operações da sua área restrita.
+
 * Atores: Professor-Aluno
 * Pré-Condições: O ator deve estar cadastrado no sistema; O ator deve estar logado com autenticação no sistema.
 * Pós-Condições: O ator fica habilitado a realizar ações referentes aos usuários desejados em sua própria área do sistema.
