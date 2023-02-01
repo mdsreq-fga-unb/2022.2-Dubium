@@ -85,6 +85,10 @@ nav:
           - Palanning: "sprints/sprint_14/planning.md"
           - Retrospectiva: "sprints/sprint_14/retrospectiva.md"
           - Review: "sprints/sprint_14/review.md"
+      - Sprint 15:
+          - Palanning: "sprints/sprint_15/planning.md"
+          - Retrospectiva: "sprints/sprint_15/retrospectiva.md"
+          - Review: "sprints/sprint_15/review.md"
   - Protótipos:
       - MVP1: "prototipos/prototipos-mvp1.md"
       - MVP2: "prototipos/prototipos-mvp2.md"
