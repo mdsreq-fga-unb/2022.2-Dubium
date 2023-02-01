@@ -65,16 +65,16 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 4. O sistema disponibiliza os resultados correspondentes a busca
 5. O ator seleciona o usuário desejado
 6. O sistema exibe o perfil do usuário desejado
-7. O ator clica em retornar ao fórum
-8. O sistema retorna à tela principal. 
-9. O caso de uso se encerra.
+7.  O caso de uso se encerra.
 
 ##### Fluxo Alternativo A: Editar os dados de um usuário
  - No passo 6, caso o ator deseje editar os dados da própria conta:
 1. O ator clica na opção de “Editar dados”
 2. O sistema exibe todos os dados do usuário que podem ser alterados
 3. O ator modifica os dados desejados
-4. O fluxo retorna ao passo 7 do fluxo básico.
+4. O sistema valida se os dados modificados estão corretos
+5. O ator salva os dados
+6. O fluxo retorna ao passo 7 do fluxo básico.
 
 ##### Fluxo Alternativo B: Deletar a conta de um usuário
  - No passo 6, caso o ator deseje deletar a própria conta:
@@ -85,7 +85,7 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 ##### Fluxo Alternativo C: Favoritar um usuário
   - No passo 6, caso o ator deseje favoritar um usuário:
 1. O ator aperta na estrela de favoritar
-2. O fluxo retorna ao passo 7  do fluxo básico.
+2. O fluxo retorna ao passo 7 do fluxo básico.
 
 ##### Fluxo de Exceção:
   - No passo 3, caso o e-mail fornecido esteja incorreto:
