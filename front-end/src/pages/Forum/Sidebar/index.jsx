@@ -5,7 +5,7 @@ import { useState, useContext } from "react";
 
 import SidebarContext from "../../../context/SidebarProvider";
 
-const Sidebar = () => {
+const Sidebar = ({ pagina }) => {
   const [isActive, setIsActive] = useState(0);
   const { setElementoSidebar } = useContext(SidebarContext);
 
@@ -17,7 +17,7 @@ const Sidebar = () => {
             className={
               isActive === index ? "item-sidebar is-active" : "item-sidebar"
             }
-            to={data.path}
+            to={pagina == "forum" ? data.pathPergunta : data.pathAvisos}
             onClick={() => {
               setIsActive(index);
               setElementoSidebar(index);

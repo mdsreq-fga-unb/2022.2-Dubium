@@ -59,10 +59,10 @@ E2|FT07|US19| Eu, como usuário, gostaria de avaliar os avisos postados para fim
 E2|FT07|US20| Eu, como usuário, gostaria de visualizar os avisos em ordem de rankeamento, para saber quais sao os principais avisos da faculdade | preencher |Alta
 E3|FT08|US21|Eu como usuário gostaria de me cadastrar no sistema para utilizar suas funcionalidades| O cadastro pode ser feito por google e facebook, além do e-mail e senha <br><br> Nome, matrícula, curso, e-mail, telefone, usuário e avatar desejado <br><br> Não é possivel cadastrar um email existente <br><br> Não é possivel cadastrar uma matricula existente |Alta
 E3|FT08|US22|Eu como usuário gostaria de visualizar os meus dados cadastrais em uma aba de perfil para poder conferir se as informações estão corretas| Todas as informações utilizadas no cadastro devem estar disponíveis nesta aba |Alta
-E3|FT08|US23|Eu como usuário gostaria de ter a possibilidade de buscar outros usuários para caso eu deseje conversar com algum deles diretamente num chat privado| A busca deve ser feita por nome ou e-mail |Alta
+E3|FT08|US23|Eu como usuário gostaria de ter a possibilidade de buscar outros usuários para poder averiguar as perguntas que um usuário já fez | A busca deve ser feita por nome |Alta
 E3|FT08|US24|Eu como usuário gostaria de editar os dados do meu perfil para caso alguma informação tenha sido preenchida incorretamente possa ser mudada | Todos os dados podem ser atualizados a qualquer momento sem limite de quantidade |Alta
 E3|FT08|US25|Eu como usuario gostaria de ter a possibilidade de deletar minha conta para caso não deseje mais utilizá-la| Ao excluir a conta, todas as atividades do usuário serão excluídas |Alta
-E3|FT09|US26|Eu como usuário gostaria de realizar login com email e senha para adentrar no sistema| O login pode ser feito por google e facebook, além do e-mail e senha |Alta
+E3|FT09|US26|Eu como usuário gostaria de realizar login com email e senha para adentrar no sistema| O login pode ser feito atraves do email |Alta
 E3|FT09|US27|Eu como usuário gostaria de ter a possibilidade de recuperar minha senha através do email caso eu a esqueça| O e-mail deve ser autenticado em até 10 minutos | Alta
 
 

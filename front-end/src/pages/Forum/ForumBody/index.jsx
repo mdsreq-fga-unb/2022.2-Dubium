@@ -1,14 +1,15 @@
 import "./style.css";
 
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import SidebarContext from "../../../context/SidebarProvider";
+import pesquisaPosts from "../../../services/pesquisa";
 import handleCurso from "../../../services/curso";
 import apiRequest from "../../../services/api";
-import SidebarContext from "../../../context/SidebarProvider";
 
-import { useContext, useEffect, useState } from "react";
-
+import PersonIcon from "@mui/icons-material/Person";
 import StarIcon from "@mui/icons-material/Star";
-
-import { Link } from "react-router-dom";
 
 export default function ForumBody({ materiaPesquisada }) {
   const [arrayPerguntas, setArrayPerguntas] = useState([]);
@@ -31,64 +32,41 @@ export default function ForumBody({ materiaPesquisada }) {
       });
   }, [elementoSidebar]);
 
-  const perguntasFiltradas = arrayPerguntas.filter(
-    (e) =>
-      e.filtro
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .startsWith(
-          materiaPesquisada
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .toLowerCase()
-        ) ||
-      // eslint-disable-next-line eqeqeq
-      e.filtro
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase() ==
-        materiaPesquisada
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .toLowerCase()
-  );
+  const perguntasFiltradas = pesquisaPosts(arrayPerguntas, materiaPesquisada);
 
   return (
-    <div className="container-pergunta">
-      <div className="criar-pergunta">
-        <Link to="/criar-pergunta">
-          <button>FAÇA UMA PERGUNTA</button>
-        </Link>
-      </div>
-      {perguntasFiltradas.map((pergunta, index) => {
-        return (
-          <Link to={`/pergunta/${pergunta.id}`} key={index}>
-            <div className="card-pergunta">
-              <div className="usuario-pergunta">
-                {/* <div className="avatar">
-                <img
-                  src={pergunta.userPergunta.foto}
-                  alt=""
-                  className="picture"
-                />
-              </div> */}
-                <div className="usuario-informacao-texto">
-                  <span>{pergunta.usuario.fotoPerfil}</span>
-                  <span>{pergunta.usuario.nome_completo}</span>
-                  <span>{handleCurso(pergunta.usuario.curso)}</span>
+    <div className="container">
+      <div className="container-pergunta">
+        <div className="criar-pergunta">
+          <Link to="/criar-pergunta">
+            <button>FAÇA UMA PERGUNTA</button>
+          </Link>
+        </div>
+        {perguntasFiltradas.map((pergunta, index) => {
+          return (
+            <Link to={`/pergunta/${pergunta.id}`} key={index}>
+              <div className="card-pergunta">
+                <div className="usuario-pergunta">
+                  <PersonIcon fontSize="large" />
+                  <div className="usuario-informacao-texto">
+                    <span>{pergunta.usuario.nome_completo}</span>
+                    <span style={{ color: "#757575" }}>
+                      {handleCurso(pergunta.usuario.curso)}
+                    </span>
+                  </div>
+                </div>
+                <span className="filtro">{pergunta.filtro.toUpperCase()}</span>
+                <span>{pergunta.tituloPergunta}</span>
+                <span>{pergunta.corpoPergunta}</span>
+                <div className="like-comentario">
+                  <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
+                  <span>{pergunta.votosTotais} favoritos</span>
                 </div>
               </div>
-              <div>{pergunta.tituloPergunta}</div>
-              <div>{pergunta.corpoPergunta}</div>
-              <div className="like-comentario">
-                <StarIcon style={{ color: "#ffa722" }} />
-                <span>{pergunta.votosTotais} favoritos</span>
-              </div>
-            </div>
-          </Link>
-        );
-      })}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

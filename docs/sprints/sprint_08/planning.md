@@ -20,9 +20,7 @@ Mestre do Scrum | Giulia | Eduarda, Gian, Helder, Julio, Silas
 
 ## 1.3. Objetivos da Sprint
 <!-- descrever de forma geral o objetivo da sprint -->
-* Execução do MVP1
-* Criação do PBB
-* Criação do BDD
+* Execução das US pertencentes ao MVP1
 
 ## 1.4. Tarefas
 <!-- descrever as issues que definimos para essa sprint e alocar um responsavel por ela -->

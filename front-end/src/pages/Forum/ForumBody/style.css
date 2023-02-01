@@ -34,10 +34,6 @@
   cursor: pointer;
 }
 
-.card-pergunta svg {
-  width: 16px;
-}
-
 .card-pergunta:hover {
   background-color: #eeeeee;
 }
@@ -46,7 +42,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .usuario-informacao-texto {

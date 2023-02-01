@@ -11,7 +11,7 @@
 - US7: Eu como usuário gostaria de pesquisar perguntas por tema para fins de estudo
 - US8: Eu como usuário gostaria de poder deletar as minhas perguntas para caso de escrita incorreta
 
-#### F3: Gerenciar respostas
+#### F3: Gerenciar respostas de perguntas
 
 - US10: Eu como usuário gostaria de poder responder todas as perguntas disponibilizadas no forum para fins de ajudar outros usuarios
 - US11: Eu como usuário gostaria de ser capaz de visualizar as respostas para fins de soluções de dúvidas
@@ -65,7 +65,7 @@
 
 - US21: Eu como usuário gostaria de me cadastrar no sistema para utilizar suas funcionalidades
 - US22: Eu como usuário gostaria de visualizar os meus dados cadastrais em uma aba de perfil para poder conferir se as informações estão corretas
-- US23: Eu como usuário gostaria de ter a possibilidade de buscar outros usuáiros para caso eu deseje conversar com algum deles diretamente num chat privado
+- US23: Eu como usuário gostaria de ter a possibilidade de buscar outros usuários para poder averiguar as perguntas que um usuário já fez
 - US24: Eu como usuário gostaria de editar os dados do meu perfil para caso alguma informação tenha sido preenchida incorretamente possa ser mudada
 - US25: Eu como usuario gostaria de ter a possibilidade de deletar minha conta para caso não deseje mais utilizá-la
 

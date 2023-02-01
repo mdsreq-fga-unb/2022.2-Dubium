@@ -1,12 +1,28 @@
-# Visão Geral do Projeto
-Organização do projeto | Planejamento das Fases e/ou Iterações do Projeto | Matriz de Comunicação | Gerenciamento de Riscos | Critérios de Replanejamento
----------------------- | ------------------------------------------------ | ----------------------|-------------------------|----------------------------
-Definir os papéis de cada integrante da equipe segundo o SCRUM: ok | Organizar e dividir o que será produzido em cada sprint: ok | Definir as atividades que serão executadas, por quem sua periodicidade e o que será gerado segundo o SCRUM: ok | fazer uma analise de quais são os riscos do projeto: ok | Definir quais as soluções encontradas para cada risco: ok
+# Retrospectiva
 
-# PROCESSO DE DESENVOLVIMENTO DE SOFTWARE
-Metodologia | Ferramentas | Processos e Procedimentos | Arquitetura do Projeto 
-------------| ------------| --------------------------|-----------------------
-Definir a metodologia que será implementada no projeto: ok | Definir as ferramentas de organização da equipe: ok | Definir as atividades os processos e os procedimentos ultilizados na execução do projeto pela equipe: ok | Definir a arquitetura do projeto que será ultilizada pela equipe: ok 
+## 1. Visão Geral
+<!-- data de inicio da sprint
+     data de finalização da sprint
+     duraração da sprint
+ -->
+Início | Fim | Duração
+------ | --- | -------
+16/11/2022 | 23/11/2022 | 7 dias
+
+## 2. Conclusão
+<!-- adicionar a issue, sua descrição, o responsavel e se a issue foi terminada ou não -->
+Tarefas | Descrição | Resposáveis | Status
+------ | --------- | ----------- | ------
+01 | Documentação | [Helder](https://github.com/F1reFinger), [Júlio](https://github.com/Julio-eng), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres), [Gian](https://github.com/GianMedeiros) e [Eduarda](https://github.com/erteduarda)  | Concluido
+
+Segundo a metodologia ágil foram definidas e acordadas entregas com o cliente.
+
+## 3 FeedBack - Health Check
+<iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1-sWmWZ9fADGNUFFPdBJHccLhOLTYTjqHpMyFA5QReok/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
+## 4 Quadro de Conhecimento
+<iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1MeP-q5hIVB0PUKEYZGs4nRC9GpGrQpQy1MaD0SJNBA8/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
 
-
+## 5 Melhorias
+- interação da equipe

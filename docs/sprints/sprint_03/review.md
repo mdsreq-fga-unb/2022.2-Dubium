@@ -1,22 +1,16 @@
-# Review
+# Entregas:
 
-## 1. Visão Geral
-<!-- data de inicio da sprint
-     data de finalização da sprint
-     duraração da sprint
- -->
-Início | Fim | Duração
------- | --- | -------
-09/11/2022 | 16/11/2022 | 7 dias
+## Planejamento da equipe
 
-## 2. Conclusão
-<!-- adicionar a issue, sua descrição, o responsavel e se a issue foi terminada ou não -->
-Tarefas | Descrição | Resposáveis | Status
------- | --------- | ----------- | ------
-01 | Documentação | [Helder](https://github.com/F1reFinger), [Júlio](https://github.com/Julio-eng), [Giúlia](https://github.com/alcantaragiubs), [Silas](https://github.com/Silas-neres), [Gian](https://github.com/GianMedeiros) e [Eduarda](https://github.com/erteduarda)  | Concluido
+Definir metodologia | Definir tarefas da equipe
+------------------- | -------------------------
+Metodologia definida de acordo com escolha da equipe e de conhecimentos sobre os metodos de desenvolvimento: ok | Equipe designada para tarefas de documentação para um momento inicial: ok
 
-## 3 FeedBack - Health Check
-<iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1-sWmWZ9fADGNUFFPdBJHccLhOLTYTjqHpMyFA5QReok/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
+## Melhorados
 
-## 4 Quadro de Conhecimento
-<iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1MeP-q5hIVB0PUKEYZGs4nRC9GpGrQpQy1MaD0SJNBA8/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
+- Necessidade de definir uma metodologia
+- Entender e organizar toda a equipe
+
+## Pontos de melhorias
+
+- Estudar como adaptar a metodologia para melhor se enquadrar no nosso modo de usar

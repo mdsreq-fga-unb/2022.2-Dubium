@@ -8,7 +8,7 @@
 
 - INTERFACE: RN4 - O sistema deve ser web
 
-- IMPLEMENTAÇÃO: RN5 - O sistema deve assegurar os dados do usuário com
+- IMPLEMENTAÇÃO: RN5 - O sistema deve assegurar os dados do usuário com autenticação AuthGuard e JWT
 
 - DESEMPENHO: RN6 - O sistema deve possuir um bom tempo de resposta (10-30s) 
 
