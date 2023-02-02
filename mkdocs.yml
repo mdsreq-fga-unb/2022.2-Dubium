@@ -24,7 +24,7 @@ nav:
       - URPS+: "urps.md"
       - PBB & BDD: "pbb.md"
       - USM: "usm.md"
-      - UML: "uml.md"
+      - Casos de Uso: "uml.md"
   - Entregas:
       - Unidade 1:
           - Visão Geral do Produto: "entrega-visao.md"
