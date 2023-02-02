@@ -4,9 +4,8 @@
 
 Ator | Nome | Descrição
 ---- | ---- | ---------
-01 | Professor-Aluno | Usuário habilitado a cadastrar usuários e gerenciar posts pelo sistema
-02 | Aluno | Usuário habilitado a cadastrar-se e gerenciar posts pelo sistema
-03 | Email | Sistema externo habilitado via autenticação de token a prover a recuperação de senha
+01 | Usuário | Usuário habilitado a cadastrar usuários e gerenciar posts pelo sistema
+02 | Email | Sistema externo habilitado via autenticação de token a prover a recuperação de senha
 
 ## Identificação dos Casos de Uso
 
@@ -14,11 +13,9 @@ UC | Nome do UC |
 -- | ---------- |
 UC-01 |Realizar Login
 UC-02 | Alterar senha
-UC-03 | Cadastrar usuários
-UC-04 | Gerenciar usuários cadastrados
-UC-05 | Criar posts
-UC-06 | Gerenciar posts
-UC-07 | Gerenciar Respostas
+UC-03 | Gerenciar usuários
+UC-04| Gerenciar posts
+UC-05 | Gerenciar respostas
 
 ## Diagrama de Casos de Uso
 
@@ -33,12 +30,12 @@ Data | Versão | Descrição | Autor
 29/01 | 1.0 | Descrição dos Casos de Uso | Gian, Giulia, Helder, Júlio, Silas
 30/01 | 1.1| Fluxos Básicos, Alternativos e de Exceção | Gian, Giulia, Helder, Júlio, Silas
 
-### Caso de Uso:  UC-04 x Gerenciar Usuários Cadastrados
+### Caso de Uso:  UC-03 x Gerenciar Usuários
 #### Por: Giulia Alcantara - 18/0121308
 
-Descrição: Caso de Uso: UC-04 Gerenciar usuários cadastrados: Este caso de uso especifica a ação de controle que um usuário executa no sistema, com objetivo de gerenciar usuários cadastrados. Apenas usuários cadastrados podem gerenciar outros usuários cadastrados no sistema. O usuário pode buscar um usuário e, a partir dele, gerenciá-lo selecionando-o, visualizando seu perfil e favoritando-o; Também pode gerenciar seus próprios dados, a partir da seleção de seu próprio perfil, podendo visualizá-lo, editar seus dados, excluir sua conta ou até favoritar a si mesmo para melhorar sua posição no ranking. Após a validação no sistema, o usuário torna-se apto a realizar as operações da sua área restrita.
+Descrição: Caso de Uso: UC-04 Gerenciar usuários cadastrados: Este caso de uso especifica a ação de controle que um usuário executa no sistema, com objetivo de gerenciar usuários. Apenas usuários cadastrados podem gerenciar outros usuários cadastrados no sistema. O usuário pode buscar outro e, a partir disso, então gerenciá-lo, selecionando-o, visualizando seu perfil e favoritando-o; Também pode gerenciar seus próprios dados, a partir da seleção de seu próprio perfil, podendo visualizá-lo, editar seus dados, excluir sua conta ou até favoritar a si mesmo para melhorar sua posição no ranking. Após a validação no sistema, o usuário torna-se apto a realizar as operações da sua área restrita.
 
-* Atores: Professor-Aluno
+* Atores: Usuário
 * Pré-Condições: O ator deve estar cadastrado no sistema; O ator deve estar logado com autenticação no sistema.
 * Pós-Condições: O ator fica habilitado a realizar ações referentes aos usuários desejados em sua própria área do sistema.
 * Requisitos Funcionais: 
@@ -60,7 +57,7 @@ IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autent
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
 ##### Fluxo Básico: Visualização de um usuário desejado
-1. O ator decide buscar um usuário
+1. O caso de uso é iniciado ator decide buscar um usuário
 2. O sistema solicita o e-mail do usuário desejado
 3. O ator informa o e-mail do usuário que deseja buscar
 4. O sistema disponibiliza os resultados correspondentes a busca
@@ -97,7 +94,7 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 #### Por: Helder Lourenço - 18/0121847
 Descrição: Caso de Uso: UC-10 Gerenciar respostas: Este caso de uso especifica a ação de controle que um usuário executa no sistema, com objetivo de gerenciar respostas. Apenas usuários cadastrados podem gerenciar respostas no sistema. O usuário pode selecionar perguntas e, a partir delas, gerenciar suas respectivas respostas sendo adição, exclusão e até favoritar a resposta que mais se adequa a pergunta. Após a validação no sistema, o usuário torna-se apto a realizar as operações da sua área restrita.
 
-* Atores: Professor-Aluno
+* Atores: Usuário
 * Pré-Condições: O ator deve estar cadastrado no sistema; O ator deve estar logado com autenticação no sistema.
 * Pós-Condições: O ator fica habilitado a realizar ações de modificações nas respostas atualizadas em sua própria área de respostas do sistema.
 * Requisitos Funcionais: 
@@ -118,7 +115,7 @@ INTERFACE | RN4 | O sistema deve ser web
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
 ##### Fluxo Básico: Cadastrar respostas
-1. O ator seleciona a pergunta desejada
+1. O caso de uso se inicia quando o ator seleciona a pergunta desejada
 2. O sistema exibe a pergunta desejada e uma lista de respostas da pergunta
 3. O ator seleciona a opção de "Responder"
 4. O sistema solicita as informações para a resposta
@@ -150,7 +147,7 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 #### Por: Silas Neres - 20/0043536
 Descrição: Caso de Uso: UC-01 Realizar Login:
 
-* Atores: Professor-Aluno
+* Atores: Usuário
 * Pré-Condições: O ator deve estar cadastrado no sistema.
 * Pós-Condições: O ator fica habilitado a realizar ações de modificações nas respostas atualizadas em sua própria área de respostas do sistema.
 * Requisitos Funcionais: 
@@ -168,7 +165,7 @@ IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autent
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
 #### Fluxo Básico: Login autenticado
-1. O ator acessa a tela de login.
+1. O caso de uso se inicia quando o ator acessa a tela de login.
 2. O sistema solicita as informações para login.
 3. O ator informa seu email e sua senha.
 4. O sistema valida as credenciais do usuário.
@@ -191,7 +188,7 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 #### Por: Júlio César - 19/0015721
 
 Descrição: Caso de Uso: UC-02 Alterar Senha: Este caso de uso especifica que o ator altere sua senha cadastrada. Apenas usuários cadastrados podem recuperar sua senha. Para alterar a senha,  o usuário receberá um email com link para alterar a senha, a fim de confirmar sua identidade. 
-* Atores: Professor-Aluno, Email
+* Atores: Usuário, Email
 * Pré-Condições: O ator Professor-Aluno deve estar cadastrado no sistema. 
 * Pós-Condições: O ator Professor-Aluno deverá ser autenticado com a nova senha cadastrada.
 * Requisitos Funcionais: 
@@ -209,12 +206,12 @@ IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autent
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
 #### Fluxo Básico: Alterar a senha
-1. O ator Professor-Aluno escolhe a opção “esqueceu a senha?”.
+1. O caso de uso se inicia quando o ator Usuário escolhe a opção “esqueceu a senha?”.
 2. O sistema solicita o email cadastrado.
 3. O ator informa as informações necessárias
 4. O sistema valida o email digitado.
 5. O ator Email recebe o token para a alteração da senha
-6. O ator Email envia para o ator Professor-Aluno um email para a alteração da senha
+6. O ator Email envia para o ator Usuário um email para a alteração da senha
 7. O ator Professor-Aluno acessa seu e-mail cadastrado e clica no link para alterar a senha.
 8. O ator Professor-Aluno informa a nova senha
 9. O sistema retorna a pagina de login
@@ -224,57 +221,6 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
  - No passo 4, caso o e-mail digitado esteja incorreto:
 1. O sistema informa uma mensagem de erro
 2. O fluxo retorna ao passo 2 do fluxo básico.
-
-### Caso de Uso:  UC-03 x Cadastrar Usuários
-#### Por: Gian Medeiros - 19/0055006
-
-Descrição: Caso de Uso: UC-03 Cadastrar Usuários: Este caso de uso especifica o cadastro de usuários no sistema, a partir de dados recebidos do ator. O sistema deve tratar esses dados e possibilitar acesso ao ator a partir do US de login.
-
-* Atores: Professor-Aluno
-* Pré-Condições: O ator precisa possuir um email válido
-* Pós-Condições: O ator fica habilitado a realizar o login na aplicação
-* Requisitos Funcionais: 
-
-Épico | Feature | US | Descrição 
------ | ------- | -- | ---------
-03 | 08 | 21 | Eu como usuário gostaria de me cadastrar no sistema para utilizar suas funcionalidades
-
-* Requisitos Não-Funcionais:
-
-URPS+ | ID | Descrição 
------ | -- | ---------
-INTERFACE | RN4 | O sistema deve ser web
-IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
-RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
-
-### Fluxo Básico: Cadastro de usuário desejado
-1. O ator decide se cadastrar.
-2. O sistema apresenta as informações necessárias para realizar o cadastro (Nome completo, curso, matrícula, celular, email e senha).
-3. O ator informa os dados solicitados.
-4. O sistema vai para a página de login
-5. O caso de uso se encerra.
-
-### Fluxo Alternativo: Preenchendo apenas campos obrigatórios
- - No passo 3, caso o ator decida só preencher os dados obrigatórios (Nome completo, e-mail e senha)
-1. O ator somente passa esses dados
-2. O sistema realiza o cadastro do usuário na base de dados.
-3. O fluxo retorna ao passo 4 do fluxo básico
-
-### Fluxo de Exceção: Dados incorretos
- - No passo 3, caso o ator passe os dados em formato incorreto:
-1. O sistema exibe uma mensagem de erro
-2. O fluxo retorna ao passo 2 do fluxo básico.
-
-
-### Fluxo de Exceção: Dados incompletos
- - No passo 3, caso o ator não passe todos dados obrigatórios necessários:
-1. O sistema exibe uma mensagem de erro
-2. O fluxo retorna ao passo 2 do fluxo básico.
-
-### Fluxo de Exceção:  E-mail já cadastrado
- - No passo 3, caso o ator passe um e-mail já cadastrado:
-1. O sistema exibe uma mensagem de e-mail já cadastrado
-2. O fluxo retorna ao passo 2 do fluxo básico
 
 ### Informações adicionais
 * Referência: https://www.ic.unicamp.br/~ariadne/mc436/1s2013/Modelo_doc_casos_uso.pdf
