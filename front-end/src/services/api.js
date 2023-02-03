@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiRequest = axios.create({
-  baseURL: import.meta.env.VITE_APP_API_HOST,
+  baseURL: 'http://localhost:3000/',
 }); 
 
 export default apiRequest;

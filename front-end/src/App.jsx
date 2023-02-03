@@ -14,11 +14,7 @@ import Sobre from "./pages/Sobre";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import AvisosConteudo from "./pages/Avisos/AvisosConteudo";
-import AvisosFormulario from "./pages/Avisos/AvisosFormulario";
-import AvisoSelecionado from "./pages/Avisos/AvisoSelecionado";
-import CadastrarUsuarios from "./pages/CadastrarUsuarios";
-import EditarUsuario from "./pages/EditarUsuarios";
+import Login from "./pages/login";
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -36,56 +32,22 @@ function App() {
   }, []);
 
   return (
+    <div>
     <Router>
       <Header setMateriaPesquisada={setMateriaPesquisada} />
       <Routes>
-        <Route path="/" element={<ForumLayout pagina="forum" />}>
+        <Route path="/" element={<ForumLayout pagina="forum" />} />
           <Route
             index
             element={<ForumBody materiaPesquisada={materiaPesquisada} />}
           />
-          <Route
-            path="/:id"
-            element={<ForumBody materiaPesquisada={materiaPesquisada} />}
-          />
-          <Route
-            path="/pergunta/:idPergunta"
-            element={<PerguntaSelecionada usuarios={usuarios} />}
-          />
-          <Route
-            path="/criar-pergunta"
-            element={<FormularioPergunta usuarios={usuarios} />}
-          />
-        </Route>
-        <Route path="/avisos" element={<ForumLayout pagina="avisos" />}>
-          <Route
-            index
-            element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
-          />
-          <Route
-            path="/avisos/:id"
-            element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
-          />
-          <Route
-            path="/avisos/aviso/:idAviso"
-            element={<AvisoSelecionado usuarios={usuarios} />}
-          />
-          <Route
-            path="/avisos/criar-aviso"
-            element={<AvisosFormulario usuarios={usuarios} />}
-          />
-        </Route>
-        <Route
-          path="/ranking-usuarios"
-          element={<RankingUsuarios materiaPesquisada={materiaPesquisada} />}
-        />
-        <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
-        <Route path="/cadastro-usuario" element={<CadastrarUsuarios />} />
-        <Route path="/editar-usuario/:idUsuario" element={<EditarUsuario />} />
-        <Route path="/sobre" element={<Sobre />} />
-      </Routes>
-      <Footer />
-    </Router>
+          <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
