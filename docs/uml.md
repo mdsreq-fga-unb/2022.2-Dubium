@@ -19,7 +19,7 @@ UC-05 | Gerenciar respostas
 
 ## Diagrama de Casos de Uso
 
-![UML completo](./img/Ultimo-uml.png)
+![UML completo](./img/UML-corrigido.png)
 
 ## Especificação dos Casos de Uso
 
