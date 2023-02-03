@@ -13,9 +13,17 @@ UC | Nome do UC |
 -- | ---------- |
 UC-01 |Realizar Login
 UC-02 | Alterar senha
-UC-03 | Gerenciar usuários
-UC-04| Gerenciar posts
-UC-05 | Gerenciar respostas
+UC-03 | Cadastrar usuários
+UC-04 | Cadastrar Posts
+UC-05 | Visualizar usuários cadastrados
+UC-06 | Editar usuários
+UC-07 | Favoritar usuários
+UC-08 | Apagar usuários
+UC-09 | Visualizar Posts
+UC-10 | Editar Posts
+UC-11 | Deletar Posts
+UC-12 | Favoritar Posts
+UC-13 | Salvar Posts
 
 ## Diagrama de Casos de Uso
 
@@ -29,7 +37,9 @@ Data | Versão | Descrição | Autor
 ---- | ------ | --------- | -----
 29/01 | 1.0 | Descrição dos Casos de Uso | Gian, Giulia, Helder, Júlio, Silas
 30/01 | 1.1 | Fluxos Básicos, Alternativos e de Exceção | Gian, Giulia, Helder, Júlio, Silas
-02/01 | 1.2 | Atualização do Documento | Gian, Giulia, Helder, Júlio, Silas
+02/02 | 1.2 | Atualização do Documento | Gian, Giulia, Helder, Júlio, Silas
+03/02 | 1.3 | Atualização do Documento | Gian, Giulia, Helder, Júlio, Silas
+
 
 ### Caso de Uso:  UC-01 x Realizar Login
 #### Por: Silas Neres - 20/0043536
