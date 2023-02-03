@@ -120,10 +120,47 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 1. O sistema informa uma mensagem de erro
 2. O fluxo retorna ao passo 2 do fluxo básico.
 
-### Caso de Uso:  UC-03 x Gerenciar Usuários
+### Caso de Uso:  UC-04 x Cadastrar Usuários
+#### Por: Gian Medeiros - 19/0055006
+
+Descrição: Caso de Uso: UC-03 Cadastrar Usuários: Este caso de uso especifica o cadastro de usuários no sistema, a partir de dados recebidos do ator. O sistema deve tratar esses dados e possibilitar acesso ao ator a partir do US de login.
+
+* Atores: Usuário
+* Pré-Condições: O ator precisa possuir um email válido
+* Pós-Condições: O ator fica habilitado a realizar o login na aplicação
+* Requisitos Funcionais: 
+
+Épico | Feature | US | Descrição 
+	INTERFACE | RN4 | O sistema deve ser web
+IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
+RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
+
+### Fluxo Básico: Cadastro de usuário desejado
+1. O ator decide se cadastrar.
+2. O sistema apresenta as informações necessárias para realizar o cadastro (Nome completo, curso, matrícula, celular, email e senha).
+3. O ator informa os dados solicitados.
+4. O sistema vai para a página de login
+5. O caso de uso se encerra.
+
+### Fluxo de Exceção: Dados incorretos
+ - No passo 3, caso o ator passe os dados em formato incorreto:
+1. O sistema exibe uma mensagem de erro
+2. O fluxo retorna ao passo 2 do fluxo básico.
+
+### Fluxo de Exceção: Dados incompletos
+ - No passo 3, caso o ator não passe todos dados obrigatórios necessários:
+1. O sistema exibe uma mensagem de erro
+2. O fluxo retorna ao passo 2 do fluxo básico.
+
+### Fluxo de Exceção:  E-mail já cadastrado
+ - No passo 3, caso o ator passe um e-mail já cadastrado:
+1. O sistema exibe uma mensagem de e-mail já cadastrado
+2. O fluxo retorna ao passo 2 do fluxo básico
+
+### Caso de Uso:  UC-05 x Visualizar Usuários Cadastrados
 #### Por: Giulia Alcantara - 18/0121308
 
-Descrição: Caso de Uso: UC-04 Gerenciar usuários cadastrados: Este caso de uso especifica a ação de controle que um usuário executa no sistema, com objetivo de gerenciar usuários. Apenas usuários cadastrados podem gerenciar outros usuários cadastrados no sistema. O usuário pode buscar outro e, a partir disso, então gerenciá-lo, selecionando-o, visualizando seu perfil e favoritando-o; Também pode gerenciar seus próprios dados, a partir da seleção de seu próprio perfil, podendo visualizá-lo, editar seus dados, excluir sua conta ou até favoritar a si mesmo para melhorar sua posição no ranking. Após a validação no sistema, o usuário torna-se apto a realizar as operações da sua área restrita.
+Descrição: Caso de Uso: UC-04 Visualizar Usuários Cadastradosos: Este caso de uso especifica a ação de visualização de um usuário cadastrado no sistema. Apenas usuários cadastrados podem visualizar outros usuários cadastrados no sistema. O usuário pode buscar outro e, a partir disso, então visualizar seu perfil ou de terceiros. Após a validação no sistema, o usuário torna-se apto a realizar as operações da sua área restrita.
 
 * Atores: Usuário
 * Pré-Condições: O ator deve estar cadastrado no sistema; O ator deve estar logado com autenticação no sistema.
@@ -132,11 +169,9 @@ Descrição: Caso de Uso: UC-04 Gerenciar usuários cadastrados: Este caso de us
 
 Épico | Feature | US | Descrição 
 ----- | ------- | -- | ---------
-02 | 04 | 13 | Eu como usuário gostaria de dar nota para os outros usuários para mudar suas posições no ranking
 02 | 04 | 14 | Eu como usuário gostaria de visualizar a minha posição no ranking geral para fins de melhorá-la
 03 | 08 | 22 | Eu como usuário gostaria de visualizar os meus dados cadastrais em uma aba de perfil para poder conferir se as informações estão corretas
 03 | 08 | 23 | Eu como usuário gostaria de ter a possibilidade de buscar outros usuários para poder averiguar as perguntas que um usuário já fez
-03 | 08 | 24 | Eu como usuário gostaria de editar os dados do meu perfil para caso alguma informação tenha sido preenchida incorretamente possa ser mudada
 
 * Requisitos Não-Funcionais:
 
@@ -154,26 +189,6 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 5. O ator seleciona o usuário desejado
 6. O sistema exibe o perfil do usuário desejado
 7.  O caso de uso se encerra.
-
-##### Fluxo Alternativo A: Editar os dados de um usuário
- - No passo 6, caso o ator deseje editar os dados da própria conta:
-1. O ator clica na opção de “Editar dados”
-2. O sistema exibe todos os dados do usuário que podem ser alterados
-3. O ator modifica os dados desejados
-4. O sistema valida se os dados modificados estão corretos
-5. O ator salva os dados
-6. O fluxo retorna ao passo 7 do fluxo básico.
-
-##### Fluxo Alternativo B: Deletar a conta de um usuário
- - No passo 6, caso o ator deseje deletar a própria conta:
-1. O ator clica na opção “Deletar conta”.
-2. O sistema informa que a conta foi deletada
-3. O fluxo retorna ao passo 7 do fluxo básico.
-
-##### Fluxo Alternativo C: Favoritar um usuário
-  - No passo 6, caso o ator deseje favoritar um usuário:
-1. O ator aperta na estrela de favoritar
-2. O fluxo retorna ao passo 7 do fluxo básico.
 
 ##### Fluxo de Exceção:
   - No passo 3, caso o e-mail fornecido esteja incorreto:
@@ -232,6 +247,7 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
  - No passo 5 caso os dados da resposta não estejam corretos:
  1. O sistema exibe uma mensagem de erro
  2. O fluxo retorna para o passo 3 do fluxo base
+
 
 ### Informações adicionais
 * Referência: https://www.ic.unicamp.br/~ariadne/mc436/1s2013/Modelo_doc_casos_uso.pdf
