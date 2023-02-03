@@ -14,6 +14,7 @@ import Sobre from "./pages/Sobre";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Login from "./pages/login";
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -59,6 +60,7 @@ function App() {
           />
           <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
           <Route path="/sobre" element={<Sobre />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </Router>
