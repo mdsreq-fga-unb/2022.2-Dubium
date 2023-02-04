@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
 
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import PersonIcon from "@mui/icons-material/Person";
 import DeleteIcon from "@mui/icons-material/Delete";
 import StarIcon from "@mui/icons-material/Star";
@@ -51,9 +52,23 @@ export default function AvisoSelecionado({ usuarios }) {
       .catch((error) => console.log(error));
   };
 
+  const salvarAviso = async () => {
+    const infoAviso = {
+      id_usuario: 1,
+      id_aviso: idAviso,
+    };
+
+    await apiRequest
+      .post("/salvos", infoAviso)
+      .then((response) => {
+        alert("Aviso salvo com sucesso!");
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="container">
-      <div className="card-pergunta pergunta-selecionada">
+      <div className="pergunta-selecionada">
         <div className="ps-usuario-container">
           <div className="ps-usuario-info">
             <PersonIcon fontSize="large" />
@@ -72,7 +87,7 @@ export default function AvisoSelecionado({ usuarios }) {
           {avisoSelecionado?.filtro?.toUpperCase()}
         </span>
         <span>{avisoSelecionado?.corpoAviso}</span>
-        <ul className="container-interacao">
+        <ul className="ps-favoritar-salvar">
           <li
             className="item-interacao"
             onClick={() => {
@@ -87,6 +102,12 @@ export default function AvisoSelecionado({ usuarios }) {
               />
             </IconButton>
             <span>Favoritar</span>
+          </li>
+          <li className="item-interacao" onClick={salvarAviso}>
+            <IconButton>
+              <BookmarkIcon sx={{ fontSize: 16 }} />
+            </IconButton>
+            <span>Salvar</span>
           </li>
         </ul>
       </div>

@@ -8,6 +8,7 @@ import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
 
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import PersonIcon from "@mui/icons-material/Person";
 import DeleteIcon from "@mui/icons-material/Delete";
 import StarIcon from "@mui/icons-material/Star";
@@ -107,6 +108,20 @@ export default function PerguntaSelecionada({ usuarios }) {
     getResposta();
   };
 
+  const salvarPergunta = async () => {
+    const infoPergunta = {
+      id_usuario: 1,
+      id_pergunta: idPergunta,
+    };
+
+    await apiRequest
+      .post("/salvas", infoPergunta)
+      .then((response) => {
+        alert("Pergunta salva com sucesso!");
+      })
+      .catch((error) => console.log(error));
+  };
+
   const onSubmit = async (data) => {
     let novaResposta = {
       id_usuario: data.usuarios,
@@ -144,21 +159,29 @@ export default function PerguntaSelecionada({ usuarios }) {
         </span>
         <span>{perguntaSelecionada?.corpoPergunta}</span>
         <ul className="container-interacao">
-          <li
-            className="item-interacao"
-            onClick={() => {
-              setFavoritoPergunta(!favoritoPergunta);
-              updateFavoritoPergunta();
-            }}
-          >
-            <IconButton>
-              <StarIcon
-                className={favoritoPergunta ? "corFavorito" : ""}
-                sx={{ fontSize: 16 }}
-              />
-            </IconButton>
-            <span>Favoritar</span>
-          </li>
+          <div className="ps-favoritar-salvar">
+            <li
+              className="item-interacao"
+              onClick={() => {
+                setFavoritoPergunta(!favoritoPergunta);
+                updateFavoritoPergunta();
+              }}
+            >
+              <IconButton>
+                <StarIcon
+                  className={favoritoPergunta ? "corFavorito" : ""}
+                  sx={{ fontSize: 16 }}
+                />
+              </IconButton>
+              <span>Favoritar</span>
+            </li>
+            <li className="item-interacao" onClick={salvarPergunta}>
+              <IconButton>
+                <BookmarkIcon sx={{ fontSize: 16 }} />
+              </IconButton>
+              <span>Salvar</span>
+            </li>
+          </div>
           <li className="item-interacao" onClick={() => setComentar(!comentar)}>
             <IconButton>
               <QuestionAnswerIcon sx={{ fontSize: 16 }} />

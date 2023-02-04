@@ -10,6 +10,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { IconButton } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import DeleteIcon from "@mui/icons-material/Delete";
+import PerguntasCadastradas from "./PerguntasCadastradas";
 
 export default function PerfilUsuario() {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
@@ -94,6 +95,7 @@ export default function PerfilUsuario() {
           </li>
         </ul>
       </div>
+      <PerguntasCadastradas idUsuario={idUsuario} />
     </div>
   );
 }
