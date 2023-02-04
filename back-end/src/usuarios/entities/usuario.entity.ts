@@ -1,4 +1,5 @@
 import { Aviso } from "src/avisos/avisos.entity";
+import { PerguntaSalva } from "src/perguntas-salvas/entities/perguntas_salvas.entity";
 import { Pergunta } from "src/perguntas/entities/pergunta.entity";
 import { Resposta } from "src/respostas/entities/resposta.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
@@ -32,6 +33,9 @@ export class Usuario {
 
     @OneToMany(() => Pergunta, pergunta => pergunta)
     pergunta: Pergunta[];
+
+    @OneToMany(() => PerguntaSalva, perguntaSalva => perguntaSalva)
+    perguntaSalva: PerguntaSalva[];
 
     @OneToMany(() => Resposta, resposta => resposta)
     resposta: Resposta[];
