@@ -6,11 +6,12 @@ import { usuarioProviders } from './usuarios.providers';
 import { perguntasProviders } from 'src/perguntas/perguntas.providers';
 import { respostaProviders } from 'src/respostas/respostas.providers';
 import { perguntaSalvaproviders } from 'src/perguntas-salvas/perguntas_salvas.providers';
+import { avisoSalvoproviders } from 'src/avisos-salvos/avisos_salvos.providers';
 
 @Module({
   imports: [DatabaseModule],
   controllers: [UsuariosController],
-  providers: [UsuariosService, ...usuarioProviders, ...perguntasProviders, ...respostaProviders, ...perguntaSalvaproviders],
+  providers: [UsuariosService, ...usuarioProviders, ...perguntasProviders, ...respostaProviders, ...perguntaSalvaproviders, ...avisoSalvoproviders],
   exports: [UsuariosService]
 })
 export class UsuariosModule {}

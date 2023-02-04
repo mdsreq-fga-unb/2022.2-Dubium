@@ -1,3 +1,4 @@
+import { AvisoSalvo } from "src/avisos-salvos/entities/avisos_salvos.entity";
 import { Aviso } from "src/avisos/avisos.entity";
 import { PerguntaSalva } from "src/perguntas-salvas/entities/perguntas_salvas.entity";
 import { Pergunta } from "src/perguntas/entities/pergunta.entity";
@@ -36,6 +37,9 @@ export class Usuario {
 
     @OneToMany(() => PerguntaSalva, perguntaSalva => perguntaSalva)
     perguntaSalva: PerguntaSalva[];
+
+    @OneToMany(() => AvisoSalvo, avisoSalvo => avisoSalvo)
+    avisoSalvo: AvisoSalvo[];
 
     @OneToMany(() => Resposta, resposta => resposta)
     resposta: Resposta[];
