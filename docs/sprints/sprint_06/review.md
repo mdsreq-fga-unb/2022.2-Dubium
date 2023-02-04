@@ -5,11 +5,14 @@
 -------| ---------| ------------
 Definir os épicos que serão feitos baseados nas expectativas do cliente segundo o SAFe: ok | Definir as features que serão desenvolvidas derivadas de cada épico: ok | Definir as user stories correspondentes a cada feature: ok
 
-## Melhorados
+## feedbacks do cliente
 
-- Cominicação constante entre a equipe e o cliente
-- Feedbacks de desenvolvimento por parte do cliente
-## Pontos de melhorias
+- Após a proposta de desenvolvimento apresentada foram apresentados os niveis de granularidade de cada ponto do projeto.
 
-- Definir ordem logica de execução das tasks para melhor aproveitamento de tempo por us 
-- Organizar tempo e tasks de modo a concluir blocos de US's que agreguem valor ao produto das entregas
+## Entregue
+
+- Backlog do produto.
+
+## Pendencias.
+
+- Atualizar visão do produto.

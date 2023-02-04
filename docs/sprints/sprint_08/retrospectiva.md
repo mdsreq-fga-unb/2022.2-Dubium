@@ -25,6 +25,14 @@ foi desenvolvido seguindo o pair programming presente na metodologia.
 ## 4 Quadro de Conhecimento
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1nwaQRzOxsx9KtklRxFmmDceBMDdRw3LBWdOYjTqYZwQ/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
-## 5 Melhorias
+## 5 Melhorados
+
+- Ler documentação das tecnologias mais a fundo
+- Cuidados na hora de criar pontos criticos do projeto
+- Garantir a integridade dos requisitos de acordo com as necessidades do usuário
+
+## 6 Melhorias
 
 - Organizar melhor as tarefas das Us
+- Ajustes de design e padronização de telas.
+- Adaptar o prototipo de modo a agradar aos olhos.

@@ -27,4 +27,12 @@ foi desenvolvido seguindo o pair programming presente na metodologia.
 
 ## 5 Melhorias
 
+- Saber lidar com pouco tempo e alta pressão -> Organizadas sub-tabelas de horarios e de disponibilidade.
+- Alinhar o produto de acordo com a metodologia -> Verificar de acordo com a documentação da metodologia.
+- Atenção em detalhes como erros ortograficos ou de descrição de US's -> Definidos revisores de documentos e de desenvolvimento.
+- Alem do pair programming adiantar tarefas de maneira assincrona -> Tarefas mais simples de documentação definidas como tarefas assincronas.
+
+## 5 Melhorias
+
 - Atenção aos detalhes da entrega final
+- Lidar com o produto sob-pressão

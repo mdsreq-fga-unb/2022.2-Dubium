@@ -25,6 +25,16 @@ foi desenvolvido seguindo o pair programming e foi desenvolvido segundo a metodo
 ## 4 Quadro de Conhecimento
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1MeP-q5hIVB0PUKEYZGs4nRC9GpGrQpQy1MaD0SJNBA8/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
-## 5 Melhorias
+## 5 melhorados
+
+- Treinar melhor as tecnologias -> se familiarizando mais com as tecnologias.
+- Tentar configurar ambiente -> alinhando tecnologias instaladas em diversas maquinas.
+- Ler documentação -> documentação nunca é demais né.
+- Cominicação constante entre a equipe e o cliente -> criados os canais de comunicação sincronos e assincronos.
+- Feedbacks de desenvolvimento por parte do cliente -> atravéz dos canais de comunição criados.
+
+## 6 Melhorias
 
 - Organizar melhor horarios com a equipe
+- Definir ordem logica de execução das tasks para melhor aproveitamento de tempo por us 
+- Organizar tempo e tasks de modo a concluir blocos de US's que agreguem valor ao produto das entregas

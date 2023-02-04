@@ -27,3 +27,5 @@ Não havia uma metodologia bem definida para o projeto.
 ## 5 Melhorias
 - Capacitar a equipe
 - Documentar açoes
+- Necessidade de definir uma metodologia
+- Entender e organizar toda a equipe

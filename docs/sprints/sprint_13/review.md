@@ -6,11 +6,15 @@ US19 | US20
 -----|-----
 Implementação do front, back e conexão entre os dois da US19: ok | Implementação do front, back e conexão entre os dois da US20: ok 
                  
-## Melhorados
+## feedbacks do cliente
 
-- Cuidado com documentação incompleta
-- Seguir o pair programming
+- Apresentadas as US's de desenvolvimento para o cliente.
 
-## Pontos de melhorias
+## Entregue
 
-- Alinhar o produto de acordo com a metodologia
+- Visão do produto atualizado.
+- US's 19 e 20.
+
+## Pendencias.
+
+- Atualizar o visão.

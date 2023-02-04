@@ -4,12 +4,16 @@ Objetivos: | Como
 ---------- | ----
 Foram acordadas as reuniões com o cliente bem como negociadas as definições iniciais do projeto | Atraves de reuniões de entregas continuas bem como um canal de comunicação direto no whatsapp
 
-## Melhorados:
-- Definidos os requisitos
-- Horarios adaptados de acordo com um canal de comunicação continua
-- organizar entregas definidas por sprint
+## feedbacks do cliente
 
-## Pontos de melhorias
+- Cliente aprovou a proposta de desenvolvimento.
+- Cliente aprovou propostas de requisitos com solicitação de correção em alguns requisitos.
 
-- Cominicação constante entre a equipe e o cliente
-- Feedbacks de desenvolvimento por parte do cliente
+## Entregue
+
+- Aprovação da proposta de desenvolvimento
+- Proposta de requisitos
+
+## Pendencias
+
+- Nenhuma.
