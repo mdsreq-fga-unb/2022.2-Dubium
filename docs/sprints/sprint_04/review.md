@@ -10,11 +10,24 @@ Metodologia | Ferramentas | Processos e Procedimentos | Arquitetura do Projeto
 ------------| ------------| --------------------------|-----------------------
 Definir a metodologia que será implementada no projeto: ok | Definir as ferramentas de organização da equipe: ok | Definir as atividades os processos e os procedimentos ultilizados na execução do projeto pela equipe: ok | Definir a arquitetura do projeto que será ultilizada pela equipe: ok 
 
-## Melhorados
+## feedbacks do cliente
 
-- Estudar como adaptar a metodologia para melhor se enquadrar no nosso modo de usar
-## Pontos de melhorias
+- Cliente Definido porém não introduzido ao projeto.
 
-- Definir requisitos
-- Adaptar aos horarios do cliente
-- organizar entregas
+## Houveram pendencias na entrega
+
+- Documento de visão do produto e projeto atualizado.
+- Pages criado.
+- Documentos definindo a metodologia no pages.
+- Documentos definindo planejamento e fases dfe iteração.
+
+## Entregue
+
+- Documento de visão do produto e projeto atualizado.
+- Pages criado.
+- Documentos definindo a metodologia no pages.
+- Documentos definindo planejamento e fases dfe iteração.
+
+## Pendencias
+
+- Nenhuma.

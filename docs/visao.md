@@ -249,7 +249,7 @@ Com base na escolha de frameworks e foca na visualização e organização do pr
 - Organização e comunicação entre uma equipe de projeto
 - Criar uma documentação de um projeto a partir de um produto
 
-Graças aos enormes esforços de pessoas como George Marcicano, pudemos nos deleitar sobre assuntos relacionados a Engenharia de Requisitos e trabalhamos em equipe. Um dos grandes desafios dessa etapa do projeto foi o fato de, mal nos conhecendo, precisarmos nos entender e  adaptarmos a essa nova realidade sorteada em sala de aula. Mas, apesar de tudo, tiramos a sorte grande pois a equipe demonstrou ser deveras participativa, e nos entrosamos bem desde o começo dessa longa aventura 
+Graças aos enormes esforços de pessoas como George Marcicano, pudemos nos deleitar sobre assuntos relacionados a Engenharia de Requisitos e trabalharmos em equipe. Um dos grandes desafios dessa etapa do projeto foi o fato de, mal nos conhecendo, precisarmos nos entender e  adaptarmos a essa nova realidade sorteada em sala de aula. Mas, apesar de tudo, tiramos a sorte grande pois a equipe demonstrou ser deveras participativa, e nos entrosamos bem desde o começo dessa longa aventura 
 chamada Engenharia de Requisitos.
 Entretanto, nem tudo são flores, pois desde o começo dessa jornada tinhamos objetivos bem claros e um tempo deveras curto. O primeiro deles, foi acharmos o cliente, tafera essa que ficou sob os cuidados do nosso nobre guerreiro Gian Medeiros. Ainda sim, não pense que a equipe ficou para trás esperando Gian retornar com os espólios dessa aventura, muito pelo contrario toda a equipe embarcou na ardua tarefa de criar e documentar toda nossa jornada nesse vasto mundo de conhecimentos...
 
@@ -262,7 +262,7 @@ Continua na parte 2.
 - Abrir um canal de comunicação contínuo com o cliente
 
 De início, tínhamos um sonho e uma equipe disposta a trabalhar duro para criar uma aplicação capaz de ajudar alunos a saciarem suas duvidas - sejam elas pequenas ou gigantes. Porém, não tínhamos um mapa ou algo para sabermos onde começarmos. Foi então que Gian chegou de sua jornada, trazendo consigo nosso mais novo cliente, Arthur, rapaz este que seria nosso guia nessa aventura com apenas um objetivo: ajudar a espalhar o conhecimento.
-Entretanto, chegamos a um ponto ao qual  o cliente teve de se dividir do grupo. Pensamos e agora? Como faremos para interagirmos com nosso guia nesa jornada? E foi onde apareceu a solução dos nossos problemas. Alguém disse: "Precisamos abrir um canal de comunicação com o cliente!". Assim pudemos seguir nossa jornada sem que ele esteja presente o tempo todo, mas ainda sim conseguindo nos guiar. Todos concordaram com essa ideia, e seguimos com o canal de comunicação aberto com o cliente, onde a cada ciclo lunar ele nos guiava. 
+Entretanto, chegamos a um ponto ao qual  o cliente teve de se dividir do grupo. Pensamos e agora? Como faremos para interagirmos com nosso guia nessa jornada? E foi onde apareceu a solução dos nossos problemas. Alguém disse: "Precisamos abrir um canal de comunicação com o cliente!". Assim pudemos seguir nossa jornada sem que ele esteja presente o tempo todo, mas ainda sim conseguindo nos guiar. Todos concordaram com essa ideia, e seguimos com o canal de comunicação aberto com o cliente, onde a cada ciclo lunar ele nos guiava. 
 
 Em um desses ciclos lunares (os primeiros na verdade) Arthur - nosso cliente - nos disse que precisávamos definir bem o que fariamos para então a equipe se dividir em equipes menores e alcançar o objetivo mais rapidamente, pela metodogologia pré-definida SCRUM/XP. Assim ficou definido os nossos objetivos, requisistos e nosso cliente disposto a ajudar. Partimos então em uma jornada de transcrever ideias e estratégias em requisitos para o projeto, onde, a partir deste ponto precisamos definir uma ordem de execução qual atividade faríamos primeiro, pois um passo em falso e seria nosso fim...
 
@@ -275,11 +275,23 @@ Continua na parte 3.
 - Fazer documentação no formato CANVAS
 - Implementação de um fórum de dúvidas
 
-Já no inicio da execução, esbarramos num grade inimigo: O replanejamento de escopo - esse que seria o mais árduo trabalho, pois os mais poderosos esforços da equipe falharam perante esta fera. Com um pouco de sorte, conseguimos evadir desta complicação em nosso caminho - pelo menos momentâneamente - replanejando nossos atos e observando nossas opções e nossos requisitos de outras perspectivas. Precisamos ficar "SAFe" em um lugar, então construímos um forte de observação chamado Product Baclog Building, uma torre que nos deu uma perspectiva melhor da situação. Com isso, arrumamos o planejamento da equipe e construimos nossa nova estratégia de combate, que chamamos de  User Story Mapping. 
+Já no inicio da execução, esbarramos num grade inimigo: O replanejamento de escopo - esse que seria o mais árduo trabalho, pois os mais poderosos esforços da equipe falharam perante esta fera. Com um pouco de sorte, conseguimos evadir desta complicação em nosso caminho - pelo menos momentâneamente - replanejando nossos atos e observando nossas opções e nossos requisitos de outras perspectivas. Precisamos ficar "SAFe" em um lugar, então construímos um forte de observação chamado Product Backlog Building, uma torre que nos deu uma perspectiva melhor da situação. Com isso, arrumamos o planejamento da equipe e construimos nossa nova estratégia de combate, que chamamos de  User Story Mapping. 
 Com nossa USM em mãos, sabíamos o que necessitávamos fazer: atualizar nosso mapa - que chamamos de Canvas - onde pudemos organizar nossas ideias e até mesmo o PBB, de modo a estarmos tão bem organizados que resolvemos expandir. Com a criação de um forúm de duvidas e o nosso escopo semi-replanejados, partimos então para a última etapa desta jornada, um lugar desafiador e extremamente desconhecido, em que não sabemos o que acontecerá de agora em diante...
 
 Continua na parte 4.
 
+### Unidade 4
+- Organizar o Backlog do projeto de diferentes formas (UC - Casos de Uso)
+- Reorganização da equipe
+- Trabalho em equipe mais que tudo
+
+Enfim chegamos a nossa parte final da jornada onde tivemos que enfrentar nosso maior inimigo porém necessitamos de um tempo uma "desacelerada" no ritmo pois as últimas batalhas seja contra o replanejamento ou o problemas internos nos desgastaram muito, e a melhor forma que encontramos de fazer isso foi ouvindo historias de guerreiros locais. Por sorte muitos desses guerreiros eram de guildas conhecidas como por exemplo strix -
+focados em ajudar personal trainers ou sejam especialistas em comabate corpo a corpo, "tá mas pra que essa informação é importante?" - você deve estar pensando, então em meio a toda essa bagunça fomos parar no meio de uma competição valendo 200 pax(Moeda local), não só contra essa equipe mas com outras como por exemplo Receitalistas grupo esse que ficou responsavel por cuidar de Auxilio na parte de culinaria. Pra resumir estavamos num mato semm cachorro contra equipes extremamente fortes e "que competição seria essa?" você deve estar se perguntando, Bom competimos pelo conhecimento, ouvindo os Casos de Uso (UC) de nossos colegas e também sua experiencia em sua jornada, descobrimos que muitos desses estavam em busca de um objetivo similar mas em outras regiões.
+Para resumir a competição lutamos como nunca falhamos como sempre fomos vice do Receitalistas mas como todos estavam em suas proprias batalhas individuais dividiram seus espolios conosco de seus 200 Pax nos deram 10 e a experiencia para partrirmos para a batalha final....
+
+A partir desse ponto chegamos ao ao combate final a execução do plano de ataque. Após noites sem dormir e combates incessantes estavamos Prontos, Finalizamos o MVP2 com sucesso e o que restou foi essa bela historia que contamos com tanto orgulho de trabalho duro e dificuldades mas que com uma boa equipe e o devido planejamento conseguimos.
+
+                                    Enfim FIM.
 ## 5 A MELHORAR
 ### Unidade 1
 - Demora para solucionar dificuldades
@@ -299,9 +311,3 @@ Continua na parte 4.
 2. https://www.lewagon.com/pt-BR/blog/o-que-e-padrao-mvc
 3. Sommerville, I. and Sawyer, P. (1997) Requirements Engineering: A Good Practice Guide. John Wiley & Sons, Inc., Hoboken
 4. PPRESSMAN, R S. Engenharia de Software. 6.ed. São Paulo: Mc Graw Hill Internacional, 2006
-
-
-
-
-
-

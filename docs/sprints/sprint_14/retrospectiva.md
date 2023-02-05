@@ -25,6 +25,14 @@ foi desenvolvido seguindo o pair programming presente na metodologia.
 ## 4 Quadro de Conhecimento
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1MeP-q5hIVB0PUKEYZGs4nRC9GpGrQpQy1MaD0SJNBA8/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
-## 5 Melhorias
+## 5 Melhorados
 
-- Saber atuar em multiplas tarefas
+- Saber lidar com pouco tempo e alta pressão -> Organizadas sub-tabelas de horarios e de disponibilidade.
+- Alinhar o produto de acordo com a metodologia -> Verificar de acordo com a documentação da metodologia.
+
+## 6 Melhorias
+
+- Saber lidar com pouco tempo e alta pressão
+- Alinhar o produto de acordo com a metodologia
+- Atenção em detalhes como erros ortograficos ou de descrição de US's
+- Alem do pair programming adiantar tarefas de maneira assincrona 

@@ -27,5 +27,12 @@ foi desenvolvido seguindo o pair programming presente na metodologia.
 
 ## 5 Melhorias
 
+- Organizar melhor as tarefas das Us -> Organização interna entre as sub-equipes de desenvolvimento.
+- Ajustes de design e padronização de telas -> Refeitos os protótipos baseados nos feedbacks.
+- Adaptar o prototipo de modo a agradar aos olhos -> usar tecnicas de interação-humano-computador no produto.
+
+## 6 Melhorias
+
 - Quantificar melhor a complexidade das tarefas 
 - Quantificar melhor o escopo das US e das features
+- Verificar o desenvolvimento de acordo com o processo

@@ -6,11 +6,13 @@ import { usuarioProviders } from './usuarios.providers';
 import { perguntasProviders } from 'src/perguntas/perguntas.providers';
 import { respostaProviders } from 'src/respostas/respostas.providers';
 import { AuthModule } from 'src/auth/auth.module';
+import { perguntaSalvaproviders } from 'src/perguntas-salvas/perguntas_salvas.providers';
+import { avisoSalvoproviders } from 'src/avisos-salvos/avisos_salvos.providers';
 
 @Module({
   imports: [DatabaseModule, forwardRef(() => AuthModule)],
   controllers: [UsuariosController],
-  providers: [UsuariosService, ...usuarioProviders, ...perguntasProviders, ...respostaProviders],
+  providers: [UsuariosService, ...usuarioProviders, ...perguntasProviders, ...respostaProviders, ...perguntaSalvaproviders, ...avisoSalvoproviders],
   exports: [UsuariosService]
 })
 export class UsuariosModule {}

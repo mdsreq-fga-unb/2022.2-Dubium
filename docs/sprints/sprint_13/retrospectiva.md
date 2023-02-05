@@ -25,6 +25,13 @@ foi desenvolvido seguindo o pair programming presente na metodologia.
 ## 4 Quadro de Conhecimento
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1MeP-q5hIVB0PUKEYZGs4nRC9GpGrQpQy1MaD0SJNBA8/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
-## 5 Melhorias
+## 5 Melhorados
+
+- Transparencia nas execuções das US's dentre a equipe -> Alertados sobre possíveis problemas de desenvolvimento.
+- Cuidado com documentação incompleta -> Todos passam a ser revisores dos documentos do produto.
+- Seguir o pair programming -> Combinados horarios alternativos de pareamento.
+
+## 6 Melhorias
 
 - Saber lidar com pouco tempo e alta pressão
+- Alinhar o produto de acordo com a metodologia

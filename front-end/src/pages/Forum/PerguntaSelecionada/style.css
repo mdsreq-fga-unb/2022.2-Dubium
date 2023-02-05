@@ -27,6 +27,12 @@
   gap: 5px;
 }
 
+.ps-favoritar-salvar {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
 .like-comentario {
   display: flex;
   flex-direction: row;

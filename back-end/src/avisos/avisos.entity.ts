@@ -1,3 +1,4 @@
+import { AvisoSalvo } from "src/avisos-salvos/entities/avisos_salvos.entity";
 import { Resposta } from "src/respostas/entities/resposta.entity";
 import { Usuario } from "src/usuarios/entities/usuario.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm";
@@ -32,6 +33,9 @@ export class Aviso {
 
     @OneToMany(() => Resposta, resposta => resposta)
     resposta: Resposta[];
+
+    @OneToMany(() => AvisoSalvo, avisoSalvo => avisoSalvo)
+    avisoSalvo: AvisoSalvo[];
 
     constructor(aviso?:Partial<Aviso>){
         this.id = aviso?.id;

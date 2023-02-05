@@ -25,6 +25,14 @@ foi desenvolvido seguindo o pair programming presente na metodologia.
 ## 4 Quadro de Conhecimento
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1nwaQRzOxsx9KtklRxFmmDceBMDdRw3LBWdOYjTqYZwQ/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
-## 5 Melhorias
+## 5 Melhorados
+
+- Organizar melhor horarios com a equipe -> definidas reuniões de pareamento.
+- Definir ordem logica de execução das tasks para melhor aproveitamento de tempo por us -> planejamento de execução das sprints.
+- Organizar tempo e tasks de modo a concluir blocos de US's que agreguem valor ao produto das entregas -> definidas as US's prioritarias de acordo com as necessidades dos MVP's.
+
+## 6 Melhorias
+
 - Ler documentação das tecnologias mais a fundo
 - Cuidados na hora de criar pontos criticos do projeto
+- Garantir a integridade dos requisitos de acordo com as necessidades do usuário

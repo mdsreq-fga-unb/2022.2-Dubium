@@ -24,5 +24,15 @@ Segundo a metodologia ágil foram definidas e acordadas entregas com o cliente.
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1MeP-q5hIVB0PUKEYZGs4nRC9GpGrQpQy1MaD0SJNBA8/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
 
-## 5 Melhorias
+## 5 Melhorados
+
+- Definir bem as tarefas -> trello criado
+- Organizar melhor as tarefas -> cards no trello
+- Estudar como adaptar a metodologia para melhor se enquadrar no nosso modo de usar(se vai haver adaptações na metodologia e como serão efetuadas essas adaptações) -> Triangulo de ferro ajuda a decidir a metodologia.
+
+## 6 Melhorias
+
 - interação da equipe
+- Definir requisitos
+- Adaptar aos horarios do cliente
+- organizar entregas

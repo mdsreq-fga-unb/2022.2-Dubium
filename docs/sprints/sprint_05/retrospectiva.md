@@ -23,6 +23,15 @@ Tarefas | Descrição | Resposáveis | Status
 
 ## 5 Melhorias
 
+- interação da equipe -> canal de comunicação entre as equipes criados
+- Definir requisitos -> proposta de requisitos apresentada ao cliente
+- Adaptar aos horarios do cliente -> estabelecida uma comunicação semanal para reports do desenvolvimento.
+- organizar entregas -> Planejamento atualizado.
+
+## 6 Melhorias
+
 - Treinar melhor as tecnologias
 - Tentar configurar ambiente 
 - Ler documentação
+- Cominicação constante entre a equipe e o cliente
+- Feedbacks de desenvolvimento por parte do cliente

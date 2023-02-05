@@ -10,10 +10,14 @@ Criação do prototipo de alta fidelidade da tela de chat: ok | Criação do pro
 --|--
 Definir o escopo do MVP1: ok | Definir o escopo do MVP2: ok
 
-## Melhorados
+## feedbacks do cliente
 
-- Garantir a integridade dos requisitos de acordo com as necessidades do usuário
-## Pontos de melhorias
+- Aprovados os metodos de desenvolvimento e os requisitos foram apresentados os escopos dos MVP's 1 e 2 que foram também aprovados.
 
-- Ajustes de design e padronização de telas.
-- Adaptar o prototipo de modo a agradar aos olhos.
+## Entregue
+
+- Proposta de desenvolvimento dos MVP's 1 e 2.
+
+## Pendencias.
+
+- Atualizar visão do produto.

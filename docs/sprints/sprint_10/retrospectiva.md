@@ -25,6 +25,14 @@ foi desenvolvido seguindo o pair programming presente na metodologia.
 ## 4 Quadro de Conhecimento
 <iframe width="768" height="432" src="https://docs.google.com/spreadsheets/d/1nwaQRzOxsx9KtklRxFmmDceBMDdRw3LBWdOYjTqYZwQ/edit?usp=sharing" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
-## 5 Melhorias
+## 5 Melhorado
 
+- Quantificar melhor a complexidade das tarefas -> Replanejado o escopo em cada nível de granularidade.
+- Quantificar melhor o escopo das US e das features -> equipes se ajudando para conclusão de US's mais pesadas
+- Verificar o desenvolvimento de acordo com o processo -> verificar se as US's estão sendo executadas de maneira coerente com o processo.
+
+## 6 Melhorias
+
+- Achar um meio termo para não sobrecarregar as equipes
+- Reorganizar as equipes para auxilio em multiplas tarefas
 - Comprometimendo da equipe 

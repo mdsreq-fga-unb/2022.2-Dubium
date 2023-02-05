@@ -1,3 +1,4 @@
+import { PerguntaSalva } from "src/perguntas-salvas/entities/perguntas_salvas.entity";
 import { Resposta } from "src/respostas/entities/resposta.entity";
 import { Usuario } from "src/usuarios/entities/usuario.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm";
@@ -32,6 +33,9 @@ export class Pergunta {
 
     @OneToMany(() => Resposta, resposta => resposta)
     resposta: Resposta[];
+
+    @OneToMany(() => PerguntaSalva, perguntaSalva => perguntaSalva)
+    perguntaSalva: PerguntaSalva[];
 
     constructor(pergunta?:Partial<Pergunta>){
         this.id = pergunta?.id;
