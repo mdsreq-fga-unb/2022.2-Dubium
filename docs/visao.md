@@ -280,6 +280,18 @@ Com nossa USM em mãos, sabíamos o que necessitávamos fazer: atualizar nosso m
 
 Continua na parte 4.
 
+### Unidade 4
+- Organizar o Backlog do projeto de diferentes formas (UC - Casos de Uso)
+- Reorganização da equipe
+- Trabalho em equipe mais que tudo
+
+Enfim chegamos a nossa parte final da jornada onde tivemos que enfrentar nosso maior inimigo porém necessitamos de um tempo uma "desacelerada" no ritmo pois as últimas batalhas seja contra o replanejamento ou o problemas internos nos desgastaram muito, e a melhor forma que encontramos de fazer isso foi ouvindo historias de guerreiros locais. Por sorte muitos desses guerreiros eram de guildas conhecidas como por exemplo strix -
+focados em ajudar personal trainers ou sejam especialistas em comabate corpo a corpo, "tá mas pra que essa informação é importante?" - você deve estar pensando, então em meio a toda essa bagunça fomos parar no meio de uma competição valendo 200 pax(Moeda local), não só contra essa equipe mas com outras como por exemplo Receitalistas grupo esse que ficou responsavel por cuidar de Auxilio na parte de culinaria. Pra resumir estavamos num mato semm cachorro contra equipes extremamente fortes e "que competição seria essa?" você deve estar se perguntando, Bom competimos pelo conhecimento, ouvindo os Casos de Uso (UC) de nossos colegas e também sua experiencia em sua jornada, descobrimos que muitos desses estavam em busca de um objetivo similar mas em outras regiões.
+Para resumir a competição lutamos como nunca falhamos como sempre fomos vice do Receitalistas mas como todos estavam em suas proprias batalhas individuais dividiram seus espolios conosco de seus 200 Pax nos deram 10 e a experiencia para partrirmos para a batalha final....
+
+A partir desse ponto chegamos ao ao combate final a execução do plano de ataque. Após noites sem dormir e combates incessantes estavamos Prontos, Finalizamos o MVP2 com sucesso e o que restou foi essa bela historia que contamos com tanto orgulho de trabalho duro e dificuldades mas que com uma boa equipe e o devido planejamento conseguimos.
+
+                                    Enfim FIM.
 ## 5 A MELHORAR
 ### Unidade 1
 - Demora para solucionar dificuldades
@@ -299,9 +311,3 @@ Continua na parte 4.
 2. https://www.lewagon.com/pt-BR/blog/o-que-e-padrao-mvc
 3. Sommerville, I. and Sawyer, P. (1997) Requirements Engineering: A Good Practice Guide. John Wiley & Sons, Inc., Hoboken
 4. PPRESSMAN, R S. Engenharia de Software. 6.ed. São Paulo: Mc Graw Hill Internacional, 2006
-
-
-
-
-
-

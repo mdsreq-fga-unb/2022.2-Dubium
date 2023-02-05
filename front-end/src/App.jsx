@@ -19,7 +19,9 @@ import AvisosFormulario from "./pages/Avisos/AvisosFormulario";
 import AvisoSelecionado from "./pages/Avisos/AvisoSelecionado";
 import CadastrarUsuarios from "./pages/CadastrarUsuarios";
 import EditarUsuario from "./pages/EditarUsuarios";
+import Login from "./pages/login";
 import Salvos from "./pages/Salvos";
+
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -85,6 +87,7 @@ function App() {
         <Route path="/editar-usuario/:idUsuario" element={<EditarUsuario />} />
         <Route path="/salvos" element={<Salvos />} />
         <Route path="/sobre" element={<Sobre />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { Aviso } from './avisos.entity';
 import { AvisosService } from './avisos.service';
 import { CreateAvisoDto } from './dto/create-aviso.dto';
@@ -36,7 +37,6 @@ export class AvisosController {
   async remove(@Param('id') id: string) {
     return this.service.remove(+id);
   }
-
   @Patch(':id')
   updateMaisVotosAviso(@Param('id') id: string) {
     return this.service.updateMaisVotosAviso(+id);

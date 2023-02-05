@@ -1,12 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { PerguntasService } from './perguntas.service';
 import { CreatePerguntaDto } from './dto/create-pergunta.dto';
 import { Pergunta } from './entities/pergunta.entity';
+import { SkipAuth } from '../auth/public-key.decorator';
 
 @Controller('perguntas')
 export class PerguntasController {
   constructor(private readonly service: PerguntasService) {}
-
+  
   @Post()
   async create(@Body() data: CreatePerguntaDto) {
     return this.service.create(data);
@@ -17,6 +18,7 @@ export class PerguntasController {
     return this.service.findPerguntaById(id);
   }
 
+  @SkipAuth()
   @Get()
   async findAll(): Promise<Pergunta[]> {
     return this.service.findAll();
