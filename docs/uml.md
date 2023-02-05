@@ -217,11 +217,11 @@ INTERFACE | RN4 | O sistema deve ser web
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
 ##### Fluxo Básico: Cadastrar respostas
-1. O caso de uso se inicia quando o ator seleciona cadastrar post
+1. O caso de uso se inicia quando o ator seleciona cadastrar post(noticia)
 2. O sistema solicita os dados para o post
-3. O ator seleciona a opção de "Cadastrar novo post"
+3. O ator seleciona a opção de "Cadastrar novo post" 
 4. O sistema solicita as informações para o post
-5. O ator informa os dados do post
+5. O ator informa os dados do post informando noticia como titulo
 6. O sistema exibe a nova lista de posts 
 7. O sistema volta para a página principal
 8. O caso de uso encerra
