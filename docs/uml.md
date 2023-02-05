@@ -195,22 +195,21 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 1. O sistema exibe a ausência de resultados na busca
 2. O fluxo retorna ao passo 2 do fluxo básico.
 
-### Caso de Uso:  UC-04 x Gerenciar Respostas
+### Caso de Uso:  UC-04 x Cadastrar posts
 #### Por: Helder Lourenço - 18/0121847
-Descrição: Caso de Uso: UC-10 Gerenciar respostas: Este caso de uso especifica a ação de controle que um usuário executa no sistema, com objetivo de gerenciar respostas. Apenas usuários cadastrados podem gerenciar respostas no sistema. O usuário pode selecionar perguntas e, a partir delas, gerenciar suas respectivas respostas sendo adição, exclusão e até favoritar a resposta que mais se adequa a pergunta. Após a validação no sistema, o usuário torna-se apto a realizar as operações da sua área restrita.
+Descrição: Caso de Uso: UC-10 Cadastrar posts: Este caso de uso especifica a ação de controle que um usuário executa no sistema, com objetivo de cadastrar posts. Apenas usuários logados podem cadastrar posts no sistema. O usuário pode selecionar "cadastrar post" e, a partir delas, gerenciar seus respectivos posts. Após a validação no sistema, o usuário torna-se apto a realizar as operações da sua área restrita.
 
 * Atores: Usuário
 * Pré-Condições: O ator deve estar cadastrado no sistema; O ator deve estar logado com autenticação no sistema.
-* Pós-Condições: O ator fica habilitado a realizar ações de modificações nas respostas atualizadas em sua própria área de respostas do sistema.
+* Pós-Condições: O ator fica habilitado a realizar ações de modificações nosposts atualizadas em sua própria área de posts do sistema.
 * Requisitos Funcionais: 
 
 Épico | Feature | US | Descrição 
 ----- | ------- | -- | ---------
-01 | 03 | 10 | Eu como usuário gostaria de poder responder todas as perguntas disponibilizadas no fórum para fins de ajudar outros usuários
-01 | 03 | 11 | Eu como usuário gostaria de ser capaz de visualizar as respostas para fins de soluções de dúvidas
-01 | 03 | 12 | Eu, como usuário, gostaria de deletar minhas respostas para fim de escrita incorreta.
-02 | 06 | 17 | Eu, como usuário, gostaria de avaliar as respostas fornecidas para fim de destaque das melhores respostas
-02 | 06 | 18 | Eu, como usuário, gostaria de visualizar as respostas em ordem de rankeamento, para saber as melhores respostas fornecidas
+01 | 01 | 01 | Eu, como usuário, gostaria de cadastrar avisos para informar notícias de acontecimentos como monitorias
+01 | 01 | 02 | Eu, como usuário, gostaria de visualizar uma lista de avisos feitos para ficar ciente dos acontecimentos da Universidade.
+01 | 01 | 03 | Eu, como usuário, gostaria de apagar meus avisos para caso de escrita incorreta ou passagem de prazo
+01 | 01 | 04 | Eu, como usuário gostaria de salvar os avisos que me interessem, para não perde-los e poder verifica-los mais facilmente depois.
 
 * Requisitos Não-Funcionais:
 
@@ -220,31 +219,31 @@ INTERFACE | RN4 | O sistema deve ser web
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
 ##### Fluxo Básico: Cadastrar respostas
-1. O caso de uso se inicia quando o ator seleciona a pergunta desejada
-2. O sistema exibe a pergunta desejada e uma lista de respostas da pergunta
-3. O ator seleciona a opção de "Responder"
-4. O sistema solicita as informações para a resposta
-5. O ator informa o corpo da resposta
-6. O sistema exibe a nova lista de respostas 
+1. O caso de uso se inicia quando o ator seleciona cadastrar post
+2. O sistema solicita os dados para o post
+3. O ator seleciona a opção de "Cadastrar novo post"
+4. O sistema solicita as informações para o post
+5. O ator informa os dados do post
+6. O sistema exibe a nova lista de posts 
 7. O sistema volta para a página principal
 8. O caso de uso encerra
 
-#### Fluxo Alternativo A: Deletar resposta
- - No passo 2 caso o ator deseje deletar uma resposta:
-1. O ator decide qual resposta ele deseja deletar
-2. O sistema exibe a opção de deletar apenas para as respostas do próprio autor
-3. O ator seleciona a resposta que quer deletar
+#### Fluxo Alternativo A: Deletar post
+ - No passo 2 caso o ator deseje deletar uma post:
+1. O ator decide qual post ele deseja deletar
+2. O sistema exibe a opção de deletar apenas para os posts do próprio autor
+3. O ator seleciona o post que quer deletar
 4. O sistema confirma a delação da resposta
 5. O fluxo retorna ao passo 6 do fluxo básico
 
-#### Fluxo Alternativo B: Favoritar Resposta
+#### Fluxo Alternativo B: Favoritar post
  - No passo 2 caso o ator deseje favoritar uma resposta:
-1. O ator seleciona a opção de "Favoritar" na resposta desejada
-2. O sistema exibe a resposta favoritada em sua nova posição na listagem
+1. O ator seleciona a opção de "Favoritar" no post desejado
+2. O sistema exibe o post favoritado em sua nova posição na listagem
 3. O fluxo retorna ao passo 6 do fluxo básico
 
 #### Fluxo de Exceção:
- - No passo 5 caso os dados da resposta não estejam corretos:
+ - No passo 5 caso os dados do post não estejam corretos:
  1. O sistema exibe uma mensagem de erro
  2. O fluxo retorna para o passo 3 do fluxo base
 
