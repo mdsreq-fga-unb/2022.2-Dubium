@@ -45,7 +45,7 @@ export default function AvisosFormulario({ usuarios }) {
     }
 
     let novoAviso = {
-      id_usuario: data.usuarios || usuarios[0].id,
+      id_usuario: 1,
       tituloAviso: data.tituloAviso,
       corpoAviso: data.textoAviso,
       id_cursoAviso: indexEngenharia,
@@ -78,19 +78,6 @@ export default function AvisosFormulario({ usuarios }) {
           onSubmit={handleSubmit(onSubmit)}
           className="formulario"
         >
-          <select
-            name="usuarios"
-            {...register("usuarios")}
-            required
-            className="engenharia-input"
-            style={{ width: "23.3%" }}
-          >
-            {usuarios.map((data, index) => (
-              <option value={data.id} key={index}>
-                {data.nome_completo}
-              </option>
-            ))}
-          </select>
           <div className="group-input">
             <input
               type="text"

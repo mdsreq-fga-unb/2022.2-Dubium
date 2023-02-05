@@ -196,21 +196,6 @@ export default function PerguntaSelecionada({ usuarios }) {
               onSubmit={handleSubmit(onSubmit)}
               className="formulario"
             >
-              <select
-                name="usuarios"
-                {...register("usuarios")}
-                style={{ padding: "5px", width: "15%" }}
-              >
-                {usuarios.map((data, index) => (
-                  <option
-                    value={data.id}
-                    key={index}
-                    className="opcao-engenharia"
-                  >
-                    {data.nome_completo}
-                  </option>
-                ))}
-              </select>
               <div>
                 <textarea
                   name="resposta"
@@ -222,7 +207,7 @@ export default function PerguntaSelecionada({ usuarios }) {
                   maxLength={500}
                 ></textarea>
                 <IconButton type="submit">
-                  <SendIcon className="comentario" sx={{ fontSize: 16 }} />
+                  <SendIcon sx={{ fontSize: 20, color: "#166799" }} />
                 </IconButton>
               </div>
             </form>

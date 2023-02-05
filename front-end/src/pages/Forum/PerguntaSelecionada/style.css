@@ -71,10 +71,6 @@
   width: 90%;
 }
 
-.comentario {
-  color: #166799;
-}
-
 .card-resposta {
   display: flex;
   flex-direction: column;

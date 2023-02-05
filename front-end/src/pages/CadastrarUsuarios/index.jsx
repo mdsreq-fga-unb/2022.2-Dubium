@@ -53,6 +53,7 @@ export default function CadastrarUsuarios() {
       .post("usuarios", novoUsuario)
       .then((response) => {
         alert("Usuário cadastrado com sucesso!");
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };

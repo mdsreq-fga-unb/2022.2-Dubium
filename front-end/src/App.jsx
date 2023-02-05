@@ -81,7 +81,7 @@ function App() {
           element={<RankingUsuarios materiaPesquisada={materiaPesquisada} />}
         />
         <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
-        <Route path="/cadastro-usuario" element={<CadastrarUsuarios />} />
+        <Route path="/cadastrar-usuario" element={<CadastrarUsuarios />} />
         <Route path="/editar-usuario/:idUsuario" element={<EditarUsuario />} />
         <Route path="/salvos" element={<Salvos />} />
         <Route path="/sobre" element={<Sobre />} />

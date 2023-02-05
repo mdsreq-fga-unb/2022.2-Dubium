@@ -3,8 +3,10 @@ import "./style.css";
 import bichinho from "../../assets/images/bichinho.png";
 import logo from "../../assets/images/logo.jpg";
 
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
 
 import { Link } from "react-router-dom";
 
@@ -41,10 +43,24 @@ function Header(props) {
           onChange={handleChange}
         />
       </div>
-      <div className="input">
-        <Link to="/">SAIR</Link>
-        <LogoutIcon />
-      </div>
+      <ul className="header-login">
+        <Link>
+          <li className="login-item">
+            <LoginIcon />
+            <span>Entrar</span>
+          </li>
+        </Link>
+        <Link to="/cadastrar-usuario">
+          <li className="login-item">
+            <PersonAddIcon />
+            <span>Cadastrar-se</span>
+          </li>
+        </Link>
+        {/* <li className="login-item">
+          <LogoutIcon />
+          <span>Sair</span>
+        </li> */}
+      </ul>
       <div className="fundo-bichinho">
         <img src={bichinho} alt="bichinho" className="bichinho" />
       </div>
