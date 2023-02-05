@@ -207,9 +207,7 @@ Descrição: Caso de Uso: UC-10 Cadastrar posts: Este caso de uso especifica a a
 Épico | Feature | US | Descrição 
 ----- | ------- | -- | ---------
 01 | 01 | 01 | Eu, como usuário, gostaria de cadastrar avisos para informar notícias de acontecimentos como monitorias
-01 | 01 | 02 | Eu, como usuário, gostaria de visualizar uma lista de avisos feitos para ficar ciente dos acontecimentos da Universidade.
-01 | 01 | 03 | Eu, como usuário, gostaria de apagar meus avisos para caso de escrita incorreta ou passagem de prazo
-01 | 01 | 04 | Eu, como usuário gostaria de salvar os avisos que me interessem, para não perde-los e poder verifica-los mais facilmente depois.
+
 
 * Requisitos Não-Funcionais:
 
