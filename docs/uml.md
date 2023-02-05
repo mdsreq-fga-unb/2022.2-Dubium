@@ -228,20 +228,6 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 7. O sistema volta para a página principal
 8. O caso de uso encerra
 
-#### Fluxo Alternativo A: Deletar post
- - No passo 2 caso o ator deseje deletar uma post:
-1. O ator decide qual post ele deseja deletar
-2. O sistema exibe a opção de deletar apenas para os posts do próprio autor
-3. O ator seleciona o post que quer deletar
-4. O sistema confirma a delação da resposta
-5. O fluxo retorna ao passo 6 do fluxo básico
-
-#### Fluxo Alternativo B: Favoritar post
- - No passo 2 caso o ator deseje favoritar uma resposta:
-1. O ator seleciona a opção de "Favoritar" no post desejado
-2. O sistema exibe o post favoritado em sua nova posição na listagem
-3. O fluxo retorna ao passo 6 do fluxo básico
-
 #### Fluxo de Exceção:
  - No passo 5 caso os dados do post não estejam corretos:
  1. O sistema exibe uma mensagem de erro
