@@ -27,6 +27,16 @@ export class UsuariosController {
     return this.authService.login(req.user);
   }
 
+  @Post('forgotPassword')
+  async forgotPassword(@Body() email: string) {
+    return this.service.forgotPassword(email);
+  }
+
+  @Post('resetPassword')
+  async resetPassword(@Body() email: string) {
+    return this.service.resetPassword(email);
+  }
+
   @Put(':id')
   update(@Param('id') id: number, @Body() data: UpdateUsuarioDto) {
     return this.service.updateUsuario(id, data);
