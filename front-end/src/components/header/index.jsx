@@ -17,6 +17,8 @@ function Header({ setMateriaPesquisada, setLogado }) {
     setMateriaPesquisada(e.target.value);
   };
 
+  console.log("***Teste HEADER***");
+
   return (
     <header className="header">
       <Link to="/" className="logo">
