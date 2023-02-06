@@ -29,6 +29,7 @@ export class PerguntasController {
     return this.service.findAllByUsuario(id_usuario);
   }
 
+  @SkipAuth()
   @Get('/curso/:id_cursoPergunta')
   async findAllByCurso(@Param('id_cursoPergunta') id_cursoPergunta: number): Promise<Pergunta[]> {
     return this.service.findAllByCurso(id_cursoPergunta);

@@ -1,4 +1,5 @@
 import { PerguntaSalva } from "src/perguntas-salvas/entities/perguntas_salvas.entity";
+import { PerguntaFavorita } from "src/perguntas_favoritas/entities/perguntas_favoritas.entity";
 import { Resposta } from "src/respostas/entities/resposta.entity";
 import { Usuario } from "src/usuarios/entities/usuario.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm";
@@ -36,6 +37,9 @@ export class Pergunta {
 
     @OneToMany(() => PerguntaSalva, perguntaSalva => perguntaSalva)
     perguntaSalva: PerguntaSalva[];
+
+    @OneToMany(() => PerguntaFavorita, perguntaFavorita => perguntaFavorita)
+    perguntaFavorita: PerguntaFavorita[];
 
     constructor(pergunta?:Partial<Pergunta>){
         this.id = pergunta?.id;
