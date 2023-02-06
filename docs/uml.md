@@ -135,24 +135,24 @@ Descrição: Caso de Uso: UC-03 Cadastrar Usuários: Este caso de uso especifica
 IMPLEMENTAÇÃO | RN5 | O sistema deve assegurar os dados do usuário com autenticação Auth Guard e JWT.
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
-### Fluxo Básico: Cadastro de usuário desejado
+#### Fluxo Básico: Cadastro de usuário desejado
 1. O ator decide se cadastrar.
 2. O sistema apresenta as informações necessárias para realizar o cadastro (Nome completo, curso, matrícula, celular, email e senha).
 3. O ator informa os dados solicitados.
 4. O sistema vai para a página de login
 5. O caso de uso se encerra.
 
-### Fluxo de Exceção: Dados incorretos
+#### Fluxo de Exceção: Dados incorretos
  - No passo 3, caso o ator passe os dados em formato incorreto:
 1. O sistema exibe uma mensagem de erro
 2. O fluxo retorna ao passo 2 do fluxo básico.
 
-### Fluxo de Exceção: Dados incompletos
+#### Fluxo de Exceção: Dados incompletos
  - No passo 3, caso o ator não passe todos dados obrigatórios necessários:
 1. O sistema exibe uma mensagem de erro
 2. O fluxo retorna ao passo 2 do fluxo básico.
 
-### Fluxo de Exceção:  E-mail já cadastrado
+#### Fluxo de Exceção:  E-mail já cadastrado
  - No passo 3, caso o ator passe um e-mail já cadastrado:
 1. O sistema exibe uma mensagem de e-mail já cadastrado
 2. O fluxo retorna ao passo 2 do fluxo básico
@@ -216,20 +216,17 @@ URPS+ | ID | Descrição
 INTERFACE | RN4 | O sistema deve ser web
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
-##### Fluxo Básico: Cadastrar respostas
-1. O caso de uso se inicia quando o ator seleciona cadastrar post(noticia)
-2. O sistema solicita os dados para o post
-3. O ator seleciona a opção de "Cadastrar novo post" 
-4. O sistema solicita as informações para o post
-5. O ator informa os dados do post informando noticia como titulo
-6. O sistema exibe a nova lista de posts 
-7. O sistema volta para a página principal
-8. O caso de uso encerra
+##### Fluxo Básico: Cadastrar perguntas
+1. O caso de uso se inicia quando o ator seleciona cadastrar pergunta
+2. O sistema solicita as informações para a pergunta
+3. O ator informa os dados da pergunta 
+5. O ator salva a pergunta feita
+6. O caso de uso encerra
 
 #### Fluxo de Exceção:
- - No passo 5 caso os dados do post não estejam corretos:
+ - No passo 3 caso os dados da pergunta não estejam corretos:
  1. O sistema exibe uma mensagem de erro
- 2. O fluxo retorna para o passo 3 do fluxo base
+ 2. O fluxo retorna para o passo 2 do fluxo base
 
 
 ### Informações adicionais
