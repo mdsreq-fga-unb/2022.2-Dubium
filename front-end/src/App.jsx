@@ -1,33 +1,29 @@
 import "./App.css";
 
-import apiRequest from "./services/api";
-
 import PerguntaSelecionada from "./pages/Forum/PerguntaSelecionada";
 import FormularioPergunta from "./pages/Forum/FormularioPergunta";
-import RankingUsuarios from "./pages/RankingUsuarios";
-import ForumLayout from "./pages/Forum/ForumLayout";
-import PerfilUsuario from "./pages/PerfilUsuario";
-import ForumBody from "./pages/Forum/ForumBody";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import Sobre from "./pages/Sobre";
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
-import AvisosConteudo from "./pages/Avisos/AvisosConteudo";
 import AvisosFormulario from "./pages/Avisos/AvisosFormulario";
 import AvisoSelecionado from "./pages/Avisos/AvisoSelecionado";
+import AvisosConteudo from "./pages/Avisos/AvisosConteudo";
 import CadastrarUsuarios from "./pages/CadastrarUsuarios";
+import RankingUsuarios from "./pages/RankingUsuarios";
 import EditarUsuario from "./pages/EditarUsuarios";
-import Login from "./pages/login";
+import PerfilUsuario from "./pages/PerfilUsuario";
+import ForumBody from "./pages/Forum/ForumBody";
+import Footer from "./components/footer";
 import Salvos from "./pages/Salvos";
+import Sobre from "./pages/Sobre";
+import Login from "./pages/login";
+
+import ForumLayout from "./pages/Forum/ForumLayout";
 import AuthLayout from "./components/AuthLayout";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
   const [logado, setLogado] = useState(false);
   const [materiaPesquisada, setMateriaPesquisada] = useState("");
-
-  console.log("***Teste APP***");
 
   return (
     <Router>
@@ -69,7 +65,10 @@ function App() {
             path="/ranking-usuarios"
             element={<RankingUsuarios materiaPesquisada={materiaPesquisada} />}
           />
-          <Route path="/usuario/:idUsuario" element={<PerfilUsuario />} />
+          <Route
+            path="/usuario/:idUsuario"
+            element={<PerfilUsuario setLogado={setLogado} />}
+          />
           <Route path="/salvos" element={<Salvos />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route

@@ -1,0 +1,12 @@
+.ps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+
+  background-color: #fafafa;
+  overflow-y: scroll;
+}

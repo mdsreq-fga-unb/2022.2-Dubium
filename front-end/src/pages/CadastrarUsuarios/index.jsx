@@ -63,10 +63,10 @@ export default function CadastrarUsuarios() {
   };
 
   return (
-    <div className="container" style={{ marginLeft: "-301px" }}>
-      <div className="cadastrar-usuario">
-        <form action="" onSubmit={handleSubmit(onSubmit)} className="cdu-form">
-          <div className="cdu-form-campos">
+    <div className="cadastrar-usuario">
+      <form action="" onSubmit={handleSubmit(onSubmit)} className="cdu-form">
+        <div className="cdu-form-campos">
+          <div className="grupo-x">
             <input
               type="text"
               name="nome_completo"
@@ -98,6 +98,8 @@ export default function CadastrarUsuarios() {
                   )
               )}
             </select>
+          </div>
+          <div className="grupo-x">
             <input
               type="number"
               name="celular"
@@ -123,19 +125,19 @@ export default function CadastrarUsuarios() {
               className="cdu-campos"
             />
           </div>
-          <div className="cdu-form-buttons">
-            <button type="submit" className="botao-geral">
-              Enviar
-            </button>
-            <button
-              className="botao-geral botao-cancelar"
-              onClick={() => navigate(-1)}
-            >
-              Cancelar
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div className="cdu-form-buttons">
+          <button type="submit" className="botao-geral">
+            Cadastrar
+          </button>
+          <button
+            className="botao-geral botao-cancelar"
+            onClick={() => navigate(-1)}
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

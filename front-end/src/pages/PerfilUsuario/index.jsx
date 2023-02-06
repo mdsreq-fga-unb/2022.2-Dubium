@@ -14,7 +14,7 @@ import EditIcon from "@mui/icons-material/Edit";
 
 import PerguntasCadastradas from "./PerguntasCadastradas";
 
-export default function PerfilUsuario() {
+export default function PerfilUsuario({ setLogado }) {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [favorito, setFavorito] = useState(false);
 
@@ -50,6 +50,7 @@ export default function PerfilUsuario() {
       .catch((error) => console.log(error));
 
     localStorage.clear();
+    setLogado(false);
     navigate(-1);
   };
 
@@ -72,6 +73,11 @@ export default function PerfilUsuario() {
             </span>
           </div>
         </div>
+        {localStorage.getItem("userId") == idUsuario && (
+          <Link to="/salvos">
+            <button className="button-salvos">PERGUNTAS E AVISOS SALVOS</button>
+          </Link>
+        )}
         <ul className="pu-informacoes">
           <span style={{ fontSize: "18px" }}>INFORMAÇÕES DE CONTATO</span>
           <li className="pu-item-informacao">
@@ -99,7 +105,7 @@ export default function PerfilUsuario() {
             <span>Favoritar</span>
           </li>
           {idUsuario == localStorage.getItem("userId") && (
-            <>
+            <div className="pu-opcoes">
               <Link to={`/editar-usuario/${localStorage.getItem("userId")}`}>
                 <li>
                   <button className="pu-editar">
@@ -115,7 +121,7 @@ export default function PerfilUsuario() {
                   EXCLUIR CONTA
                 </button>
               </li>
-            </>
+            </div>
           )}
         </ul>
       </div>

@@ -44,8 +44,6 @@ export default function Login({ setLogado }) {
         Authorization: "Bearer " + token,
       },
     });
-
-    localStorage.setItem("userId", user.data.id);
     setUser(user.data);
   };
 
@@ -59,6 +57,10 @@ export default function Login({ setLogado }) {
       .post("usuarios/login", user)
       .then((response) => {
         localStorage.setItem("token", response.data.access_token);
+        localStorage.setItem(
+          "userId",
+          parseJwt(response.data.access_token).sub
+        );
         getUser();
         setLogado(true);
         navigate("/");

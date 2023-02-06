@@ -42,7 +42,9 @@ export default function ForumBody({ materiaPesquisada }) {
     <div className="container">
       <div className="container-pergunta">
         <div className="criar-pergunta">
-          <Link to="/criar-pergunta">
+          <Link
+            to={localStorage.getItem("userId") ? "/criar-pergunta" : "/login"}
+          >
             <button>FAÇA UMA PERGUNTA</button>
           </Link>
         </div>

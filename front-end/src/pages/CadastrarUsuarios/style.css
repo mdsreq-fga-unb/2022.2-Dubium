@@ -1,29 +1,33 @@
 .cadastrar-usuario {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  background-color: #fafafa;
-  width: 50%;
-  padding: 20px;
-  border-radius: 20px;
+  height: 100vh;
 }
 
 .cdu-form {
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
-  width: 100%;
+  width: 60%;
+  padding: 5%;
+  border-radius: 10px;
 }
 
 .cdu-form-campos {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 50px;
-  padding: 10px;
+  flex-direction: column;
   width: 100%;
+  gap: 40px;
+}
+
+.grupo-x {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
 }
 
 .cdu-form-buttons {

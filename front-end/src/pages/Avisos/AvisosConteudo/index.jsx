@@ -40,13 +40,24 @@ export default function AvisosConteudo({ materiaPesquisada }) {
     <div className="container">
       <div className="container-pergunta">
         <div className="criar-pergunta">
-          <Link to="/avisos/criar-aviso">
+          <Link
+            to={
+              localStorage.getItem("token") ? "/avisos/criar-aviso" : "/login"
+            }
+          >
             <button>CRIAR AVISO</button>
           </Link>
         </div>
         {avisosFiltrados.map((aviso, index) => {
           return (
-            <Link to={`/avisos/aviso/${aviso.id}`} key={index}>
+            <Link
+              to={
+                localStorage.getItem("token")
+                  ? `/avisos/aviso/${aviso.id}`
+                  : "/login"
+              }
+              key={index}
+            >
               <div className="card-pergunta">
                 <div className="usuario-pergunta">
                   <PersonIcon fontSize="large" />

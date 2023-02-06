@@ -10,14 +10,14 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import apiRequest from "../../services/api";
 
 function Header({ setMateriaPesquisada, setLogado }) {
   const handleChange = (e) => {
     e.preventDefault();
     setMateriaPesquisada(e.target.value);
   };
-
-  console.log("***Teste HEADER***");
 
   return (
     <header className="header">
@@ -72,7 +72,7 @@ function Header({ setMateriaPesquisada, setLogado }) {
               </li>
             </Link>
             <Link
-              to="/login"
+              to="/"
               onClick={() => {
                 localStorage.clear();
                 setLogado(false);
@@ -86,9 +86,8 @@ function Header({ setMateriaPesquisada, setLogado }) {
           </>
         )}
       </ul>
-      <div className="fundo-bichinho">
-        <img src={bichinho} alt="bichinho" className="bichinho" />
-      </div>
+
+      <img src={bichinho} alt="bichinho" className="bichinho" />
     </header>
   );
 }

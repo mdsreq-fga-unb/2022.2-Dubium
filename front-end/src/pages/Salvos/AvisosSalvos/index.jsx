@@ -26,12 +26,12 @@ export default function AvisosSalvos({ idUsuario }) {
   }, []);
 
   return (
-    <ul className="pc-container" style={{ width: "35%" }}>
+    <ul className="pc-container" style={{ width: "35%", gap: "30px" }}>
       <div className="pc-titulo">
         <span>AVISOS</span>
       </div>
       {avisosSalvos.map((avisoSalvo) => (
-        <Link to={`/avisos/aviso/${avisoSalvo.aviso.id}`}>
+        <Link to={`/avisos/aviso/${avisoSalvo.aviso.id}`} key={avisoSalvo}>
           <li className="pc-pergunta">
             <span>{avisoSalvo.aviso.tituloAviso}</span>
             <div className="pc-votos">

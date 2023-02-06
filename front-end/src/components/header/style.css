@@ -54,8 +54,7 @@
 .header-login {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 12%;
+  gap: 50%;
 }
 
 .login-item {
@@ -65,14 +64,6 @@
   gap: 5px;
 }
 
-.fundo-bichinho {
-  width: auto;
-  height: inherit;
-  display: flex;
-  justify-content: end;
-}
-
 .bichinho {
-  width: auto;
-  height: auto;
+  height: inherit;
 }

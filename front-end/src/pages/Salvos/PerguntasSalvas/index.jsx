@@ -24,12 +24,15 @@ export default function PerguntasSalvas({ idUsuario }) {
   }, []);
 
   return (
-    <ul className="pc-container" style={{ width: "35%" }}>
+    <ul className="pc-container" style={{ width: "35%", gap: "30px" }}>
       <div className="pc-titulo">
         <span>PERGUNTAS</span>
       </div>
       {perguntasSalvas.map((perguntaSalva) => (
-        <Link to={`/pergunta/${perguntaSalva.pergunta.id}`}>
+        <Link
+          to={`/pergunta/${perguntaSalva.pergunta.id}`}
+          key={perguntaSalva.id}
+        >
           <li className="pc-pergunta">
             <span>{perguntaSalva.pergunta.tituloPergunta}</span>
             <div className="pc-votos">
