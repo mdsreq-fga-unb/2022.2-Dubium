@@ -47,7 +47,7 @@ export default function CadastrarUsuarios() {
       curso: indexEngenharia,
       celular: data.celular,
       email: data.email,
-      senha: data.senha,
+      password: data.senha,
     };
 
     await apiRequest
