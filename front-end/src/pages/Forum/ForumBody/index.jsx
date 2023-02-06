@@ -23,7 +23,11 @@ export default function ForumBody({ materiaPesquisada }) {
 
   useEffect(() => {
     apiRequest
-      .get(getPerguntas())
+      .get(getPerguntas(), {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setArrayPerguntas(response.data);
       })

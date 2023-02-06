@@ -7,8 +7,10 @@ import { forumData } from "../Sidebar/data";
 import { useForm } from "react-hook-form";
 
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthProvider";
 
-export default function FormularioPergunta({ usuarios }) {
+export default function FormularioPergunta() {
   const navigate = useNavigate();
 
   const {
@@ -45,7 +47,7 @@ export default function FormularioPergunta({ usuarios }) {
     }
 
     let novaPergunta = {
-      id_usuario: data.usuarios || usuarios[0].id,
+      id_usuario: localStorage.getItem("userId"),
       tituloPergunta: data.titulo,
       id_cursoPergunta: indexEngenharia,
       corpoPergunta: data.textoPergunta,
@@ -55,7 +57,11 @@ export default function FormularioPergunta({ usuarios }) {
     };
 
     await apiRequest
-      .post("perguntas", novaPergunta)
+      .post("perguntas", novaPergunta, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         alert("Pergunta cadastrada com sucesso!");
       })
@@ -67,30 +73,11 @@ export default function FormularioPergunta({ usuarios }) {
   return (
     <div className="container">
       <div className="form-card">
-        {/* <div className="usuario-pergunta">
-        <div className="usuario-informacao-texto">
-        <span>{usuario.nome_completo}</span>
-        <span>{usuario.curso}</span>
-        </div>
-      </div> */}
         <form
           action=""
           onSubmit={handleSubmit(onSubmit)}
           className="formulario"
         >
-          <select
-            name="usuarios"
-            {...register("usuarios")}
-            required
-            className="engenharia-input"
-            style={{ width: "23.3%" }}
-          >
-            {usuarios.map((data, index) => (
-              <option value={data.id} key={index}>
-                {data.nome_completo}
-              </option>
-            ))}
-          </select>
           <div className="group-input">
             <input
               type="text"
@@ -139,9 +126,6 @@ export default function FormularioPergunta({ usuarios }) {
             maxLength={1000}
             required
           ></textarea>
-          {/* <div className="file-input">
-          <input type="file" name="arquivo" {...register("arquivo")} />
-        </div> */}
           <div className="group-input" style={{ justifyContent: "center" }}>
             <button type="submit" className="botao-geral">
               Enviar

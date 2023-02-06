@@ -12,7 +12,11 @@ export default function PerguntasSalvas({ idUsuario }) {
 
   useEffect(() => {
     apiRequest
-      .get(`salvas/1`)
+      .get(`salvas/${localStorage.getItem("userId")}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setPerguntasSalvas(response.data);
       })

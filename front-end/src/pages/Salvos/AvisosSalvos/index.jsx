@@ -12,11 +12,17 @@ export default function AvisosSalvos({ idUsuario }) {
 
   useEffect(() => {
     apiRequest
-      .get(`salvos/1`)
+      .get(`salvos/${localStorage.getItem("userId")}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setAvisosSalvos(response.data);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (

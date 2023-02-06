@@ -89,3 +89,16 @@
   color: #fafafa;
   cursor: pointer;
 }
+
+.pu-editar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  background-color: rgb(214, 197, 49);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fafafa;
+  cursor: pointer;
+}

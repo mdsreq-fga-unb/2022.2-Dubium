@@ -13,7 +13,7 @@ import StarIcon from "@mui/icons-material/Star";
 
 import { IconButton } from "@mui/material";
 
-export default function AvisoSelecionado({ usuarios }) {
+export default function AvisoSelecionado() {
   const [avisoSelecionado, setAvisoSelecionado] = useState({});
   const [favorito, setFavorito] = useState(false);
 
@@ -23,7 +23,11 @@ export default function AvisoSelecionado({ usuarios }) {
 
   useEffect(() => {
     apiRequest
-      .get(`avisos/${idAviso}`)
+      .get(`avisos/${idAviso}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setAvisoSelecionado(response.data);
       })
@@ -34,7 +38,11 @@ export default function AvisoSelecionado({ usuarios }) {
 
   const deleteAviso = async () => {
     await apiRequest
-      .delete(`avisos/${idAviso}`)
+      .delete(`avisos/${idAviso}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then(() => {
         alert("Aviso deletado!");
       })
@@ -45,7 +53,11 @@ export default function AvisoSelecionado({ usuarios }) {
 
   const updateFavotito = async () => {
     await apiRequest
-      .patch(favorito ? `avisos/menos/${idAviso}` : `avisos/${idAviso}`)
+      .patch(favorito ? `avisos/menos/${idAviso}` : `avisos/${idAviso}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         console.log(response);
       })
@@ -54,12 +66,16 @@ export default function AvisoSelecionado({ usuarios }) {
 
   const salvarAviso = async () => {
     const infoAviso = {
-      id_usuario: 1,
+      id_usuario: localStorage.getItem("userId"),
       id_aviso: idAviso,
     };
 
     await apiRequest
-      .post("/salvos", infoAviso)
+      .post("/salvos", infoAviso, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         alert("Aviso salvo com sucesso!");
       })
@@ -79,9 +95,11 @@ export default function AvisoSelecionado({ usuarios }) {
               </span>
             </div>
           </div>
-          <IconButton onClick={deleteAviso}>
-            <DeleteIcon sx={{ fontSize: 16 }} />
-          </IconButton>
+          {avisoSelecionado?.usuario?.id == localStorage.getItem("userId") && (
+            <IconButton onClick={deleteAviso}>
+              <DeleteIcon sx={{ fontSize: 16 }} />
+            </IconButton>
+          )}
         </div>
         <span className="filtro">
           {avisoSelecionado?.filtro?.toUpperCase()}

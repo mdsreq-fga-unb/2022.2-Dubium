@@ -21,7 +21,11 @@ export default function AvisosConteudo({ materiaPesquisada }) {
 
   useEffect(() => {
     apiRequest
-      .get(getAvisos())
+      .get(getAvisos(), {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setArrayAvisos(response.data);
       })

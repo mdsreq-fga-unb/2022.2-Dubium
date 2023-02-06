@@ -1,12 +1,9 @@
 import axios from "axios";
 
 const apiRequest = axios.create({
-  baseURL: 'http://localhost:3000/',
-}); 
+  baseURL: process.env.VITE_APP_API_HOST,
+});
 
-if(localStorage.getItem("token")) {
-  apiRequest.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem("token");
-}
-
+apiRequest.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem("token");
 
 export default apiRequest;

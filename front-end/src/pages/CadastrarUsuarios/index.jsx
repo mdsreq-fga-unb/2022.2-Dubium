@@ -50,10 +50,14 @@ export default function CadastrarUsuarios() {
     };
 
     await apiRequest
-      .post("usuarios", novoUsuario)
+      .post("usuarios", novoUsuario, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         alert("Usuário cadastrado com sucesso!");
-        navigate("/");
+        navigate("/login");
       })
       .catch((error) => console.log(error));
   };

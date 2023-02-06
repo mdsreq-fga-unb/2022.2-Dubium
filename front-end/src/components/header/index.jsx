@@ -4,16 +4,17 @@ import bichinho from "../../assets/images/bichinho.png";
 import logo from "../../assets/images/logo.jpg";
 
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 
 import { Link } from "react-router-dom";
 
-function Header(props) {
+function Header({ setMateriaPesquisada, setLogado }) {
   const handleChange = (e) => {
     e.preventDefault();
-    props.setMateriaPesquisada(e.target.value);
+    setMateriaPesquisada(e.target.value);
   };
 
   return (
@@ -44,22 +45,44 @@ function Header(props) {
         />
       </div>
       <ul className="header-login">
-        <Link>
-          <li className="login-item">
-            <LoginIcon />
-            <span>Entrar</span>
-          </li>
-        </Link>
-        <Link to="/cadastrar-usuario">
-          <li className="login-item">
-            <PersonAddIcon />
-            <span>Cadastrar-se</span>
-          </li>
-        </Link>
-        {/* <li className="login-item">
-          <LogoutIcon />
-          <span>Sair</span>
-        </li> */}
+        {!localStorage.getItem("token") && (
+          <>
+            <Link to="/login">
+              <li className="login-item">
+                <LoginIcon />
+                <span>Entrar</span>
+              </li>
+            </Link>
+            <Link to="/cadastrar-usuario">
+              <li className="login-item">
+                <PersonAddIcon />
+                <span>Cadastrar-se</span>
+              </li>
+            </Link>
+          </>
+        )}
+        {localStorage.getItem("token") && (
+          <>
+            <Link to={`/usuario/${localStorage.getItem("userId")}`}>
+              <li className="login-item">
+                <PersonIcon />
+                <span>Perfil</span>
+              </li>
+            </Link>
+            <Link
+              to="/login"
+              onClick={() => {
+                localStorage.clear();
+                setLogado(false);
+              }}
+            >
+              <li className="login-item">
+                <LogoutIcon />
+                <span>Sair</span>
+              </li>
+            </Link>
+          </>
+        )}
       </ul>
       <div className="fundo-bichinho">
         <img src={bichinho} alt="bichinho" className="bichinho" />

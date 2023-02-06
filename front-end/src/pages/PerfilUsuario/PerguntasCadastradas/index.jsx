@@ -12,7 +12,11 @@ export default function PerguntasCadastradas({ idUsuario }) {
 
   useEffect(() => {
     apiRequest
-      .get(`perguntas/usuario/${idUsuario}`)
+      .get(`perguntas/usuario/${idUsuario}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setPerguntasCadastradas(response.data);
       })
@@ -25,7 +29,10 @@ export default function PerguntasCadastradas({ idUsuario }) {
         <span>PERGUNTAS</span>
       </div>
       {perguntasCadastradas.map((perguntaCadastrada) => (
-        <Link to={`/pergunta/${perguntaCadastrada.id}`}>
+        <Link
+          to={`/pergunta/${perguntaCadastrada.id}`}
+          key={perguntaCadastrada.id}
+        >
           <li className="pc-pergunta">
             <span>{perguntaCadastrada.tituloPergunta}</span>
             <div className="pc-votos">

@@ -5,7 +5,7 @@ import AuthContext from "../../context/AuthProvider";
 import apiRequest from "../../services/api";
 import "./style.css";
 
-export default function Login() {
+export default function Login({ setLogado }) {
   const navigate = useNavigate();
   const { user, setUser } = useContext(AuthContext);
 
@@ -40,7 +40,7 @@ export default function Login() {
       },
     });
 
-    // console.log(user.data);
+    localStorage.setItem("userId", user.data.id);
     setUser(user.data);
   };
 
@@ -55,16 +55,14 @@ export default function Login() {
       .then((response) => {
         localStorage.setItem("token", response.data.access_token);
         getUser();
-        // navigate("/");
+        setLogado(true);
+        navigate("/");
       })
       .catch((response) => {
         console.log(response);
         alert("Email ou senha incorreta!");
       });
   };
-
-  // console.log("teste" + user);
-  console.log(user);
 
   return (
     <div className="caixa">

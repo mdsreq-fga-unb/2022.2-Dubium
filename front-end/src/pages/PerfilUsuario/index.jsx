@@ -3,13 +3,15 @@ import "./style.css";
 import handleCurso from "../../services/curso";
 import apiRequest from "../../services/api";
 
-import { useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 
 import StarIcon from "@mui/icons-material/Star";
 import { IconButton } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+
 import PerguntasCadastradas from "./PerguntasCadastradas";
 
 export default function PerfilUsuario() {
@@ -22,7 +24,11 @@ export default function PerfilUsuario() {
 
   useEffect(() => {
     apiRequest
-      .get(`usuarios/${idUsuario}`)
+      .get(`usuarios/${idUsuario}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setUsuarioSelecionado(response.data);
       })
@@ -33,12 +39,17 @@ export default function PerfilUsuario() {
 
   const deletarUsuario = async () => {
     await apiRequest
-      .delete(`usuarios/${idUsuario}`)
+      .delete(`usuarios/${idUsuario}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then(() => {
         alert("Conta deletada com sucesso!");
       })
       .catch((error) => console.log(error));
 
+    localStorage.clear();
     navigate(-1);
   };
 
@@ -87,12 +98,25 @@ export default function PerfilUsuario() {
             </IconButton>
             <span>Favoritar</span>
           </li>
-          <li>
-            <button className="pu-excluir" onClick={deletarUsuario}>
-              <DeleteIcon sx={{ fontSize: 16 }} />
-              EXCLUIR CONTA
-            </button>
-          </li>
+          {idUsuario == localStorage.getItem("userId") && (
+            <>
+              <Link to={`/editar-usuario/${localStorage.getItem("userId")}`}>
+                <li>
+                  <button className="pu-editar">
+                    <EditIcon sx={{ fontSize: 16 }} />
+                    EDITAR CONTA
+                  </button>
+                </li>
+              </Link>
+
+              <li>
+                <button className="pu-excluir" onClick={deletarUsuario}>
+                  <DeleteIcon sx={{ fontSize: 16 }} />
+                  EXCLUIR CONTA
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       </div>
       <PerguntasCadastradas idUsuario={idUsuario} />

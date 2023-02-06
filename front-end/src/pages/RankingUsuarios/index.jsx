@@ -4,15 +4,20 @@ import handleCurso from "../../services/curso";
 
 import { Link } from "react-router-dom";
 import { pesquisaUsuario } from "../../services/pesquisa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import apiRequest from "../../services/api";
+import AuthContext from "../../context/AuthProvider";
 
 export default function RankingUsuarios({ materiaPesquisada }) {
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
     apiRequest
-      .get("usuarios")
+      .get("usuarios", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setUsuarios(response.data);
       })

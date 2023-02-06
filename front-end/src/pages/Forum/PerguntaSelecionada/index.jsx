@@ -1,6 +1,6 @@
 import "./style.css";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -15,7 +15,7 @@ import StarIcon from "@mui/icons-material/Star";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
 
-export default function PerguntaSelecionada({ usuarios }) {
+export default function PerguntaSelecionada() {
   const [perguntaSelecionada, setPerguntaSelecionada] = useState({});
   const [respostas, setRespostas] = useState([]);
   const [favoritoPergunta, setFavoritoPergunta] = useState(false);
@@ -34,7 +34,11 @@ export default function PerguntaSelecionada({ usuarios }) {
 
   useEffect(() => {
     apiRequest
-      .get(`perguntas/${idPergunta}`)
+      .get(`perguntas/${idPergunta}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setPerguntaSelecionada(response.data);
       })
@@ -45,7 +49,11 @@ export default function PerguntaSelecionada({ usuarios }) {
 
   const getResposta = async () => {
     await apiRequest
-      .get(`respostas/pergunta/${idPergunta}`)
+      .get(`respostas/pergunta/${idPergunta}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setRespostas(response.data);
       })
@@ -60,7 +68,11 @@ export default function PerguntaSelecionada({ usuarios }) {
 
   const deletarPergunta = async () => {
     await apiRequest
-      .delete(`perguntas/${idPergunta}`)
+      .delete(`perguntas/${idPergunta}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then(() => {
         alert("Pergunta deletada!");
       })
@@ -71,7 +83,11 @@ export default function PerguntaSelecionada({ usuarios }) {
 
   const deletarResposta = async (idResposta) => {
     await apiRequest
-      .delete(`respostas/${idResposta}`)
+      .delete(`respostas/${idResposta}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then(() => {
         alert("Resposta deletada!");
       })
@@ -85,7 +101,12 @@ export default function PerguntaSelecionada({ usuarios }) {
       .patch(
         favoritoPergunta
           ? `perguntas/menos/${idPergunta}`
-          : `perguntas/${idPergunta}`
+          : `perguntas/${idPergunta}`,
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
       )
       .then((response) => {
         console.log(response);
@@ -98,7 +119,12 @@ export default function PerguntaSelecionada({ usuarios }) {
       .patch(
         favoritoResposta
           ? `respostas/menos/${idResposta}`
-          : `respostas/${idResposta}`
+          : `respostas/${idResposta}`,
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
       )
       .then((response) => {
         console.log(response);
@@ -110,12 +136,16 @@ export default function PerguntaSelecionada({ usuarios }) {
 
   const salvarPergunta = async () => {
     const infoPergunta = {
-      id_usuario: 1,
+      id_usuario: localStorage.getItem("userId"),
       id_pergunta: idPergunta,
     };
 
     await apiRequest
-      .post("/salvas", infoPergunta)
+      .post("/salvas", infoPergunta, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         alert("Pergunta salva com sucesso!");
       })
@@ -124,13 +154,17 @@ export default function PerguntaSelecionada({ usuarios }) {
 
   const onSubmit = async (data) => {
     let novaResposta = {
-      id_usuario: data.usuarios,
+      id_usuario: localStorage.getItem("userId"),
       id_pergunta: idPergunta,
       corpoResposta: data.resposta,
     };
 
     await apiRequest
-      .post("respostas", novaResposta)
+      .post("respostas", novaResposta, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
 
@@ -150,9 +184,12 @@ export default function PerguntaSelecionada({ usuarios }) {
               </span>
             </div>
           </div>
-          <IconButton onClick={deletarPergunta}>
-            <DeleteIcon sx={{ fontSize: 16 }} />
-          </IconButton>
+          {perguntaSelecionada?.usuario?.id ==
+            localStorage.getItem("userId") && (
+            <IconButton onClick={deletarPergunta}>
+              <DeleteIcon sx={{ fontSize: 16 }} />
+            </IconButton>
+          )}
         </div>
         <span className="filtro">
           {perguntaSelecionada?.filtro?.toUpperCase()}
@@ -226,13 +263,15 @@ export default function PerguntaSelecionada({ usuarios }) {
                   }}
                 >
                   {data.usuario.nome_completo}
-                  <IconButton
-                    onClick={() => {
-                      deletarResposta(data.id);
-                    }}
-                  >
-                    <DeleteIcon sx={{ fontSize: 16 }} />
-                  </IconButton>
+                  {data.usuario.id == localStorage.getItem("userId") && (
+                    <IconButton
+                      onClick={() => {
+                        deletarResposta(data.id);
+                      }}
+                    >
+                      <DeleteIcon sx={{ fontSize: 16 }} />
+                    </IconButton>
+                  )}
                 </span>
                 <span>{handleCurso(data.usuario.curso)}</span>
               </div>

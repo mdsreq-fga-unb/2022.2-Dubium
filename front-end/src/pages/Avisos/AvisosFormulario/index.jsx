@@ -7,8 +7,10 @@ import { forumData } from "../../Forum/Sidebar/data";
 import { useForm } from "react-hook-form";
 
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthProvider";
 
-export default function AvisosFormulario({ usuarios }) {
+export default function AvisosFormulario() {
   const navigate = useNavigate();
 
   const {
@@ -45,7 +47,7 @@ export default function AvisosFormulario({ usuarios }) {
     }
 
     let novoAviso = {
-      id_usuario: 1,
+      id_usuario: localStorage.getItem("userId"),
       tituloAviso: data.tituloAviso,
       corpoAviso: data.textoAviso,
       id_cursoAviso: indexEngenharia,
@@ -55,7 +57,11 @@ export default function AvisosFormulario({ usuarios }) {
     };
 
     await apiRequest
-      .post("avisos", novoAviso)
+      .post("avisos", novoAviso, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         alert("Aviso cadastrado com sucesso!");
       })

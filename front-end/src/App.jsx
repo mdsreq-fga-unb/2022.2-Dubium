@@ -22,25 +22,17 @@ import EditarUsuario from "./pages/EditarUsuarios";
 import Login from "./pages/login";
 import Salvos from "./pages/Salvos";
 
-
 function App() {
-  const [usuarios, setUsuarios] = useState([]);
+  const [logado, setLogado] = useState(false);
   const [materiaPesquisada, setMateriaPesquisada] = useState("");
-
-  useEffect(() => {
-    apiRequest
-      .get("usuarios")
-      .then((response) => {
-        setUsuarios(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, []);
 
   return (
     <Router>
-      <Header setMateriaPesquisada={setMateriaPesquisada} />
+      <Header
+        setMateriaPesquisada={setMateriaPesquisada}
+        setLogado={setLogado}
+        logado={logado}
+      />
       <Routes>
         <Route path="/" element={<ForumLayout pagina="forum" />}>
           <Route
@@ -53,12 +45,9 @@ function App() {
           />
           <Route
             path="/pergunta/:idPergunta"
-            element={<PerguntaSelecionada usuarios={usuarios} />}
+            element={<PerguntaSelecionada />}
           />
-          <Route
-            path="/criar-pergunta"
-            element={<FormularioPergunta usuarios={usuarios} />}
-          />
+          <Route path="/criar-pergunta" element={<FormularioPergunta />} />
         </Route>
         <Route path="/avisos" element={<ForumLayout pagina="avisos" />}>
           <Route
@@ -69,14 +58,8 @@ function App() {
             path="/avisos/:id"
             element={<AvisosConteudo materiaPesquisada={materiaPesquisada} />}
           />
-          <Route
-            path="/avisos/aviso/:idAviso"
-            element={<AvisoSelecionado usuarios={usuarios} />}
-          />
-          <Route
-            path="/avisos/criar-aviso"
-            element={<AvisosFormulario usuarios={usuarios} />}
-          />
+          <Route path="/avisos/aviso/:idAviso" element={<AvisoSelecionado />} />
+          <Route path="/avisos/criar-aviso" element={<AvisosFormulario />} />
         </Route>
         <Route
           path="/ranking-usuarios"
@@ -87,7 +70,7 @@ function App() {
         <Route path="/editar-usuario/:idUsuario" element={<EditarUsuario />} />
         <Route path="/salvos" element={<Salvos />} />
         <Route path="/sobre" element={<Sobre />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setLogado={setLogado} />} />
       </Routes>
       <Footer />
     </Router>
