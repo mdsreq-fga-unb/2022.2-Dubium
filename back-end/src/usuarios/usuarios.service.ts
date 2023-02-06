@@ -4,7 +4,7 @@ import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { Usuario } from './entities/usuario.entity';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import {randomBytes} from 'crypto';
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 
 @Injectable()
 export class UsuariosService {
@@ -52,8 +52,6 @@ export class UsuariosService {
 
   async forgotPassword(data: string) {
 
-    console.log(data['email'])
-
     if(!(await this.findByEmail(data['email']))) {
       throw new BadRequestException('Email não encontrado! Verifique os dados e tente novamente.');
     }
@@ -67,31 +65,36 @@ export class UsuariosService {
 
       const usuario = await this.findByEmail(data['email']);
 
-      console.log(token, now)
-      console.log("222")
-      console.log(usuario)
-      console.log("222")
 
       usuario.tokenRestaurarSenha = token;
       usuario.expiracaoSenha = now;
 
-      const transporter = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 2525,
+      const transport = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
         auth: {
-          user: "654145472cc5ec",
-          pass: "990f01e4a94bfa"
+            user: "gianmedeirosrosa@gmail.com",
+            pass: "mwdrlvvjlrcoprvc"
+        },
+        tls:{
+          rejectUnauthorized: false
         }
       });
 
-      transporter.sendMail({
+      const mailOptions = {
+        from: 'gianmedeirosrosa@gmail.com',
         to: data['email'],
-        from: 'gianmedeiros14@gmail.com',
         subject: 'Recuperação de senha!',
         html: `<p>Esqueceu sua senha? Não tem problema, este é seu token para recuperação: ${token} </p>`
-      })
-
-      console.log("FOOOOOOOOOOOOOOOOOIIIIIIII")
+      };
+      
+      transport.sendMail(mailOptions, function(error, info){
+        if (error) {
+       console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
 
       return this.usuarioRepository.save(usuario);
     }
