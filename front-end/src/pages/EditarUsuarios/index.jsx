@@ -74,7 +74,7 @@ export default function EditarUsuario() {
       curso: indexEngenharia || usuarioSelecionado?.curso,
       celular: data.celular || usuarioSelecionado?.celular,
       email: data.email || usuarioSelecionado?.email,
-      senha: data.senha || usuarioSelecionado?.senha,
+      password: data.senha || usuarioSelecionado?.senha,
     };
 
     await apiRequest
