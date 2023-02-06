@@ -216,20 +216,17 @@ URPS+ | ID | Descrição
 INTERFACE | RN4 | O sistema deve ser web
 RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de verde, azul e branco e possuir um modo dark, com um estilo mais minimalista
 
-##### Fluxo Básico: Cadastrar respostas
-1. O caso de uso se inicia quando o ator seleciona cadastrar post 
-2. O sistema solicita os dados para o post
-3. O ator seleciona a opção de "Cadastrar novo post" 
-4. O sistema solicita as informações para o post
-5. O ator informa os dados do post informando noticia como titulo
-6. O sistema exibe a nova lista de posts 
-7. O sistema volta para a página principal
-8. O caso de uso encerra
+##### Fluxo Básico: Cadastrar perguntas
+1. O caso de uso se inicia quando o ator seleciona cadastrar pergunta
+2. O sistema solicita as informações para a pergunta
+3. O ator informa os dados da pergunta 
+5. O ator salva a pergunta feita
+6. O caso de uso encerra
 
 #### Fluxo de Exceção:
- - No passo 5 caso os dados do post não estejam corretos:
+ - No passo 3 caso os dados da pergunta não estejam corretos:
  1. O sistema exibe uma mensagem de erro
- 2. O fluxo retorna para o passo 3 do fluxo base
+ 2. O fluxo retorna para o passo 2 do fluxo base
 
 
 ### Informações adicionais
