@@ -54,14 +54,14 @@
 .header-login {
   display: flex;
   flex-direction: row;
-  gap: 50%;
+  justify-content: space-between;
+  width: 13%;
 }
 
 .login-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 5px;
 }
 
 .bichinho {
