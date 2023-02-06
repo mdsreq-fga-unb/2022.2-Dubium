@@ -97,17 +97,17 @@ export default function PerguntaSelecionada() {
   };
 
   const updateFavoritoPergunta = async () => {
+    const infoPergunta = {
+      id_usuario: localStorage.getItem("userId"),
+      id_pergunta: idPergunta,
+    };
+
     await apiRequest
-      .patch(
-        favoritoPergunta
-          ? `perguntas/menos/${idPergunta}`
-          : `perguntas/${idPergunta}`,
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      )
+      .post("perguntas-favoritas", infoPergunta, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         console.log(response);
       })
@@ -115,17 +115,16 @@ export default function PerguntaSelecionada() {
   };
 
   const updateFavoritoResposta = async (idResposta) => {
+    const infoPergunta = {
+      id_usuario: localStorage.getItem("userId"),
+      id_pergunta: idPergunta,
+    };
     await apiRequest
-      .patch(
-        favoritoResposta
-          ? `respostas/menos/${idResposta}`
-          : `respostas/${idResposta}`,
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      )
+      .post("respostas-favorita", infoPergunta, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         console.log(response);
       })

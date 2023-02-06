@@ -5,6 +5,7 @@ import { forumData } from "../Forum/Sidebar/data";
 import apiRequest from "../../services/api";
 import { useEffect } from "react";
 import { useState } from "react";
+import InputMask from "react-input-mask";
 
 export default function EditarUsuario() {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
@@ -13,7 +14,11 @@ export default function EditarUsuario() {
 
   useEffect(() => {
     apiRequest
-      .get(`usuarios/${idUsuario}`)
+      .get(`usuarios/${idUsuario}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         setUsuarioSelecionado(response.data);
       })
@@ -21,6 +26,14 @@ export default function EditarUsuario() {
         console.error("ops! ocorreu um erro" + err);
       });
   }, []);
+
+  function formatPhoneNumber(phoneNumber) {
+    const formattedPhoneNumber = phoneNumber
+      .replace(/[^0-9]/g, "")
+      .replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+
+    return formattedPhoneNumber;
+  }
 
   const {
     register,
@@ -65,7 +78,11 @@ export default function EditarUsuario() {
     };
 
     await apiRequest
-      .put(`usuarios/${idUsuario}`, usuarioEditado)
+      .put(`usuarios/${idUsuario}`, usuarioEditado, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         alert("Seus dados foram editados com sucesso!");
       })
@@ -88,7 +105,6 @@ export default function EditarUsuario() {
                 defaultValue={usuarioSelecionado?.nome_completo}
               />
               <input
-                type="number"
                 name="matricula"
                 {...register("matricula")}
                 placeholder="Matrícula"
@@ -115,13 +131,16 @@ export default function EditarUsuario() {
             </div>
             <div className="grupo-x">
               <input
-                type="number"
+                type="tel"
                 name="celular"
                 {...register("celular")}
                 placeholder="Telefone Celular"
                 required
                 className="cdu-campos"
-                defaultValue={usuarioSelecionado?.celular}
+                defaultValue={
+                  usuarioSelecionado?.celular &&
+                  formatPhoneNumber(usuarioSelecionado?.celular)
+                }
               />
               <input
                 type="email"

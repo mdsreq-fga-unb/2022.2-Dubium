@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { forumData } from "../Forum/Sidebar/data";
 import apiRequest from "../../services/api";
+import InputMask from "react-input-mask";
 
 export default function CadastrarUsuarios() {
   const navigate = useNavigate();
@@ -75,13 +76,13 @@ export default function CadastrarUsuarios() {
               required
               className="cdu-campos"
             />
-            <input
-              type="number"
+            <InputMask
               name="matricula"
               {...register("matricula")}
               placeholder="Matrícula"
               required
               className="cdu-campos"
+              mask="999999999"
             />
             <select
               name="engenharia"
@@ -100,13 +101,13 @@ export default function CadastrarUsuarios() {
             </select>
           </div>
           <div className="grupo-x">
-            <input
-              type="number"
+            <InputMask
               name="celular"
               {...register("celular")}
               placeholder="Telefone Celular"
               required
               className="cdu-campos"
+              mask="(99)99999-9999"
             />
             <input
               type="email"
