@@ -14,6 +14,8 @@ import Footer from "./components/footer";
 import Salvos from "./pages/Salvos";
 import Sobre from "./pages/Sobre";
 import Login from "./pages/login";
+import RecuperarSenha from "./pages/RecuperarSenha"
+import AlterarSenha from "./pages/AlterarSenha"
 
 import ForumLayout from "./pages/Forum/ForumLayout";
 import AuthLayout from "./components/AuthLayout";
@@ -78,6 +80,8 @@ function App() {
         </Route>
         <Route path="/cadastrar-usuario" element={<CadastrarUsuarios />} />
         <Route path="/login" element={<Login setLogado={setLogado} />} />
+        <Route path="/recuperar-senha" element={<RecuperarSenha />} />
+        <Route path="/alterar-senha" element={<AlterarSenha />} />
       </Routes>
       <Footer />
     </Router>

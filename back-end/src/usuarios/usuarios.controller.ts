@@ -27,11 +27,13 @@ export class UsuariosController {
     return this.authService.login(req.user);
   }
 
+  @SkipAuth()
   @Post('forgotPassword')
   async forgotPassword(@Body() email: string) {
     return this.service.forgotPassword(email);
   }
 
+  @SkipAuth()
   @Post('resetPassword')
   async resetPassword(@Body() email: string) {
     return this.service.resetPassword(email);
