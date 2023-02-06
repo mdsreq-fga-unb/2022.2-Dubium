@@ -29,10 +29,16 @@ function Header({ setMateriaPesquisada, setLogado }) {
           <Link to="/">FÓRUM</Link>
         </li>
         <li className="item">
-          <Link to="/avisos">AVISOS</Link>
+          <Link to={localStorage.getItem("token") ? "/avisos" : "/login"}>
+            AVISOS
+          </Link>
         </li>
         <li className="item">
-          <Link to="/ranking-usuarios">USUARIOS</Link>
+          <Link
+            to={localStorage.getItem("token") ? "/ranking-usuarios" : "/login"}
+          >
+            USUARIOS
+          </Link>
         </li>
         <li className="item">
           <Link to="/sobre">SOBRE</Link>

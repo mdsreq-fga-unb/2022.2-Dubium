@@ -1,0 +1,24 @@
+.editar-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+
+.eu-form {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 10%;
+  border-radius: 10px;
+}
+
+.eu-form-campos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 40px;
+}

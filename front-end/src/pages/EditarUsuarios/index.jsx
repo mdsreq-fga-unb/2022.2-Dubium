@@ -74,69 +74,73 @@ export default function EditarUsuario() {
 
   return (
     <div className="container" style={{ marginLeft: "-301px" }}>
-      <div className="cadastrar-usuario">
-        <form action="" onSubmit={handleSubmit(onSubmit)} className="cdu-form">
-          <div className="cdu-form-campos">
-            <input
-              type="text"
-              name="nome_completo"
-              {...register("nome_completo")}
-              placeholder="Nome Completo"
-              required
-              className="cdu-campos"
-              defaultValue={usuarioSelecionado?.nome_completo}
-            />
-            <input
-              type="number"
-              name="matricula"
-              {...register("matricula")}
-              placeholder="Matrícula"
-              required
-              className="cdu-campos"
-              defaultValue={usuarioSelecionado?.matricula}
-            />
-            <select
-              name="engenharia"
-              {...register("engenharia")}
-              required
-              className="cdu-campos"
-              defaultValue={usuarioSelecionado?.engenharia}
-            >
-              {forumData.map(
-                (data, index) =>
-                  index != 0 && (
-                    <option value={data.name} key={index}>
-                      {data.name}
-                    </option>
-                  )
-              )}
-            </select>
-            <input
-              type="number"
-              name="celular"
-              {...register("celular")}
-              placeholder="Telefone Celular"
-              required
-              className="cdu-campos"
-              defaultValue={usuarioSelecionado?.celular}
-            />
-            <input
-              type="email"
-              name="email"
-              {...register("email")}
-              placeholder="Email"
-              required
-              className="cdu-campos"
-              defaultValue={usuarioSelecionado?.email}
-            />
-            <input
-              type="password"
-              name="senha"
-              {...register("senha")}
-              placeholder="Senha"
-              required
-              className="cdu-campos"
-            />
+      <div className="editar-usuario">
+        <form action="" onSubmit={handleSubmit(onSubmit)} className="eu-form">
+          <div className="eu-form-campos">
+            <div className="grupo-x">
+              <input
+                type="text"
+                name="nome_completo"
+                {...register("nome_completo")}
+                placeholder="Nome Completo"
+                required
+                className="cdu-campos"
+                defaultValue={usuarioSelecionado?.nome_completo}
+              />
+              <input
+                type="number"
+                name="matricula"
+                {...register("matricula")}
+                placeholder="Matrícula"
+                required
+                className="cdu-campos"
+                defaultValue={usuarioSelecionado?.matricula}
+              />
+              <select
+                name="engenharia"
+                {...register("engenharia")}
+                required
+                className="cdu-campos"
+                defaultValue={usuarioSelecionado?.engenharia}
+              >
+                {forumData.map(
+                  (data, index) =>
+                    index != 0 && (
+                      <option value={data.name} key={index}>
+                        {data.name}
+                      </option>
+                    )
+                )}
+              </select>
+            </div>
+            <div className="grupo-x">
+              <input
+                type="number"
+                name="celular"
+                {...register("celular")}
+                placeholder="Telefone Celular"
+                required
+                className="cdu-campos"
+                defaultValue={usuarioSelecionado?.celular}
+              />
+              <input
+                type="email"
+                name="email"
+                {...register("email")}
+                placeholder="Email"
+                required
+                className="cdu-campos"
+                defaultValue={usuarioSelecionado?.email}
+              />
+              <input
+                type="password"
+                name="senha"
+                {...register("senha")}
+                placeholder="Senha"
+                required
+                className="cdu-campos"
+              />
+            </div>
           </div>
           <div
             className="cdu-form-buttons"

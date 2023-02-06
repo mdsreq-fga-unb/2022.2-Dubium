@@ -43,14 +43,21 @@ export default function ForumBody({ materiaPesquisada }) {
       <div className="container-pergunta">
         <div className="criar-pergunta">
           <Link
-            to={localStorage.getItem("userId") ? "/criar-pergunta" : "/login"}
+            to={localStorage.getItem("token") ? "/criar-pergunta" : "/login"}
           >
             <button>FAÇA UMA PERGUNTA</button>
           </Link>
         </div>
         {perguntasFiltradas.map((pergunta, index) => {
           return (
-            <Link to={`/pergunta/${pergunta.id}`} key={index}>
+            <Link
+              to={
+                localStorage.getItem("token")
+                  ? `/pergunta/${pergunta.id}`
+                  : "/login"
+              }
+              key={index}
+            >
               <div className="card-pergunta">
                 <div className="usuario-pergunta">
                   <PersonIcon fontSize="large" />
