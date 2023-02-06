@@ -1,6 +1,7 @@
 import { Pergunta } from "src/perguntas/entities/pergunta.entity";
+import { RespostaFavorita } from "src/respostas_favoritas/entities/respostas_favoritas.entity";
 import { Usuario } from "src/usuarios/entities/usuario.entity";
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm";
 
 @Entity()
 export class Resposta {
@@ -15,6 +16,9 @@ export class Resposta {
 
     @Column({default: 0})
     votosTotais: number;
+
+    @OneToMany(() => RespostaFavorita, respostaFavorita => respostaFavorita)
+    respostaFavorita: RespostaFavorita[];
 
     @ManyToOne(() => Usuario, usuario => usuario.resposta, {
         onDelete: 'CASCADE'

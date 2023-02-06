@@ -4,6 +4,7 @@ import { PerguntaSalva } from "src/perguntas-salvas/entities/perguntas_salvas.en
 import { Pergunta } from "src/perguntas/entities/pergunta.entity";
 import { PerguntaFavorita } from "src/perguntas_favoritas/entities/perguntas_favoritas.entity";
 import { Resposta } from "src/respostas/entities/resposta.entity";
+import { RespostaFavorita } from "src/respostas_favoritas/entities/respostas_favoritas.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 
 
@@ -47,6 +48,9 @@ export class Usuario {
 
     @OneToMany(() => Resposta, resposta => resposta)
     resposta: Resposta[];
+
+    @OneToMany(() => RespostaFavorita, respostaFavorita => respostaFavorita)
+    respostaFavorita: RespostaFavorita[];
 
     @OneToMany(() => Aviso, aviso => aviso)
     aviso: Aviso[];
