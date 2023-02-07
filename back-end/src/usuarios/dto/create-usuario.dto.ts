@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsNumber, MinLength, Validate, MaxLength, IsEmail } from "class-validator";
+import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsNumber, MinLength, Validate, MaxLength, IsEmail, IsDate } from "class-validator";
 import { PasswordValidation, PasswordValidationRequirement } from 'class-validator-password-check'
 
 
@@ -33,4 +33,12 @@ export class CreateUsuarioDto {
     @MaxLength(20)
     @Validate(PasswordValidation, [passwordRequirement])
     password: string;
+
+    @IsString()
+    @IsOptional()
+    tokenRestaurarSenha: string;
+
+    @IsDate()
+    @IsOptional()
+    expiracaoSenha: Date;
 }
