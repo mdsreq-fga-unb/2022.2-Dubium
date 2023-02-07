@@ -12,6 +12,9 @@ import PersonIcon from "@mui/icons-material/Person";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css";
+
 import PerguntasCadastradas from "./PerguntasCadastradas";
 
 export default function PerfilUsuario({ setLogado }) {
@@ -38,20 +41,39 @@ export default function PerfilUsuario({ setLogado }) {
   }, []);
 
   const deletarUsuario = async () => {
-    await apiRequest
-      .delete(`usuarios/${idUsuario}`, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-      .then(() => {
-        alert("Conta deletada com sucesso!");
-      })
-      .catch((error) => console.log(error));
+    if (confirm("Tem certeza que deseja excluir sua conta?")) {
+      await apiRequest
+        .delete(`usuarios/${idUsuario}`, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then(() => {
+          alert("Conta deletada com sucesso!");
+        })
+        .catch((error) => console.log(error));
 
-    localStorage.clear();
-    setLogado(false);
-    navigate(-1);
+      localStorage.clear();
+      navigate(-1);
+      setLogado(false);
+    }
+  };
+
+  const handleDelete = () => {
+    confirmAlert({
+      title: "Excluir conta",
+      message: "Você tem certeza que deseja excluir sua conta?",
+      buttons: [
+        {
+          label: "Sim",
+          onClick: () => deletarUsuario(),
+        },
+        {
+          label: "Não",
+          onClick: () => {},
+        },
+      ],
+    });
   };
 
   const updateFavotito = async () => {

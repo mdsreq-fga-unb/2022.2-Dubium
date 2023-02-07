@@ -10,14 +10,21 @@
 .usuario-ranqueado {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 25px;
   background-color: #fafafa;
-  padding: 30px;
   align-items: center;
+  padding: 30px;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .usuario-ranqueado:hover {
   background-color: #eeeeee;
+}
+
+.ru-favorito {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
