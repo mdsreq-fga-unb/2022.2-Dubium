@@ -87,6 +87,8 @@ export default function EditarUsuario() {
         alert("Seus dados foram editados com sucesso!");
       })
       .catch((error) => console.log(error));
+
+    navigate(-1);
   };
 
   return (

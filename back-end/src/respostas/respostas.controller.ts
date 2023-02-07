@@ -3,6 +3,7 @@ import { RespostasService } from './respostas.service';
 import { CreateRespostaDto } from './dto/create-resposta.dto';
 import { Resposta } from './entities/resposta.entity';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { SkipAuth } from '../auth/public-key.decorator';
 
 @Controller('respostas')
 export class RespostasController {
@@ -33,11 +34,13 @@ export class RespostasController {
     return this.service.remove(+id);
   } 
 
+  @SkipAuth()
   @Patch(':id')
   updateMaisVotosResposta(@Param('id') id: string) {
     return this.service.updateMaisVotosResposta(+id);
   } 
 
+  @SkipAuth()
   @Patch('/menos/:id')
   updateMenosVotosResposta(@Param('id') id: string) {
     return this.service.updateMenosVotosResposta(+id);

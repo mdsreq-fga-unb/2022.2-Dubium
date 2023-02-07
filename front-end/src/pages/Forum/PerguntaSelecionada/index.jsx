@@ -112,6 +112,17 @@ export default function PerguntaSelecionada() {
         console.log(response);
       })
       .catch((error) => console.log(error));
+
+    await apiRequest
+      .patch(
+        favoritoPergunta
+          ? `perguntas/menos/${idPergunta}`
+          : `perguntas/${idPergunta}`
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
   };
 
   const updateFavoritoResposta = async (idResposta) => {
@@ -125,6 +136,17 @@ export default function PerguntaSelecionada() {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
       })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
+
+    await apiRequest
+      .patch(
+        favoritoResposta
+          ? `respostas/menos/${idResposta}`
+          : `respostas/${idResposta}`
+      )
       .then((response) => {
         console.log(response);
       })

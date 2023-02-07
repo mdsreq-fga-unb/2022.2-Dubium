@@ -43,24 +43,23 @@ export default function CadastrarUsuarios() {
 
     let novoUsuario = {
       nome_completo: data.nome_completo,
-      matricula: data.matricula,
       curso: indexEngenharia,
-      celular: data.celular,
+      matricula: data.matricula,
       email: data.email,
+      celular: data.celular,
       password: data.senha,
     };
 
     await apiRequest
-      .post("usuarios", novoUsuario, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
+      .post("usuarios", novoUsuario)
       .then((response) => {
         alert("Usuário cadastrado com sucesso!");
         navigate("/login");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        alert("Falha ao cadastrar o usuário!");
+      });
   };
 
   return (

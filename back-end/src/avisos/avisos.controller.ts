@@ -3,6 +3,7 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { Aviso } from './avisos.entity';
 import { AvisosService } from './avisos.service';
 import { CreateAvisoDto } from './dto/create-aviso.dto';
+import { SkipAuth } from '../auth/public-key.decorator';
 
 @Controller('avisos')
 export class AvisosController {
@@ -37,11 +38,14 @@ export class AvisosController {
   async remove(@Param('id') id: string) {
     return this.service.remove(+id);
   }
+
+  @SkipAuth()
   @Patch(':id')
   updateMaisVotosAviso(@Param('id') id: string) {
     return this.service.updateMaisVotosAviso(+id);
   }
 
+  @SkipAuth()
   @Patch('/menos/:id')
   updateMenosVotosAviso(@Param('id') id: string) {
     return this.service.updateMenosVotosAviso(+id);

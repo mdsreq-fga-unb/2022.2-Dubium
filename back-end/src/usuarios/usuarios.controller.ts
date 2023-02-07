@@ -60,11 +60,13 @@ export class UsuariosController {
     return this.service.findUsuarioById(+id);
   }
 
+  @SkipAuth()
   @Patch(':id')
   updateMaisVotosUsuario(@Param('id') id: string) {
     return this.service.updateMaisVotosUsuario(+id);
   } 
 
+  @SkipAuth()
   @Patch('/menos/:id')
   updateMenosVotosUsuario(@Param('id') id: string) {
     return this.service.updateMenosVotosUsuario(+id);

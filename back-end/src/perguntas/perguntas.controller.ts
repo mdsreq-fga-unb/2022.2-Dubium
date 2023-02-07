@@ -40,11 +40,13 @@ export class PerguntasController {
     return this.service.remove(+id);
   }
 
+  @SkipAuth()
   @Patch(':id')
   updateMaisVotosPergunta(@Param('id') id: string) {
     return this.service.updateMaisVotosPergunta(+id);
   }
 
+  @SkipAuth()
   @Patch('/menos/:id')
   updateMenosVotosPergunta(@Param('id') id: string) {
     return this.service.updateMenosVotosPergunta(+id);
