@@ -1998,6 +1998,10 @@
 <td>E3</td>
 <td>Realizar administraçao de pessoas</td>
 </tr>
+<tr>
+<td>E4</td>
+<td>Estabelecer chat de comunicação</td>
+</tr>
 </tbody>
 </table>
 <h2 id="2-features">2. Features</h2>
@@ -2055,6 +2059,16 @@
 <td>FT08</td>
 <td>Gerenciar autenticação de dados do usuario</td>
 </tr>
+<tr>
+<td>E4</td>
+<td>FT01</td>
+<td>Gerenciar mensagens</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>FT02</td>
+<td>Gerenciar historico de conversas</td>
+</tr>
 </tbody>
 </table>
 <h2 id="3-user-stories">3. User Stories</h2>
@@ -2079,7 +2093,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT01</td>
 <td>US01</td>
 <td>Eu, como usuário, gostaria de cadastrar avisos para informar notícias de acontecimentos como monitorias</td>
-<td>Preencher</td>
+<td>Caracteres especiais devem ser aceitos ao criar aviso<br><br>Números devem ser aceitos ao criar aviso<br><br>Avisos devem ter identificações diferentes<br><br> Os avisos devem ser adicionadas em alguma engenharia<br><br>O corpo do aviso deve ser obrigatório<br><br>O título do aviso deve ser obrigatório<br><br>O filtro do aviso deve ser obrigatório<br><br>A engenharia do aviso deve ser obrigatória</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2087,7 +2101,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT01</td>
 <td>US02</td>
 <td>Eu, como usuário, gostaria de visualizar uma lista de avisos feitos para ficar ciente dos acontecimentos da Universidade.</td>
-<td>Preencher</td>
+<td>É permitida a visualização de um aviso por vez<br><br>Uma lista de avisos já feitos anteriormente deve ser visualizada<br><br>Os avisos podem estar separadas por área de conhecimento<br><br>A visualização deve conter o nome e o curso do usuário que fez o aviso</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2095,7 +2109,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT01</td>
 <td>US03</td>
 <td>Eu, como usuário, gostaria de apagar meus avisos para caso de escrita incorreta ou passagem de prazo</td>
-<td>Preencher</td>
+<td>A exclusão pode ser feita a qualquer momento sem limite de tempo após sua publicação<br><br>Somente o autor do aviso pode apagá-lo</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2103,7 +2117,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT01</td>
 <td>US04</td>
 <td>Eu, como usuário gostaria de salvar os avisos que me interessem, para não perde-los e poder verifica-los mais facilmente depois</td>
-<td>Preencher</td>
+<td>Os avisos salvos devem ser visualizados numa aba a parte chamada "avisos"<br><br>Deve-se exibir apenas o nome do aviso salvo na lista de visualização</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2111,7 +2125,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT02</td>
 <td>US05</td>
 <td>Eu como usuário gostaria de ser capaz de publicar perguntas para tirar minhas dúvidas</td>
-<td>Caracteres especiais devem ser aceitos ao criar pergunta <br><br> Números devem ser aceitos ao criar pergunta <br><br> Perguntas devem ter identificações diferentes <br><br> As perguntas devem ser adicionadas em alguma engenharia</td>
+<td>Caracteres especiais devem ser aceitos ao criar pergunta <br><br> Números devem ser aceitos ao criar pergunta <br><br> Perguntas devem ter identificações diferentes <br><br> As perguntas devem ser adicionadas em alguma engenharia<br><br>O corpo da pergunta deve ser obrigatório<br><br>O título da pergunta deve ser obrigatório<br><br>O filtro da pergunta deve ser obrigatório<br><br>A engenharia da pergunta deve ser obrigatória</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2143,7 +2157,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT02</td>
 <td>US09</td>
 <td>Eu como usuário gostaria de salvar as perguntas que me interessem, para não perde-los e poder verifica-los mais facilmente depois</td>
-<td>Preencher</td>
+<td>As perguntas salvas devem ser visualizadas numa aba a parte chamada "perguntas"<br><br>Deve-se exibir apenas o nome da pergunta salva na lista de visualização</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2151,7 +2165,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT03</td>
 <td>US10</td>
 <td>Eu como usuário gostaria de poder responder todas as perguntas disponibilizadas no forum para fins de ajudar outros usuarios</td>
-<td>Caracteres especiais devem ser aceitos ao criar respostas <br><br> Números devem ser aceitos ao criar respostas <br><br> Respostas devem ter identificações diferentes <br><br> Uma pergunta não poderá existir se não existir um usuário e uma pergunta para criá-la</td>
+<td>Caracteres especiais devem ser aceitos ao criar respostas;<br><br>Números devem ser aceitos ao criar respostas;<br><br>Respostas devem ter identificações diferentes;<br><br>Uma resposta não poderá existir se não existir um usuário e uma pergunta para criá-la<br><br>O corpo da resposta deve ser obrigatório</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2167,16 +2181,8 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT03</td>
 <td>US12</td>
 <td>Eu, como usuário, gostaria de deletar minhas respostas para fim de escrita incorreta</td>
-<td>preencher</td>
+<td>A exclusão pode ser feita a qualquer momento sem limite de tempo após sua publicação<br><br>Somente o autor da resposta pode apagá-la</td>
 <td>Alta</td>
-</tr>
-<tr>
-<td>E1</td>
-<td>FT04</td>
-<td>Disponibilizar fórum de dúvidas</td>
-<td>Gerenciar respostas de avisos</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>E2</td>
@@ -2191,7 +2197,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT04</td>
 <td>US14</td>
 <td>Eu como usuário gostaria de visualizar a minha posição no ranking geral para fins de melhora-la</td>
-<td>O usuário pode visualizar a nota por meio de quantidade de estrelas</td>
+<td>O rankeamento precisa ser em ordem decrescente (do mais votado para o menos votado)</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2199,7 +2205,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT05</td>
 <td>US15</td>
 <td>Eu como usuário gostaria de visualizar as perguntas do fórum conforme a ordem de rankeamento para saber as perguntas mais e menos relevantes</td>
-<td>A quantidade de likes recebidas por usuário</td>
+<td>O rankeamento precisa ser em ordem decrescente (do mais votado para o menos votado)</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2223,7 +2229,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT06</td>
 <td>US18</td>
 <td>Eu, como usuário, gostaria de visualizar as respostas em ordem de rankeamento, para saber as melhores respostas fornecidas</td>
-<td>A votação será feita por estrelas</td>
+<td>O rankeamento precisa ser em ordem decrescente (do mais votado para o menos votado)</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2231,7 +2237,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT07</td>
 <td>US19</td>
 <td>Eu, como usuário, gostaria de avaliar os avisos postados para fim de destaque dos mais importantes</td>
-<td>preencher</td>
+<td>A votação será feita por estrelas</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2239,7 +2245,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT07</td>
 <td>US20</td>
 <td>Eu, como usuário, gostaria de visualizar os avisos em ordem de rankeamento, para saber quais sao os principais avisos da faculdade</td>
-<td>preencher</td>
+<td>O rankeamento precisa ser em ordem decrescente (do mais votado para o menos votado)</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2255,7 +2261,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT08</td>
 <td>US22</td>
 <td>Eu como usuário gostaria de visualizar os meus dados cadastrais em uma aba de perfil para poder conferir se as informações estão corretas</td>
-<td>Todas as informações utilizadas no cadastro devem estar disponíveis nesta aba</td>
+<td>Todas as informações utilizadas no cadastro devem estar disponíveis nesta aba, menos matrícula e senha<br><br>É permitida a visualização de um usuario por vez<br><br>Uma lista de usuários deve ser visualizada</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2287,7 +2293,7 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>FT09</td>
 <td>US26</td>
 <td>Eu como usuário gostaria de realizar login com email e senha para adentrar no sistema</td>
-<td>O login pode ser feito atraves do email</td>
+<td>O login pode ser feito atraves de email e senha</td>
 <td>Alta</td>
 </tr>
 <tr>
@@ -2297,22 +2303,6 @@ adicionar os criterios e a prioridade que estão no documento do bacdklog -->
 <td>Eu como usuário gostaria de ter a possibilidade de recuperar minha senha através do email caso eu a esqueça</td>
 <td>O e-mail deve ser autenticado em até 10 minutos</td>
 <td>Alta</td>
-</tr>
-<tr>
-<td>E4</td>
-<td>FT01</td>
-<td>Estabelecer chat de comunicação</td>
-<td>Gerenciar mensagens</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>E4</td>
-<td>FT02</td>
-<td>Estabelecer chat de comunicação</td>
-<td>Gerenciar historico de conversas</td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
