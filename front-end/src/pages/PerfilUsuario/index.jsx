@@ -54,7 +54,7 @@ export default function PerfilUsuario({ setLogado }) {
         .catch((error) => console.log(error));
 
       localStorage.clear();
-      navigate(-1);
+      navigate("/");
       setLogado(false);
     }
   };
