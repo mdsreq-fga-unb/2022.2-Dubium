@@ -86,6 +86,7 @@ RESTRIÇÃO DE DESIGN | RN7 | A interface do sistema deve seguir a paleta de ver
 #### Por: Júlio César - 19/0015721
 
 Descrição: Caso de Uso: UC-02 Alterar Senha: Este caso de uso especifica que o ator altere sua senha cadastrada. Apenas usuários cadastrados podem recuperar sua senha. Para alterar a senha,  o usuário receberá um email com link para alterar a senha, a fim de confirmar sua identidade. 
+
 * Atores: Usuário, Email
 * Pré-Condições: O ator Professor-Aluno deve estar cadastrado no sistema. 
 * Pós-Condições: O ator Professor-Aluno deverá ser autenticado com a nova senha cadastrada.
