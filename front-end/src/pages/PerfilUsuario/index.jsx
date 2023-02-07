@@ -20,10 +20,12 @@ import PerguntasCadastradas from "./PerguntasCadastradas";
 export default function PerfilUsuario({ setLogado }) {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [favorito, setFavorito] = useState(false);
+  
 
   const { idUsuario } = useParams();
 
   const navigate = useNavigate();
+
 
   useEffect(() => {
     apiRequest
@@ -38,7 +40,7 @@ export default function PerfilUsuario({ setLogado }) {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, []);
+  }, [idUsuario]);
 
   const deletarUsuario = async () => {
     if (confirm("Tem certeza que deseja excluir sua conta?")) {
