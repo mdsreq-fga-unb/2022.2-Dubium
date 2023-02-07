@@ -113,9 +113,9 @@ export default function Login({ setLogado }) {
           </div>
         </form>
         <span className="lc-alterantiva">Esqueci minha senha</span>
-        <Link to="/cadastrar-usuario">
+        <Link to="/cadastrar-usuario"/>
           <span className="lc-alterantiva">Realizar cadastro</span>
-        </Link>
+        <Link to="/recuperar-senha"/>
       </div>
     </div>
   );
