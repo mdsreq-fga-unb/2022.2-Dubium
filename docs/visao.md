@@ -232,7 +232,7 @@ VAL-01 | Validação das User Stories | Reunião semanal em grupo junto ao clien
 ##### 3.3.4.1 VERIFICAÇÃO DE REQUISITOS
 Identificador | Atividade | Método | Ferramenta | Entrega
 ------------- | --------- | ------ | ---------- | -------
-VER-01 | Verificação da implementação dos requisitos | Reunião quinzenal em grupo junto (retrospectiva) para verificar a produção do produto | Google Meets; Github | Tabela de check com uma verificação da implementação
+VER-01 | Verificação da implementação dos requisitos | Reunião semanal em grupo junto (retrospectiva) para verificar a produção do produto | Google Meets; Github | Tabela de check com uma verificação da implementação
 
 ### 3.4 Arquitetura do Projeto
 Com base na escolha de frameworks e foca na visualização e organização do projeto, definiu-se a escolha da aplicação MVC (Model-View-Controller), que é um padrão de arquitetura dividido logicamente em três partes:
