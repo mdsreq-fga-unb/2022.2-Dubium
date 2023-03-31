@@ -4,7 +4,7 @@
 <h3 align="center"> 2022.2 </h3>
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=PROCESSING&color=GREEN&style=for-the-badge"/>
+<img src="http://img.shields.io/static/v1?label=STATUS&message=COMPLETE&color=RED&style=for-the-badge"/>
 </p>
 
 ## Índice 
