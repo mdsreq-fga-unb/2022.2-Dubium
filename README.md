@@ -1,7 +1,7 @@
 
 
-<h1 align="center"> Discipulus </h1>
-<h3 align="center"> 2022.2 </h3>
+<h1 align="center"> Discipulus e TwoDo </h1>
+<h3 align="center"> 2022.2 / 2023.1</h3>
 
 <p align="center">
 <img src="http://img.shields.io/static/v1?label=STATUS&message=COMPLETE&color=RED&style=for-the-badge"/>
