@@ -1,5 +1,5 @@
-<h1 align="center"> Discipulus </h1>
-<h3 align="center"> 2022.2 </h3>
+<h1 align="center"> Conecta FGA </h1>
+<h3 align="center"> 2023.1 </h3>
 
 <p align="center">
 <img src="http://img.shields.io/static/v1?label=STATUS&message=PROCESSING&color=GREEN&style=for-the-badge"/>
@@ -7,12 +7,14 @@
 
 ## Índice
 
+- [Índice](#índice)
 - [Descrição do Projeto](#descrição-do-projeto)
 - [Site Oficial](#site-oficial)
 - [Documentação](#documentação)
-- [Clonando o Repositório](#clonando-o-repositório)
+- [Clonando o repositório](#clonando-o-repositório)
 - [Instalação](#instalação)
 - [Equipe](#equipe)
+  - [REQ](#req)
 
 ## Descrição do Projeto
 
@@ -41,8 +43,8 @@ $ cd 2022.2-Dubium
 
 - [Git](https://git-scm.com/)
 - [Node](https://nodejs.org/en/)
-- [Nest.js](https://nestjs.com/)
-- [Yarn](https://yarnpkg.com/)
+- [Express.js](https://nestjs.com/)
+- [Mocha](https://yarnpkg.com/)
 
 ## Equipe
 

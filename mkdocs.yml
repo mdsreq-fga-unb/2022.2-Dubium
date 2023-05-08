@@ -12,14 +12,13 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
 
-plugins:
-  - mkdocs-video
-
 nav:
   - Início: "index.md"
   - Documentação:
       - Visão do Produto e Projeto: "visao.md"
-      - Backlog SAFe: "backlog-safe.md"
+      - Backlog: 
+        - Backlog Geral: "backlog-safe.md"
+        - Backlog ConectaFGA: "backlog-conectafga.md"
       - MVPS: "mvps.md"
       - URPS+: "urps.md"
       - PBB & BDD: "pbb.md"
