@@ -1,6 +1,6 @@
 
 
-<h1 align="center"> Discipulus e TwoDo </h1>
+<h1 align="center"> Discipulus e ConectaFGA </h1>
 <h3 align="center"> 2022.2 / 2023.1</h3>
 
 <p align="center">
@@ -21,7 +21,7 @@
 
 ## Documentação
 
-:open_file_folder: **Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/">documentação</a> ou abra por um servidor web**
+:open_file_folder: **Para mais informações sobre o projeto acesse nossa <a href="https://github.com/mdsreq-fga-unb/2023.1-Dubium2.0.git">documentação</a> ou abra por um servidor web**
 
 ## Clonando o repositório
 ```bash
