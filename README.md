@@ -89,11 +89,3 @@ $ cd 2022.2-Dubium
         </tbody>
     </table>
 </div>
-### :computer: REQ
-| [<img src="https://avatars.githubusercontent.com/u/60516644?v=4" width=50><br><sub>Eduarda</sub>](https://github.com/erteduarda) 
-| :---: |
-| [<img src="https://avatars.githubusercontent.com/u/54555302?v=4" width=50><br><sub>Gian</sub>](https://github.com/GianMedeiros) | :---: |
-| [<img src="https://avatars.githubusercontent.com/u/54143767?v=4" width=50><br><sub>Giulia</sub>](https://github.com/alcantaragiubs) | :---: |
-| [<img src="https://avatars.githubusercontent.com/u/78378116?v=4" width=50><br><sub>Julio</sub>](https://github.com/Julio-eng) | :---: |
-| [<img src="https://avatars.githubusercontent.com/u/78388335?v=4" width=50><br><sub>Helder</sub>](https://github.com/F1reFinger) | :---: |
-| [<img src="https://avatars.githubusercontent.com/u/78981008?v=4" width=50><br><sub>Silas</sub>](https://github.com/Silas-neres)| :---: |
