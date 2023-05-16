@@ -1,7 +1,7 @@
 {
-  "name": "2022.2-dubium",
+  "name": "2023.1-dubium",
   "version": "1.0.0",
-  "description": "<h1 align=\"center\"> Discipulus </h1> <h3 align=\"center\"> 2022.2 </h3>",
+  "description": "<h1 align=\"center\"> Discipulus e ConectaFGA </h1> <h3 align=\"center\"> 2022.2 e 2023.1 </h3>",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mdsreq-fga-unb/2022.2-Dubium.git"
+    "url": "git+https://mdsreq-fga-unb.github.io/2023.1-Dubium2.0/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mdsreq-fga-unb/2022.2-Dubium/issues"
+    "url": "https://github.com/mdsreq-fga-unb/2023.1-Dubium2.0/issues"
   },
-  "homepage": "https://github.com/mdsreq-fga-unb/2022.2-Dubium#readme",
+  "homepage": "https://github.com/mdsreq-fga-unb/2023.1-Dubium2.0#readme",
   "devDependencies": {
     "jest": "^29.3.1"
   }
