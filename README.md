@@ -25,7 +25,7 @@
 
 ## Clonando o repositório
 ```bash
-$ git clone https://github.com/mdsreq-fga-unb/2022.2-Dubium.git
+$ git clone https://github.com/mdsreq-fga-unb/2023.1-Dubium.git
 $ cd 2022.2-Dubium
 ```
 <!-- ### Executando o projeto -->
