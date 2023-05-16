@@ -26,13 +26,13 @@
 
 ## Documentação
 
-**Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/">documentação</a> ou abra por um servidor web**
+**Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2023.1-Dubium/">documentação</a> ou abra por um servidor web**
 
 ## Clonando o repositório
 
 ```bash
-$ git clone https://github.com/mdsreq-fga-unb/2022.2-Dubium.git
-$ cd 2022.2-Dubium
+$ git clone https://github.com/mdsreq-fga-unb/2023.1-Dubium.git
+$ cd 2023.1-Dubium
 ```
 
 <!-- ### Executando o projeto -->
@@ -48,12 +48,54 @@ $ cd 2022.2-Dubium
 
 ## Equipe
 
-### REQ
+<div class="md-typeset__table">
+    <table>
+        <tbody>
+            <tr>
+                <td align="center">
+                    <a href="https://github.com/Arthrok" target="_blank">
+                        <img style="border-radius: 50%;" src="https://github.com/Arthrok.png" width="150px;" alt=""><br>
+                        <sub><b>Arthur Melo</b></sub>
+                    </a><br>
+                    <a href="https://github.com/AnaBeatrizMassuh" target="_blank"></a>
+                </td>
+                                <td align="center">
+                    <a href="https://github.com/daramariabs" target="_blank">
+                        <img style="border-radius: 50%;" src="https://github.com/daramariabs.png" width="150px;" alt=""><br>
+                        <sub><b>Dara Maria</b></sub>
+                    </a><br>
+                    <a href="https://github.com/daramariabs" target="_blank"></a>
+                </td>
+                <td align="center">
+                    <a href="https://github.com/ericbky" target="_blank">
+                        <img style="border-radius: 50%;" src="https://github.com/ericbky.png" width="150px;" alt=""><br>
+                        <sub><b>Eric Silveira</b></sub>
+                    </a><br>
+                    <a href="https://github.com/ericbky" target="_blank"></a>
+                </td>
+                <td align="center">
+                    <a href="https://github.com/fabioaletorres" target="_blank">
+                        <img style="border-radius: 50%;" src="https://github.com/fabioaletorres.png" width="150px;" alt=""><br>
+                        <sub><b>Fabio Alessandro</b></sub>
+                    </a><br>
+                    <a href="https://github.com/fabioaletorre" target="_blank"></a>
+                </td>
+                <td align="center">
+                    <a href="https://github.com/lucasdray" target="_blank">
+                        <img style="border-radius: 50%;" src="https://github.com/lucasdray.png" width="150px;" alt=""><br>
+                        <sub><b>Pedro Lucas Dourado</b></sub>
+                    </a><br>
+                    <a href="https://github.com/lucasdray" target="_blank"></a>
+                </td>
+                <td align="center">
+                    <a href="https://github.com/yaskisoba" target="_blank">
+                        <img style="border-radius: 50%;" src="https://github.com/yaskisoba.png" width="150px;" alt=""><br>
+                        <sub><b>Yasmim Oliveira</b></sub>
+                    </a><br>
+                    <a href="https://github.com/yaskisoba" target="_blank"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-| [<img src="https://avatars.githubusercontent.com/u/60516644?v=4" width=50><br><sub>Eduarda</sub>](https://github.com/erteduarda)
-| :---: |
-| [<img src="https://avatars.githubusercontent.com/u/54555302?v=4" width=50><br><sub>Gian</sub>](https://github.com/GianMedeiros) | :---: |
-| [<img src="https://avatars.githubusercontent.com/u/54143767?v=4" width=50><br><sub>Giulia</sub>](https://github.com/alcantaragiubs) | :---: |
-| [<img src="https://avatars.githubusercontent.com/u/78378116?v=4" width=50><br><sub>Julio</sub>](https://github.com/Julio-eng) | :---: |
-| [<img src="https://avatars.githubusercontent.com/u/78388335?v=4" width=50><br><sub>Helder</sub>](https://github.com/F1reFinger) | :---: |
-| [<img src="https://avatars.githubusercontent.com/u/78981008?v=4" width=50><br><sub>Silas</sub>](https://github.com/Silas-neres)| :---: |
