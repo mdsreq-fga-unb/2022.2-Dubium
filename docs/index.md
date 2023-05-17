@@ -1,4 +1,4 @@
-<h1 align="center"> Conecta FGA </h1>
+<h1 align="center"> Discipulus / Conecta FGA </h1>
 <h3 align="center"> 2023.1 </h3>
 
 <p align="center">
@@ -14,7 +14,6 @@
 - [Clonando o repositório](#clonando-o-repositório)
 - [Instalação](#instalação)
 - [Equipe](#equipe)
-  - [REQ](#req)
 
 ## Descrição do Projeto
 
