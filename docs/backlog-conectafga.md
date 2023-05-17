@@ -6,7 +6,7 @@
 |01/05/2023|   0.1  | Definição do backlog do produto        |[Arthur](https://github.com/Arthrok)                           |
 |08/05/2023|0.2|Modificações nos Requisitos Não-Funcionais|[Yasmim](https://github.com/yaskisoba)|
 |08/05/2023|0.3|Alteração na estrutura de disposição das US, novas US adicionadas|[Yasmim](https://github.com/yaskisoba), [Arthur](https://github.com/Arthrok), [Eric](https://github.com/ericbky), [Fábio](https://github.com/fabioaletorres)|
-|10/05/2023||
+
 
 
 

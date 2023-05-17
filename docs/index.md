@@ -25,13 +25,13 @@
 
 ## Documentação
 
-**Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2022.2-Dubium/">documentação</a> ou abra por um servidor web**
+**Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2023.1-Dubium/">documentação</a> ou abra por um servidor web**
 
 ## Clonando o repositório
 
 ```bash
-$ git clone https://github.com/mdsreq-fga-unb/2022.2-Dubium.git
-$ cd 2022.2-Dubium
+$ git clone https://github.com/mdsreq-fga-unb/2023.1-Dubium.git
+$ cd 2023.1-Dubium
 ```
 
 <!-- ### Executando o projeto -->
@@ -97,3 +97,4 @@ $ cd 2022.2-Dubium
         </tbody>
     </table>
 </div>
+
