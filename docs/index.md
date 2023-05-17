@@ -1,5 +1,5 @@
 <h1 align="center"> Discipulus / Conecta FGA </h1>
-<h3 align="center"> 2023.1 </h3>
+<h3 align="center"> 2022.2 / 2023.1 </h3>
 
 <p align="center">
 <img src="http://img.shields.io/static/v1?label=STATUS&message=PROCESSING&color=GREEN&style=for-the-badge"/>
