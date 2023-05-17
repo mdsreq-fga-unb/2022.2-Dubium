@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mdsreq-fga-unb/2022.2-Dubium.git"
+    "url": "git+https://github.com/mdsreq-fga-unb/2023.1-Dubium2.0.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mdsreq-fga-unb/2022.2-Dubium/issues"
+    "url": "https://github.com/mdsreq-fga-unb/2023.1-Dubium2.0/issues"
   },
-  "homepage": "https://github.com/mdsreq-fga-unb/2022.2-Dubium#readme",
+  "homepage": "https://github.com/mdsreq-fga-unb/2023.1-Dubium2.0#readme",
   "devDependencies": {
     "jest": "^29.3.1"
   }
