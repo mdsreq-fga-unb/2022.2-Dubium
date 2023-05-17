@@ -15,16 +15,21 @@ theme:
 nav:
   - Início: "index.md"
   - Documentação:
-      - Visão do Produto e Projeto: "visao.md"
-      - Backlog: 
-        - Backlog Geral: "backlog-safe.md"
+        - Documentação v.01:
+        - Visão do Produto e Projeto: "visao.md"
+        - Backlog: 
+        - Backlog Discipulus: "backlog-safe.md"
+        - MVPS: "mvps.md"
+        - URPS+: "urps.md"
+        - PBB & BDD: "pbb.md"
+        - USM: "usm.md"
+        - Casos de Uso: "uml.md"
+        
+        - Documentação v.02:
+        - Visão do Produto e Projeto: "visao.md"
+        - Backlog: 
         - Backlog ConectaFGA: "backlog-conectafga.md"
-      - MVPS: "mvps.md"
-      - URPS+: "urps.md"
-      - PBB & BDD: "pbb.md"
-      - USM: "usm.md"
-      - Casos de Uso: "uml.md"
-  - Entregas:
+        - Entregas:
       - Unidade 1:
           - Visão Geral do Produto: "entrega-visao.md"
           - Material do Seminario - OpenUp/AUP: "entrega-seminario.md"
