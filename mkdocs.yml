@@ -14,11 +14,18 @@ theme:
 
 nav:
   - Início: "index.md"
-  - Documentação:
+  - Documentação v1.0:
       - Visão do Produto e Projeto: "visao.md"
-      - Backlog: 
-        - Backlog Geral: "backlog-safe.md"
-        - Backlog ConectaFGA: "backlog-conectafga.md"
+      - Backlog: "backlog-safe.md"
+      - MVPS: "mvps.md"
+      - URPS+: "urps.md"
+      - PBB & BDD: "pbb.md"
+      - USM: "usm.md"
+      - Casos de Uso: "uml.md"
+
+     Documentação v2.0:
+      - Visão do Produto e Projeto: "visao.md"
+      - Backlog: "backlog-conectafga.md"
       - MVPS: "mvps.md"
       - URPS+: "urps.md"
       - PBB & BDD: "pbb.md"
