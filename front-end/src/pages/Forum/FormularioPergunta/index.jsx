@@ -47,20 +47,17 @@ export default function FormularioPergunta() {
     }
 
     let novaPergunta = {
-      id_usuario: localStorage.getItem("userId"),
-      tituloPergunta: data.titulo,
-      id_cursoPergunta: indexEngenharia,
-      corpoPergunta: data.textoPergunta,
+      // id_usuario: localStorage.getItem("userId"),
+      titulo: data.titulo,
+      curso: indexEngenharia,
+      conteudo: data.textoPergunta,
       filtro: data.filtro,
-      arquivo: data.midia,
-      votosTotais: 0,
+      // arquivo: data.midia,
     };
 
     await apiRequest
-      .post("perguntas", novaPergunta, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
+      .post("/pergunta", novaPergunta, {
+        //verificar
       })
       .then((response) => {
         alert("Pergunta cadastrada com sucesso!");

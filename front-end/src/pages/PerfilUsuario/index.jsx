@@ -11,7 +11,7 @@ import { IconButton } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-
+import jwt from 'jwt-decode';
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css";
 
@@ -20,27 +20,37 @@ import PerguntasCadastradas from "./PerguntasCadastradas";
 export default function PerfilUsuario({ setLogado }) {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [favorito, setFavorito] = useState(false);
+  const [token, setToken] = useState('');
   
 
   const { idUsuario } = useParams();
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+  const getUsuario = () => {
+    apiRequest
+    .get(`/usuario/${idUsuario}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
+    .then((response) => {
+      setUsuarioSelecionado(response.data);
+    })
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+    });
+  }
 
   useEffect(() => {
-    apiRequest
-      .get(`usuarios/${idUsuario}`, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {
-        setUsuarioSelecionado(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, [idUsuario]);
+    if(token && usuarioSelecionado){
+      getUsuario()
+    }
+  }, [token]);
 
   const deletarUsuario = async () => {
     if (confirm("Tem certeza que deseja excluir sua conta?")) {
@@ -97,7 +107,7 @@ export default function PerfilUsuario({ setLogado }) {
             </span>
           </div>
         </div>
-        {localStorage.getItem("userId") == idUsuario && (
+        {token && jwt(token).secret.id == idUsuario && (
           <Link to="/salvos">
             <button className="button-salvos">PERGUNTAS E AVISOS SALVOS</button>
           </Link>
@@ -106,17 +116,18 @@ export default function PerfilUsuario({ setLogado }) {
           <span style={{ fontSize: "18px" }}>INFORMAÇÕES DE CONTATO</span>
           <li className="pu-item-informacao">
             <span>E-mail:</span>
-            <span style={{ color: "#757575" }}>{usuarioSelecionado.email}</span>
+            <span style={{ color: "#ffffff" }}>{usuarioSelecionado?.email}</span>
           </li>
           <li className="pu-item-informacao">
             <span>Telefone:</span>
-            <span style={{ color: "#757575" }}>
-              {usuarioSelecionado.celular}
+            <span style={{ color: "#ffffff" }}>
+              {usuarioSelecionado?.celular}
             </span>
           </li>
         </ul>
+        {/* favoritos e salvos */}
         <ul className="pu-interecoes">
-          <li
+          {token && jwt(token).secret.id != idUsuario && (<li
             className="item-interacao"
             onClick={() => {
               updateFavotito();
@@ -127,10 +138,11 @@ export default function PerfilUsuario({ setLogado }) {
               <StarIcon className={favorito ? "corFavorito" : ""} />
             </IconButton>
             <span>Favoritar</span>
-          </li>
-          {idUsuario == localStorage.getItem("userId") && (
+          </li>)}
+          {/* editar usuario */}
+          {token && idUsuario == jwt(token).secret.id && (
             <div className="pu-opcoes">
-              <Link to={`/editar-usuario/${localStorage.getItem("userId")}`}>
+              <Link to={`/editar-usuario/${jwt(token).secret.id}`}>
                 <li>
                   <button className="pu-editar">
                     <EditIcon sx={{ fontSize: 16 }} />

@@ -3,6 +3,8 @@ import "./style.css";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import isAuthenticated from "../../../isAuth.js";
+
 import SidebarContext from "../../../context/SidebarProvider";
 import pesquisaPosts from "../../../services/pesquisa";
 import handleCurso from "../../../services/curso";
@@ -10,50 +12,67 @@ import apiRequest from "../../../services/api";
 
 import PersonIcon from "@mui/icons-material/Person";
 import StarIcon from "@mui/icons-material/Star";
+apiRequest.defaults.withCredentials = true
 
 export default function ForumBody({ materiaPesquisada }) {
-  const [arrayPerguntas, setArrayPerguntas] = useState([]);
+  const [allQuest, setAllQuest] = useState([]);
   const { elementoSidebar } = useContext(SidebarContext);
 
-  function getPerguntas() {
-    return elementoSidebar == 0
-      ? "perguntas"
-      : `perguntas/curso/${elementoSidebar}`;
-  }
+  useEffect(() => {
+    function getPerguntas() {
+      if (elementoSidebar) {
+        apiRequest.get("/pergunta/view")
+          .then(response => {
+            let filter = response.data.filter(data => data.curso == elementoSidebar)
+            setAllQuest(filter)
+          })
+          .catch(err => {
+            return err
+          })
+      } else {
+        apiRequest.get("/pergunta/view")
+          .then(response => {
+            setAllQuest(response.data)
+          })
+          .catch(err => {
+            return err
+          })
+      }
+    }
+    getPerguntas()
+  }, [elementoSidebar])
+
 
   useEffect(() => {
-    apiRequest
-      .get(getPerguntas(), {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {
-        setArrayPerguntas(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, [elementoSidebar]);
+    function allQuest() {
+      apiRequest.get('/pergunta/view', { withCredentials: true })
+        .then(response => {
+          setAllQuest(response.data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
 
-  const perguntasFiltradas = pesquisaPosts(arrayPerguntas, materiaPesquisada);
+    allQuest()
+  }, [])
 
   return (
     <div className="container">
       <div className="container-pergunta">
         <div className="criar-pergunta">
           <Link
-            to={localStorage.getItem("token") ? "/criar-pergunta" : "/login"}
+            to={isAuthenticated() ? "/criar-pergunta" : "/login"}
           >
-            <button>FAÇA UMA PERGUNTA</button>
+            <button className="buttonPergunta">FAÇA UMA PERGUNTA</button>
           </Link>
         </div>
-        {perguntasFiltradas.map((pergunta, index) => {
+        {allQuest.map((data, index) => {
           return (
             <Link
-              to={
-                localStorage.getItem("token")
-                  ? `/pergunta/${pergunta.id}`
+              to={ // quando clicar levar pra pergunta específica
+                isAuthenticated()
+                  ? `/pergunta/${data._id}`
                   : "/login"
               }
               key={index}
@@ -62,18 +81,18 @@ export default function ForumBody({ materiaPesquisada }) {
                 <div className="usuario-pergunta">
                   <PersonIcon fontSize="large" />
                   <div className="usuario-informacao-texto">
-                    <span>{pergunta.usuario.nome_completo}</span>
+                    <span>{data.idUsuario.nome}</span>
                     <span style={{ color: "#757575" }}>
-                      {handleCurso(pergunta.usuario.curso)}
+                      {handleCurso(data.curso)}
                     </span>
                   </div>
                 </div>
-                <span className="filtro">{pergunta.filtro.toUpperCase()}</span>
-                <span>{pergunta.tituloPergunta}</span>
-                <span>{pergunta.corpoPergunta}</span>
+                <span className="filtro">{data.filtro.toUpperCase()}</span>
+                <span>{data.titulo}</span>
+                <span>{data.conteudo}</span>
                 <div className="like-comentario">
                   <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
-                  <span>{pergunta.votosTotais} favoritos</span>
+                  <span>{data.favoritado} favoritos</span>
                 </div>
               </div>
             </Link>

@@ -4,9 +4,10 @@
   justify-content: space-between;
   align-items: center;
   height: 81px;
-  background-color: #ffffff;
+  background-color: #201F25;
   box-shadow: 0 4px 2px -2px gray;
   position: fixed;
+  color: #ffffff;
   width: 100%;
   top: 0;
   left: 0;
@@ -14,7 +15,8 @@
 }
 
 .logo {
-  height: inherit;
+  margin-left: 0.5rem;
+  height: 4rem;
 }
 
 .list {
@@ -25,30 +27,41 @@
 }
 
 .item a:hover {
-  color: cadetblue;
+  transition: 0.5s;
+  color: #2476aa;
 }
 
 .pesquisa {
   width: 25%;
-  height: 36px;
+  height: 38px;
   display: flex;
   flex-direction: row;
   border-radius: 10px;
-  background-color: #414141;
   align-items: center;
   margin-right: 10px;
 }
 
-.pesquisa svg {
-  color: #ffffff;
+#iconePesquisa{
+  padding: 0.24rem;
+  background-color: #ffffff;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+#iconePesquisa svg {
+  color: #201F25;
   padding-left: 3px;
 }
 
-.pesquisa input {
+#busca {
+  font-size: 13px;
+  background-color: #201F25;
   width: 95%;
-  height: 30px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  height: 28px;
+  color: #ffffff;
+  border: #ffffff solid 2px;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
 }
 
 .header-login {
@@ -65,5 +78,6 @@
 }
 
 .bichinho {
-  height: inherit;
+  width: 10%;
+  height: 80%;
 }

@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { useEffect, useState } from "react";
-
+import jwt from 'jwt-decode';
 import apiRequest from "../../../services/api";
 
 import StarIcon from "@mui/icons-material/Star";
@@ -9,19 +9,30 @@ import { Link } from "react-router-dom";
 
 export default function PerguntasCadastradas({ idUsuario }) {
   const [perguntasCadastradas, setPerguntasCadastradas] = useState([]);
+  const [token, setToken] = useState('');
 
   useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+  const getPerguntas = () => {
     apiRequest
-      .get(`perguntas/usuario/${idUsuario}`, {
+      .get(`/usuario/pergunta/${idUsuario}`, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
         setPerguntasCadastradas(response.data);
       })
       .catch((error) => {});
-  }, []);
+  }
+
+  useEffect(() => {
+    if(token){
+      getPerguntas()
+    }
+  }, [token]);
 
   return (
     <ul className="pc-container">
@@ -30,14 +41,14 @@ export default function PerguntasCadastradas({ idUsuario }) {
       </div>
       {perguntasCadastradas.map((perguntaCadastrada) => (
         <Link
-          to={`/pergunta/${perguntaCadastrada.id}`}
-          key={perguntaCadastrada.id}
+          to={`/pergunta/${perguntaCadastrada._id}`}
+          key={perguntaCadastrada._id}
         >
           <li className="pc-pergunta">
-            <span>{perguntaCadastrada.tituloPergunta}</span>
+            <span>{perguntaCadastrada.titulo}</span>
             <div className="pc-votos">
               <StarIcon fontSize="small" sx={{ color: "#ffa722  " }} />
-              <span>{perguntaCadastrada.votosTotais}</span>
+              <span>{perguntaCadastrada.favoritado}</span>
             </div>
           </li>
         </Link>

@@ -10,50 +10,92 @@ import handleCurso from "../../../services/curso";
 
 import PersonIcon from "@mui/icons-material/Person";
 import StarIcon from "@mui/icons-material/Star";
+import isAuthenticated from "../../../isAuth";
+import jwt from 'jwt-decode' 
 
 export default function AvisosConteudo({ materiaPesquisada }) {
-  const [arrayAvisos, setArrayAvisos] = useState([]);
+  const [allQuest, setAllQuest ] = useState([]);
   const { elementoSidebar } = useContext(SidebarContext);
+  const [token, setToken] = useState('');
 
-  function getAvisos() {
-    return elementoSidebar == 0 ? "avisos" : `avisos/curso/${elementoSidebar}`;
+
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+  const getAvisos = () => {
+    if(elementoSidebar) {
+      apiRequest.get("/aviso", {
+        headers: {
+          Authorization: "Bearer " + token,
+        }
+      })
+        .then(response => {
+          let filter = response.data.filter(data => data.curso == elementoSidebar)
+          setAllQuest(filter)
+        })
+        .catch(err => {
+          return err
+        })
+    } else {
+      apiRequest.get("/aviso", {
+        headers: {
+          Authorization: "Bearer " + token,
+        }
+      })
+      .then(response => {
+        setAllQuest(response.data)
+      })
+      .catch(err => {
+        return err
+      })
+    }
   }
 
   useEffect(() => {
-    apiRequest
-      .get(getAvisos(), {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {
-        setArrayAvisos(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, [elementoSidebar]);
+    if(token) {
+      getAvisos()
+    }
+  }, [elementoSidebar, token])
 
-  const avisosFiltrados = pesquisaPosts(arrayAvisos, materiaPesquisada);
+  const allQuests = () => {
+    apiRequest.get('/aviso', {
+      headers: {
+        Authorization: "Bearer " + token,
+      }
+    })
+      .then(response => {
+        setAllQuest(response.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
-  return (
+  useEffect(()=>{
+    if(token){
+      allQuests()
+    }
+  }, [token])
+
+  return token && (
     <div className="container">
       <div className="container-pergunta">
         <div className="criar-pergunta">
           <Link
             to={
-              localStorage.getItem("token") ? "/avisos/criar-aviso" : "/login"
+              isAuthenticated() ? "/avisos/criar-aviso" : "/login"
             }
           >
             <button>CRIAR AVISO</button>
           </Link>
         </div>
-        {avisosFiltrados.map((aviso, index) => {
+        {allQuest.map((aviso, index) => {
           return (
             <Link
               to={
-                localStorage.getItem("token")
-                  ? `/avisos/aviso/${aviso.id}`
+                isAuthenticated()
+                  ? `/avisos/aviso/${aviso._id}`
                   : "/login"
               }
               key={index}
@@ -62,19 +104,19 @@ export default function AvisosConteudo({ materiaPesquisada }) {
                 <div className="usuario-pergunta">
                   <PersonIcon fontSize="large" />
                   <div className="usuario-informacao-texto">
-                    <span>{aviso.usuario.fotoPerfil}</span>
-                    <span>{aviso.usuario.nome_completo}</span>
+                    {/* <span>{aviso.usuario.fotoPerfil}</span> */}
+                    <span>{aviso.usuario.nome}</span>
                     <span style={{ color: "#757575" }}>
                       {handleCurso(aviso.usuario.curso)}
                     </span>
                   </div>
                 </div>
-                <span className="filtro">{aviso.filtro.toUpperCase()}</span>
-                <span>{aviso.tituloAviso}</span>
-                <span>{aviso.corpoAviso}</span>
+                <span className="filtro">{aviso.materia.toUpperCase()}</span>
+                <span>{aviso.titulo}</span>
+                <span>{aviso.conteudo}</span>
                 <div className="like-comentario">
                   <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
-                  <span>{aviso.votosTotais} favoritos</span>
+                  <span>{aviso.votos} favoritos</span>
                 </div>
               </div>
             </Link>

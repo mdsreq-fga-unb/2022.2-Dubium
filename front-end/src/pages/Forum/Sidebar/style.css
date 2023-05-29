@@ -1,30 +1,8 @@
-/* .sidebarforum {
-    width: 250px;
-    border-right: 2px solid gray;
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
-    padding-top: 30px;
-}
-
-.engenharias {
-    width: 200px;
-    border-bottom: 2px solid rgb(204, 204, 204);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 10px;
-} */
-
 .sidebar-forum {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #414141;
-  width: 280px;
+  border-right: 2px solid #414141;
+  width: 200px;
   padding: 10px;
   top: 0;
   bottom: 0;
@@ -33,19 +11,61 @@
   top: 80px;
 }
 
-.item-sidebar {
+.navRight{
+  border: 2px solid #414141;
+  width: 200px;
+  padding: 10px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  top: 80px;
+}
+
+.buttonChat{
+  justify-content: center;
+  color: #ffffff;
+  padding: 20px;
+  height: 20px;
+  border: #000000 solid 2px;
+  background-color: #2476aa;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  font-size: 17px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px;
+  padding: 0.6rem;
   gap: 8px;
-  border-radius: 17px;
+  border-radius: 20px;
+}
+
+.buttonChat:hover{
+  transition: 0.5s;
+  color: #0f4a6d;
+}
+
+.item-sidebar {
+  margin-top: 0.5rem;
+  font-size: 17px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.6rem;
+  gap: 8px;
+  border-radius: 20px;
 }
 
 .item-sidebar:hover {
+  transition: 0.5s;
   color: #0f4a6d;
 }
 
 .is-active {
-  border: 2px solid #166799;
+  border: #000000 solid 2px;
+  transition: 0.5s;
+  color: aliceblue;
+  background-color: #2476aa;
 }

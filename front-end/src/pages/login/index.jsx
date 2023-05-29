@@ -2,13 +2,15 @@ import "./style.css";
 import logo from "../../assets/images/logo.jpg";
 import question from "../../assets/images/bichinho.png";
 import search from "../../assets/images/mulher.png";
+import Cookies from 'js-cookie';
 
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 import AuthContext from "../../context/AuthProvider";
 import apiRequest from "../../services/api";
+
 
 export default function Login({ setLogado }) {
   const navigate = useNavigate();
@@ -20,33 +22,6 @@ export default function Login({ setLogado }) {
     formState: { errors },
   } = useForm();
 
-  function parseJwt(token) {
-    var base64Url = token.split(".")[1];
-    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    var jsonPayload = decodeURIComponent(
-      window
-        .atob(base64)
-        .split("")
-        .map(function (c) {
-          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join("")
-    );
-
-    return JSON.parse(jsonPayload);
-  }
-
-  const getUser = async () => {
-    const token = localStorage.getItem("token");
-    const id = parseJwt(token).sub;
-    const user = await apiRequest.get(`usuarios/${id}`, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
-    setUser(user.data);
-  };
-
   const onSubmit = async (data) => {
     let user = {
       username: data.email,
@@ -54,19 +29,13 @@ export default function Login({ setLogado }) {
     };
 
     await apiRequest
-      .post("usuarios/login", user)
+      .post("/login", user)
       .then((response) => {
-        localStorage.setItem("token", response.data.access_token);
-        localStorage.setItem(
-          "userId",
-          parseJwt(response.data.access_token).sub
-        );
-        getUser();
-        setLogado(true);
-        navigate("/");
+        setLogado(true)
+        navigate("/")
       })
-      .catch((response) => {
-        console.log(response);
+      .catch((err) => {
+        console.log(err.message);
         alert("Email ou senha incorreta!");
       });
   };

@@ -3,7 +3,6 @@ import "./style.css";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
 
@@ -15,62 +14,128 @@ import StarIcon from "@mui/icons-material/Star";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
 
+import jwt from 'jwt-decode' 
+
 export default function PerguntaSelecionada() {
   const [perguntaSelecionada, setPerguntaSelecionada] = useState({});
   const [respostas, setRespostas] = useState([]);
   const [favoritoPergunta, setFavoritoPergunta] = useState(false);
   const [favoritoResposta, setFavoritoResposta] = useState(false);
+  const [infosSalvas, setInfosSalvas] = useState({});
   const [comentar, setComentar] = useState(false);
+  const [token, setToken] = useState('');
 
   const { idPergunta } = useParams();
 
   const navigate = useNavigate();
 
+
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+
+
+
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
+  const getPerguntas = () => {
     apiRequest
-      .get(`perguntas/${idPergunta}`, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {
-        setPerguntaSelecionada(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, []);
+    .get(`pergunta/${idPergunta}`, {
+      headers: {
+        Authorization: "Bearer " + token  
+      }
+    })
+    .then((response) => {
+      setPerguntaSelecionada(response.data);
+    })
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+    });
+  }
 
-  const getResposta = async () => {
-    await apiRequest
-      .get(`respostas/pergunta/${idPergunta}`, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {
-        setRespostas(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  };
+  useEffect(() => { // get pergunta
+    if(token){
+      getPerguntas()
+    }
+  }, [token]);
+
+  const getUsuario = () => {
+    const idUsuario = jwt(token).secret.id
+    apiRequest
+    .get(`/usuario/salvos/${idUsuario}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
+    .then((response) => {
+      setInfosSalvas(response.data);
+    })
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+    });
+  }
 
   useEffect(() => {
-    getResposta();
-  }, [comentar]);
+    if(token && infosSalvas){
+      getUsuario()
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if(token && perguntaSelecionada){
+      if(perguntaSelecionada.favoritadoPor.includes(jwt(token).secret.id)){
+        setFavoritoPergunta(true)
+      }
+    }
+  }, [perguntaSelecionada])
+
+  const verificaFavorito = (bool) => {
+    if(bool){
+      return bool
+    }
+    return bool
+  }
+
+  // const verificaSalvo = (bool) => {
+  //   if(bool){
+  //     return bool
+  //   }
+  //   return bool
+  // }
+
+  const getRespostas = () => {
+    apiRequest
+    .get(`resposta/pergunta/${idPergunta}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
+    .then((response) => {
+      setRespostas(response.data);
+    })
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+    });
+  }
+
+  useEffect(() => {
+    if(token){
+      getRespostas()
+    }
+  }, [token])
+
 
   const deletarPergunta = async () => {
     await apiRequest
-      .delete(`perguntas/${idPergunta}`, {
+      .delete(`/pergunta/${idPergunta}`, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
       .then(() => {
@@ -83,115 +148,97 @@ export default function PerguntaSelecionada() {
 
   const deletarResposta = async (idResposta) => {
     await apiRequest
-      .delete(`respostas/${idResposta}`, {
+      .delete(`/resposta/pergunta/${idResposta}`, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
-      .then(() => {
+      .then((response) => {
         alert("Resposta deletada!");
+        getRespostas()
       })
       .catch((error) => console.log(error));
-
-    getResposta();
   };
 
   const updateFavoritoPergunta = async () => {
     const infoPergunta = {
-      id_usuario: localStorage.getItem("userId"),
-      id_pergunta: idPergunta,
-    };
-
+      idUsuario: jwt(token).secret.id,
+      idPergunta: perguntaSelecionada._id,
+      favorito: !favoritoPergunta
+    }
     await apiRequest
-      .post("perguntas-favoritas", infoPergunta, {
+      .post(`/pergunta/favoritar/${perguntaSelecionada._id}`, infoPergunta, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
-
-    await apiRequest
-      .patch(
-        favoritoPergunta
-          ? `perguntas/menos/${idPergunta}`
-          : `perguntas/${idPergunta}`
-      )
-      .then((response) => {
-        console.log(response);
+        setFavoritoPergunta(infoPergunta.favorito)
       })
       .catch((error) => console.log(error));
   };
 
-  const updateFavoritoResposta = async (idResposta) => {
+  const updateFavoritoResposta = async (bool, id) => {
+    const infoResposta = {
+      idUsuario: jwt(token).secret.id,
+      idResposta: id,
+      favorito: !bool
+    };
+    await apiRequest
+      .post(`/resposta/favoritar/${id}`, infoResposta, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        getRespostas()
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const salvarPergunta = async (bool) => {
     const infoPergunta = {
-      id_usuario: localStorage.getItem("userId"),
+      id_usuario: jwt(token).secret.id,
       id_pergunta: idPergunta,
-    };
-    await apiRequest
-      .post("respostas-favorita", infoPergunta, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
-
-    await apiRequest
-      .patch(
-        favoritoResposta
-          ? `respostas/menos/${idResposta}`
-          : `respostas/${idResposta}`
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
-
-    getResposta();
-  };
-
-  const salvarPergunta = async () => {
-    const infoPergunta = {
-      id_usuario: localStorage.getItem("userId"),
-      id_pergunta: idPergunta,
+      salvo: !bool
     };
 
     await apiRequest
-      .post("/salvas", infoPergunta, {
+      .post("/pergunta/salvar", infoPergunta, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
-        alert("Pergunta salva com sucesso!");
+        getUsuario()
       })
       .catch((error) => console.log(error));
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data) => { // registra nova resposta
     let novaResposta = {
-      id_usuario: localStorage.getItem("userId"),
-      id_pergunta: idPergunta,
-      corpoResposta: data.resposta,
+      Usuario: jwt(token).secret,
+      idPergunta: idPergunta,
+      conteudo: data.resposta,
     };
 
     await apiRequest
-      .post("respostas", novaResposta, {
+      .post("/resposta", novaResposta, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
-      .then((response) => console.log(response))
+      .then(response => {
+        getRespostas()
+      })
       .catch((error) => console.log(error));
 
     setComentar(!comentar);
+    reset()
   };
 
+
+// PERGUNTA
   return (
     <div className="container">
       <div className="pergunta-selecionada">
@@ -199,14 +246,14 @@ export default function PerguntaSelecionada() {
           <div className="ps-usuario-info">
             <PersonIcon fontSize="large" />
             <div className="ps-usuario-info-texto">
-              <span>{perguntaSelecionada?.usuario?.nome_completo}</span>
+              <span>{perguntaSelecionada?.idUsuario?.username}</span>
               <span style={{ color: "#757575" }}>
                 {handleCurso(perguntaSelecionada?.usuario?.curso)}
+                {/* mais na frente arrumar isso */}
               </span>
             </div>
           </div>
-          {perguntaSelecionada?.usuario?.id ==
-            localStorage.getItem("userId") && (
+          {token && jwt(token)?.secret?.id == perguntaSelecionada?.idUsuario?.id && (
             <IconButton onClick={deletarPergunta}>
               <DeleteIcon sx={{ fontSize: 16 }} />
             </IconButton>
@@ -215,16 +262,16 @@ export default function PerguntaSelecionada() {
         <span className="filtro">
           {perguntaSelecionada?.filtro?.toUpperCase()}
         </span>
-        <span>{perguntaSelecionada?.corpoPergunta}</span>
+        <span>{perguntaSelecionada?.conteudo}</span>
         <ul className="container-interacao">
           <div className="ps-favoritar-salvar">
             <li
               className="item-interacao"
               onClick={() => {
-                setFavoritoPergunta(!favoritoPergunta);
                 updateFavoritoPergunta();
               }}
             >
+        {/* FAVORITAR PERGUNTA */}
               <IconButton>
                 <StarIcon
                   className={favoritoPergunta ? "corFavorito" : ""}
@@ -233,13 +280,23 @@ export default function PerguntaSelecionada() {
               </IconButton>
               <span>Favoritar</span>
             </li>
-            <li className="item-interacao" onClick={salvarPergunta}>
+        {/* SALVAR PERGUNTA */}
+            {token &&            
+              <li
+              className="item-interacao"
+              onClick={() => {
+                salvarPergunta(infosSalvas?.perguntas?.includes(idPergunta))
+              }}
+            >
               <IconButton>
-                <BookmarkIcon sx={{ fontSize: 16 }} />
+                <BookmarkIcon sx={{ fontSize: 16 }}
+                className={infosSalvas?.perguntas?.includes(idPergunta) ? "corFavorito" : ""} 
+                />
               </IconButton>
-              <span>Salvar</span>
-            </li>
+              <span>{infosSalvas?.perguntas?.includes(idPergunta) ? "salvo" : "salvar"}</span>
+            </li>}
           </div>
+        {/* BOTAO PARA RESPONDER */}
           <li className="item-interacao" onClick={() => setComentar(!comentar)}>
             <IconButton>
               <QuestionAnswerIcon sx={{ fontSize: 16 }} />
@@ -247,6 +304,7 @@ export default function PerguntaSelecionada() {
             <span>Responder</span>
           </li>
         </ul>
+        {/* RESPOSTA */}
         {comentar && (
           <div>
             <form
@@ -271,9 +329,10 @@ export default function PerguntaSelecionada() {
             </form>
           </div>
         )}
+        {/* puxando respostas da pergunta */}
         <ul className="container-resposta">
           {respostas.map((data, index) => (
-            <li value={data.id} key={index} className="card-resposta">
+            <li value={data._id} key={index} className="card-resposta">
               <div className="usuario-informacao-texto">
                 <span
                   style={{
@@ -283,31 +342,35 @@ export default function PerguntaSelecionada() {
                     alignItems: "center",
                   }}
                 >
-                  {data.usuario.nome_completo}
-                  {data.usuario.id == localStorage.getItem("userId") && (
+
+                  {data.Usuario.nome} 
+                  {token && jwt(token)?.secret?.id == data?.Usuario.id && (
                     <IconButton
                       onClick={() => {
-                        deletarResposta(data.id);
+                        deletarResposta(data._id);
                       }}
                     >
                       <DeleteIcon sx={{ fontSize: 16 }} />
                     </IconButton>
                   )}
                 </span>
-                <span>{handleCurso(data.usuario.curso)}</span>
+                <span>{handleCurso(data.Usuario.curso)}</span>
               </div>
-              <span>{data.corpoResposta}</span>
+              <span>{data.conteudo}</span>
               <div
                 className="ps-favoritar"
                 onClick={() => {
-                  setFavoritoResposta(!favoritoResposta);
-                  updateFavoritoResposta(data.id);
+                  verificaFavorito(data.favoritadoPor.includes(jwt(token).secret.id))
+                  updateFavoritoResposta(data.favoritadoPor.includes(jwt(token).secret.id), data._id)
                 }}
               >
                 <IconButton>
-                  <StarIcon sx={{ fontSize: 16 }} />
+                <StarIcon
+                  className={data.favoritadoPor.includes(jwt(token).secret.id) ? "corFavorito" : ""}
+                  sx={{ fontSize: 16 }}
+                />
                 </IconButton>
-                <span>{data.votosTotais}</span>
+                <span>{data.votos}</span>
               </div>
             </li>
           ))}

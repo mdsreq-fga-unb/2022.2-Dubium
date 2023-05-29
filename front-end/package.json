@@ -2,7 +2,6 @@
   "name": "front-end",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,13 +13,19 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.1",
     "axios": "^1.2.2",
+    "buffer": "^6.0.3",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.0",
+    "jwt-decode": "^3.1.2",
     "libphonenumber-js": "^1.10.19",
+    "process": "^0.11.10",
     "react": "^18.2.0",
     "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.0",
     "react-input-mask": "^2.0.4",
-    "react-router-dom": "^6.5.0"
+    "react-router-dom": "^6.5.0",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
