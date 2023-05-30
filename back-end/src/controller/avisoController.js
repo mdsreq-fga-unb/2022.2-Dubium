@@ -5,7 +5,7 @@ const passport = require("passport")
 router.use(json())
 const avisoSchema = require("../model/avisoSchema.js")
 const perguntaSchema = require("../model/perguntaSchema.js")
-const cadastroSchema = require("../model/cadastroSchema.js")
+const usuarioSchema = require("../model/usuarioSchema.js")
 
 router.post("/criar", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id_usuario, tituloAviso, corpoAviso, id_cursoAviso, filtro } = req.body
@@ -72,7 +72,7 @@ router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, re
 
 router.post("/salvar", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id_usuario, id_aviso, salvo } = req.body
-    cadastroSchema.findOne({ _id: id_usuario })
+    usuarioSchema.findOne({ _id: id_usuario })
         .then(data => {
             if(salvo){
                 data.updateOne({ $push: { "salvos.avisos": id_aviso }})

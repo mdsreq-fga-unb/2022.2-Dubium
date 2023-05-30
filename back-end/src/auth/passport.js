@@ -1,7 +1,7 @@
 const JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 const passport = require("passport")
-const User = require("../model/cadastroSchema.js");
+const User = require("../model/usuarioSchema.js");
 const cookieExtractor = require('./cookieExtractor.js');
 const { decrypt, encrypt } = require("../auth/crypto.js")
 const { EventEmitter } = require("node:events")

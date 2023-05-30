@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 router.use(express.json())
-const cadastroSchema = require('../model/cadastroSchema.js')
+const usuarioSchema = require('../model/usuarioSchema.js')
 
 
 router.get("/", (req, res) => {
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 
 router.post("/",  (req, res) => {
     const { nome_completo, curso, matricula, email, celular, password } = req.body
-    new cadastroSchema({ nome_completo, curso, matricula, email, celular, password }).save()
+    new usuarioSchema({ nome_completo, curso, matricula, email, celular, password }).save()
     .then((data) => {
         res.send(data)
     })

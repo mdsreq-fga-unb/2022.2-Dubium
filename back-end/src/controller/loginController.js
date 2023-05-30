@@ -8,7 +8,7 @@ const emitter = require("../auth/emitter.js")
 
 
 //User
-const Usuario = require("../model/cadastroSchema.js")
+const Usuario = require("../model/usuarioSchema.js")
 const passport = require("passport")
 
 router.use(passport.initialize())

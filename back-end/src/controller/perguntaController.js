@@ -2,7 +2,7 @@ const { json } = require("body-parser")
 const express = require("express")
 const router = express.Router()
 const perguntaSchema = require("../model/perguntaSchema.js")
-const cadastroSchema = require("../model/cadastroSchema.js")
+const usuarioSchema = require("../model/usuarioSchema.js")
 const jwt = require("jsonwebtoken")
 const emitter = require("../auth/emitter.js")
 const { decrypt, encrypt } = require("../auth/crypto.js")
@@ -117,7 +117,7 @@ router.post("/favoritar/:id", passport.authenticate('jwt', { session: false }), 
 
 router.post("/salvar", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id_usuario, id_pergunta, salvo } = req.body
-    cadastroSchema.findOne({ _id: id_usuario })
+    usuarioSchema.findOne({ _id: id_usuario })
         .then(data => {
             if(salvo){
                 data.updateOne({ $push: { "salvos.perguntas": id_pergunta }})
