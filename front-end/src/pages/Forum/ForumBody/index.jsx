@@ -12,6 +12,7 @@ import apiRequest from "../../../services/api";
 
 import PersonIcon from "@mui/icons-material/Person";
 import StarIcon from "@mui/icons-material/Star";
+import Footer from "../../../components/footer";
 apiRequest.defaults.withCredentials = true
 
 export default function ForumBody({ materiaPesquisada }) {
@@ -99,6 +100,7 @@ export default function ForumBody({ materiaPesquisada }) {
           );
         })}
       </div>
+      <Footer/>
     </div>
   );
 }

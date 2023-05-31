@@ -10,12 +10,12 @@ import RankingUsuarios from "./pages/RankingUsuarios";
 import EditarUsuario from "./pages/EditarUsuarios";
 import PerfilUsuario from "./pages/PerfilUsuario";
 import ForumBody from "./pages/Forum/ForumBody";
-import Footer from "./components/footer";
 import Salvos from "./pages/Salvos";
 import Sobre from "./pages/Sobre";
 import Login from "./pages/login";
 import RecuperarSenha from "./pages/RecuperarSenha"
 import AlterarSenha from "./pages/AlterarSenha"
+import Chat from "./pages/Chat"
 
 import ForumLayout from "./pages/Forum/ForumLayout";
 import AuthLayout from "./components/AuthLayout";
@@ -77,13 +77,13 @@ function App() {
             path="/editar-usuario/:idUsuario"
             element={<EditarUsuario />}
           />
+          <Route path="/Chat" element={<Chat />} />
         </Route>
         <Route path="/cadastrar-usuario" element={<CadastrarUsuarios />} />
         <Route path="/login" element={<Login setLogado={setLogado} />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
         <Route path="/alterar-senha" element={<AlterarSenha />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

@@ -56,8 +56,9 @@
 #busca {
   font-size: 13px;
   background-color: #201F25;
+  padding: 2px;
   width: 95%;
-  height: 28px;
+  height: 25px;
   color: #ffffff;
   border: #ffffff solid 2px;
   border-top-right-radius: 5rem;

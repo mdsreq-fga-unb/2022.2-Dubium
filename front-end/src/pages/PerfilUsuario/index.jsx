@@ -21,7 +21,7 @@ export default function PerfilUsuario({ setLogado }) {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [favorito, setFavorito] = useState(false);
   const [token, setToken] = useState('');
-  
+
 
   const { idUsuario } = useParams();
 
@@ -33,21 +33,21 @@ export default function PerfilUsuario({ setLogado }) {
 
   const getUsuario = () => {
     apiRequest
-    .get(`/usuario/${idUsuario}`, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    })
-    .then((response) => {
-      setUsuarioSelecionado(response.data);
-    })
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
+      .get(`/usuario/${idUsuario}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        setUsuarioSelecionado(response.data);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
   }
 
   useEffect(() => {
-    if(token && usuarioSelecionado){
+    if (token && usuarioSelecionado) {
       getUsuario()
     }
   }, [token]);
@@ -82,7 +82,7 @@ export default function PerfilUsuario({ setLogado }) {
         },
         {
           label: "Não",
-          onClick: () => {},
+          onClick: () => { },
         },
       ],
     });

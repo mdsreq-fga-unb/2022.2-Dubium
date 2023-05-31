@@ -3,7 +3,6 @@ import { forumData } from "./data";
 import { Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 
-
 import SidebarContext from "../../../context/SidebarProvider";
 import apiRequest from "../../../services/api";
 
@@ -11,9 +10,6 @@ const Sidebar = ({ pagina }) => {
   const [isActive, setIsActive] = useState(0);
   const { setElementoSidebar } = useContext(SidebarContext);
   const { elementoSidebar } = useContext(SidebarContext);
-
-
-
 
   return (
     <div>
@@ -37,7 +33,7 @@ const Sidebar = ({ pagina }) => {
         ))}
       </ul>
       <ul className="navRight">
-        <div><Link><a className="buttonChat">Acessar o Chat</a></Link></div>
+        <div><Link className="buttonChat" to="/Chat">Acessar o Chat</Link></div>
       </ul>
     </div>
   );
