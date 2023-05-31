@@ -34,7 +34,6 @@ export default function ChatPrincipal() {
       socket.on("receivedMessage", (message) => {
         renderMessage(message)
       });
-      // Aqui você também pode adicionar outros listeners ou configurações do socket
     }
   }, [socket]);
 
@@ -49,10 +48,6 @@ export default function ChatPrincipal() {
     socket.emit("sendMessage", _message)
     setMessage("")
   }
-
-  // await renderMessage(_message)
-  // socket.emit("printar")
-  // socket.emit("sendMessage", _message)
 
 
   return token && socket && (

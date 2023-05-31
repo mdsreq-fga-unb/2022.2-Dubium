@@ -50,17 +50,8 @@ io.on('connection', socket => {
     })
     
     socket.on('sendMessage', (data) => {
-        console.log(data)
-        // console.log(data.room)
-        // messages.push(data)
-        // socket.to(data.room).emit('receivedMessage', data)
         socket.broadcast.emit('receivedMessage', data)
     })
-    socket.on("printar", () => {
-        console.log("okkkkkkkkkkkkkk")
-    })
-
-//
 
     socket.on('disconnect', () => {
         console.log("Desconectado:", socket.id)
