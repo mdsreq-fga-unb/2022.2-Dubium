@@ -4,9 +4,12 @@ import imagemPerfil from "../../../assets/images/logo.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useEffect } from "react";
 import jwt from 'jwt-decode' 
+import io from 'socket.io-client';
+
 
 
 export default function ChatPrincipal() {
+  const socket = io('http://localhost:8080');
 
   const [ message, setMessage ] = useState("");
   const [token, setToken] = useState('');
@@ -22,6 +25,7 @@ export default function ChatPrincipal() {
     novaDiv.className = 'textoChatUser';
     novaDiv.textContent = `${message.user.nome}: ${message.message}`;
     container.appendChild(novaDiv);
+    socket.emit('printarMsg')
   }
 
   const handleSubmit = async (e) => {
@@ -50,8 +54,6 @@ export default function ChatPrincipal() {
           </div>
 
           <div className="conteudoChat">
-
-
           </div>
 
         </div >
