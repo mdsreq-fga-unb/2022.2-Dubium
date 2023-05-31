@@ -9,13 +9,14 @@ import io from 'socket.io-client';
 
 
 export default function ChatPrincipal() {
-  const socket = io('http://localhost:8080');
 
   const [ message, setMessage ] = useState("");
   const [token, setToken] = useState('');
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+    setSocket(io('http://localhost:8080'));
   }, [])
 
   const renderMessage = async (message) => {
@@ -25,21 +26,36 @@ export default function ChatPrincipal() {
     novaDiv.className = 'textoChatUser';
     novaDiv.textContent = `${message.user.nome}: ${message.message}`;
     container.appendChild(novaDiv);
-    socket.emit('printarMsg')
   }
+
+
+  useEffect(() => {
+    if (socket) {
+      socket.on("receivedMessage", (message) => {
+        renderMessage(message)
+      });
+      // Aqui você também pode adicionar outros listeners ou configurações do socket
+    }
+  }, [socket]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const _message = {
+    let _message = {
       user: jwt(token).secret,
       message: message,
       horario: new Date()
     }
     await renderMessage(_message)
+    socket.emit("sendMessage", _message)
     setMessage("")
   }
 
-  return token && (
+  // await renderMessage(_message)
+  // socket.emit("printar")
+  // socket.emit("sendMessage", _message)
+
+
+  return token && socket && (
     <div className="containerChat">
       <div className="chat-principal">
 

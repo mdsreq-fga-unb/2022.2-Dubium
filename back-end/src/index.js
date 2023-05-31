@@ -36,6 +36,11 @@ app.use("/resposta", resposta)
 app.use("/usuario", usuario)
 app.use("/aviso", aviso)
 
+const _message = {
+    user: {nome: "Arthur"},
+    message: "deu bom bagarai",
+    horario: new Date()
+  }
 
 io.on('connection', socket => {
     console.log('SOCKET CONECTADO:', socket.id)
@@ -43,15 +48,18 @@ io.on('connection', socket => {
         socket.join(room)
         // rooms[room].users[socket.id] = 'user'
     })
-    //
+    
     socket.on('sendMessage', (data) => {
-        console.log(data.room)
-        messages.push(data)
-        socket.to(data.room).emit('receivedMessage', data)
+        console.log(data)
+        // console.log(data.room)
+        // messages.push(data)
+        // socket.to(data.room).emit('receivedMessage', data)
+        socket.broadcast.emit('receivedMessage', data)
     })
-    socket.on('printarMsg', () => {
-        console.log("oi")
+    socket.on("printar", () => {
+        console.log("okkkkkkkkkkkkkk")
     })
+
 //
 
     socket.on('disconnect', () => {
