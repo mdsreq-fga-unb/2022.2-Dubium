@@ -159,6 +159,16 @@ export default function PerfilUsuario({ setLogado }) {
               </li>
             </div>
           )}
+
+
+          {token && idUsuario != jwt(token).secret.id && (
+            <div className="buttonChat">
+              <Link to={`/chat-usuario/${jwt(token).secret.id}`}>
+                Mensagem
+              </Link>
+            </div>
+          )}
+
         </ul>
       </div>
       <PerguntasCadastradas idUsuario={idUsuario} />

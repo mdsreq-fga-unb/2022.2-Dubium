@@ -2,17 +2,22 @@ import "./style.css";
 
 import imagemPerfil from "../../../assets/images/logo.jpg";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState, useEffect } from "react";
-import jwt from 'jwt-decode' 
+import { useContext, useEffect, useState } from "react";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import jwt from 'jwt-decode'
 import io from 'socket.io-client';
 
 
 
-export default function ChatPrincipal() {
+export default function ChatPrincipal({ setLogado }) {
 
-  const [ message, setMessage ] = useState("");
+  const [message, setMessage] = useState("");
   const [token, setToken] = useState('');
   const [socket, setSocket] = useState(null);
+  const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
+
+  const { idUsuario } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
@@ -22,8 +27,8 @@ export default function ChatPrincipal() {
   const renderMessage = async (message) => {
     const container = document.getElementsByClassName("conteudoChat")[0]
     const novaDiv = document.createElement('div');
-    novaDiv.innerHTML = 
-    novaDiv.className = 'textoChatUser';
+    novaDiv.innerHTML =
+      novaDiv.className = 'textoChatUser';
     novaDiv.textContent = `${message.user.nome}: ${message.message}`;
     container.appendChild(novaDiv);
   }
@@ -49,17 +54,31 @@ export default function ChatPrincipal() {
     setMessage("")
   }
 
+  const getUsuario = () => {
+    apiRequest
+      .get(`/usuario/${idUsuario}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        setUsuarioSelecionado(response.data);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }
+
 
   return token && socket && (
     <div className="containerChat">
       <div className="chat-principal">
 
-
         <div id="corFundo">
 
           <div className="dadosUsuario">
             <img id="imagemPerfilChat" src={imagemPerfil} alt="imagemPerfil" />
-            Dados Pessoais
+            <span>{usuarioSelecionado.nome_completo}</span>
 
             <div id="searchIcon"><SearchIcon /></div>
           </div>
@@ -72,14 +91,14 @@ export default function ChatPrincipal() {
         <form action="" onSubmit={handleSubmit}>
           <div className="entradasChat">
             <input
-              id="campoDigitacao" 
-              type="text" 
-              placeholder="Mensagem"  
+              id="campoDigitacao"
+              type="text"
+              placeholder="Mensagem"
               value={message}
               required
               maxLength='30'
               onChange={e => setMessage(e.target.value)}
-              />
+            />
             <button type="submit" className="sendMessage">
               enviar
             </button>
