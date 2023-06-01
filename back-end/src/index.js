@@ -13,6 +13,7 @@ const pergunta = require("./controller/perguntaController.js")
 const resposta = require("./controller/respostaController.js")
 const usuario = require("./controller/usuarioController.js")
 const aviso = require("./controller/avisoController.js")
+const chat = require("./controller/chatController.js")
 //require mongo
 require("./config/MongoConfig.js")
 //require cors
@@ -35,6 +36,7 @@ app.use("/login", login)
 app.use("/resposta", resposta)
 app.use("/usuario", usuario)
 app.use("/aviso", aviso)
+app.use("/chat", chat)
 
 const _message = {
     user: {nome: "Arthur"},
