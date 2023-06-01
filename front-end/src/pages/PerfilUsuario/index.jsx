@@ -31,6 +31,36 @@ export default function PerfilUsuario({ setLogado }) {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
   }, [])
 
+  const addChatInstance = async () => {
+    let verify = false
+    const data = {
+      user: jwt(token).secret.id,
+      userTarget: usuarioSelecionado._id,
+      privado: true
+    }
+
+    usuarioSelecionado.chats.forEach(e => {
+      if(e.usuarios.includes(data.user) && e.privado){
+        return verify = true
+      }
+    })
+
+    if(!verify){
+      await apiRequest
+        .post("/usuario/chatInstance", data, {
+          headers: {
+            Authorization: "Bearer " + token
+          },
+        })
+        .then(response => {
+          console.log(response.data)
+        })
+        .catch(err => {
+          console.log({error: "Erro ao fazer requisição"})
+        })
+    }
+  }
+
   const getUsuario = () => {
     apiRequest
       .get(`/usuario/${idUsuario}`, {
@@ -95,7 +125,7 @@ export default function PerfilUsuario({ setLogado }) {
       .catch((error) => console.log(error));
   };
 
-  return (
+  return usuarioSelecionado && (
     <div className="container pu-container">
       <div className="perfil-usuario">
         <div className="pu-perfil">
@@ -163,7 +193,11 @@ export default function PerfilUsuario({ setLogado }) {
 
           {token && idUsuario != jwt(token).secret.id && (
             <div className="buttonChat">
-              <Link to={`/chat-usuario/${jwt(token).secret.id}`}>
+              <Link to={`/chat-usuario/${jwt(token).secret.id}`}
+              onClick={() => {
+                addChatInstance()
+              }}
+              >
                 Mensagem
               </Link>
             </div>

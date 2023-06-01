@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import jwt from 'jwt-decode'
 import io from 'socket.io-client';
+import apiRequest from '../../../services/api.js'
 
 
 
@@ -54,8 +55,8 @@ export default function ChatPrincipal({ setLogado }) {
     setMessage("")
   }
 
-  const getUsuario = () => {
-    apiRequest
+  const getUsuario = async () => {
+    await apiRequest
       .get(`/usuario/${idUsuario}`, {
         headers: {
           Authorization: "Bearer " + token,
@@ -63,6 +64,7 @@ export default function ChatPrincipal({ setLogado }) {
       })
       .then((response) => {
         setUsuarioSelecionado(response.data);
+        console.log(usuarioSelecionado)
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);

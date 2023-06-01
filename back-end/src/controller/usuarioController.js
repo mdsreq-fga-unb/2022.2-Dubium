@@ -92,6 +92,32 @@ router.get("/", passport.authenticate('jwt', { session: false }), (req, res) => 
         })
 })
 
+router.post("/chatInstance", passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { user, userTarget, privado } = req.body
+
+    const userIds = [user, userTarget]
+
+    const data = {
+        usuarios: userIds,
+        privado: privado,
+        idChat: '2'
+    }
+    usuarioSchema.updateMany({ _id: { $in: userIds } }, { $push: { chats: data } })
+        .then(() => {
+            res.status(200).send("Instancia criada com sucesso")
+        })
+        .catch(err => {
+            res.status(400).send({
+                erro: "Falha ao salvar instância",
+                message: err
+            })
+        })
+
+    })
+
+
+
+
 
 
 
