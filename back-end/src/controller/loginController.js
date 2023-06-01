@@ -18,6 +18,7 @@ require("../auth/passport.js")
 
 router.post("/", (req, res) => {
     const { username, password } = req.body
+    console.log(req.body)
     Usuario.findOne({ email: username, password: password })
     .then(user => {
         if(!user){
