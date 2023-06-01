@@ -5,6 +5,7 @@ router.use(json())
 const passport = require("passport")
 const usuarioSchema = require("../model/usuarioSchema.js")
 const perguntaSchema = require("../model/perguntaSchema.js")
+const chatSchema = require("../model/chatSchema.js")
 
 
 router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -97,18 +98,29 @@ router.post("/chatInstance", passport.authenticate('jwt', { session: false }), (
 
     const userIds = [user, userTarget]
 
-    const data = {
+    const infosChat = {
         usuarios: userIds,
         privado: privado,
-        idChat: '2'
+        idChat: ''
     }
-    usuarioSchema.updateMany({ _id: { $in: userIds } }, { $push: { chats: data } })
-        .then(() => {
-            res.status(200).send("Instancia criada com sucesso")
+
+    new chatSchema({ privado: privado, usuarios: userIds }).save()
+        .then(data => {
+            infosChat.idChat = data._id
+            usuarioSchema.updateMany({ _id: { $in: userIds } }, { $push: { chats: infosChat } })
+            .then(() => {
+                res.status(200).send("Instancia criada com sucesso")
+            })
+            .catch(err => {
+                res.status(400).send({
+                    erro: "Falha ao salvar instância",
+                    message: err
+                })
+            })
         })
         .catch(err => {
             res.status(400).send({
-                erro: "Falha ao salvar instância",
+                error: "Erro ao fazer requisição",
                 message: err
             })
         })
