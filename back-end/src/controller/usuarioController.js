@@ -109,7 +109,7 @@ router.post("/chatInstance", passport.authenticate('jwt', { session: false }), (
             infosChat.idChat = data._id
             usuarioSchema.updateMany({ _id: { $in: userIds } }, { $push: { chats: infosChat } })
             .then(() => {
-                res.status(200).send("Instancia criada com sucesso")
+                res.status(200).send(data._id)
             })
             .catch(err => {
                 res.status(400).send({

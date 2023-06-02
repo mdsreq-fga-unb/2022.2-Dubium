@@ -60,6 +60,7 @@ export default function PerguntaSelecionada() {
   }
 
   useEffect(() => { // get pergunta
+    console.log(2)
     if(token){
       getPerguntas()
     }

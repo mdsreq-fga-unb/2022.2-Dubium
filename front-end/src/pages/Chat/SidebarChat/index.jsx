@@ -3,6 +3,7 @@ import jwt from 'jwt-decode';
 import apiRequest from "../../../services/api.js";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import isAuthenticated from "../../../isAuth";
 
 
 export default function SidebarChat() {
@@ -65,6 +66,11 @@ export default function SidebarChat() {
       {chats.map((chat, index) => {
           return (
             <Link
+              to={ // quando clicar levar pra pergunta específica
+                isAuthenticated()
+                  ? `/chat/${chat._id}`
+                  : "/login"
+              }
               key={index}
             >
             <div className="sidebarItem">{chat._id}</div>

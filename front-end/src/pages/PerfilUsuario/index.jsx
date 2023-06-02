@@ -53,7 +53,7 @@ export default function PerfilUsuario({ setLogado }) {
           },
         })
         .then(response => {
-          console.log(response.data)
+          console.log("Instância criada com sucesso")
         })
         .catch(err => {
           console.log({error: "Erro ao fazer requisição"})
@@ -193,7 +193,7 @@ export default function PerfilUsuario({ setLogado }) {
 
           {token && idUsuario != jwt(token).secret.id && (
             <div className="buttonChat">
-              <Link to={`/chat-usuario/${jwt(token).secret.id}`}
+              <Link to={`/chat/${jwt(token).secret.id}`}
               onClick={() => {
                 addChatInstance()
               }}

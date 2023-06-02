@@ -16,6 +16,8 @@ export default function ChatPrincipal({ setLogado }) {
   const [token, setToken] = useState('');
   const [socket, setSocket] = useState(null);
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
+  const [chat, setChat] = useState('')
+  const { idChat } = useParams();
 
   const { idUsuario } = useParams();
   const navigate = useNavigate();
@@ -42,6 +44,35 @@ export default function ChatPrincipal({ setLogado }) {
       });
     }
   }, [socket]);
+
+  const getChat = async () => {
+    await apiRequest
+      .get(`/chat/${idChat}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        }
+      })
+      .then(data => {
+        setChat(data.data.mensagens)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    if(token && idChat){
+      getChat()
+    }
+  }, [token, idChat]);
+
+  //renderizar as mensagens aqui
+  // useEffect(() => {
+  //   if(chat) {
+  //     console.log(chat)
+  //   }
+  // }, [chat])
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,7 +103,7 @@ export default function ChatPrincipal({ setLogado }) {
   }
 
 
-  return token && socket && (
+  return token && socket && chat && (
     <div className="containerChat">
       <div className="chat-principal">
 
@@ -86,6 +117,16 @@ export default function ChatPrincipal({ setLogado }) {
           </div>
 
           <div className="conteudoChat">
+            {chat.map((mensagem, index) => {
+              return (
+                <Link
+                  key={index}
+                >
+                  {<div className="textoChatUser">{mensagem.user.nome}: {mensagem.message}</div>}
+                </Link>
+              );
+            })}
+
           </div>
 
         </div >

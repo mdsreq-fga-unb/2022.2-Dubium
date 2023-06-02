@@ -20,6 +20,20 @@ router.post("/", passport.authenticate('jwt', { session: false }), (req, res) =>
         })
 })
 
+router.get("/:idChat", passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { idChat } = req.params
+    chatSchema.findOne({ _id: idChat })
+        .then(data => {
+            res.status(200).send(data)
+        })
+        .catch(err => {
+            res.status(400).send({
+                error: "Erro ao fazer requisição",
+                message: err
+            })
+        })
+})
+
 
 
 
