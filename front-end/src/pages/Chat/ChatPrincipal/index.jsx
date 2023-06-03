@@ -19,6 +19,7 @@ export default function ChatPrincipal({ setLogado }) {
   const [chat, setChat] = useState('')
   const { idChat } = useParams();
   const [arrayMensagens, setarrayMensagens] = useState([]);
+  const [messagesDB, setMessagesDB] = useState([])
 
   const { idUsuario } = useParams();
   const navigate = useNavigate();
@@ -52,6 +53,7 @@ export default function ChatPrincipal({ setLogado }) {
       })
       .then(data => {
         setChat(data.data)
+        setMessagesDB(data.data.mensagens)
       })
       .catch(error => {
         console.log(error)
@@ -93,9 +95,33 @@ export default function ChatPrincipal({ setLogado }) {
       });
   }
 
+  const saveMessages = async () => {
+    await apiRequest
+      .post("/chat/messages", {messages: arrayMensagens, idChat: idChat}, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      })
+      .then(data => {
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  useEffect(() => {
+    if(arrayMensagens.length >= 4) {
+      saveMessages()
+      setMessagesDB([...messagesDB, ...arrayMensagens]);
+      setarrayMensagens([])
+    }
+  }, [arrayMensagens])
 
 
-  return token && socket && chat && usuarioSelecionado && arrayMensagens && (
+
+
+  return token && socket && chat && usuarioSelecionado && arrayMensagens && messagesDB && (
     <div className="containerChat">
       <div className="chat-principal">
 
@@ -108,7 +134,7 @@ export default function ChatPrincipal({ setLogado }) {
           </div>
 
           <div className="conteudoChat">
-            {chat.mensagens.map((mensagem, index) => {
+            {messagesDB.map((mensagem, index) => {
               return (
                 <Link
                   key={index}

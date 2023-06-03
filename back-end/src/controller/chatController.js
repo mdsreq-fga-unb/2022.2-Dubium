@@ -34,6 +34,23 @@ router.get("/:idChat", passport.authenticate('jwt', { session: false }), (req, r
         })
 })
 
+router.post("/messages", passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { messages, idChat } = req.body
+    chatSchema.findOneAndUpdate(
+        { _id: idChat },
+        { $push: { mensagens: { $each: messages } } },
+      )
+        .then(updatedChat => {
+          res.status(200).send("Mensagens salvas com sucesso")
+        })
+        .catch(error => {
+            res.status(400).send({
+                error: "Erro ao fazer requisição",
+                message: error
+            })
+        });
+})
+
 
 
 
