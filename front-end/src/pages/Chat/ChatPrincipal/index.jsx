@@ -18,6 +18,7 @@ export default function ChatPrincipal({ setLogado }) {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [chat, setChat] = useState('')
   const { idChat } = useParams();
+  const [array, setArray] = useState([]);
 
   const { idUsuario } = useParams();
   const navigate = useNavigate();
@@ -27,23 +28,20 @@ export default function ChatPrincipal({ setLogado }) {
     setSocket(io('http://localhost:8080'));
   }, [])
 
-  const renderMessage = async (message) => {
-    const container = document.getElementsByClassName("conteudoChat")[0]
-    const novaDiv = document.createElement('div');
-    novaDiv.innerHTML =
-      novaDiv.className = 'textoChatUser';
-    novaDiv.textContent = `${message.user.nome}: ${message.message}`;
-    container.appendChild(novaDiv);
-  }
-
+  useEffect(() => {
+    if(token) {
+      getUsuario()
+    }
+  }, [token])
 
   useEffect(() => {
     if (socket) {
+      socket.emit('joinInstance', usuarioSelecionado.chats)
       socket.on("receivedMessage", (message) => {
-        renderMessage(message)
+        setArray((prevArray) => [...prevArray, message]);
       });
     }
-  }, [socket]);
+  }, [usuarioSelecionado]);
 
   const getChat = async () => {
     await apiRequest
@@ -53,7 +51,7 @@ export default function ChatPrincipal({ setLogado }) {
         }
       })
       .then(data => {
-        setChat(data.data.mensagens)
+        setChat(data.data)
       })
       .catch(error => {
         console.log(error)
@@ -66,36 +64,29 @@ export default function ChatPrincipal({ setLogado }) {
     }
   }, [token, idChat]);
 
-  //renderizar as mensagens aqui
-  // useEffect(() => {
-  //   if(chat) {
-  //     console.log(chat)
-  //   }
-  // }, [chat])
- 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let _message = {
       user: jwt(token).secret,
       message: message,
-      horario: new Date()
+      horario: new Date(),
+      idRoom: idChat
     }
-    await renderMessage(_message)
+    setArray((prevArray) => [...prevArray, _message]);
     socket.emit("sendMessage", _message)
     setMessage("")
   }
 
   const getUsuario = async () => {
     await apiRequest
-      .get(`/usuario/${idUsuario}`, {
+      .get(`/usuario/${jwt(token).secret.id}`, {
         headers: {
           Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
         setUsuarioSelecionado(response.data);
-        console.log(usuarioSelecionado)
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -103,7 +94,8 @@ export default function ChatPrincipal({ setLogado }) {
   }
 
 
-  return token && socket && chat && (
+
+  return token && socket && chat && usuarioSelecionado && array && (
     <div className="containerChat">
       <div className="chat-principal">
 
@@ -111,18 +103,27 @@ export default function ChatPrincipal({ setLogado }) {
 
           <div className="dadosUsuario">
             <img id="imagemPerfilChat" src={imagemPerfil} alt="imagemPerfil" />
-            <span>{usuarioSelecionado.nome_completo}</span>
-
+            <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
             <div id="searchIcon"><SearchIcon /></div>
           </div>
 
           <div className="conteudoChat">
-            {chat.map((mensagem, index) => {
+            {chat.mensagens.map((mensagem, index) => {
               return (
                 <Link
                   key={index}
                 >
                   {<div className="textoChatUser">{mensagem.user.nome}: {mensagem.message}</div>}
+                </Link>
+              );
+            })}
+
+            {array.map((mensagem, index) => {
+              return (
+                <Link
+                  key={index}
+                >
+                  {mensagem.idRoom == idChat &&<div className="textoChatUser">{mensagem.user.nome}: {mensagem.message}</div>}
                 </Link>
               );
             })}
