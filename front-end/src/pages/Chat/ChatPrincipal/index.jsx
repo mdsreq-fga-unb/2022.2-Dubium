@@ -18,7 +18,7 @@ export default function ChatPrincipal({ setLogado }) {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [chat, setChat] = useState('')
   const { idChat } = useParams();
-  const [array, setArray] = useState([]);
+  const [arrayMensagens, setarrayMensagens] = useState([]);
 
   const { idUsuario } = useParams();
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function ChatPrincipal({ setLogado }) {
     if (socket) {
       socket.emit('joinInstance', usuarioSelecionado.chats)
       socket.on("receivedMessage", (message) => {
-        setArray((prevArray) => [...prevArray, message]);
+        setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);
       });
     }
   }, [usuarioSelecionado]);
@@ -73,7 +73,7 @@ export default function ChatPrincipal({ setLogado }) {
       horario: new Date(),
       idRoom: idChat
     }
-    setArray((prevArray) => [...prevArray, _message]);
+    setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, _message]);
     socket.emit("sendMessage", _message)
     setMessage("")
   }
@@ -95,7 +95,7 @@ export default function ChatPrincipal({ setLogado }) {
 
 
 
-  return token && socket && chat && usuarioSelecionado && array && (
+  return token && socket && chat && usuarioSelecionado && arrayMensagens && (
     <div className="containerChat">
       <div className="chat-principal">
 
@@ -118,7 +118,7 @@ export default function ChatPrincipal({ setLogado }) {
               );
             })}
 
-            {array.map((mensagem, index) => {
+            {arrayMensagens.map((mensagem, index) => {
               return (
                 <Link
                   key={index}
