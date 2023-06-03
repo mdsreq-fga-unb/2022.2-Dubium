@@ -73,7 +73,7 @@ export default function SidebarChat() {
               }
               key={index}
             >
-            <div className="sidebarItem">{chat._id}</div>
+            {chat.privado && <div className="sidebarItem">{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</div>}
             </Link>
           );
         })}

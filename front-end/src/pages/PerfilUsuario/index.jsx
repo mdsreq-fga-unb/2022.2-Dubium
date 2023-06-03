@@ -34,8 +34,14 @@ export default function PerfilUsuario({ setLogado }) {
   const addChatInstance = async () => {
     let verify = false
     const data = {
-      user: jwt(token).secret.id,
-      userTarget: usuarioSelecionado._id,
+      user: {
+        id: jwt(token).secret.id,
+        nome: jwt(token).secret.nome
+      },
+      userTarget: {
+        id: usuarioSelecionado._id,
+        nome: usuarioSelecionado.nome_completo
+      },
       privado: true
     }
 

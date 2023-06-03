@@ -96,15 +96,16 @@ router.get("/", passport.authenticate('jwt', { session: false }), (req, res) => 
 router.post("/chatInstance", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { user, userTarget, privado } = req.body
 
-    const userIds = [user, userTarget]
-
+        //vetor necessário pleo updatemany
+    const userIds = [user.id, userTarget.id]
+    const users = {user, userTarget}
     const infosChat = {
         usuarios: userIds,
         privado: privado,
         idChat: ''
     }
 
-    new chatSchema({ privado: privado, usuarios: userIds }).save()
+    new chatSchema({ privado: privado, usuarios: users }).save()
         .then(data => {
             infosChat.idChat = data._id
             usuarioSchema.updateMany({ _id: { $in: userIds } }, { $push: { chats: infosChat } })
