@@ -37,4 +37,4 @@ jobs:
           cd front-end
           npm run build &
           sleep 10
-          pkill -f "npm run dev"
+          pkill -f "npm run build"
