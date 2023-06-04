@@ -1,30 +1,36 @@
 name: CI - Build and Deploy
-run-name: Deploy by ${{ github.actor }} 🚀
 on:
   push:
     branches:
       - main
 
 jobs:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: clone repository
+      - name: Clone repository
         uses: actions/checkout@v2
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20'
+
       - name: Install dependencies
         run: |
           cd backend
           npm install
-          cd frontend
+          
+          cd ../frontend
           npm install
-      - name: run backend
+
+      - name: Run backend
         run: |
           cd backend
           npm run dev
-      - name: run fronted
+
+      - name: Run frontend
         run: |
           cd frontend
           npm run build
