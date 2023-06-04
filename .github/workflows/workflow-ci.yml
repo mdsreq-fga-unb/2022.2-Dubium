@@ -19,18 +19,18 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd backend
+          cd back-end
           npm install
           
-          cd ../frontend
+          cd ../front-end
           npm install
 
-      - name: Run backend
+      - name: Run back-end
         run: |
-          cd backend
+          cd back-end
           npm run dev
 
-      - name: Run frontend
+      - name: Run front-end
         run: |
-          cd frontend
+          cd front-end
           npm run build
