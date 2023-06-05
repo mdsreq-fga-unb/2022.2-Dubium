@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "node --test --watch src/test/**.spec.js"
+    "test": "node --test --watch src/test/**.spec.js",
+    "test:mocha": "mocha src/test/**.spec.js"
   },
   "keywords": [],
   "author": "",

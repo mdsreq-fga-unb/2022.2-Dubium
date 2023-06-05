@@ -50,6 +50,51 @@ router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) 
         })
 })
 
+
+router.put("/editar/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { id } = req.params;
+    const { titulo, materia, conteudo } = req.body;
+
+    avisoSchema.findOne({ _id: id })
+        .then(aviso => {
+            console.log(aviso)
+            console.log(req.user._id)
+            if (!aviso) {
+                return res.status(404).send({
+                    error: "Aviso não encontrado"
+                });
+            }
+
+            if (aviso.usuario.id !== req.user._id) {
+                return res.status(403).send({
+                    error: "Você não tem permissão para editar esse aviso."
+                });
+            }
+
+            aviso.titulo = titulo;
+            aviso.materia = materia;
+            aviso.conteudo = conteudo;
+
+            aviso.save()
+                .then(updatedAviso => {
+                    res.status(200).json(updatedAviso);
+                })
+                .catch(err => {
+                    res.status(500).send({
+                        error: "Erro ao atualizar aviso",
+                        message: err.message
+                    });
+                });
+        })
+        .catch(err => {
+            res.status(500).send({
+                error: "Erro ao buscar aviso",
+                message: err.message
+            });
+        });
+});
+
+
 router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id } = req.params
     avisoSchema.findOne({ _id: id })
