@@ -65,6 +65,22 @@ export default function ChatPrincipal({ setLogado }) {
       })
   }
 
+  const scrollDown = () => {
+    const container = document.getElementsByClassName('conteudoChat')[0];
+    if(container){
+      console.log(container)
+      container.scrollTop = container.scrollHeight
+    }
+  }
+
+  useEffect(() => {
+    if (messagesDB) {
+      scrollDown()
+    }
+  }, [messagesDB]);
+
+
+
 
   useEffect(() => {
     if (token && idChat) {
