@@ -9,11 +9,5 @@ import { SidebarProvider } from "./context/SidebarProvider";
 import { AuthProvider } from "./context/AuthProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <SidebarProvider>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </SidebarProvider>
-  </React.StrictMode>
+  <App />
 );

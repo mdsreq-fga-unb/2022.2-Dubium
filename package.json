@@ -22,5 +22,8 @@
   "homepage": "https://github.com/mdsreq-fga-unb/2023.1-Dubium2.0#readme",
   "devDependencies": {
     "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.6.2"
   }
 }

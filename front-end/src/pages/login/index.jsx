@@ -3,7 +3,6 @@ import logo from "../../assets/images/logo.jpg";
 import question from "../../assets/images/bichinho.png";
 import search from "../../assets/images/mulher.png";
 import Cookies from 'js-cookie';
-
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, redirect, useNavigate } from "react-router-dom";

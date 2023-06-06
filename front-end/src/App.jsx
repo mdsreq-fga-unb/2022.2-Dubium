@@ -77,7 +77,12 @@ function App() {
             path="/editar-usuario/:idUsuario"
             element={<EditarUsuario />}
           />
-          <Route path="/Chat" element={<Chat />} />
+          <Route
+          path="/chat/:idChat"
+          element={<Chat />} />
+          <Route
+          path="/chat"
+          element={<Chat />} />
         </Route>
         <Route path="/cadastrar-usuario" element={<CadastrarUsuarios />} />
         <Route path="/login" element={<Login setLogado={setLogado} />} />

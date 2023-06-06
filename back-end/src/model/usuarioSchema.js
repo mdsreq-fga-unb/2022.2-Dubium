@@ -40,6 +40,9 @@ const UsuarioSchema = new Schema({
       avisos: {
         type: Array
       }
+    },
+    chats: {
+      type: Array,
     }
     
 })
