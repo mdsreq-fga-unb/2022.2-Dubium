@@ -26,7 +26,7 @@ export default function ChatPrincipal({ setLogado }) {
   const navigate = useNavigate();
   const conteudoRef = useRef(null);
   const [stringDigitando, setStringDigitando] = useState('')
-  
+
 
   //ScrollBar
 
@@ -49,7 +49,9 @@ export default function ChatPrincipal({ setLogado }) {
         setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);
       });
       socket.on("targetDig", (data) => {
-        setStringDigitando(`${data.user.nome} está digitando...`)
+        setStringDigitando(`${
+          chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome +" está digitando...": 
+          chat.usuarios[0].user.nome +" está digitando..."}`)
       })
       socket.on("targetNaoDig", (data) => {
         setStringDigitando("")
@@ -75,7 +77,7 @@ export default function ChatPrincipal({ setLogado }) {
 
   const scrollDown = () => {
     const container = document.getElementsByClassName('conteudoChat')[0];
-    if(container){
+    if (container) {
       console.log(container)
       container.scrollTop = container.scrollHeight
     }
@@ -92,14 +94,14 @@ export default function ChatPrincipal({ setLogado }) {
       setIsFirstRender(false);
       return;
     }
-    if(message.length){
+    if (message.length) {
       var data = {
         user: jwt(token).secret,
         idRoom: idChat
       }
-        socket.emit("digitando", data)
-    } 
-    if(!message.length) {
+      socket.emit("digitando", data)
+    }
+    if (!message.length) {
       socket.emit("naoDigitando", idChat)
     }
   }, [message])
@@ -170,13 +172,18 @@ export default function ChatPrincipal({ setLogado }) {
       <div className="chat-principal">
 
         <div id="corFundo">
-          <div className="dadosUsuario">
+          <div className="cabecalhoChat">
             <img id="imagemPerfilChat" src={imagemPerfil} alt="imagemPerfil" />
-            <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
-            {<div className="digitando">{stringDigitando ? `${stringDigitando}` : ''}</div>}
+            <div className="dados">
+              <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
+              <div className="digitando">
+                <div>
+                  {chat.usuarios[0].user.id == jwt(token).secret.id ? `${stringDigitando}` : `${stringDigitando}`}</div>
+              </div>
+            </div>
             <div id="searchIcon"><SearchIcon /></div>
           </div>
-          
+
 
           <div className="conteudoChat" >
             {messagesDB.map((mensagem, index) => {
