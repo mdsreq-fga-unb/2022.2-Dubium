@@ -27,6 +27,21 @@ export default function PerfilUsuario({ setLogado }) {
 
   const navigate = useNavigate();
 
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setSelectedImage(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
   }, [])
@@ -46,12 +61,12 @@ export default function PerfilUsuario({ setLogado }) {
     }
 
     usuarioSelecionado.chats.forEach(e => {
-      if(e.usuarios.includes(data.user) && e.privado){
+      if (e.usuarios.includes(data.user) && e.privado) {
         return verify = true
       }
     })
 
-    if(!verify){
+    if (!verify) {
       await apiRequest
         .post("/usuario/chatInstance", data, {
           headers: {
@@ -62,7 +77,7 @@ export default function PerfilUsuario({ setLogado }) {
           console.log("Instância criada com sucesso")
         })
         .catch(err => {
-          console.log({error: "Erro ao fazer requisição"})
+          console.log({ error: "Erro ao fazer requisição" })
         })
     }
   }
@@ -135,19 +150,38 @@ export default function PerfilUsuario({ setLogado }) {
     <div className="container pu-container">
       <div className="perfil-usuario">
         <div className="pu-perfil">
-          <PersonIcon sx={{ fontSize: 100 }} />
+          {selectedImage != null ? (
+            <img id="imagemPerfil" src={selectedImage} alt="Selected" />
+          ) : (
+            <PersonIcon sx={{ fontSize: 120 }} />
+          )}
+
           <div className="pu-perfil-texto">
-            <span>{usuarioSelecionado.nome_completo}</span>
+            <span style={{ color: "#f5f5f5" }}>{usuarioSelecionado.nome_completo}</span>
             <span style={{ color: "#757575" }}>
               {handleCurso(usuarioSelecionado.curso)}
             </span>
           </div>
         </div>
+
+        <label htmlFor="uploadInput" className="botaoFoto">
+          <EditIcon sx={{ fontSize: 16 }} />
+          Editar Imagem
+        </label>
+        <input
+          id="uploadInput"
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          style={{ display: 'none' }}
+        />
+
         {token && jwt(token).secret.id == idUsuario && (
           <Link to="/salvos">
             <button className="button-salvos">PERGUNTAS E AVISOS SALVOS</button>
           </Link>
         )}
+
         <ul className="pu-informacoes">
           <span style={{ fontSize: "18px" }}>INFORMAÇÕES DE CONTATO</span>
           <li className="pu-item-informacao">
@@ -200,9 +234,9 @@ export default function PerfilUsuario({ setLogado }) {
           {token && idUsuario != jwt(token).secret.id && (
             <div className="buttonChat">
               <Link to={`/chat/${jwt(token).secret.id}`}
-              onClick={() => {
-                addChatInstance()
-              }}
+                onClick={() => {
+                  addChatInstance()
+                }}
               >
                 Mensagem
               </Link>
