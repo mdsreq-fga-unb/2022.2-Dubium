@@ -127,6 +127,29 @@ router.post("/chatInstance", passport.authenticate('jwt', { session: false }), (
         })
 
     })
+    
+    router.post("/salvarFoto", passport.authenticate('jwt', { session: false }), (req, res) => {
+        const { idUsuario, url } = req.body
+        usuarioSchema.findOne({ _id: idUsuario })
+            .then(data => {
+                data.updateOne({ foto: url })
+                    .then(response => {
+                        res.status(200).send(response)
+                    })
+                    .catch(err => {
+                        res.status(400).send({
+                            error: "Erro ao salvar foto",
+                            message: err
+                        })
+                    })
+            })
+            .catch(err => {
+                res.status(400).send({
+                    error: "Erro ao procurar usuário",
+                    message: err
+                })
+            })
+    })
 
 
 

@@ -42,6 +42,32 @@ export default function PerfilUsuario({ setLogado }) {
     }
   };
 
+  const salvarFoto = async () => {
+    const data = {
+      idUsuario: jwt(token).secret.id,
+      url: "https://img.elo7.com.br/product/600x380/37C2BCE/arte-digital-x-bart-simpsons-desenho.jpg"
+    }
+    await apiRequest
+    .post("/usuario/salvarFoto", data, {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    })
+      .then(response => {
+        setSelectedImage(null)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+
+  useEffect(() => {
+    if(selectedImage){
+      salvarFoto()
+    }
+  }, [selectedImage])
+
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
   }, [])
@@ -150,8 +176,8 @@ export default function PerfilUsuario({ setLogado }) {
     <div className="container pu-container">
       <div className="perfil-usuario">
         <div className="pu-perfil">
-          {selectedImage != null ? (
-            <img id="imagemPerfil" src={selectedImage} alt="Selected" />
+          {usuarioSelecionado.foto ? (
+            <img id="imagemPerfil" src={usuarioSelecionado.foto} alt="Selected" />
           ) : (
             <PersonIcon sx={{ fontSize: 120 }} />
           )}
