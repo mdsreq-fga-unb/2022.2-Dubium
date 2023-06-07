@@ -49,9 +49,8 @@ export default function ChatPrincipal({ setLogado }) {
         setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);
       });
       socket.on("targetDig", (data) => {
-        setStringDigitando(`${
-          chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome +" está digitando...": 
-          chat.usuarios[0].user.nome +" está digitando..."}`)
+        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome + " está digitando..." :
+          chat.usuarios[0].user.nome + " está digitando..."}`)
       })
       socket.on("targetNaoDig", (data) => {
         setStringDigitando("")
@@ -175,7 +174,15 @@ export default function ChatPrincipal({ setLogado }) {
           <div className="cabecalhoChat">
             <img id="imagemPerfilChat" src={imagemPerfil} alt="imagemPerfil" />
             <div className="dados">
-              <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
+
+
+              {token ?
+                <Link to={`/usuario/${chat.usuarios[0].user.id}`}>
+                  <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
+                </Link> :
+                <></>
+              }
+
               <div className="digitando">
                 <div>
                   {chat.usuarios[0].user.id == jwt(token).secret.id ? `${stringDigitando}` : `${stringDigitando}`}</div>

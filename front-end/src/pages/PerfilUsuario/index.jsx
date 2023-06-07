@@ -163,11 +163,11 @@ export default function PerfilUsuario({ setLogado }) {
             </span>
           </div>
         </div>
-
-        <label htmlFor="uploadInput" className="botaoFoto">
-          <EditIcon sx={{ fontSize: 16 }} />
-          Editar Imagem
-        </label>
+        {token && jwt(token).secret.id == idUsuario && (
+          <label htmlFor="uploadInput" className="botaoFoto">
+            <EditIcon sx={{ fontSize: 16 }} />
+            Editar Imagem
+          </label>)}
         <input
           id="uploadInput"
           type="file"

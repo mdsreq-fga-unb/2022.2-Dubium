@@ -82,7 +82,12 @@ export default function ForumBody({ materiaPesquisada }) {
                 <div className="usuario-pergunta">
                   <PersonIcon fontSize="large" />
                   <div className="usuario-informacao-texto">
-                    <span>{data.idUsuario.nome}</span>
+
+                
+                      <span>{data.idUsuario.nome}</span>
+
+
+
                     <span style={{ color: "#757575" }}>
                       {handleCurso(data.curso)}
                     </span>
@@ -100,7 +105,7 @@ export default function ForumBody({ materiaPesquisada }) {
           );
         })}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
