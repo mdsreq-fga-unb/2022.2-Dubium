@@ -124,6 +124,7 @@ export default function ChatPrincipal({ setLogado }) {
     }
     setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, _message]);
     socket.emit("sendMessage", _message)
+    saveMessages([_message])
     setMessage("")
   }
 
@@ -142,9 +143,9 @@ export default function ChatPrincipal({ setLogado }) {
       });
   }
 
-  const saveMessages = async () => {
+  const saveMessages = async (msg) => {
     await apiRequest
-      .post("/chat/messages", { messages: arrayMensagens, idChat: idChat }, {
+      .post("/chat/messages", { messages: msg, idChat: idChat }, {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -159,7 +160,6 @@ export default function ChatPrincipal({ setLogado }) {
 
   useEffect(() => {
     if (arrayMensagens.length >= 1) {
-      saveMessages()
       setMessagesDB([...messagesDB, ...arrayMensagens]);
       setarrayMensagens([])
     }
