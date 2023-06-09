@@ -1,5 +1,6 @@
 const http = require('../server.js')
 const io = require("socket.io")(http, {cors: {origin: "http://localhost:5173"}})
+const cloudinary = require("../config/cloudinary.js")
 
 io.on('connection', socket => {
     console.log('SOCKET CONECTADO:', socket.id)

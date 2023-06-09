@@ -7,7 +7,6 @@ const usuarioSchema = require("../model/usuarioSchema.js")
 const perguntaSchema = require("../model/perguntaSchema.js")
 const chatSchema = require("../model/chatSchema.js")
 
-
 router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id } = req.params
     usuarioSchema.findOne({ _id: id }).lean()
