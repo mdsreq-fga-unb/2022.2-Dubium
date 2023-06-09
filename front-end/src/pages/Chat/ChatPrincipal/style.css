@@ -89,6 +89,11 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+.horario {
+  float: right;
+  margin-top: 12px;
+  font-size: 12px;
+}
 
 .textoChatOutro {
   margin-top: 10px;
@@ -99,7 +104,6 @@
   padding: 13px;
   color:#ffffff;
   background: linear-gradient(to left, rgb(101, 154, 204), rgb(68, 131, 182));
-
   border-end-end-radius: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
