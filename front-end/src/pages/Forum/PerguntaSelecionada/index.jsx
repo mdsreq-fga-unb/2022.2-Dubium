@@ -14,7 +14,7 @@ import StarIcon from "@mui/icons-material/Star";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
 
-import jwt from 'jwt-decode' 
+import jwt from 'jwt-decode'
 
 export default function PerguntaSelecionada() {
   const [perguntaSelecionada, setPerguntaSelecionada] = useState({});
@@ -46,21 +46,21 @@ export default function PerguntaSelecionada() {
 
   const getPerguntas = () => {
     apiRequest
-    .get(`pergunta/${idPergunta}`, {
-      headers: {
-        Authorization: "Bearer " + token  
-      }
-    })
-    .then((response) => {
-      setPerguntaSelecionada(response.data);
-    })
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
+      .get(`pergunta/${idPergunta}`, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      })
+      .then((response) => {
+        setPerguntaSelecionada(response.data);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
   }
 
   useEffect(() => { // get pergunta
-    if(token){
+    if (token) {
       getPerguntas()
     }
   }, [token]);
@@ -68,35 +68,35 @@ export default function PerguntaSelecionada() {
   const getUsuario = () => {
     const idUsuario = jwt(token).secret.id
     apiRequest
-    .get(`/usuario/salvos/${idUsuario}`, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    })
-    .then((response) => {
-      setInfosSalvas(response.data);
-    })
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
+      .get(`/usuario/salvos/${idUsuario}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        setInfosSalvas(response.data);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
   }
 
   useEffect(() => {
-    if(token && infosSalvas){
+    if (token && infosSalvas) {
       getUsuario()
     }
   }, [token]);
 
   useEffect(() => {
-    if(token && perguntaSelecionada){
-      if(perguntaSelecionada.favoritadoPor.includes(jwt(token).secret.id)){
+    if (token && perguntaSelecionada) {
+      if (perguntaSelecionada.favoritadoPor.includes(jwt(token).secret.id)) {
         setFavoritoPergunta(true)
       }
     }
   }, [perguntaSelecionada])
 
   const verificaFavorito = (bool) => {
-    if(bool){
+    if (bool) {
       return bool
     }
     return bool
@@ -111,21 +111,21 @@ export default function PerguntaSelecionada() {
 
   const getRespostas = () => {
     apiRequest
-    .get(`resposta/pergunta/${idPergunta}`, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    })
-    .then((response) => {
-      setRespostas(response.data);
-    })
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
+      .get(`resposta/pergunta/${idPergunta}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        setRespostas(response.data);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
   }
 
   useEffect(() => {
-    if(token){
+    if (token) {
       getRespostas()
     }
   }, [token])
@@ -238,7 +238,7 @@ export default function PerguntaSelecionada() {
   };
 
 
-// PERGUNTA
+  // PERGUNTA
   return (
     <div className="container">
       <div className="pergunta-selecionada">
@@ -246,7 +246,11 @@ export default function PerguntaSelecionada() {
           <div className="ps-usuario-info">
             <PersonIcon fontSize="large" />
             <div className="ps-usuario-info-texto">
-              <span>{perguntaSelecionada?.idUsuario?.username}</span>
+
+
+                <span>{perguntaSelecionada?.idUsuario?.nome}</span>
+
+
               <span style={{ color: "#757575" }}>
                 {handleCurso(perguntaSelecionada?.usuario?.curso)}
                 {/* mais na frente arrumar isso */}
@@ -271,7 +275,7 @@ export default function PerguntaSelecionada() {
                 updateFavoritoPergunta();
               }}
             >
-        {/* FAVORITAR PERGUNTA */}
+              {/* FAVORITAR PERGUNTA */}
               <IconButton>
                 <StarIcon
                   className={favoritoPergunta ? "corFavorito" : ""}
@@ -280,23 +284,23 @@ export default function PerguntaSelecionada() {
               </IconButton>
               <span>Favoritar</span>
             </li>
-        {/* SALVAR PERGUNTA */}
-            {token &&            
+            {/* SALVAR PERGUNTA */}
+            {token &&
               <li
-              className="item-interacao"
-              onClick={() => {
-                salvarPergunta(infosSalvas?.perguntas?.includes(idPergunta))
-              }}
-            >
-              <IconButton>
-                <BookmarkIcon sx={{ fontSize: 16 }}
-                className={infosSalvas?.perguntas?.includes(idPergunta) ? "corFavorito" : ""} 
-                />
-              </IconButton>
-              <span>{infosSalvas?.perguntas?.includes(idPergunta) ? "salvo" : "salvar"}</span>
-            </li>}
+                className="item-interacao"
+                onClick={() => {
+                  salvarPergunta(infosSalvas?.perguntas?.includes(idPergunta))
+                }}
+              >
+                <IconButton>
+                  <BookmarkIcon sx={{ fontSize: 16 }}
+                    className={infosSalvas?.perguntas?.includes(idPergunta) ? "corFavorito" : ""}
+                  />
+                </IconButton>
+                <span>{infosSalvas?.perguntas?.includes(idPergunta) ? "salvo" : "salvar"}</span>
+              </li>}
           </div>
-        {/* BOTAO PARA RESPONDER */}
+          {/* BOTAO PARA RESPONDER */}
           <li className="item-interacao" onClick={() => setComentar(!comentar)}>
             <IconButton>
               <QuestionAnswerIcon sx={{ fontSize: 16 }} />
@@ -343,7 +347,7 @@ export default function PerguntaSelecionada() {
                   }}
                 >
 
-                  {data.Usuario.nome} 
+                  {data.Usuario.nome}
                   {token && jwt(token)?.secret?.id == data?.Usuario.id && (
                     <IconButton
                       onClick={() => {
@@ -365,10 +369,10 @@ export default function PerguntaSelecionada() {
                 }}
               >
                 <IconButton>
-                <StarIcon
-                  className={data.favoritadoPor.includes(jwt(token).secret.id) ? "corFavorito" : ""}
-                  sx={{ fontSize: 16 }}
-                />
+                  <StarIcon
+                    className={data.favoritadoPor.includes(jwt(token).secret.id) ? "corFavorito" : ""}
+                    sx={{ fontSize: 16 }}
+                  />
                 </IconButton>
                 <span>{data.votos}</span>
               </div>

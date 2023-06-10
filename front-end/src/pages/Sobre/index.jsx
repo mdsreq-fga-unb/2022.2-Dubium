@@ -5,7 +5,7 @@ import bichinho from "../../assets/images/bichinho.png";
 
 export default function Sobre() {
   return (
-    <div className="container" style={{ marginLeft: "-301px" }}>
+    <div className="container" >
       <div className="sobre">
         <div>
           <img src={mulher} alt="moca" width="150px" />

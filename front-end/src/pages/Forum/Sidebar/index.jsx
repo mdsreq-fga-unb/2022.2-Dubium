@@ -34,6 +34,7 @@ const Sidebar = ({ pagina }) => {
       </ul>
       <ul className="navRight">
         <div><Link className="buttonChat" to="/chat">Acessar o Chat</Link></div>
+        <div><Link className="buttonChatPublico" to="/salasPublico">Acessar o Chat Publico</Link></div>
       </ul>
     </div>
   );
