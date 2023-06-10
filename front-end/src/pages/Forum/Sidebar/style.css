@@ -27,7 +27,6 @@
 .buttonChat{
   justify-content: center;
   color: #ffffff;
-  padding: 20px;
   height: 20px;
   border: #000000 solid 2px;
   background-color: #2476aa;
@@ -51,7 +50,6 @@
 .buttonChatPublico{
   justify-content: center;
   color: #ffffff;
-  padding: 20px;
   height: 20px;
   border: #000000 solid 2px;
   background-color: #2476aa;

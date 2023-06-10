@@ -10,12 +10,10 @@ export default function ChatPublico() {
         <div className="containerChat">
             <Header/>
             <div className="sidebar-Chat">
-                <SidebarChatPublico>
-                </SidebarChatPublico>
+                <SidebarChatPublico/>
             </div>
             <div className="chat-principal">
-                <ChatPrincipal>
-                </ChatPrincipal>
+                <ChatPrincipal/>
             </div>
         </div>
     );

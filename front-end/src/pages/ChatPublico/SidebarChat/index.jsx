@@ -4,9 +4,11 @@ export default function SidebarChatPublico() {
     return (
         <div className="containerSidebar">
 
-            <div className="sidebarItem">
-                teste
+            <div className="criarSala">
+                Criar Sala +
             </div>
+
+            
 
         </div>
     );

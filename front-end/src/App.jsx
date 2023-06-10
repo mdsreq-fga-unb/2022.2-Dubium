@@ -18,6 +18,7 @@ import AlterarSenha from "./pages/AlterarSenha";
 import Chat from "./pages/Chat";
 import SalasPublico from "./pages/SalasPublico";
 import ChatPublico from "./pages/ChatPublico";
+import CriarSala from "./pages/SalasPublico/CriarSala";
 
 import ForumLayout from "./pages/Forum/ForumLayout";
 import AuthLayout from "./components/AuthLayout";
@@ -92,6 +93,9 @@ function App() {
         <Route
           path="/chatPublico"
           element={<ChatPublico />} />
+        <Route
+          path="/criarSala"
+          element={<CriarSala />} />
         <Route path="/cadastrar-usuario" element={<CadastrarUsuarios />} />
         <Route path="/login" element={<Login setLogado={setLogado} />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />

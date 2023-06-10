@@ -40,7 +40,7 @@
   position: fixed;
   overflow: auto;
   width: 84%;
-  height: 39.5rem;
+  height: 39rem;
 }
 
 .conteudoChat::-webkit-scrollbar {
