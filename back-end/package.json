@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "mocha src/test/**.spec.js"
+    "test": "jest --testTimeout=5000"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +28,10 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "socket.io": "^4.6.2",
-    "socket.io-client": "^4.6.2"
+    "socket.io-client": "^4.6.2",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
