@@ -1,0 +1,22 @@
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+
+const ChatSchema = new Schema({
+    mensagens: {
+        type: Array
+    },
+    notificacao: {
+        type: Number
+    },
+    privado: {
+        type: Boolean
+    },
+    usuarios: {
+        type: Array
+    },
+    nome: {
+        type: String
+    }
+})
+
+module.exports = mongoose.model("Chat", ChatSchema)

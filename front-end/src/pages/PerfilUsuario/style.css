@@ -118,6 +118,19 @@
   cursor: pointer;
 }
 
+.buttonChat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  background-color: #01C4A6;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+}
+
 .pu-opcoes {
   display: flex;
   flex-direction: row;

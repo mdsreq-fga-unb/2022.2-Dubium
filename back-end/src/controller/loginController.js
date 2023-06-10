@@ -5,7 +5,10 @@ const jwt = require("jsonwebtoken")
 const { decrypt, encrypt } = require("../auth/crypto.js")
 const { EventEmitter } = require("node:events")
 const emitter = require("../auth/emitter.js")
+const io = require("socket.io-client")
 
+
+socket = io('http://localhost:8080')
 
 //User
 const Usuario = require("../model/usuarioSchema.js")
@@ -34,6 +37,7 @@ router.post("/", (req, res) => {
             nome: user.nome_completo,
             curso: user.curso
         }
+
 
         // const secretData = encrypt(JSON.stringify(playload))
         const token = jwt.sign({secret: playload}, "randomString", { expiresIn: "30m" })
