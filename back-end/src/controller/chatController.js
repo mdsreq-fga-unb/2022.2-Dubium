@@ -70,7 +70,7 @@ router.post("/chatPublico", passport.authenticate('jwt', { session: false }), (r
         })
         .catch(err => {
             res.status(400).send({
-                error: "Erro ao criar instância de chat",
+                error: "Erro ao criar instância de chat!",
                 message: err
             })
         })
