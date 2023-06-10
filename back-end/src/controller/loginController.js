@@ -4,11 +4,6 @@ router.use(express.json())
 const jwt = require("jsonwebtoken")
 const { decrypt, encrypt } = require("../auth/crypto.js")
 const { EventEmitter } = require("node:events")
-const emitter = require("../auth/emitter.js")
-const io = require("socket.io-client")
-
-
-socket = io('http://localhost:8080')
 
 //User
 const Usuario = require("../model/usuarioSchema.js")

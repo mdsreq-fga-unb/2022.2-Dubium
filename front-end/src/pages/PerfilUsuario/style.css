@@ -23,17 +23,17 @@
 }
 
 .usuario-interacao:hover {
-  background-color: #eeeeee;
+  background-color: #b46666;
 }
 
 .pu-perfil {
   display: flex;
-  flex-direction: row;
   gap: 25px;
   align-items: center;
 }
 
 .pu-perfil-texto {
+  width: 20%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -49,7 +49,7 @@
   flex-direction: column;
   gap: 50px;
   background-color: #201F25;
-  border: #000 solid ;
+  border: #000 solid;
   width: 50%;
   border-radius: 20px;
   padding: 50px;
@@ -64,6 +64,28 @@
   cursor: pointer;
 }
 
+#imagemPerfil {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.botaoFoto {
+  width: 17%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+}
+
+.botaoFoto:hover{
+  background-color: #e1e1e1;
+}
+
 .pu-informacoes {
   display: flex;
   flex-direction: column;
@@ -75,7 +97,7 @@
   border-radius: 10px;
 }
 
-.pc-titulo{
+.pc-titulo {
   color: #ffffff;
 }
 
@@ -109,7 +131,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-
   background-color: #01C4A6;
   border: none;
   padding: 10px;
@@ -136,3 +157,4 @@
   flex-direction: row;
   gap: 20px;
 }
+
