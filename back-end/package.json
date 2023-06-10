@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "node --test --watch src/test/**.spec.js",
-    "test:mocha": "mocha src/test/**.spec.js"
+    "test": "mocha src/test/**.spec.js"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +26,7 @@
     "nodemon": "^2.0.22",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
-    "socket.io": "^4.6.2"
+    "socket.io": "^4.6.2",
+    "socket.io-client": "^4.6.2"
   }
 }

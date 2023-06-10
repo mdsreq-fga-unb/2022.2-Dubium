@@ -18,6 +18,10 @@ export default function AvisoSelecionado() {
   const [favorito, setFavorito] = useState(false);
   const [token, setToken] = useState('');
   const [infosSalvas, setInfosSalvas] = useState({});
+  const [editando, setEditando] = useState(false);
+  const [tituloEditado, setTituloEditado] = useState("");
+  const [conteudoEditado, setConteudoEditado] = useState("");
+  const [materiaEditada, setMateriaEditada] = useState("");
 
   const { idAviso } = useParams();
 
@@ -49,8 +53,6 @@ export default function AvisoSelecionado() {
     }
   }, [token]);
 
-
-
   const getAviso = () => {
     apiRequest
       .get(`/aviso/${idAviso}`, {
@@ -72,6 +74,20 @@ export default function AvisoSelecionado() {
     }
   }, [token]);
 
+  const habilitarEdicao = () => {
+    setEditando(true);
+    setTituloEditado(avisoSelecionado?.titulo || "");
+    setConteudoEditado(avisoSelecionado?.conteudo || "");
+    setMateriaEditada(avisoSelecionado?.materia || "");
+  };
+
+  const cancelarEdicao = () => {
+    setEditando(false);
+    setTituloEditado("");
+    setConteudoEditado("");
+    setMateriaEditada("");
+  };
+
   const deleteAviso = async () => {
     await apiRequest
       .delete(`/aviso/${idAviso}`, {
@@ -87,7 +103,7 @@ export default function AvisoSelecionado() {
     navigate(-1);
   };
 
-  const updateFavotito = async (bool) => {
+  const updateFavorito = async (bool) => {
     const infoAviso = {
       idUsuario: jwt(token).secret.id,
       idAviso: idAviso,
@@ -125,6 +141,28 @@ export default function AvisoSelecionado() {
       .catch((error) => console.log(error));
   };
 
+  const editarAviso = async () => {
+    const infoAviso = {
+      id_usuario: jwt(token).secret.id,
+      id_aviso: idAviso,
+      titulo: tituloEditado,
+      conteudo: conteudoEditado,
+      materia: materiaEditada
+    };
+  
+    await apiRequest
+      .put(`/aviso/editar/${idAviso}`, infoAviso, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        setAvisoSelecionado(response.data);
+        setEditando(false);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return token && (
     <div className="container">
       <div className="pergunta-selecionada">
@@ -147,12 +185,38 @@ export default function AvisoSelecionado() {
         <span className="filtro">
           {avisoSelecionado?.materia?.toUpperCase()}
         </span>
-        <span>{avisoSelecionado?.conteudo}</span>
+        {editando ? (
+          <div>
+            <input
+              type="text"
+              value={tituloEditado}
+              onChange={(e) => setTituloEditado(e.target.value)}
+            />
+            <textarea
+              value={conteudoEditado}
+              onChange={(e) => setConteudoEditado(e.target.value)}
+            ></textarea>
+            <input
+              type="text"
+              value={materiaEditada}
+              onChange={(e) => setMateriaEditada(e.target.value)}
+            />
+            <button onClick={editarAviso}>Salvar</button>
+            <button onClick={cancelarEdicao}>Cancelar</button>
+          </div>
+        ) : (
+          <div>
+            <span>{avisoSelecionado?.conteudo}</span>
+            {avisoSelecionado?.usuario?.id == jwt(token).secret.id && (
+              <button onClick={habilitarEdicao}>Editar</button>
+            )}
+          </div>
+        )}
         <ul className="ps-favoritar-salvar">
           <li
             className="item-interacao"
             onClick={() => {
-              updateFavotito(avisoSelecionado?.favoritadoPor?.includes(jwt(token).secret.id))
+              updateFavorito(avisoSelecionado?.favoritadoPor?.includes(jwt(token).secret.id))
             }}
           >
             <IconButton>

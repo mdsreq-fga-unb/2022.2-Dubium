@@ -65,7 +65,7 @@ router.put("/editar/:id", passport.authenticate('jwt', { session: false }), (req
                 });
             }
 
-            if (aviso.usuario.id !== req.user._id) {
+            if (aviso.usuario.id != req.user._id) {
                 return res.status(403).send({
                     error: "Você não tem permissão para editar esse aviso."
                 });
