@@ -28,7 +28,7 @@
 
 .card-pergunta {
   transition: 0.5s;
-  background-color: rgb(65, 65, 65);
+  background-color: #414141;
 
   color: #ffffff;
   display: flex;

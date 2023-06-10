@@ -9,7 +9,6 @@ import io from 'socket.io-client';
 import apiRequest from '../../../services/api.js'
 
 
-
 export default function ChatPrincipal({ setLogado }) {
 
   const [message, setMessage] = useState("");
@@ -29,8 +28,6 @@ export default function ChatPrincipal({ setLogado }) {
 
 
   //ScrollBar
-
-
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
     setSocket(io('http://localhost:8080'));

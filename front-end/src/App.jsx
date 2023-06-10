@@ -13,9 +13,11 @@ import ForumBody from "./pages/Forum/ForumBody";
 import Salvos from "./pages/Salvos";
 import Sobre from "./pages/Sobre";
 import Login from "./pages/login";
-import RecuperarSenha from "./pages/RecuperarSenha"
-import AlterarSenha from "./pages/AlterarSenha"
-import Chat from "./pages/Chat"
+import RecuperarSenha from "./pages/RecuperarSenha";
+import AlterarSenha from "./pages/AlterarSenha";
+import Chat from "./pages/Chat";
+import SalasPublico from "./pages/SalasPublico";
+import ChatPublico from "./pages/ChatPublico";
 
 import ForumLayout from "./pages/Forum/ForumLayout";
 import AuthLayout from "./components/AuthLayout";
@@ -78,12 +80,18 @@ function App() {
             element={<EditarUsuario />}
           />
           <Route
-          path="/chat/:idChat"
-          element={<Chat />} />
+            path="/chat/:idChat"
+            element={<Chat />} />
           <Route
-          path="/chat"
-          element={<Chat />} />
+            path="/chat"
+            element={<Chat />} />
         </Route>
+        <Route
+          path="/salasPublico"
+          element={<SalasPublico />} />
+        <Route
+          path="/chatPublico"
+          element={<ChatPublico />} />
         <Route path="/cadastrar-usuario" element={<CadastrarUsuarios />} />
         <Route path="/login" element={<Login setLogado={setLogado} />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
