@@ -71,7 +71,7 @@
 }
 
 #corFundo {
-  background: linear-gradient(to bottom right, #d7d5d5, #0b0b11);
+  background-image: url(https://www.papeiseparede.com.br/3257-thickbox_default/papel-de-parede-whatsapp-branco-e-azul.jpg.webp);
   justify-content: center;
   height: 44rem;
 }
@@ -84,10 +84,15 @@
   height: auto;
   padding: 13px;
   color: #ffffff;
-  background-color: #201F25;
+  background: linear-gradient(to right,#363795,#005C97);
   border-end-start-radius: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+.horario {
+  float: right;
+  margin-top: 12px;
+  font-size: 12px;
 }
 
 .textoChatOutro {
@@ -98,7 +103,7 @@
   height: auto;
   padding: 13px;
   color:#ffffff;
-  background-color: #201f25;
+  background: linear-gradient(to left, rgb(101, 154, 204), rgb(68, 131, 182));
   border-end-end-radius: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
