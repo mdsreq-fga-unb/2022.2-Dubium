@@ -198,7 +198,8 @@ export default function ChatPrincipal({ setLogado }) {
 
                   <div
                     className={jwt(token).secret.id == mensagem.user.id ? "textoChat1" : "textoChatOutro"}>
-                    {mensagem.user.nome}: {mensagem.message}
+                    {mensagem.message}
+                    <span className="horario">{new Date(mensagem.horario).getHours() + ':' + new Date(mensagem.horario).getMinutes()}</span>
                   </div>
                 </Link>
               );
@@ -212,7 +213,7 @@ export default function ChatPrincipal({ setLogado }) {
                 >
                   {mensagem.idRoom == idChat && <div
                     className={jwt(token).secret.id == mensagem.user.id ? "textoChat1" : "textoChatOutro"}>
-                    {mensagem.user.nome}: {mensagem.message}
+                    {mensagem.message}
                   </div>}
                 </Link>
               );

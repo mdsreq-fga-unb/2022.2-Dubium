@@ -233,10 +233,15 @@ export default function PerfilUsuario({ setLogado }) {
 
           {token && idUsuario != jwt(token).secret.id && (
             <div className="buttonChat">
-              <Link to={`/chat/${jwt(token).secret.id}`}
-                onClick={() => {
-                  addChatInstance()
-                }}
+              <Link to={`/chat`}
+              onClick={(event) => {
+                event.preventDefault()
+                addChatInstance()
+
+                setTimeout(() => {
+                  window.location.href = event.target.getAttribute("href");
+                }, 500); 
+              }}
               >
                 Mensagem
               </Link>
