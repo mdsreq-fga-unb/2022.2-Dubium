@@ -59,9 +59,9 @@ export default function PerfilUsuario({ setLogado }) {
       },
       privado: true
     }
-
     usuarioSelecionado.chats.forEach(e => {
-      if (e.usuarios.includes(data.user) && e.privado) {
+      if (e.privado && e.usuarios.includes(data.user.id)) {
+        navigate("/chat")
         return verify = true
       }
     })
@@ -75,6 +75,7 @@ export default function PerfilUsuario({ setLogado }) {
         })
         .then(response => {
           console.log("Instância criada com sucesso")
+          navigate("/chat")
         })
         .catch(err => {
           console.log({ error: "Erro ao fazer requisição" })
@@ -232,19 +233,13 @@ export default function PerfilUsuario({ setLogado }) {
 
 
           {token && idUsuario != jwt(token).secret.id && (
-            <div className="buttonChat">
-              <Link to={`/chat`}
+            <div className="buttonChat"
               onClick={(event) => {
                 event.preventDefault()
                 addChatInstance()
-
-                setTimeout(() => {
-                  window.location.href = event.target.getAttribute("href");
-                }, 500); 
               }}
               >
                 Mensagem
-              </Link>
             </div>
           )}
 

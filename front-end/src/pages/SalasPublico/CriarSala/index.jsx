@@ -59,7 +59,7 @@ export default function CriarSala() {
                 }
             })
             .then(response => {
-                navigate("/salasPublico");
+                navigate("/chat");
             })
             .catch(err => {console.log(err)})
     }

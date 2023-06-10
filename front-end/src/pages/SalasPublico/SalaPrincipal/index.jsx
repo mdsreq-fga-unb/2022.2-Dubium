@@ -1,12 +1,14 @@
 import apiRequest from "../../../services/api";
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import jwt from 'jwt-decode'
 import { useEffect, useState, useContext } from "react";
 
 export default function SalasPublicas() {
   const [chats, setChats] = useState([])
   const [chatsUser, setChatsUser] = useState([])
+  const navigate = useNavigate()
+
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [token, setToken] = useState('');
   useEffect(() => {
@@ -77,7 +79,7 @@ export default function SalasPublicas() {
         headers: {Authorization: "bearer " + token}
       })
       .then(response => {
-
+        navigate("/chat")
       })
       .catch(err => {console.log(err)})
   }
@@ -102,9 +104,6 @@ export default function SalasPublicas() {
                 onClick={(e) => {
                   e.preventDefault();
                   joinUserInstance(data._id)
-                  setTimeout(() => {
-                    window.location.href = "/chat";
-                  }, 500);
                 }}
               >
                 Juntar-se ao grupo
