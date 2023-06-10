@@ -120,6 +120,7 @@ export default function ChatPrincipal({ setLogado }) {
     }
     setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, _message]);
     socket.emit("sendMessage", _message)
+    saveMessages([_message])
     setMessage("")
   }
 
@@ -138,9 +139,9 @@ export default function ChatPrincipal({ setLogado }) {
       });
   }
 
-  const saveMessages = async () => {
+  const saveMessages = async (msg) => {
     await apiRequest
-      .post("/chat/messages", { messages: arrayMensagens, idChat: idChat }, {
+      .post("/chat/messages", { messages: msg, idChat: idChat }, {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -155,7 +156,6 @@ export default function ChatPrincipal({ setLogado }) {
 
   useEffect(() => {
     if (arrayMensagens.length >= 1) {
-      saveMessages()
       setMessagesDB([...messagesDB, ...arrayMensagens]);
       setarrayMensagens([])
     }
@@ -163,7 +163,7 @@ export default function ChatPrincipal({ setLogado }) {
 
 
 
-  return token && socket && chat && usuarioSelecionado && arrayMensagens && messagesDB && (
+  return token && socket && chat && usuarioSelecionado && arrayMensagens && messagesDB &&  (
     <div className="containerChat">
       <div className="chat-principal">
 
@@ -173,16 +173,16 @@ export default function ChatPrincipal({ setLogado }) {
             <div className="dados">
 
 
-              {token ?
+              {token && chat.privado ?
                 <Link to={`/usuario/${chat.usuarios[0].user.id}`}>
                   <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
                 </Link> :
-                <></>
+                <span>{chat.nome}</span>
               }
 
               <div className="digitando">
                 <div>
-                  {chat.usuarios[0].user.id == jwt(token).secret.id ? `${stringDigitando}` : `${stringDigitando}`}</div>
+                  {chat.privado && chat.usuarios[0].user.id == jwt(token).secret.id ? `${stringDigitando}` : `${stringDigitando}`}</div>
               </div>
             </div>
             <div id="searchIcon"><SearchIcon /></div>

@@ -16,6 +16,12 @@ const ChatSchema = new Schema({
     },
     nome: {
         type: String
+    },
+    tema: {
+        type: String
+    },
+    foto: {
+        type: String
     }
 })
 
