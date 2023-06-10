@@ -14,6 +14,13 @@ io.on('connection', socket => {
     socket.on('sendMessage', (data) => {
         socket.to(data.idRoom).emit('receivedMessage', data)
     })
+    socket.on('digitando', (data) => {
+        socket.to(data.idRoom).emit('targetDig', data)
+    })
+
+    socket.on('naoDigitando', (data) => {
+        socket.to(data).emit('targetNaoDig', data)
+    })
 
     socket.on('disconnect', () => {
         console.log("Desconectado:", socket.id)

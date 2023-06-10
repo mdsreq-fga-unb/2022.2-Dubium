@@ -9,10 +9,10 @@ import io from 'socket.io-client';
 import apiRequest from '../../../services/api.js'
 
 
-
 export default function ChatPrincipal({ setLogado }) {
 
   const [message, setMessage] = useState("");
+  const [isFirstRender, setIsFirstRender] = useState(true);
   const [token, setToken] = useState('');
   const [socket, setSocket] = useState(null);
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
@@ -20,15 +20,14 @@ export default function ChatPrincipal({ setLogado }) {
   const { idChat } = useParams();
   const [arrayMensagens, setarrayMensagens] = useState([]);
   const [messagesDB, setMessagesDB] = useState([])
-
+  const [digitando, setDigitando] = useState(false)
   const { idUsuario } = useParams();
   const navigate = useNavigate();
   const conteudoRef = useRef(null);
-  
+  const [stringDigitando, setStringDigitando] = useState('')
+
 
   //ScrollBar
-
-
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
     setSocket(io('http://localhost:8080'));
@@ -46,6 +45,13 @@ export default function ChatPrincipal({ setLogado }) {
       socket.on("receivedMessage", (message) => {
         setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);
       });
+      socket.on("targetDig", (data) => {
+        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome + " está digitando..." :
+          chat.usuarios[0].user.nome + " está digitando..."}`)
+      })
+      socket.on("targetNaoDig", (data) => {
+        setStringDigitando("")
+      })
     }
   }, [usuarioSelecionado]);
 
@@ -67,7 +73,7 @@ export default function ChatPrincipal({ setLogado }) {
 
   const scrollDown = () => {
     const container = document.getElementsByClassName('conteudoChat')[0];
-    if(container){
+    if (container) {
       console.log(container)
       container.scrollTop = container.scrollHeight
     }
@@ -79,7 +85,22 @@ export default function ChatPrincipal({ setLogado }) {
     }
   }, [messagesDB]);
 
-
+  useEffect(() => {
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    }
+    if (message.length) {
+      var data = {
+        user: jwt(token).secret,
+        idRoom: idChat
+      }
+      socket.emit("digitando", data)
+    }
+    if (!message.length) {
+      socket.emit("naoDigitando", idChat)
+    }
+  }, [message])
 
 
   useEffect(() => {
@@ -99,6 +120,7 @@ export default function ChatPrincipal({ setLogado }) {
     }
     setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, _message]);
     socket.emit("sendMessage", _message)
+    saveMessages([_message])
     setMessage("")
   }
 
@@ -117,9 +139,9 @@ export default function ChatPrincipal({ setLogado }) {
       });
   }
 
-  const saveMessages = async () => {
+  const saveMessages = async (msg) => {
     await apiRequest
-      .post("/chat/messages", { messages: arrayMensagens, idChat: idChat }, {
+      .post("/chat/messages", { messages: msg, idChat: idChat }, {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -134,20 +156,35 @@ export default function ChatPrincipal({ setLogado }) {
 
   useEffect(() => {
     if (arrayMensagens.length >= 1) {
-      saveMessages()
       setMessagesDB([...messagesDB, ...arrayMensagens]);
       setarrayMensagens([])
     }
   }, [arrayMensagens])
+
+
 
   return token && socket && chat && usuarioSelecionado && arrayMensagens && messagesDB && (
     <div className="containerChat">
       <div className="chat-principal">
 
         <div id="corFundo">
-          <div className="dadosUsuario">
+          <div className="cabecalhoChat">
             <img id="imagemPerfilChat" src={imagemPerfil} alt="imagemPerfil" />
-            <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
+            <div className="dados">
+
+
+              {token ?
+                <Link to={`/usuario/${chat.usuarios[0].user.id}`}>
+                  <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
+                </Link> :
+                <></>
+              }
+
+              <div className="digitando">
+                <div>
+                  {chat.usuarios[0].user.id == jwt(token).secret.id ? `${stringDigitando}` : `${stringDigitando}`}</div>
+              </div>
+            </div>
             <div id="searchIcon"><SearchIcon /></div>
           </div>
 
@@ -161,7 +198,8 @@ export default function ChatPrincipal({ setLogado }) {
 
                   <div
                     className={jwt(token).secret.id == mensagem.user.id ? "textoChat1" : "textoChatOutro"}>
-                    {mensagem.user.nome}: {mensagem.message}
+                    {mensagem.message}
+                    <span className="horario">{new Date(mensagem.horario).getHours() + ':' + new Date(mensagem.horario).getMinutes()}</span>
                   </div>
                 </Link>
               );
@@ -175,7 +213,7 @@ export default function ChatPrincipal({ setLogado }) {
                 >
                   {mensagem.idRoom == idChat && <div
                     className={jwt(token).secret.id == mensagem.user.id ? "textoChat1" : "textoChatOutro"}>
-                    {mensagem.user.nome}: {mensagem.message}
+                    {mensagem.message}
                   </div>}
                 </Link>
               );

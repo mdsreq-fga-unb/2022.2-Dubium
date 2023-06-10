@@ -1,0 +1,53 @@
+.containerSalaPrincipal {
+  margin-top: 5.1rem;
+  margin-left: 270px;
+  width: 100%;
+}
+
+.salaPrincipal {
+  display: flex;
+  width: auto;
+}
+
+.divisaoColunaSala, .divisaoColunaSala2, .divisaoColunaSala3 {
+  margin-left: 2%;
+  display: block;
+  height: 100%;
+  width: 25%;
+}
+
+.sala {
+  color: #f1f1f1;
+  display: block;
+  margin-top: 2rem;
+  height: 12rem;
+  width: 90%;
+  transition: 0.5s;
+  background-color: #414141;
+  color: #ffffff;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.sala:hover {
+  background-color: #eeeeee;
+  color: black;
+}
+
+.botaoChatPublico {
+  margin-left: 3rem;
+  color: #ffffff;
+  padding: 5px;
+  border: #000000 solid 1px;
+  background-color: #2476aa;
+  border-radius: 20px;
+  align-items: center;
+  padding: 0.6rem;
+  border-radius: 20px;
+}
+
+.buttonChatPublico:hover {
+  transition: 0.5s;
+  color: #0f4a6d;
+}

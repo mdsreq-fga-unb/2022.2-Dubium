@@ -1,0 +1,23 @@
+.containerChat{
+    position: fixed;
+    width: 100%;
+    height: auto;
+}
+
+.containerSidebar {
+    position: fixed;
+    display: flex;
+}
+
+.containerSidebar {
+    position: fixed;
+    flex-direction: column;
+    border-right: 2px solid #414141;
+    width: 250px;
+    padding: 10px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 80px;
+}

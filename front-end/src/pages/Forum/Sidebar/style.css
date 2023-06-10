@@ -27,7 +27,6 @@
 .buttonChat{
   justify-content: center;
   color: #ffffff;
-  padding: 20px;
   height: 20px;
   border: #000000 solid 2px;
   background-color: #2476aa;
@@ -43,6 +42,29 @@
 }
 
 .buttonChat:hover{
+  transition: 0.5s;
+  color: #0f4a6d;
+}
+
+
+.buttonChatPublico{
+  justify-content: center;
+  color: #ffffff;
+  height: 20px;
+  border: #000000 solid 2px;
+  background-color: #2476aa;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  font-size: 17px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.6rem;
+  gap: 8px;
+  border-radius: 20px;
+}
+
+.buttonChatPublico:hover{
   transition: 0.5s;
   color: #0f4a6d;
 }
