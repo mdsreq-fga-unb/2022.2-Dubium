@@ -53,12 +53,10 @@ router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) 
 
 router.put("/editar/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id } = req.params;
-    const { titulo, materia, conteudo } = req.body;
+    const { conteudo } = req.body;
 
     avisoSchema.findOne({ _id: id })
         .then(aviso => {
-            console.log(aviso)
-            console.log(req.user._id)
             if (!aviso) {
                 return res.status(404).send({
                     error: "Aviso não encontrado"
@@ -71,8 +69,6 @@ router.put("/editar/:id", passport.authenticate('jwt', { session: false }), (req
                 });
             }
 
-            aviso.titulo = titulo;
-            aviso.materia = materia;
             aviso.conteudo = conteudo;
 
             aviso.save()

@@ -20,9 +20,7 @@ export default function AvisoSelecionado() {
   const [token, setToken] = useState('');
   const [infosSalvas, setInfosSalvas] = useState({});
   const [editando, setEditando] = useState(false);
-  const [tituloEditado, setTituloEditado] = useState("");
   const [conteudoEditado, setConteudoEditado] = useState("");
-  const [materiaEditada, setMateriaEditada] = useState("");
 
   const { idAviso } = useParams();
 
@@ -77,16 +75,12 @@ export default function AvisoSelecionado() {
 
   const habilitarEdicao = () => {
     setEditando(true);
-    setTituloEditado(avisoSelecionado?.titulo || "");
     setConteudoEditado(avisoSelecionado?.conteudo || "");
-    setMateriaEditada(avisoSelecionado?.materia || "");
   };
 
   const cancelarEdicao = () => {
     setEditando(false);
-    setTituloEditado("");
     setConteudoEditado("");
-    setMateriaEditada("");
   };
 
   const deleteAviso = async () => {
@@ -146,9 +140,7 @@ export default function AvisoSelecionado() {
     const infoAviso = {
       id_usuario: jwt(token).secret.id,
       id_aviso: idAviso,
-      titulo: tituloEditado,
-      conteudo: conteudoEditado,
-      materia: materiaEditada
+      conteudo: conteudoEditado
     };
   
     await apiRequest
@@ -178,6 +170,7 @@ export default function AvisoSelecionado() {
                 </span>
               </div>
             </div>
+            <div className="right-buttons">
             {avisoSelecionado?.usuario?.id === jwt(token).secret.id && (
               <IconButton onClick={deleteAviso}>
                 <DeleteIcon sx={{ fontSize: 16 }} />
@@ -188,35 +181,26 @@ export default function AvisoSelecionado() {
                 <EditIcon sx={{ fontSize: 16 }} />
               </IconButton>
             )}
+            </div>
           </div>
           <span className="filtro">
             {avisoSelecionado?.materia?.toUpperCase()}
           </span>
           {editando ? (
             <div>
-              <input
-                type="text"
-                value={tituloEditado}
-                onChange={(e) => setTituloEditado(e.target.value)}
-              />
               <textarea
                 value={conteudoEditado}
                 onChange={(e) => setConteudoEditado(e.target.value)}
+                className="textarea-editar"
               ></textarea>
-              <input
-                type="text"
-                value={materiaEditada}
-                onChange={(e) => setMateriaEditada(e.target.value)}
-              />
-              <button onClick={editarAviso}>Salvar</button>
-              <button onClick={cancelarEdicao}>Cancelar</button>
+              <div>
+              <button className="salvar-editar" onClick={editarAviso}>Salvar</button>
+              <button className="cancelar-editar" onClick={cancelarEdicao}>Cancelar</button>
+              </div>
             </div>
           ) : (
             <div>
-              <span>{avisoSelecionado?.conteudo}</span>
-              {avisoSelecionado?.usuario?.id === jwt(token).secret.id && (
-                <button onClick={habilitarEdicao}>Editar</button>
-              )}
+              <span className="conteudo">{avisoSelecionado?.conteudo}</span>
             </div>
           )}
           <ul className="ps-favoritar-salvar">
