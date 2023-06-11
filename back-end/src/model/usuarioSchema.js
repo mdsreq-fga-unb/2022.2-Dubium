@@ -43,6 +43,9 @@ const UsuarioSchema = new Schema({
     },
     chats: {
       type: Array,
+    },
+    foto: {
+      type: String
     }
     
 })

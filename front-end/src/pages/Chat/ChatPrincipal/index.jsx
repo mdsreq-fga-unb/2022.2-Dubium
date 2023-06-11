@@ -163,7 +163,7 @@ export default function ChatPrincipal({ setLogado }) {
 
 
 
-  return token && socket && chat && usuarioSelecionado && arrayMensagens && messagesDB && (
+  return token && socket && chat && usuarioSelecionado && arrayMensagens && messagesDB &&  (
     <div className="containerChat">
       <div className="chat-principal">
 
@@ -173,16 +173,16 @@ export default function ChatPrincipal({ setLogado }) {
             <div className="dados">
 
 
-              {token ?
+              {token && chat.privado ?
                 <Link to={`/usuario/${chat.usuarios[0].user.id}`}>
                   <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
                 </Link> :
-                <></>
+                <span>{chat.nome}</span>
               }
 
               <div className="digitando">
                 <div>
-                  {chat.usuarios[0].user.id == jwt(token).secret.id ? `${stringDigitando}` : `${stringDigitando}`}</div>
+                  {chat.privado && chat.usuarios[0].user.id == jwt(token).secret.id ? `${stringDigitando}` : `${stringDigitando}`}</div>
               </div>
             </div>
             <div id="searchIcon"><SearchIcon /></div>
@@ -198,7 +198,7 @@ export default function ChatPrincipal({ setLogado }) {
 
                   <div
                     className={jwt(token).secret.id == mensagem.user.id ? "textoChat1" : "textoChatOutro"}>
-                    {mensagem.message}
+                    {chat.privado ? mensagem.message : mensagem.user.nome + ": " + mensagem.message}
                     <span className="horario">{new Date(mensagem.horario).getHours() + ':' + new Date(mensagem.horario).getMinutes()}</span>
                   </div>
                 </Link>

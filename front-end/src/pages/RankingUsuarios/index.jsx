@@ -55,7 +55,11 @@ export default function RankingUsuarios({ materiaPesquisada }) {
               <div
                 style={{ display: "flex", flexDirection: "row", gap: "10px" }}
               >
-                <PersonIcon fontSize="large" />
+              {usuario.foto ? (
+                <img id="imagemPerfil" src={usuario.foto} alt="Selected" />
+              ) : (
+                <PersonIcon sx={{ fontSize: 120 }} />
+              )}
                 <div
                   style={{
                     display: "flex",

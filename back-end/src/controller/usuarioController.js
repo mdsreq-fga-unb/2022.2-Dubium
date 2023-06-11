@@ -7,7 +7,6 @@ const usuarioSchema = require("../model/usuarioSchema.js")
 const perguntaSchema = require("../model/perguntaSchema.js")
 const chatSchema = require("../model/chatSchema.js")
 
-
 router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id } = req.params
     usuarioSchema.findOne({ _id: id }).lean()
@@ -127,7 +126,29 @@ router.post("/chatInstance", passport.authenticate('jwt', { session: false }), (
         })
 
     })
-
+    
+    router.post("/salvarFoto", passport.authenticate('jwt', { session: false }), (req, res) => {
+        const { idUsuario, url } = req.body
+        usuarioSchema.findOne({ _id: idUsuario })
+            .then(data => {
+                data.updateOne({ foto: url })
+                    .then(response => {
+                        res.status(200).send(response)
+                    })
+                    .catch(err => {
+                        res.status(400).send({
+                            error: "Erro ao salvar foto",
+                            message: err
+                        })
+                    })
+            })
+            .catch(err => {
+                res.status(400).send({
+                    error: "Erro ao procurar usuário",
+                    message: err
+                })
+            })
+    })
 
 
 

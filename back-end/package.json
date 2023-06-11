@@ -15,6 +15,7 @@
     "bcrypt": "^5.1.0",
     "chai": "^4.3.7",
     "chai-http": "^4.3.0",
+    "cloudinary": "^1.37.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",

@@ -30,7 +30,8 @@ router.post("/", (req, res) => {
             username: username,
             id: user.id,
             nome: user.nome_completo,
-            curso: user.curso
+            curso: user.curso,
+            foto: user.foto
         }
 
 
