@@ -56,7 +56,8 @@ const deletarAviso = async (id, userId) => {
   };
 
   const salvarAviso = async (id, idUser, salvo) => {
-    usuarioService.buscarUsuario(idUser)
+    try {
+        usuarioService.buscarUsuario(idUser)
         .then(data => {
             if(salvo){
                 return data.updateOne({ $push: { "salvos.avisos": id }})
@@ -64,6 +65,9 @@ const deletarAviso = async (id, userId) => {
                 return data.updateOne({ $pull: { "salvos.avisos": id } })
             }
         })
+    } catch (error) {
+        throw new Error(error.message)
+    }
   }
 
 
@@ -81,7 +85,7 @@ const deletarAviso = async (id, userId) => {
             if(favorito){
                 return data.updateOne({ $inc: { votos: +1 }, $push: { "favoritadoPor": idUser } })
             } else {
-                data.updateOne({ $inc: { votos: -1 }, $pull: { "favoritadoPor": idUser } })
+                return data.updateOne({ $inc: { votos: -1 }, $pull: { "favoritadoPor": idUser } })
             }
         })
         .catch(error => {throw new Error("Aviso não encontrado!")})
