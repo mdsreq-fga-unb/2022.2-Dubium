@@ -9,7 +9,7 @@ const login = require("./controller/loginController.js")
 const pergunta = require("./controller/perguntaController.js")
 const resposta = require("./controller/respostaController.js")
 const usuario = require("./controller/usuarioController.js")
-const aviso = require("./controller/avisoController.js")
+const aviso = require("./routes/aviso.js")
 const chat = require("./controller/chatController.js")
 //require mongo
 require("./config/MongoConfig.js")
