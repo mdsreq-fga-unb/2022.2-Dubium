@@ -104,10 +104,8 @@ const perguntasSalvas = (req, res) => {
 
 const perguntasCadastradas = (req, res) => {
     const { idUsuario } = req.body
-    console.log(idUsuario)
     perguntaService.perguntasCadastradas(idUsuario)
         .then(data => {
-            console.log(data)
             res.status(201).json(data)
         })
         .catch(err => {

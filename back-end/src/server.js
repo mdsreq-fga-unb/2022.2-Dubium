@@ -8,7 +8,7 @@ const cadastro = require("./controller/cadastroController.js")
 const login = require("./controller/loginController.js")
 const pergunta = require("./routes/pergunta.js")
 const resposta = require("./controller/respostaController.js")
-const usuario = require("./controller/usuarioController.js")
+const usuario = require("./routes/usuario.js")
 const aviso = require("./routes/aviso.js")
 const chat = require("./controller/chatController.js")
 //require mongo

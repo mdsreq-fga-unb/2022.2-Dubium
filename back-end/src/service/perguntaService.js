@@ -79,22 +79,6 @@ const perguntasCadastradas = async (idUsuario) => {
     }
 }
 
-
-// router.get("/pergunta/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
-//     const { id } = req.params
-//     perguntaSchema.find({ "idUsuario.id": id }).lean()
-//         .then(data => {
-//             res.status(201).json(data)
-//         })
-//         .catch(err => {
-//             res.status(404).send({
-//                 error: "Erro ao achar as perguntas",
-//                 message: err
-//             })
-//         })
-// })
-
-
 module.exports = {
     criarPergunta,
     obterPerguntas,
