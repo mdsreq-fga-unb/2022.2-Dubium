@@ -6,7 +6,7 @@ const http =  require('http').createServer(app)
 //rotas
 const cadastro = require("./controller/cadastroController.js")
 const login = require("./controller/loginController.js")
-const pergunta = require("./controller/perguntaController.js")
+const pergunta = require("./routes/pergunta.js")
 const resposta = require("./controller/respostaController.js")
 const usuario = require("./controller/usuarioController.js")
 const aviso = require("./routes/aviso.js")
