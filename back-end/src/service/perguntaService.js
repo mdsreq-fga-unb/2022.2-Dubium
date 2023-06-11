@@ -40,9 +40,9 @@ const favoritarPergunta = async (id, idUser, favorito) => {
     return await perguntaSchema.findOne({ _id: id })
         .then(data => {
             if(favorito){
-                return data.updateOne({ $inc: { votos: +1 }, $push: { "favoritadoPor": idUser } })
+                return data.updateOne({ $inc: { favoritado: +1 }, $push: { "favoritadoPor": idUser } })
             } else {
-                return data.updateOne({ $inc: { votos: -1 }, $pull: { "favoritadoPor": idUser } })
+                return data.updateOne({ $inc: { favoritado: -1 }, $pull: { "favoritadoPor": idUser } })
             }
         })
         .catch(error => {throw new Error("Pergunta não encontrada!")})
@@ -71,6 +71,29 @@ const perguntasSalvas = async (arrayPerguntas) => {
     }
 }
 
+const perguntasCadastradas = async (idUsuario) => {
+    try {
+        return await perguntaSchema.find({ "idUsuario.id": idUsuario }).lean()
+    } catch (error) {
+        throw new Error(error.message)
+    }
+}
+
+
+// router.get("/pergunta/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
+//     const { id } = req.params
+//     perguntaSchema.find({ "idUsuario.id": id }).lean()
+//         .then(data => {
+//             res.status(201).json(data)
+//         })
+//         .catch(err => {
+//             res.status(404).send({
+//                 error: "Erro ao achar as perguntas",
+//                 message: err
+//             })
+//         })
+// })
+
 
 module.exports = {
     criarPergunta,
@@ -79,5 +102,6 @@ module.exports = {
     deletarPergunta,
     favoritarPergunta,
     salvarPergunta,
-    perguntasSalvas
+    perguntasSalvas,
+    perguntasCadastradas
 }

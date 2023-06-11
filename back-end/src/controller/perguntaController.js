@@ -102,6 +102,22 @@ const perguntasSalvas = (req, res) => {
         })
 }
 
+const perguntasCadastradas = (req, res) => {
+    const { idUsuario } = req.body
+    console.log(idUsuario)
+    perguntaService.perguntasCadastradas(idUsuario)
+        .then(data => {
+            console.log(data)
+            res.status(201).json(data)
+        })
+        .catch(err => {
+            res.status(404).send({
+                error: "Erro ao achar as perguntas",
+                message: err
+            })
+        })
+}
+
 
 
 
@@ -112,5 +128,6 @@ module.exports = {
     deletarPergunta,
     favoritarPergunta,
     salvarPergunta,
-    perguntasSalvas
+    perguntasSalvas,
+    perguntasCadastradas
 }
