@@ -14,13 +14,15 @@ import EditIcon from "@mui/icons-material/Edit";
 import jwt from 'jwt-decode';
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css";
-
 import PerguntasCadastradas from "./PerguntasCadastradas";
+
+
 
 export default function PerfilUsuario({ setLogado }) {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
   const [favorito, setFavorito] = useState(false);
   const [token, setToken] = useState('');
+
 
 
   const { idUsuario } = useParams();
@@ -30,17 +32,45 @@ export default function PerfilUsuario({ setLogado }) {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleImageChange = (event) => {
+    const url = "https://api.cloudinary.com/v1_1/dueumomvp/image/upload";
+    const formData = new FormData();
     const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      setSelectedImage(reader.result);
-    };
 
     if (file) {
-      reader.readAsDataURL(file);
+      formData.append("file", file);
+      formData.append("upload_preset", "kp8hqpxl")
+      fetch(url, {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        salvarFoto(data.url)
+      })
+      .catch(err => console.log(err))
     }
   };
+
+  const salvarFoto = async (urlFoto) => {
+    const data = {
+      idUsuario: jwt(token).secret.id,
+      url: urlFoto
+    }
+    await apiRequest
+    .post("/usuario/salvarFoto", data, {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    })
+      .then(response => {
+        setSelectedImage(urlFoto)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+
 
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
@@ -92,6 +122,7 @@ export default function PerfilUsuario({ setLogado }) {
       })
       .then((response) => {
         setUsuarioSelecionado(response.data);
+        setSelectedImage(response.data.foto)
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -151,7 +182,7 @@ export default function PerfilUsuario({ setLogado }) {
     <div className="container pu-container">
       <div className="perfil-usuario">
         <div className="pu-perfil">
-          {selectedImage != null ? (
+          {selectedImage ? (
             <img id="imagemPerfil" src={selectedImage} alt="Selected" />
           ) : (
             <PersonIcon sx={{ fontSize: 120 }} />
