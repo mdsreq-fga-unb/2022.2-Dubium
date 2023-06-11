@@ -8,6 +8,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+
 
 import isAuthenticated from "../../isAuth";
 
@@ -88,12 +90,16 @@ function Header({ setMateriaPesquisada, setLogado }) {
         )}
         {isAuthenticated() && (
           <>
+          <li className="notification-item">
+                <NotificationsIcon />
+          </li>
           {/* recuperar api de informações do usuario */}
           { token ? 
             <Link to={`/usuario/${jwt(token).secret.id}`}> 
               <li className="login-item">
                 <PersonIcon />
                 <span>Perfil</span>
+
               </li>
             </Link> :
             <></>
