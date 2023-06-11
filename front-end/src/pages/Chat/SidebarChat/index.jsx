@@ -92,8 +92,14 @@ export default function SidebarChat() {
               key={index}
             >
             {chat.privado && <div className="sidebarItem">
-              <img id="imagemPerfilChat" src={chat.usuarios[0].user.id == jwt(token).secret.id ? fotosUsuarios[`${chat.usuarios[0].userTarget.id}`] : fotosUsuarios[`${chat.usuarios[0].user.id}`]} alt="imagemPerfil" />
-              {chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}
+              <img id="imagemPerfilChat" 
+                src={chat.usuarios[0].user.id == jwt(token).secret.id ? 
+                fotosUsuarios[`${chat.usuarios[0].userTarget.id}`] : 
+                fotosUsuarios[`${chat.usuarios[0].user.id}`]} 
+              alt="imagemPerfil" />
+              {chat.usuarios[0].user.id == jwt(token).secret.id ? 
+                chat.usuarios[0].userTarget.nome : 
+                chat.usuarios[0].user.nome}
             </div>}
             {!chat.privado && <div className="sidebarItem">{chat.nome}</div>}
             </Link>
