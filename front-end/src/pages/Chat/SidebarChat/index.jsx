@@ -10,6 +10,7 @@ export default function SidebarChat() {
   const [usuario, setUsuario] = useState({});
   const [token, setToken] = useState('');
   const [chats, setChats] = useState([])
+  const [fotosUsuarios, setFotoUsuarios] = useState({})
   
 
   useEffect(() => {
@@ -32,9 +33,26 @@ export default function SidebarChat() {
       });
   }
 
+  const getFotos = async () => {
+    await apiRequest
+      .get('/usuario/fotos', {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        console.log(response.data['6484dda6423c93a34888165a'])
+        setFotoUsuarios(response.data)
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }
+
   useEffect(() => {
     if(token && usuario){
       getUsuario()
+      getFotos()
     }
   }, [token])
 
@@ -73,7 +91,10 @@ export default function SidebarChat() {
               }
               key={index}
             >
-            {chat.privado && <div className="sidebarItem">{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</div>}
+            {chat.privado && <div className="sidebarItem">
+              <img id="imagemPerfilChat" src={chat.usuarios[0].user.id == jwt(token).secret.id ? fotosUsuarios[`${chat.usuarios[0].userTarget.id}`] : fotosUsuarios[`${chat.usuarios[0].user.id}`]} alt="imagemPerfil" />
+              {chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}
+            </div>}
             {!chat.privado && <div className="sidebarItem">{chat.nome}</div>}
             </Link>
           );

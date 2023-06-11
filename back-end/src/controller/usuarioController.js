@@ -7,6 +7,21 @@ const usuarioSchema = require("../model/usuarioSchema.js")
 const perguntaSchema = require("../model/perguntaSchema.js")
 const chatSchema = require("../model/chatSchema.js")
 
+
+
+router.get("/fotos", (req, res) => {
+    usuarioSchema.find().lean()
+        .select('foto')
+        .then(data => {
+            const objectData = {}
+            data.map(e => {
+                objectData[`${e._id}`] = e.foto
+            })
+            res.status(200).send(objectData)
+        })
+        .catch(err => {res.status(400).send({error: "Erro ao encontrar fotos", message: err})})
+})
+
 router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id } = req.params
     usuarioSchema.findOne({ _id: id }).lean()
@@ -20,6 +35,7 @@ router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) 
             })
         })
 })
+
 
 router.get("/pergunta/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { id } = req.params
@@ -149,8 +165,6 @@ router.post("/chatInstance", passport.authenticate('jwt', { session: false }), (
                 })
             })
     })
-
-
 
 
 
