@@ -2,6 +2,7 @@ import "./style.css";
 
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
@@ -162,6 +163,7 @@ export default function AvisoSelecionado() {
         <div className="pergunta-selecionada">
           <div className="ps-usuario-container">
             <div className="ps-usuario-info">
+              <Link className="link-usuario" to={`/usuario/${avisoSelecionado?.usuario?.id}`}>
               <PersonIcon fontSize="large" />
               <div className="ps-usuario-info-texto">
                 <span>{avisoSelecionado?.usuario?.nome}</span>
@@ -169,6 +171,7 @@ export default function AvisoSelecionado() {
                   {handleCurso(avisoSelecionado?.usuario?.curso)}
                 </span>
               </div>
+              </Link>
             </div>
             <div className="right-buttons">
             {avisoSelecionado?.usuario?.id === jwt(token).secret.id && (
