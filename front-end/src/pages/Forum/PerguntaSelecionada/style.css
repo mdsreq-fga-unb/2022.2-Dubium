@@ -90,3 +90,7 @@
   align-items: center;
   gap: 5px;
 }
+
+.link-usuario{
+  display: contents;
+}

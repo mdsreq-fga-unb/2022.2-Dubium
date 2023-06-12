@@ -76,3 +76,7 @@
   gap: 5px;
   cursor: pointer;
 }
+
+.link-usuario{
+  display: contents;
+}

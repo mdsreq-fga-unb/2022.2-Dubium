@@ -80,6 +80,7 @@ export default function ForumBody({ materiaPesquisada }) {
             >
               <div className="card-pergunta">
                 <div className="usuario-pergunta">
+                  <Link  className='link-usuario' to={`/usuario/${data.idUsuario.id}`}>
                   <PersonIcon fontSize="large" />
                   <div className="usuario-informacao-texto">
 
@@ -89,6 +90,8 @@ export default function ForumBody({ materiaPesquisada }) {
                       {handleCurso(data.curso)}
                     </span>
                   </div>
+                  </Link>
+                  
                 </div>
                 <span className="filtro">{data.filtro.toUpperCase()}</span>
                 <span>{data.titulo}</span>
