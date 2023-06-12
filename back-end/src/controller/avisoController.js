@@ -1,114 +1,81 @@
 const { json } = require("body-parser")
-const express = require("express")
-const router = express.Router()
-const passport = require("passport")
-router.use(json())
 const avisoSchema = require("../model/avisoSchema.js")
 const perguntaSchema = require("../model/perguntaSchema.js")
 const usuarioSchema = require("../model/usuarioSchema.js")
+const avisoService = require("../service/avisoService.js")
 
-router.post("/criar", passport.authenticate('jwt', { session: false }), (req, res) => {
+
+const criarAviso = (req, res) => {
     const { id_usuario, tituloAviso, corpoAviso, id_cursoAviso, filtro } = req.body
-    new avisoSchema({ titulo: tituloAviso, usuario: id_usuario, conteudo: corpoAviso, materia: filtro, curso: id_cursoAviso }).save()
+    avisoService.criarAviso(id_usuario, tituloAviso, corpoAviso, id_cursoAviso, filtro)
         .then(() => {
             res.status(201).send("Aviso criado com sucesso!")
         })
         .catch(err => {
-            res.status(400).send({
-                error: "Erro ao criar aviso!",
-                message: err
-            })
+            res.status(400).send({ error: "Erro ao criar aviso!", message: err })
         })
+}
 
-
-})
-
-router.get("/", passport.authenticate('jwt', { session: false }), (req, res) => {
-    avisoSchema.find().lean()
+const buscarAvisos = (req, res) => {
+    avisoService.buscarAvisos()
         .then(data => {
             res.status(200).json(data)
         })
         .catch(err => {
-            res.status(404).send({
-                error: "Avisos não encotrados",
-                message: err
-            })
+            res.status(404).send({ error: "Avisos não encotrados", message: err })
         })
-})
+}
 
-router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
+const buscarAvisoPorId = (req, res) => {
     const { id } = req.params
-    avisoSchema.findOne({ _id: id })
+    avisoService.buscarAvisoPorId(id)
         .then(data => {
             res.status(201).json(data)
         })
         .catch(err => {
-            res.status(404).send({
-                error: "Aviso não encontrado",
-                message: err
-            })
+            res.status(404).send({ error: "Aviso não encontrado", message: err })
         })
-})
+}
 
-router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
+const deletarAviso = (req, res) => {
     const { id } = req.params
-    avisoSchema.findOne({ _id: id })
-        .then(data => {
-            if(data.usuario.id == req.user._id){
-                data.deleteOne()
-                    .then(() => res.status(201).send("Deletado com sucesso"))
-                    .catch(err => res.status(400).send({error: "Falha ao deletar aviso", message: err}))
-            } else{
-                return new Error({message: "Usuário inválido"})
-            }
+    avisoService.deletarAviso(id, req.user._id)
+        .then(() => res.status(201).send("Deletado com sucesso"))
+        .catch(err => res.status(400).send({ error: "Falha ao deletar aviso", message: err }));
+}
+
+const editarAviso = (req, res) => {
+    const { id } = req.params;
+    const { titulo, materia, conteudo } = req.body;
+    avisoService.editarAviso(id, req.user._id, titulo, materia, conteudo)
+        .then(updatedAviso => {
+            res.status(200).json(updatedAviso);
         })
         .catch(err => {
-            res.status(404).send({
-                error: "Aviso não encontrado",
-                message: err
-            })
-        })
-})
+            res.status(500).send({
+                error: "Erro ao atualizar aviso",
+                message: err.message
+            });
+        });
+}
 
-router.post("/salvar", passport.authenticate('jwt', { session: false }), (req, res) => {
+const salvarAviso = (req, res) => {
     const { id_usuario, id_aviso, salvo } = req.body
-    usuarioSchema.findOne({ _id: id_usuario })
-        .then(data => {
-            if(salvo){
-                data.updateOne({ $push: { "salvos.avisos": id_aviso }})
-                    .then(() => {
-                        res.status(201).send("Salvo com sucesso!")
-                    })
-                    .catch(err => {
-                        res.status(400).send({
-                            error: "Erro ao salvar aviso!",
-                            message: err
-                        })
-                    })
-            } else {
-                data.updateOne({ $pull: { "salvos.avisos": id_aviso } })
-                    .then(() => {
-                        res.status(201).send("Removido dos salvos")
-                    })
-                    .catch(err => {
-                        res.status(400).send({
-                            error: "Falha ao alterar aviso",
-                            message: err
-                        })
-                    })
-            }
+    avisoService.salvarAviso(id_aviso, id_usuario, salvo)
+        .then(() => {
+            res.status(201).send("Aviso alterado com sucesso!")
         })
         .catch(err => {
-            res.status(404).send({
-                error: "Erro ao procurar usuário!",
+            res.status(400).send({
+                error: "Erro ao alterar aviso!",
                 message: err
             })
         })
-})
+}
 
-router.post("/salvos", passport.authenticate('jwt', { session: false }), (req, res) => {
+const avisosSalvos = (req, res) => {
     const { arrayAvisos } = req.body
-    avisoSchema.find({ _id: { $in: arrayAvisos } })
+    avisoService.avisosSalvos(arrayAvisos)
         .then((data) => {
             res.status(201).send(data)
         })
@@ -118,44 +85,30 @@ router.post("/salvos", passport.authenticate('jwt', { session: false }), (req, r
                 message: err
             })
         })
-})
+}
 
-router.post("/favoritar/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
-    // const { id } = req.params
+const favoritarAviso = (req, res) => {
     const { idUsuario, idAviso, favorito } = req.body
-    avisoSchema.findOne({ _id: idAviso })
-        .then(data => {
-            if(favorito){
-                data.updateOne({ $inc: { votos: +1 }, $push: { "favoritadoPor": idUsuario } })
-                    .then(() => {
-                        res.status(201).send("Atualizado com sucesso!")
-                    })
-                    .catch(err => {
-                        res.send({
-                            error: "Erro ao atualizar favoritos",
-                            message: err
-                        })
-                    })
-            } else {
-                data.updateOne({ $inc: { votos: -1 }, $pull: { "favoritadoPor": idUsuario } })
-                    .then(() => {
-                        res.status(201).send("Atualizado com sucesso!")
-                    })
-                    .catch(err => {
-                        res.send({
-                            error: "Erro ao atualizar favoritos",
-                            message: err
-                        })
-                    })
-            }
+    avisoService.favoritarAviso(idAviso, idUsuario, favorito)
+        .then(() => {
+            res.status(201).send("Favoritos atualizado com sucesso!")
         })
         .catch(err => {
-            res.status(404).send({
-                error: "Falha ao procurar resposta",
+            res.send({
+                error: "Erro ao atualizar favoritos",
                 message: err
             })
         })
-})
+}
 
 
-module.exports = router
+module.exports = {
+    criarAviso,
+    buscarAvisos,
+    buscarAvisoPorId,
+    deletarAviso,
+    editarAviso,
+    salvarAviso,
+    avisosSalvos,
+    favoritarAviso
+}

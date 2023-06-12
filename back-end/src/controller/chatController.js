@@ -60,7 +60,6 @@ router.post("/chatPublico", passport.authenticate('jwt', { session: false }), (r
                 .then(user => {
                     user.updateOne({ $push: { chats: { idChat: data._id, privado: false } } })
                         .then(response => {
-                            console.log(response)
                             res.status(200).send("Instância pública criada com sucesso!")
                         })
                         .catch(err => res.status(400).send({error: "Erro ao salvar instância no usuario", message: err}))

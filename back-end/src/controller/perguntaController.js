@@ -1,45 +1,38 @@
 const { json } = require("body-parser")
-const express = require("express")
-const router = express.Router()
+const avisoSchema = require("../model/avisoSchema.js")
 const perguntaSchema = require("../model/perguntaSchema.js")
 const usuarioSchema = require("../model/usuarioSchema.js")
-const jwt = require("jsonwebtoken")
-const emitter = require("../auth/emitter.js")
-const { decrypt, encrypt } = require("../auth/crypto.js")
-const { route } = require("./loginController.js")
-const passport = require("passport")
-router.use(express.json())
+const perguntaService = require("../service/perguntaService.js")
+const jwt = require('jsonwebtoken')
 
 
-router.post("/", (req, res) => {
+const criarPergunta = (req, res) => {
     const { titulo, curso, conteudo, filtro } = req.body
-    const jwtDecode = jwt.decode(req.cookies.jwt, {complete: true}).payload
-    new perguntaSchema({titulo, curso, conteudo, filtro, idUsuario: jwtDecode.secret, data: Date.now()}).save()
-    .then(data => {
-        res.status(201).send(data)
-    })
-    .catch(err => {
-        res.status(404).send({
-            error: "Erro ao criar pergunta",
-            message: err
+    const idUsuario = jwt.decode(req.cookies.jwt, {complete: true}).payload
+    perguntaService.criarPergunta(titulo, curso, conteudo, filtro, idUsuario.secret)
+        .then(data => {
+            res.status(201).send(data)
         })
-    })
+        .catch(err => {
+            res.status(404).send({
+                error: "Erro ao criar pergunta",
+                message: err
+            })
+        })
+}
 
-
-})
-
-router.get("/view", (req, res) => {
-    perguntaSchema.find().lean().sort({data: -1})
+const obterPerguntas = (req, res) => {
+    perguntaService.obterPerguntas()
         .then(data => {
             res.status(200).json(data)
         })
         .catch(err => {
             res.status(404).send(err)
         })
-})
+}
 
-router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
-    perguntaSchema.findOne({ _id: req.params.id }).lean()
+const obterPerguntaPorId = (req, res) => {
+    perguntaService.obterPerguntaPorId(req.params.id)
         .then(data => {
             res.status(201).send(data)
         })
@@ -49,112 +42,55 @@ router.get("/:id", passport.authenticate('jwt', { session: false }), (req, res) 
                 message: err
             })
         })
-})
+}
 
-router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
-    const { id } = req.params
-    perguntaSchema.findOne({ _id: id })
-        .then((pergunta) => {
-            if(pergunta.idUsuario.id == req.user._id){
-                pergunta.deleteOne()
-                    .then(() => {
-                        res.status(201).send({
-                        message: "Pergunta deletada com sucesso!"
-                        });
-                    })
-                    .catch(err => {
-                        res.status(500).send({
-                        error: "Falha ao deletar pergunta",
-                        message: err
-                        });
-                    });          
-            }
-        })
-        .catch(err => {
-            res.status(404).send({
-                error: "Falha ao procurar pergunta",
-                message: err
+const deletarPergunta = (req, res) => {
+        const { id } = req.params
+        perguntaService.deletarPergunta(id, req.user._id)
+            .then(() => {
+                res.status(201).send({
+                message: "Pergunta deletada com sucesso!"
+                });
             })
-        })
-})
+            .catch(err => {
+                res.status(500).send({
+                error: "Falha ao deletar pergunta",
+                message: err
+                });
+            });   
+}
 
-router.post("/favoritar/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
-    const { id } = req.params
+const favoritarPergunta = (req, res) => {
     const { idUsuario, idPergunta, favorito } = req.body
-    perguntaSchema.findOne({ _id: id })
-        .then(data => {
-            if(favorito){
-                data.updateOne({ $inc: { favoritado: +1 }, $push: { "favoritadoPor": idUsuario } })
-                    .then(() => {
-                        res.status(201).send("Atualizado com sucesso!")
-                    })
-                    .catch(err => {
-                        res.send({
-                            error: "Erro ao atualizar favoritos",
-                            message: err
-                        })
-                    })
-            } else {
-                data.updateOne({ $inc: { favoritado: -1 }, $pull: { "favoritadoPor": idUsuario } })
-                    .then(() => {
-                        res.status(201).send("Atualizado com sucesso!")
-                    })
-                    .catch(err => {
-                        res.send({
-                            error: "Erro ao atualizar favoritos",
-                            message: err
-                        })
-                    })
-            }
+    perguntaService.favoritarPergunta(idPergunta, idUsuario, favorito)
+        .then(() => {
+            res.status(201).send("Favoritos atualizado com sucesso!")
         })
         .catch(err => {
-            res.status(404).send({
-                error: "Falha ao procurar pergunta",
+            res.send({
+                error: "Erro ao atualizar favoritos",
                 message: err
             })
         })
-})
+}
 
-router.post("/salvar", passport.authenticate('jwt', { session: false }), (req, res) => {
+const salvarPergunta = (req, res) => {
     const { id_usuario, id_pergunta, salvo } = req.body
-    usuarioSchema.findOne({ _id: id_usuario })
-        .then(data => {
-            if(salvo){
-                data.updateOne({ $push: { "salvos.perguntas": id_pergunta }})
-                    .then(() => {
-                        res.status(201).send("Salvo com sucesso!")
-                    })
-                    .catch(err => {
-                        res.status(400).send({
-                            error: "Erro ao salvar pergunta!",
-                            message: err
-                        })
-                    })
-            } else {
-                data.updateOne({ $pull: { "salvos.perguntas": id_pergunta } })
-                    .then(() => {
-                        res.status(201).send("Removido dos salvos")
-                    })
-                    .catch(err => {
-                        res.status(400).send({
-                            error: "Falha ao alterar a pergunta",
-                            message: err
-                        })
-                    })
-            }
+    perguntaService.salvarPergunta(id_pergunta, id_usuario, salvo)
+        .then(() => {
+            res.status(201).send("Pergunta alterada com sucesso!")
         })
         .catch(err => {
-            res.status(404).send({
-                error: "Erro ao procurar usuário!",
+            res.status(400).send({
+                error: "Erro ao alterar pergunta!",
                 message: err
             })
         })
-})
+}
 
-
-router.post("/salvos", passport.authenticate('jwt', { session: false }), (req, res) => {
+const perguntasSalvas = (req, res) => {
     const { arrayPerguntas } = req.body
-    perguntaSchema.find({ _id: { $in: arrayPerguntas } })
+    perguntaService.perguntasSalvas(arrayPerguntas)
         .then((data) => {
             res.status(201).send(data)
         })
@@ -164,9 +100,32 @@ router.post("/salvos", passport.authenticate('jwt', { session: false }), (req, r
                 message: err
             })
         })
-})
+}
+
+const perguntasCadastradas = (req, res) => {
+    const { idUsuario } = req.body
+    perguntaService.perguntasCadastradas(idUsuario)
+        .then(data => {
+            res.status(201).json(data)
+        })
+        .catch(err => {
+            res.status(404).send({
+                error: "Erro ao achar as perguntas",
+                message: err
+            })
+        })
+}
 
 
 
 
-module.exports = router
+module.exports = {
+    criarPergunta,
+    obterPerguntas,
+    obterPerguntaPorId,
+    deletarPergunta,
+    favoritarPergunta,
+    salvarPergunta,
+    perguntasSalvas,
+    perguntasCadastradas
+}

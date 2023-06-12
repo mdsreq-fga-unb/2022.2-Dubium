@@ -17,7 +17,7 @@ export default function PerguntasCadastradas({ idUsuario }) {
 
   const getPerguntas = () => {
     apiRequest
-      .get(`/usuario/pergunta/${idUsuario}`, {
+      .post(`/pergunta/favoritos`, {idUsuario: idUsuario} ,{
         headers: {
           Authorization: "Bearer " + token,
         },
