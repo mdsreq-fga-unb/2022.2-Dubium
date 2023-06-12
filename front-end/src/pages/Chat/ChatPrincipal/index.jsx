@@ -25,6 +25,7 @@ export default function ChatPrincipal({ setLogado }) {
   const navigate = useNavigate();
   const conteudoRef = useRef(null);
   const [stringDigitando, setStringDigitando] = useState('')
+  
 
 
   //ScrollBar
@@ -109,9 +110,14 @@ export default function ChatPrincipal({ setLogado }) {
     }
   }, [token, idChat]);
 
+  const enviarNotificacao = (userId, mensagem) => {
+    socket.emit('enviarNotificacao', { userId, mensagem });
+  };  
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const mensagemEnviada = message;
     let _message = {
       user: jwt(token).secret,
       message: message,
@@ -121,6 +127,9 @@ export default function ChatPrincipal({ setLogado }) {
     setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, _message]);
     socket.emit("sendMessage", _message)
     saveMessages([_message])
+    const userIdDestinatario =  _message.idRoom
+    const mensagemNotificacao = _message.message // mensagem da notificação
+    enviarNotificacao(userIdDestinatario, mensagemNotificacao);
     setMessage("")
   }
 
@@ -221,6 +230,7 @@ export default function ChatPrincipal({ setLogado }) {
 
           </div>
         </div >
+        
 
         <form className="formEntradas" action="" onSubmit={handleSubmit}>
           <div className="entradasChat">

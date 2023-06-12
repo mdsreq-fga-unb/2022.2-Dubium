@@ -1,6 +1,8 @@
 const http = require('../server.js')
 const io = require("socket.io")(http, {cors: {origin: "http://localhost:5173"}})
 
+const connectedUsers = {}; 
+
 io.on('connection', socket => {
     console.log('SOCKET CONECTADO:', socket.id)
     socket.on('joinInstance', room => {
@@ -11,9 +13,28 @@ io.on('connection', socket => {
             })
         }
     })
+
     socket.on('sendMessage', (data) => {
         socket.to(data.idRoom).emit('receivedMessage', data)
+        console.log('-----', data)
     })
+    socket.on('registerUser', (data) => {
+        connectedUsers[data.idRoom] = socket;
+        console.log(`Usuário registrado: ${data.idRoom}`);
+    })
+
+    // Evento para enviar notificações para um usuário específico
+    socket.on('sendNotification', ({ data }) => {
+        const userSocket = connectedUsers[data.idRoom];
+        if (userSocket) {
+            userSocket.emit('notification', data.message);
+            console.log(`Notificação enviada para o usuário ${data.idRoom}: ${data.message}`);
+        } else {
+            console.log(`Usuário ${data.idRoom} não está conectado`);
+        }
+    })
+  
+
     socket.on('digitando', (data) => {
         socket.to(data.idRoom).emit('targetDig', data)
     })
