@@ -1,6 +1,8 @@
 const avisoSchema = require("../model/avisoSchema.js")
 const perguntaSchema = require("../model/perguntaSchema.js")
 const usuarioSchema = require("../model/usuarioSchema.js")
+const chatSchema = require("../model/chatSchema.js")
+const chatService = require("../service/chatService.js")
 
 
 const buscarUsuario = async (id) => {
@@ -55,10 +57,33 @@ const salvarFoto = async (id, url) => {
     }
 }
 
+
+
+
+const instanciarChatUsuario = async (privado, users, infosChat, userIds) => {
+    try {
+        chatService.criarInstanciaChat(privado, users)
+            .then(data => {
+                infosChat.idChat = data._id
+                return usuarioSchema.updateMany({ _id: { $in: userIds } }, { $push: { chats: infosChat } })
+            })
+            .catch(err => {
+                res.status(400).send({
+                    error: "Erro ao fazer requisição",
+                    message: err
+                })
+            })
+    } catch (error) {
+        throw new Error(error.message)
+    }
+}
+
+
 module.exports = {
     buscarUsuario,
     editarUsuario,
     conteudosSalvos,
     obterUsuarios,
-    salvarFoto
+    salvarFoto,
+    instanciarChatUsuario
 }

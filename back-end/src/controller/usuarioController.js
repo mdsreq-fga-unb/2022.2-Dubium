@@ -76,10 +76,34 @@ const salvarFoto = (req, res) => {
         })
 }
 
+const instanciarChatUsuario = (req, res) => {
+    const { user, userTarget, privado } = req.body
+    const userIds = [user.id, userTarget.id]
+    const users = {user, userTarget} 
+    const infosChat = {
+        usuarios: userIds,
+        privado: privado,
+        idChat: ''
+    }
+    usuarioService.instanciarChatUsuario(privado, users, infosChat, userIds)
+        .then(() => {
+            res.status(200).send("Instância salva")
+        })
+        .catch(err => {
+            res.status(400).send({
+                erro: "Falha ao salvar instância",
+                message: err.message
+            })
+        })
+}
+
+
+
 module.exports = {
     buscarUsuario,
     editarUsuario,
     conteudosSalvos,
     obterUsuarios,
-    salvarFoto
+    salvarFoto,
+    instanciarChatUsuario
 }
