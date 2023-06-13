@@ -1,5 +1,5 @@
 const http = require('../server.js')
-const io = require("socket.io")(http, {cors: {origin: "https://dubium-frontend.vercel.app/"}})
+const io = require("socket.io")(http, {cors: {origin: "https://dubium-frontend.vercel.app"}})
 
 const connectedUsers = {}; 
 

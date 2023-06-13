@@ -17,7 +17,7 @@ require("./config/MongoConfig.js")
 const cors = require("cors")
 const corsPort = {
     credentials: true,
-    origin: ["https://dubium-frontend.vercel.app/"],
+    origin: ["https://dubium-frontend.vercel.app"],
 }
 app.use(cors(corsPort))
 //cookie
