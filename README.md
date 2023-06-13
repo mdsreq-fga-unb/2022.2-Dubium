@@ -7,6 +7,8 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=COMPLETE&color=RED&style=for-the-badge"/>
 </p>
 
+Projeto: [Link](https://dubium-frontend.vercel.app/)
+
 ## Índice 
 
 * [Descrição do Projeto](#descrição-do-projeto)
@@ -17,7 +19,7 @@
 
 ## Descrição do Projeto
 
-:pushpin: `O Dubium é um produto que visa o auxílio acadêmico aos alunos da FGA, focado em ajudá-los / dar suporte para o desenvolvimento acadêmico - sanando as dúvidas de estudo - em temas específicos das matérias. Gerando assim autonomia e abrangência de conhecimentos, sem obrigatoriedade por partes dos estudantes voluntários.` 
+:pushpin: `O Dubium é um produto que visa o auxílio acadêmico aos alunos da FGA, focado em ajudá-los / dar suporte para o desenvolvimento acadêmico - sanando as dúvidas de estudo - em temas específicos das matérias. Gerando assim autonomia e abrangência de conhecimentos, sem obrigatoriedade por partes dos estudantes voluntários.`
 
 ## Documentação
 
