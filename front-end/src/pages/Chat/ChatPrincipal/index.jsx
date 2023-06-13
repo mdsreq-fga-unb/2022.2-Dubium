@@ -33,7 +33,7 @@ export default function ChatPrincipal({ setLogado }) {
   //ScrollBar
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
-    setSocket(io('http://localhost:8080'));
+    setSocket(io('https://dubium2.herokuapp.com'));
   }, [])
 
   useEffect(() => {
