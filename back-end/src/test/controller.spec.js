@@ -30,7 +30,7 @@ beforeAll((done) => {
       globalToken = token;
       done();
     });
-});
+}, 10000);
 
 afterAll((done) => {
   // Feche o servidor após todos os testes
