@@ -74,10 +74,10 @@ export default function CriarSala() {
 
                     <input className="campoEntrada" type="text" placeholder="Tema da Sala" name="temaSala" required {...register("temaSala")} />
 
-                    <div className="selecaoImagem">
-                        {<label htmlFor="uploadInput" className="botaoFotoSala">
+                   <div className="selecaoImagem">
+                       {/* {<label htmlFor="uploadInput" className="botaoFotoSala">
                             <EditIcon sx={{ fontSize: 16 }} />
-                            Editar Imagem
+                            Imagem da sala
                         </label>}
 
                         {selectedImage != null ? (
@@ -92,7 +92,7 @@ export default function CriarSala() {
                             accept="image/*"
                             onChange={handleImageChange}
                             style={{ display: 'none' }}
-                        />
+                        />*/}
                         <button type="submit" className="botao-geral">
                         Enviar
                         </button>

@@ -2,6 +2,8 @@ import "./style.css";
 
 import imagemPerfil from "../../../assets/images/logo.jpg";
 import SearchIcon from "@mui/icons-material/Search";
+import SendIcon from "@mui/icons-material/Send";
+import GroupsIcon from '@mui/icons-material/Groups';
 import { useRef, useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import jwt from 'jwt-decode'
@@ -244,7 +246,7 @@ export default function ChatPrincipal({ setLogado }) {
               onChange={e => setMessage(e.target.value)}
             />
             <button type="submit" className="sendMessage">
-              Enviar
+              <SendIcon/>
             </button>
           </div>
         </form>

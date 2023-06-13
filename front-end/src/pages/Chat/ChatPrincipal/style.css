@@ -25,9 +25,11 @@
 }
 
 #imagemPerfilChat {
-  margin: 1.5rem;
-  height: 2rem;
+  margin: 1.3rem;
+  height: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
+  border: #000000 0.5px solid;
 }
 
 .digitando {
@@ -41,6 +43,7 @@
   overflow: auto;
   width: 84%;
   height: 39rem;
+  justify-content: space-between;
 }
 
 .conteudoChat::-webkit-scrollbar {
@@ -78,17 +81,29 @@
 
 .textoChat1 {
   margin-top: 10px;
-  margin-left: 72%;
-  margin-right: 10px;
-  width: auto;
+  max-width: 50%;
+  min-width: 3%;
+  float: right;
+  /* Alinha a fala à esquerda */
+  margin-right: 1%;
+  margin-left: 90%;
   height: auto;
   padding: 13px;
   color: #ffffff;
-  background: linear-gradient(to right,#363795,#005C97);
+  background: linear-gradient(to right, #363795, #005C97);
   border-end-start-radius: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+
+.textoChat1 span{
+  margin-left: 10px;
+}
+
+.textoChatOutro span{
+  margin-left: 10px;
+}
+
 .horario {
   float: right;
   margin-top: 12px;
@@ -97,12 +112,16 @@
 
 .textoChatOutro {
   margin-top: 10px;
-  margin-right: 10px;
+  float: left;
+  /* Alinha a fala à esquerda */
+  max-width: 50%;
+  margin-right: 90%;
   margin-left: 1%;
-  width: 28%;
+  gap: 10px;
+  width: auto;
   height: auto;
   padding: 13px;
-  color:#ffffff;
+  color: #ffffff;
   background: linear-gradient(to left, rgb(101, 154, 204), rgb(68, 131, 182));
   border-end-end-radius: 20px;
   border-top-left-radius: 20px;
@@ -110,11 +129,11 @@
 }
 
 .entradasChat {
+  border-top: #201F25 solid 1px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background-color: #ffffff;
 }
 
 .formEntradas {
@@ -130,8 +149,11 @@
   height: 27px;
   padding: 0.25rem;
   color: black;
-  border: black solid 2px;
-  border-radius: 5rem;
+  border-color: #201F25;
+  border-style: solid;
+  border-end-start-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .scrollbar-container {
@@ -146,18 +168,19 @@
 }
 
 .sendMessage {
-  margin-left: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
   font-size: 13px;
   background-color: #ffffff;
-  height: 27px;
-  padding: 0.25rem;
+  padding: 5px;
   color: black;
   border: black solid 2px;
-  border-radius: 5rem;
+  border-radius: 50%;
   transition: 0.5s;
 }
 
 .sendMessage:hover {
   color: #ffffff;
-  background-color: black;
+  background-color: #075889;
 }
