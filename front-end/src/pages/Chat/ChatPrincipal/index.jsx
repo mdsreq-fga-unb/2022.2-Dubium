@@ -55,6 +55,7 @@ export default function ChatPrincipal({ setLogado }) {
 
   useEffect(() => {
     if (socket) {
+      socket.emit("idUser", jwt(token).secret.id)
       socket.emit('joinInstance', usuarioSelecionado.chats)
       socket.on("receivedMessage", (message) => {
         setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);

@@ -64,17 +64,16 @@ io.on('connection', socket => {
             const socketId = findSocketIdByUserId(data.idTarget);
             if(socketId){
                 socket.to(socketId).emit("incrementarNotificacao", socketId)
-            } else {
-                console.log("Offline")
             }
-            // chatService.registrarNotificacao(data.idRoom, data.idTarget)
+            chatService.registrarNotificacao(data.idRoom, data.idTarget)
+
         }
         console.log(`Sockets conectados na sala: `, socketsConectadosRoom);
     })
 
-    // socket.on("limparNotificacao", (data) => {
-    //     chatService.limparNotificacao(data.idChat, data.idUser)
-    // })
+    socket.on("limparNotificacao", (data) => {
+        chatService.limparNotificacao(data.idChat, data.idUser)
+    })
 
     socket.on("test", () => {
         console.log("teste")
