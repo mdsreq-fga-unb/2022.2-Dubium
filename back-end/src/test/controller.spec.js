@@ -13,6 +13,9 @@ beforeAll((done) => {
         email: 'sabrina_mattos@gmail.com',
         celular: '619999699',
         password: 123456
+      })
+      .end((err, res) => {
+        done()
       });
 
   request(server)
