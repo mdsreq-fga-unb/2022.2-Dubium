@@ -135,7 +135,7 @@ export default function FormularioPergunta() {
           ></textarea>
           <div className="group-input" style={{ justifyContent: "center" }}>
             <button type="submit" className="botao-geral">
-              
+              Enviar
             </button>
             <button
               className="botao-geral botao-cancelar"

@@ -83,7 +83,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
       <div className="container-pergunta">
         <div className="criar-pergunta">
           <Link to={isAuthenticated() ? "/avisos/criar-aviso" : "/login"}>
-            <button>CRIAR AVISO</button>
+            <button className="buttonAviso">CRIAR AVISO</button>
           </Link>
         </div>
         {allQuest.map((aviso, index) => {
