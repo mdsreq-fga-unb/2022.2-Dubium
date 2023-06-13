@@ -4,14 +4,16 @@ import apiRequest from "../../../services/api.js";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import isAuthenticated from "../../../isAuth";
-
+import { SocketContext } from "../../../context/Socket";
+import React from "react";
 
 export default function SidebarChat() {
   const [usuario, setUsuario] = useState({});
   const [token, setToken] = useState('');
   const [chats, setChats] = useState([])
   const [fotosUsuarios, setFotoUsuarios] = useState({})
-  
+  const socket = useContext(SocketContext);
+
 
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
@@ -76,11 +78,12 @@ export default function SidebarChat() {
     }
   }, [usuario])
 
-  // useEffect(() => {
-  //   if(usuario && chats && token){
-  //     console.log(chats)
-  //   }
-  // }, [chats])
+  const limparNotificacao = (idChat) => {
+    const idUser = usuario._id
+    socket.emit("limparNotificacao", ({idChat: idChat, idUser: idUser}))
+    getUsuario()
+  }
+
 
   return token && usuario && chats && (
     <div className="containerSidebar">
@@ -93,6 +96,9 @@ export default function SidebarChat() {
                   : "/login"
               }
               key={index}
+              onClick={() => {
+                limparNotificacao(chat._id)
+              }}
             >
             {chat.privado && <div className="sidebarItem">
               <img id="imagemPerfilChat" 
@@ -103,12 +109,16 @@ export default function SidebarChat() {
               {chat.usuarios[0].user.id == jwt(token).secret.id ? 
                 chat.usuarios[0].userTarget.nome : 
                 chat.usuarios[0].user.nome}
+                <div>
+                  {chat.usuarios[0].user.id == jwt(token).secret.id ? 
+                  chat.usuarios[0].user.notificacoes : 
+                  chat.usuarios[0].userTarget.notificacoes}
+                </div>
             </div>}
             {!chat.privado && <div className="sidebarItem">{chat.nome}</div>}
             </Link>
           );
         })}
-
     </div>
   );
 }

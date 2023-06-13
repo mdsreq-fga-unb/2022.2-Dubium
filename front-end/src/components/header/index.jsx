@@ -10,33 +10,67 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-
 import isAuthenticated from "../../isAuth";
-
-import jwt from 'jwt-decode' 
-
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import apiRequest from "../../services/api";
+import jwt from 'jwt-decode';
 
-
+import { SocketContext } from "../../context/Socket";
+import React, { useContext } from "react";
 
 function Header({ setMateriaPesquisada, setLogado }) {
   const [token, setToken] = useState('');
+  const [notificacao, setNotificacao] = useState()
+  const socket = useContext(SocketContext);
+  
+  console.log(socket)
+
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
 
   const handleChange = (e) => {
     e.preventDefault();
     setMateriaPesquisada(e.target.value);
   };
 
+  const getChat = async () => {
+    let number = 0
+    await apiRequest
+      .post(`/chat/user`, { idUser: jwt(token).secret.id }, {
+        headers: {
+          Authorization: "Bearer " + token,
+        }
+      })
+      .then(data => {
+        data.data.forEach(e => {
+          console.log(e.usuarios[0])
+          if(e.usuarios[0].user.id == jwt(token).secret.id){
+            number += e.usuarios[0].user.notificacoes
+          } else {
+            number += e.usuarios[0].userTarget.notificacoes
+          }
+        })
+        setNotificacao(number)
+        console.log(socket)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
 
   useEffect(() => {
-    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
-  }, [])
+    if(token) {
+      getChat()
+      // socket.on("attNotif", (data) => {
+      //   console.log(data)
+      // })
+    }
+  }, [token])
 
-
-
+  
   return (
     <header className="header">
       <Link to="/" className="logo">
@@ -91,6 +125,7 @@ function Header({ setMateriaPesquisada, setLogado }) {
         {isAuthenticated() && (
           <>
           <li className="notification-item">
+            {notificacao}
                 <NotificationsIcon />
           </li>
           {/* recuperar api de informações do usuario */}
