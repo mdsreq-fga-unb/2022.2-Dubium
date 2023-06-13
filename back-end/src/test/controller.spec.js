@@ -5,6 +5,17 @@ let globalToken;
 
 beforeAll((done) => {
   request(server)
+      .post('/cadastro')
+      .send({
+        nome_completo: 'Sabrina Mattos',
+        curso: 1,
+        matricula: 1234567,
+        email: 'sabrina_mattos@gmail.com',
+        celular: '619999699',
+        password: 123456
+      });
+
+  request(server)
     .post('/login')
     .send({ username: 'sabrina_mattos@gmail.com', password: '123456' })
     .end((err, res) => {
@@ -28,10 +39,10 @@ describe('Testes das Rotas', () => {
     const response = await request(server)
       .post('/cadastro')
       .send({
-        nome_completo: 'Yasmim Rosa',
+        nome_completo: 'Juan Souza',
         curso: 1,
         matricula: 1234567,
-        email: 'yasmim_rosa@gmail.com',
+        email: 'juan_souza@gmail.com',
         celular: '619999699',
         password: 123456
       });
