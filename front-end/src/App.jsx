@@ -38,12 +38,30 @@ function App() {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
   }, [])
 
+  const getId = async () => {
+    const idUser = await jwt(token).secret.id
+    return idUser
+  }
+
   useEffect(() => {
-    if(isAuthenticated() && token){
-      const idUser = jwt(token).secret.id
-      socketContext.emit("idUser", idUser)
-    }
-  }, [logado, token])
+    if(token){
+      setTimeout(() => {
+        getId()
+        .then(idUser => {
+          socketContext.emit("idUser", idUser)
+        })
+        .catch(err => {console.log(err)})
+      }, 100);
+      }
+  }, [token])
+
+  // useEffect(() => {
+  //   if(isAuthenticated() && token){
+  //     const idUser = jwt(token).secret.id
+  //     console.log('idUser')
+  //     socketContext.emit("idUser", idUser)
+  //   }
+  // }, [logado, token])
 
 
   return (

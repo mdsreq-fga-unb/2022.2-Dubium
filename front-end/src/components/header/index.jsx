@@ -21,7 +21,7 @@ import React, { useContext } from "react";
 
 function Header({ setMateriaPesquisada, setLogado }) {
   const [token, setToken] = useState('');
-  const [notificacao, setNotificacao] = useState()
+  const [notificacao, setNotificacao] = useState(0)
   const socket = useContext(SocketContext);
 
   useEffect(() => {
@@ -65,13 +65,13 @@ function Header({ setMateriaPesquisada, setLogado }) {
   }, [token])
 
   useEffect(() => {
-    if(token && socket) {
+
+      console.log("teste")
       socket.on("incrementarNotificacao", (number) => {
-        // setNotificacao(notificacao+1)
-        console.log(number)
+        setNotificacao(prevNumber => prevNumber + 1)
       })
-    }
-  }, [socket])
+
+  }, [])
 
   
   return (

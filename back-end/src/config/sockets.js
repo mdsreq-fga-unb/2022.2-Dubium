@@ -10,6 +10,7 @@ io.on('connection', socket => {
     console.log('SOCKET CONECTADO:', socket.id)
     socket.on('idUser', (idUser) => {
         socket.idUser = idUser
+        console.log("O socket", socket.id, "recebeu o novo id: ", socket.idUser)
     })
 
     let rooms = []
@@ -61,7 +62,11 @@ io.on('connection', socket => {
         } else {
             console.log("enviar notificacao")
             const socketId = findSocketIdByUserId(data.idTarget);
-            // socket.to(socketId).emit("incrementarNotificacao", {sds: "23"})
+            if(socketId){
+                socket.to(socketId).emit("incrementarNotificacao", socketId)
+            } else {
+                console.log("Offline")
+            }
             // chatService.registrarNotificacao(data.idRoom, data.idTarget)
         }
         console.log(`Sockets conectados na sala: `, socketsConectadosRoom);
