@@ -44,31 +44,27 @@ io.on('connection', socket => {
 
     socket.on('sendMessage', (data) => {
         socket.to(data.idRoom).emit('receivedMessage', data)
-        console.log('---------------------------')
-
-
-        
-        let socketsConectadosRoom = []
-        const connectedSockets = io.sockets.adapter.rooms.get(data.idRoom);
-        for (const socketId of connectedSockets) {
-            const socket = io.sockets.sockets.get(socketId);
-            if (socket) {
-              socketsConectadosRoom.push(socket.idUser)
+        if(data.privado){
+            let socketsConectadosRoom = []
+            const connectedSockets = io.sockets.adapter.rooms.get(data.idRoom);
+            for (const socketId of connectedSockets) {
+                const socket = io.sockets.sockets.get(socketId);
+                if (socket) {
+                socketsConectadosRoom.push(socket.idUser)
+                }
             }
-          }
+            if(socketsConectadosRoom.includes(data.idTarget)) {
+                console.log("Ele está no chat")
+            } else {
+                console.log("enviar notificacao")
+                const socketId = findSocketIdByUserId(data.idTarget);
+                if(socketId){
+                    socket.to(socketId).emit("incrementarNotificacao", socketId)
+                }
+                chatService.registrarNotificacao(data.idRoom, data.idTarget)
 
-        if(socketsConectadosRoom.includes(data.idTarget)) {
-            console.log("Ele está no chat")
-        } else {
-            console.log("enviar notificacao")
-            const socketId = findSocketIdByUserId(data.idTarget);
-            if(socketId){
-                socket.to(socketId).emit("incrementarNotificacao", socketId)
             }
-            chatService.registrarNotificacao(data.idRoom, data.idTarget)
-
         }
-        console.log(`Sockets conectados na sala: `, socketsConectadosRoom);
     })
 
     socket.on("limparNotificacao", (data) => {
@@ -79,22 +75,6 @@ io.on('connection', socket => {
         console.log("teste")
     })
 
-    // socket.on('registerUser', (data) => {
-    //     connectedUsers[data.idRoom] = socket;
-    //     console.log(`Usuário registrado: ${data.idRoom}`);
-    // })
-
-    // // Evento para enviar notificações para um usuário específico
-    // socket.on('sendNotification', ({ data }) => {
-    //     const userSocket = connectedUsers[data.idRoom];
-    //     if (userSocket) {
-    //         userSocket.emit('notification', data.message);
-    //         console.log(`Notificação enviada para o usuário ${data.idRoom}: ${data.message}`);
-    //     } else {
-    //         console.log(`Usuário ${data.idRoom} não está conectado`);
-    //     }
-    // })
-  
 
     socket.on('digitando', (data) => {
         socket.to(data.idRoom).emit('targetDig', data)

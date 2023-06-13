@@ -61,7 +61,8 @@ export default function ChatPrincipal({ setLogado }) {
         setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);
       });
       socket.on("targetDig", (data) => {
-        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome + " está digitando..." :
+        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? 
+          chat.usuarios[0].userTarget.nome + " está digitando..." :
           chat.usuarios[0].user.nome + " está digitando..."}`)
       })
       socket.on("targetNaoDig", (data) => {
@@ -72,10 +73,8 @@ export default function ChatPrincipal({ setLogado }) {
 
 
   useEffect(() => {
-    if(chat) {
+    if(chat && chat.privado) {
       chat.usuarios[0].user.id == usuarioSelecionado._id ? setUserTarget(chat.usuarios[0].userTarget.id) : setUserTarget(chat.usuarios[0].user.id)
-
-
     }
   }, [chat])
 
@@ -146,7 +145,8 @@ export default function ChatPrincipal({ setLogado }) {
       message: message,
       horario: new Date(),
       idRoom: idChat,
-      idTarget: userTarget
+      idTarget: userTarget,
+      privado: chat.privado
     }
     setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, _message]);
     socket.emit("sendMessage", _message)

@@ -97,11 +97,13 @@ export default function SidebarChat() {
               }
               key={index}
               onClick={() => {
-                let verificaNotificacao = (chat.usuarios[0].user.id == jwt(token).secret.id ? 
-                chat.usuarios[0].user.notificacoes : 
-                chat.usuarios[0].userTarget.notificacoes)
-                if(verificaNotificacao){
-                  limparNotificacao(chat._id)
+                if(chat.privado){
+                  let verificaNotificacao = (chat.usuarios[0].user.id == jwt(token).secret.id ? 
+                  chat.usuarios[0].user.notificacoes : 
+                  chat.usuarios[0].userTarget.notificacoes)
+                  if(verificaNotificacao){
+                    limparNotificacao(chat._id)
+                  }
                 }
               }}
             >
