@@ -5,19 +5,27 @@ import apiRequest from "../../../services/api";
 import { forumData } from "../Sidebar/data";
 
 import { useForm } from "react-hook-form";
+import { useRef, useEffect, useState } from "react";
+
 
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../../context/AuthProvider";
+import jwt from 'jwt-decode'
 
 export default function FormularioPergunta() {
   const navigate = useNavigate();
-
+  
+  const [token, setToken] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
 
   const onSubmit = async (data) => {
     let indexEngenharia;
@@ -57,7 +65,9 @@ export default function FormularioPergunta() {
 
     await apiRequest
       .post("/pergunta", novaPergunta, {
-        //verificar
+        headers: {
+          Authorization: "Bearer " + token
+        }
       })
       .then((response) => {
         alert("Pergunta cadastrada com sucesso!");

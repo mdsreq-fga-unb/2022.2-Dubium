@@ -1,3 +1,5 @@
+// require('dotenv').config()
+
 //configs server
 const http = require('./server.js')
 
@@ -5,10 +7,10 @@ const http = require('./server.js')
 require("./config/sockets.js")
 
 
-const PORT = 8080
+const port = process.env.PORT || 8080
 
-const server = http.listen(PORT, () => {
-    console.log(`O servidor está rodando em: http://localhost:${PORT}`)
+const server = http.listen(port, () => {
+    console.log(`O servidor está rodando em: http://localhost:${port}`)
 })
 
 module.exports = server;

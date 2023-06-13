@@ -35,14 +35,17 @@ export default function SidebarChat() {
 
   const getFotos = async () => {
     await apiRequest
-      .get('/usuario/fotos', {
+      .get('/usuario', {
         headers: {
           Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
-        console.log(response.data['6484dda6423c93a34888165a'])
-        setFotoUsuarios(response.data)
+      const objectData = {}
+          response.data.map(e => {
+              objectData[`${e._id}`] = e.foto
+          })
+      setFotoUsuarios(objectData)
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
