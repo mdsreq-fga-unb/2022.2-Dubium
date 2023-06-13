@@ -22,13 +22,29 @@ import CriarSala from "./pages/SalasPublico/CriarSala";
 
 import ForumLayout from "./pages/Forum/ForumLayout";
 import AuthLayout from "./components/AuthLayout";
-
+import SocketProvider, { SocketContext } from "./context/Socket";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import isAuthenticated from "./isAuth";
+import jwt from 'jwt-decode'
 
 function App() {
+  const socketContext = useContext(SocketContext);
   const [logado, setLogado] = useState(false);
   const [materiaPesquisada, setMateriaPesquisada] = useState("");
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+  useEffect(() => {
+    if(isAuthenticated() && token){
+      const idUser = jwt(token).secret.id
+      socketContext.emit("idUser", idUser)
+    }
+  }, [logado, token])
+
 
   return (
     <Router>
@@ -82,17 +98,20 @@ function App() {
           />
           <Route
             path="/chat/:idChat"
-            element={<Chat />} />
+            element={
+               <Chat />
+
+           } />
           <Route
             path="/chat"
-            element={<Chat />} />
+            element={
+              <Chat />
+
+          } />
         </Route>
         <Route
           path="/salasPublico"
           element={<SalasPublico />} />
-        <Route
-          path="/chatPublico"
-          element={<ChatPublico />} />
         <Route
           path="/criarSala"
           element={<CriarSala />} />

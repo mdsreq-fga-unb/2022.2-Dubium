@@ -8,16 +8,12 @@ export default function Chat() {
     return (
         <div className="containerChat">
             <div className="sidebar-Chat">
-                <SocketProvider>
                     <SidebarChat>
                     </SidebarChat>
-                </SocketProvider>
             </div>
             <div className="chat-principal">
-                <SocketProvider>
                     <ChatPrincipal>
                     </ChatPrincipal>
-                </SocketProvider>
             </div>
         </div>
     );

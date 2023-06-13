@@ -23,8 +23,6 @@ function Header({ setMateriaPesquisada, setLogado }) {
   const [token, setToken] = useState('');
   const [notificacao, setNotificacao] = useState()
   const socket = useContext(SocketContext);
-  
-  console.log(socket)
 
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
@@ -53,7 +51,6 @@ function Header({ setMateriaPesquisada, setLogado }) {
           }
         })
         setNotificacao(number)
-        console.log(socket)
       })
       .catch(error => {
         console.log(error)
@@ -64,11 +61,17 @@ function Header({ setMateriaPesquisada, setLogado }) {
   useEffect(() => {
     if(token) {
       getChat()
-      // socket.on("attNotif", (data) => {
-      //   console.log(data)
-      // })
     }
   }, [token])
+
+  useEffect(() => {
+    if(token && socket) {
+      socket.on("incrementarNotificacao", (number) => {
+        // setNotificacao(notificacao+1)
+        console.log(number)
+      })
+    }
+  }, [socket])
 
   
   return (

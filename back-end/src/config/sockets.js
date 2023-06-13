@@ -11,7 +11,10 @@ io.on('connection', socket => {
     socket.on('idUser', (idUser) => {
         socket.idUser = idUser
     })
+
+    let rooms = []
     socket.on('joinInstance', room => {
+        rooms = room
         if(Array.isArray(room)){
             room.forEach(chat => {
                 console.log(`O socket ${socket.idUser} conectou no chat ${chat.idChat}`)
@@ -19,22 +22,32 @@ io.on('connection', socket => {
             })
         }
     })
-
-    socket.on('leaveInstance', room => {
-        if(Array.isArray(room)){
-            room.forEach(chat => {
+    socket.on('leaveInstance', () => {
+        if(Array.isArray(rooms)){
+            rooms.forEach(chat => {
                 console.log(`O socket ${socket.idUser} saiu do chat ${chat.idChat}`)
                 socket.leave(chat.idChat)
             })
         }
     })
 
+    function findSocketIdByUserId(userId) {
+        const sockets = io.sockets.sockets.values();
+        for (const socket of sockets) {
+          if (socket.idUser === userId) {
+            return socket.id;
+          }
+        }
+        return null; // Retornar null se o socket do usuário não for encontrado
+      }
+
     socket.on('sendMessage', (data) => {
         socket.to(data.idRoom).emit('receivedMessage', data)
-        console.log('-----', )
-        //pegar os participantes da sala pelo front, conferir se estão todos conectados, caso não, enviar notificação para quem não está conectado
+        console.log('---------------------------')
+
+
+        
         let socketsConectadosRoom = []
-        let verify = false
         const connectedSockets = io.sockets.adapter.rooms.get(data.idRoom);
         for (const socketId of connectedSockets) {
             const socket = io.sockets.sockets.get(socketId);
@@ -42,18 +55,21 @@ io.on('connection', socket => {
               socketsConectadosRoom.push(socket.idUser)
             }
           }
-        if(socketsConectadosRoom.includes(data.user.id)) {
-            chatService.registrarNotificacao(data.idRoom, data.idTarget)
-                .then(data => {console.log(data)})
-        } else {
+
+        if(socketsConectadosRoom.includes(data.idTarget)) {
             console.log("Ele está no chat")
+        } else {
+            console.log("enviar notificacao")
+            const socketId = findSocketIdByUserId(data.idTarget);
+            // socket.to(socketId).emit("incrementarNotificacao", {sds: "23"})
+            // chatService.registrarNotificacao(data.idRoom, data.idTarget)
         }
         console.log(`Sockets conectados na sala: `, socketsConectadosRoom);
     })
 
-    socket.on("limparNotificacao", (data) => {
-        chatService.limparNotificacao(data.idChat, data.idUser)
-    })
+    // socket.on("limparNotificacao", (data) => {
+    //     chatService.limparNotificacao(data.idChat, data.idUser)
+    // })
 
     socket.on("test", () => {
         console.log("teste")

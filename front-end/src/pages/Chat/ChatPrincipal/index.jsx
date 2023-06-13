@@ -43,6 +43,17 @@ export default function ChatPrincipal({ setLogado }) {
   }, [token])
 
   useEffect(() => {
+    return () => {
+      if (socket) {
+        console.log(usuarioSelecionado)
+        socket.emit("leaveInstance");
+        console.log("saiu")
+      }
+    };
+  }, [location, socket]);
+  
+
+  useEffect(() => {
     if (socket) {
       socket.emit("idUser", jwt(token).secret.id)
       socket.emit('joinInstance', usuarioSelecionado.chats)

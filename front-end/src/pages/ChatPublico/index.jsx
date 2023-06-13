@@ -8,10 +8,7 @@ import SocketProvider from '../../context/Socket'
 export default function ChatPublico() {
     return (
         <div className="containerChat">
-            <SocketProvider>
                 <Header/>
-            </SocketProvider>
-
             <div className="sidebar-Chat">
                 <SidebarChatPublico/>
             </div>
