@@ -11,64 +11,6 @@
   top: 80px;
 }
 
-.navRight{
-  border: 2px solid #414141;
-  width: 200px;
-  padding: 10px;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  top: 80px;
-}
-
-.buttonChat{
-  justify-content: center;
-  color: #ffffff;
-  height: 20px;
-  border: #000000 solid 2px;
-  background-color: #2476aa;
-  border-radius: 20px;
-  margin-top: 0.5rem;
-  font-size: 17px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0.6rem;
-  gap: 8px;
-  border-radius: 20px;
-}
-
-.buttonChat:hover{
-  transition: 0.5s;
-  color: #0f4a6d;
-}
-
-
-.buttonChatPublico{
-  justify-content: center;
-  color: #ffffff;
-  height: 20px;
-  border: #000000 solid 2px;
-  background-color: #2476aa;
-  border-radius: 20px;
-  margin-top: 0.5rem;
-  font-size: 17px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0.6rem;
-  gap: 8px;
-  border-radius: 20px;
-}
-
-.buttonChatPublico:hover{
-  transition: 0.5s;
-  color: #0f4a6d;
-}
-
 .item-sidebar {
   margin-top: 0.5rem;
   font-size: 17px;

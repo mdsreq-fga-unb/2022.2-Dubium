@@ -46,10 +46,34 @@ const deletarAviso = (req, res) => {
 
 const editarAviso = (req, res) => {
     const { id } = req.params;
-    const { titulo, materia, conteudo } = req.body;
-    avisoService.editarAviso(id, req.user._id, titulo, materia, conteudo)
-        .then(updatedAviso => {
-            res.status(200).json(updatedAviso);
+    const { conteudo } = req.body;
+
+    avisoSchema.findOne({ _id: id })
+        .then(aviso => {
+            if (!aviso) {
+                return res.status(404).send({
+                    error: "Aviso não encontrado"
+                });
+            }
+
+            if (aviso.usuario.id != req.user._id) {
+                return res.status(403).send({
+                    error: "Você não tem permissão para editar esse aviso."
+                });
+            }
+
+            aviso.conteudo = conteudo;
+
+            aviso.save()
+                .then(updatedAviso => {
+                    res.status(200).json(updatedAviso);
+                })
+                .catch(err => {
+                    res.status(500).send({
+                        error: "Erro ao atualizar aviso",
+                        message: err.message
+                    });
+                });
         })
         .catch(err => {
             res.status(500).send({
