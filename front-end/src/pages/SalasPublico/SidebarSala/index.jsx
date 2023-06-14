@@ -12,6 +12,9 @@ export default function SidebarSalaPublico() {
           <span>Criar Sala +</span>
         </Link>
       </div>
+      <div className="sidebarItem">
+        Teste
+      </div>
     </div>
   );
 }

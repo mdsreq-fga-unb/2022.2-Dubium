@@ -3,8 +3,6 @@ import "./style.css";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
 
@@ -246,7 +244,6 @@ export default function PerguntaSelecionada() {
       <div className="pergunta-selecionada">
         <div className="ps-usuario-container">
           <div className="ps-usuario-info">
-            <Link className='.link-usuario' to={`/usuario/${perguntaSelecionada?.idUsuario?.id}`}>
             <PersonIcon fontSize="large" />
             <div className="ps-usuario-info-texto">
 
@@ -259,7 +256,6 @@ export default function PerguntaSelecionada() {
                 {/* mais na frente arrumar isso */}
               </span>
             </div>
-            </Link>
           </div>
           {token && jwt(token)?.secret?.id == perguntaSelecionada?.idUsuario?.id && (
             <IconButton onClick={deletarPergunta}>

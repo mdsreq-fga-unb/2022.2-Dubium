@@ -28,8 +28,9 @@
 
 .card-pergunta {
   transition: 0.5s;
-  background-color: #f1f1f1;
-  color: #201F25;
+  background-color: #414141;
+
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
@@ -40,7 +41,8 @@
 }
 
 .card-pergunta:hover {
-  background-color: #c3c1c1;
+  
+  background-color: #eeeeee;
   color: black;
 }
 
@@ -73,8 +75,4 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
-}
-
-.link-usuario{
-  display: contents;
 }

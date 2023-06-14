@@ -4,10 +4,10 @@
   justify-content: space-between;
   align-items: center;
   height: 81px;
-  background-color: #f1f1f1;
+  background-color: #201F25;
   box-shadow: 0 4px 2px -2px gray;
   position: fixed;
-  color: #201F25;
+  color: #ffffff;
   width: 100%;
   top: 0;
   left: 0;
@@ -43,25 +43,24 @@
 
 #iconePesquisa{
   padding: 0.24rem;
-  background-color: #201F25;
+  background-color: #ffffff;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
-  border: #201F25;
 }
 
 #iconePesquisa svg {
-  color: #f1f1f1;
+  color: #201F25;
   padding-left: 3px;
 }
 
 #busca {
   font-size: 13px;
-  background-color: #f1f1f1;
+  background-color: #201F25;
   padding: 2px;
   width: 95%;
   height: 25px;
-  color: #201F25;
-  border: #201F25 solid 2px;
+  color: #ffffff;
+  border: #ffffff solid 2px;
   border-top-right-radius: 5rem;
   border-bottom-right-radius: 5rem;
 }
