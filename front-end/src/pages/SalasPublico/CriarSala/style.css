@@ -8,12 +8,14 @@
   color: black;
   border: #201F25 solid 2px;
   border-radius: 5rem;
+  /* margin: 0 auto; */
 }
 
 .botao-geral {
   padding: 0.5rem;
   font-size: 18px;
   width: 8rem;
+  margin: 0 auto;
 }
 
 .botaoFotoSala {
@@ -40,4 +42,17 @@
   width: 40rem;
   height: 15rem;
   border-radius: 15px;
+}
+
+.containerCriarSala form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.containerCriarSala {
+  width: 40vh;
 }
