@@ -78,9 +78,9 @@ export default function SidebarChat() {
     }
   }, [usuario])
 
-  const limparNotificacao = (idChat) => {
+  const limparNotificacao = (idChat, notificacao) => {
     const idUser = usuario._id
-    socket.emit("limparNotificacao", ({idChat: idChat, idUser: idUser}))
+    socket.emit("limparNotificacao", ({idChat: idChat, idUser: idUser, notificacao: notificacao}))
     getUsuario()
   }
 
@@ -102,7 +102,7 @@ export default function SidebarChat() {
                   chat.usuarios[0].user.notificacoes : 
                   chat.usuarios[0].userTarget.notificacoes)
                   if(verificaNotificacao){
-                    limparNotificacao(chat._id)
+                    limparNotificacao(chat._id, verificaNotificacao)
                   }
                 }
               }}

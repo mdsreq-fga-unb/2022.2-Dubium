@@ -59,7 +59,7 @@ io.on('connection', socket => {
                 console.log("enviar notificacao")
                 const socketId = findSocketIdByUserId(data.idTarget);
                 if(socketId){
-                    socket.to(socketId).emit("incrementarNotificacao", socketId)
+                    socket.to(socketId).emit("incrementarNotificacao", {verifica: true})
                 }
                 chatService.registrarNotificacao(data.idRoom, data.idTarget)
 
@@ -68,8 +68,13 @@ io.on('connection', socket => {
     })
 
     socket.on("limparNotificacao", (data) => {
-        chatService.limparNotificacao(data.idChat, data.idUser)
-    })
+        const socketId = findSocketIdByUserId(data.idUser);
+        if(socketId){
+            io.to(socketId).emit("decrementarNotificacao", data.notificacao);
+        }
+        chatService.limparNotificacao(data.idChat, data.idUser);
+    });
+    
 
     socket.on("test", () => {
         console.log("teste")

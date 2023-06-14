@@ -18,11 +18,17 @@ import jwt from 'jwt-decode';
 
 import { SocketContext } from "../../context/Socket";
 import React, { useContext } from "react";
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import SendIcon from '@mui/icons-material/Send';
+import CriarSala from "../../pages/SalasPublico/CriarSala";
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+
 
 function Header({ setMateriaPesquisada, setLogado }) {
   const [token, setToken] = useState('');
   const [notificacao, setNotificacao] = useState(0)
   const socket = useContext(SocketContext);
+  const [mostrarDivSala, setMostrarDivSala] = useState(false);
 
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
@@ -57,6 +63,47 @@ function Header({ setMateriaPesquisada, setLogado }) {
       })
   }
 
+  const divCriarSala = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backdropFilter: 'blur(5px)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 999,
+    display: mostrarDivSala ? 'flex' : 'none',
+  };
+  
+  const handleClickCampoCriarSala = () => {
+    setMostrarDivSala(false);
+    console.log(''+ mostrarDivSala);
+  };
+  const icon = {
+    cursor: 'pointer',
+  };
+  const iconSairDiv = {
+    margin: '2rem',
+    cursor: 'pointer',
+    color: 'black',
+    width: '1%',
+    height: '1%',
+    display: 'flex',
+    alignText: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '15px',
+  };
+
+  const handleClickIcone = () => {
+    setMostrarDivSala(!mostrarDivSala);
+  };
+
+
+  const estiloMensagem = {
+    transform: 'rotate(-38deg)'
+  };
+
 
   useEffect(() => {
     if(token) {
@@ -65,9 +112,10 @@ function Header({ setMateriaPesquisada, setLogado }) {
   }, [token])
 
   useEffect(() => {
-
-      console.log("teste")
-      socket.on("incrementarNotificacao", (number) => {
+      socket.on("decrementarNotificacao", (data) => {
+        setNotificacao(prevNumber => prevNumber - data)
+      })
+      socket.on("incrementarNotificacao", (data) => {
         setNotificacao(prevNumber => prevNumber + 1)
       })
 
@@ -75,6 +123,7 @@ function Header({ setMateriaPesquisada, setLogado }) {
 
   
   return (
+    <div className="headerDivs">
     <header className="header">
       <Link to="/" className="logo">
         <img src={logo} alt="logo" className="logo" />
@@ -109,57 +158,71 @@ function Header({ setMateriaPesquisada, setLogado }) {
         />
       </div>
       <ul className="header-login">
-        {!isAuthenticated() && (
-          <>
-            <Link to="/login">
-              <li className="login-item">
-                <LoginIcon />
-                <span>Entrar</span>
-              </li>
-            </Link>
-            <Link to="/cadastrar-usuario">
-              <li className="login-item">
-                <PersonAddIcon />
-                <span>Cadastrar-se</span>
-              </li>
-            </Link>
-          </>
-        )}
-        {isAuthenticated() && (
-          <>
-          <li className="notification-item">
-            {notificacao}
-                <NotificationsIcon />
-          </li>
-          {/* recuperar api de informações do usuario */}
-          { token ? 
-            <Link to={`/usuario/${jwt(token).secret.id}`}> 
-              <li className="login-item">
-                <PersonIcon />
-                <span>Perfil</span>
+          {!isAuthenticated() && (
+            <>
+              <Link to="/login">
+                <li className="login-item">
+                  <LoginIcon />
+                  <span>Entrar</span>
+                </li>
+              </Link>
+              <Link to="/cadastrar-usuario">
+                <li className="login-item">
+                  <PersonAddIcon />
+                  <span>Cadastrar-se</span>
+                </li>
+              </Link>
+            </>
+          )}
+          {isAuthenticated() && (
+            <>
+              {/* recuperar api de informações do usuario */}
+              {token ?
 
-              </li>
-            </Link> :
-            <></>
-          }
-            <Link
-              to="/"
-              onClick={() => {
-                document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                setLogado(false);
-              }}
-            >
-              <li className="login-item">
-                <LogoutIcon />
-                <span>Sair</span>
-              </li>
-            </Link>
-          </>
-        )}
-      </ul>
+                <Link to={`/usuario/${jwt(token).secret.id}`}>
+                  <li className="login-item">
+                    <PersonIcon />
+                    <span>Perfil</span>
+                  </li>
+                </Link> :
+                <></>
+              }
+              <Link
+                to="/"
+                onClick={() => {
+                  document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                  setLogado(false);
+                }}
+              >
+                <li className="login-item">
+                  <LogoutIcon />
+                  <span>Sair</span>
+                </li>
+              </Link>
 
-      <img src={bichinho} alt="bichinho" className="bichinho" />
-    </header>
+              <li className="notification-item">
+                <label onClick={handleClickIcone} htmlFor="CriarSala"><GroupAddIcon style={icon} /></label>
+              </li>
+
+              <li className="notification-item">
+                <span>{notificacao}</span>
+                <Link to="/chat"><SendIcon style={estiloMensagem} /></Link>
+              </li>
+
+            </>
+          )}
+        </ul>
+
+        <img src={bichinho} alt="bichinho" className="bichinho" />
+      </header>
+      {mostrarDivSala && (
+      <div style={divCriarSala} ><CriarSala onClick={handleClickCampoCriarSala} />
+
+        <div htmlFor="sairDiv" onClick={handleClickCampoCriarSala} style={iconSairDiv}> <HighlightOffIcon style={{fontSize: '3rem'}} /> </div>
+      </div>
+      )}
+    </div>
+
   );
 }
 
