@@ -70,7 +70,7 @@ export default function ForumBody({ materiaPesquisada }) {
         </div>
         {allQuest.map((data, index) => {
           return (
-              <div className="card-pergunta">
+            <div className="card-pergunta" key={index}>
                 <div className="usuario-pergunta">
                   <Link  className='link-usuario' to={`/usuario/${data.idUsuario.id}`}>
                   <PersonIcon fontSize="large" />
@@ -90,7 +90,6 @@ export default function ForumBody({ materiaPesquisada }) {
                   ? `/pergunta/${data._id}`
                   : "/login"
               }
-              key={index}
             >
                 <span className="filtro">{data.filtro.toUpperCase()}</span>
                 <span>{data.titulo}</span>
