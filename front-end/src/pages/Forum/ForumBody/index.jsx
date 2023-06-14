@@ -70,7 +70,15 @@ export default function ForumBody({ materiaPesquisada }) {
         </div>
         {allQuest.map((data, index) => {
           return (
-            <div className="card-pergunta" key={index}>
+            <Link
+              to={ // quando clicar levar pra pergunta específica
+                isAuthenticated()
+                  ? `/pergunta/${data._id}`
+                  : "/login"
+              }
+              key={index}
+            >
+              <div className="card-pergunta">
                 <div className="usuario-pergunta">
                   <Link  className='link-usuario' to={`/usuario/${data.idUsuario.id}`}>
                   <PersonIcon fontSize="large" />
@@ -83,14 +91,8 @@ export default function ForumBody({ materiaPesquisada }) {
                     </span>
                   </div>
                   </Link>
+                  
                 </div>
-              <Link
-              to={ // quando clicar levar pra pergunta específica
-                isAuthenticated()
-                  ? `/pergunta/${data._id}`
-                  : "/login"
-              }
-            >
                 <span className="filtro">{data.filtro.toUpperCase()}</span>
                 <span>{data.titulo}</span>
                 <span>{data.conteudo}</span>
@@ -98,9 +100,8 @@ export default function ForumBody({ materiaPesquisada }) {
                   <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
                   <span>{data.favoritado} favoritos</span>
                 </div>
-              </Link>
               </div>
-
+            </Link>
           );
         })}
       </div>
