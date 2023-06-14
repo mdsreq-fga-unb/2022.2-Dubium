@@ -12,21 +12,20 @@ import apiRequest from "../../../services/api";
 
 
 
-export default function CriarSala() {
+export default function CriarSala({onClick}) {
     const [token, setToken] = useState('');
     const navigate = useNavigate();
-    const [urlImage, setUrlImage] = useState('')
+    const [urlImage, setUrlImage] = useState('');
+    const [selectedImage, setSelectedImage] = useState(null);
     const {
         register,
         handleSubmit,
         formState: { errors },
-      } = useForm()
-
-    const [selectedImage, setSelectedImage] = useState(null);
+    } = useForm()
 
     useEffect(() => {
         setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
-      }, [])
+    }, [])
 
 
     const handleImageChange = (event) => {
@@ -42,6 +41,20 @@ export default function CriarSala() {
             setUrlImage('https://mundoconectado.com.br/uploads/chamadas/dall-e-chamada.jpg')
         }
     };
+
+const iconSairDiv = {
+  margin: '2rem',
+  cursor: 'pointer',
+  color: 'black',
+  width: '1%',
+  height: '1%',
+  display: 'flex',
+  alignText: 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '15px',
+};
+
 
 
     const onSubmit = async (form) => {
@@ -61,21 +74,34 @@ export default function CriarSala() {
             .then(response => {
                 navigate("/chat");
             })
-            .catch(err => {console.log(err)})
+            .catch(err => { console.log(err) })
+
+        navigate('/chat');
+        onClick();
+    
     }
 
+    const containerCriarSala = {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#f1f1f1',
+        padding: '8rem',
+        borderRadius: '5px',
+        boxShadow: '0px 5px 10px 2px rgb(162, 161, 161)',
+    };
+
     return token && (
-        <div className="containerCriarSala">
-            <Header />
-            <div className="criarSala">
-                <form action=""  onSubmit={handleSubmit(onSubmit)} className="cdu-form">
+        <div className="containerCriarSala" style={containerCriarSala}>
+            <form action="" onSubmit={handleSubmit(onSubmit)}>
 
-                    <input className="campoEntrada" type="text" placeholder="Nome da Sala" name="nomeSala" required {...register("nomeSala")}/>
+                <input className="campoEntrada" type="text" placeholder="Nome da Sala" name="nomeSala" required {...register("nomeSala")} />
 
-                    <input className="campoEntrada" type="text" placeholder="Tema da Sala" name="temaSala" required {...register("temaSala")} />
+                <input className="campoEntrada" type="text" placeholder="Tema da Sala" name="temaSala" required {...register("temaSala")} />
 
-                   <div className="selecaoImagem">
-                       {/* {<label htmlFor="uploadInput" className="botaoFotoSala">
+                <div className="selecaoImagem">
+                    {/* {<label htmlFor="uploadInput" className="botaoFotoSala">
                             <EditIcon sx={{ fontSize: 16 }} />
                             Imagem da sala
                         </label>}
@@ -93,16 +119,12 @@ export default function CriarSala() {
                             onChange={handleImageChange}
                             style={{ display: 'none' }}
                         />*/}
-                        <button type="submit" className="botao-geral">
-                        Enviar
-                        </button>
-                    </div>
-                </form>
+                    <button type="submit" className="botao-geral">
+                            Enviar
+                    </button>
 
-
-
-
-            </div>
+                </div>
+            </form>
         </div>
     );
-}
+};

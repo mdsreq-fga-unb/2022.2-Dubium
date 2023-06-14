@@ -86,7 +86,7 @@ export default function ForumBody({ materiaPesquisada }) {
 
                       <span>{data.idUsuario.nome}</span>
 
-                    <span style={{ color: "#757575" }}>
+                    <span style={{ color: "#201F25" }}>
                       {handleCurso(data.curso)}
                     </span>
                   </div>
