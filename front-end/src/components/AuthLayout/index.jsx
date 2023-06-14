@@ -6,7 +6,7 @@ import Header from "../header";
 export default function AuthLayout({ setMateriaPesquisada }) {
   return (
     <div className="auth-layout">
-      <Header setMateriaPesquisada={setMateriaPesquisada} />
+        <Header setMateriaPesquisada={setMateriaPesquisada} />
       <Outlet />
     </div>
   );

@@ -9,6 +9,8 @@ import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import jwt from 'jwt-decode'
 import io from 'socket.io-client';
 import apiRequest from '../../../services/api.js'
+import { SocketContext } from "../../../context/Socket";
+import React, { useContext } from "react";
 
 
 export default function ChatPrincipal({ setLogado }) {
@@ -27,13 +29,13 @@ export default function ChatPrincipal({ setLogado }) {
   const navigate = useNavigate();
   const conteudoRef = useRef(null);
   const [stringDigitando, setStringDigitando] = useState('')
-  
-
+  const [userTarget, setUserTarget] = useState("")
+  const socketContext = useContext(SocketContext);
 
   //ScrollBar
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
-    setSocket(io('http://localhost:8080'));
+    setSocket(socketContext);
   }, [])
 
   useEffect(() => {
@@ -43,13 +45,26 @@ export default function ChatPrincipal({ setLogado }) {
   }, [token])
 
   useEffect(() => {
+    return () => {
+      if (socket) {
+        console.log(usuarioSelecionado)
+        socket.emit("leaveInstance");
+        console.log("saiu")
+      }
+    };
+  }, [location, socket]);
+  
+
+  useEffect(() => {
     if (socket) {
+      socket.emit("idUser", jwt(token).secret.id)
       socket.emit('joinInstance', usuarioSelecionado.chats)
       socket.on("receivedMessage", (message) => {
         setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);
       });
       socket.on("targetDig", (data) => {
-        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome + " está digitando..." :
+        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? 
+          chat.usuarios[0].userTarget.nome + " está digitando..." :
           chat.usuarios[0].user.nome + " está digitando..."}`)
       })
       socket.on("targetNaoDig", (data) => {
@@ -57,6 +72,13 @@ export default function ChatPrincipal({ setLogado }) {
       })
     }
   }, [usuarioSelecionado]);
+
+
+  useEffect(() => {
+    if(chat && chat.privado) {
+      chat.usuarios[0].user.id == usuarioSelecionado._id ? setUserTarget(chat.usuarios[0].userTarget.id) : setUserTarget(chat.usuarios[0].user.id)
+    }
+  }, [chat])
 
   const getChat = async () => {
     await apiRequest
@@ -112,9 +134,9 @@ export default function ChatPrincipal({ setLogado }) {
     }
   }, [token, idChat]);
 
-  const enviarNotificacao = (userId, mensagem) => {
-    socket.emit('enviarNotificacao', { userId, mensagem });
-  };  
+  // const enviarNotificacao = (userId, mensagem) => {
+  //   socket.emit('enviarNotificacao', { userId, mensagem });
+  // };  
   
 
   const handleSubmit = async (e) => {
@@ -124,14 +146,16 @@ export default function ChatPrincipal({ setLogado }) {
       user: jwt(token).secret,
       message: message,
       horario: new Date(),
-      idRoom: idChat
+      idRoom: idChat,
+      idTarget: userTarget,
+      privado: chat.privado
     }
     setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, _message]);
     socket.emit("sendMessage", _message)
     saveMessages([_message])
-    const userIdDestinatario =  _message.idRoom
-    const mensagemNotificacao = _message.message // mensagem da notificação
-    enviarNotificacao(userIdDestinatario, mensagemNotificacao);
+    // const userIdDestinatario =  _message.idRoom
+    // const mensagemNotificacao = _message.message // mensagem da notificação
+    // enviarNotificacao(userIdDestinatario, mensagemNotificacao);
     setMessage("")
   }
 
