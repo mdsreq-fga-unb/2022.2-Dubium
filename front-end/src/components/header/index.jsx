@@ -20,19 +20,11 @@ import jwt from 'jwt-decode'
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import apiRequest from "../../services/api";
-import jwt from 'jwt-decode';
 
-import { SocketContext } from "../../context/Socket";
-import React, { useContext } from "react";
+
 
 function Header({ setMateriaPesquisada, setLogado }) {
   const [token, setToken] = useState('');
-  const [notificacao, setNotificacao] = useState(0)
-  const socket = useContext(SocketContext);
-
-  useEffect(() => {
-    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
-  }, [])
   const [mostrarDivSala, setMostrarDivSala] = useState(false);
 
   const handleChange = (e) => {
@@ -40,29 +32,6 @@ function Header({ setMateriaPesquisada, setLogado }) {
     setMateriaPesquisada(e.target.value);
   };
 
-  const getChat = async () => {
-    let number = 0
-    await apiRequest
-      .post(`/chat/user`, { idUser: jwt(token).secret.id }, {
-        headers: {
-          Authorization: "Bearer " + token,
-        }
-      })
-      .then(data => {
-        data.data.forEach(e => {
-          console.log(e.usuarios[0])
-          if(e.usuarios[0].user.id == jwt(token).secret.id){
-            number += e.usuarios[0].user.notificacoes
-          } else {
-            number += e.usuarios[0].userTarget.notificacoes
-          }
-        })
-        setNotificacao(number)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
   const divCriarSala = {
     position: 'fixed',
     top: 0,
@@ -106,21 +75,11 @@ const iconSairDiv = {
 
 
   useEffect(() => {
-    if(token) {
-      getChat()
-    }
-  }, [token])
-
-  useEffect(() => {
-
-      console.log("teste")
-      socket.on("incrementarNotificacao", (number) => {
-        setNotificacao(prevNumber => prevNumber + 1)
-      })
-
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
   }, [])
 
-  
+
+
   return (
     <div className="headerDivs">
       <header className="header">

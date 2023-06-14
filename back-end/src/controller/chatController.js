@@ -100,19 +100,7 @@ router.post("/joinUser", passport.authenticate('jwt', { session: false }), (req,
 
 
 
-router.post("/user", passport.authenticate('jwt', { session: false }), (req, res) => {
-    const { idUser } = req.body
-    chatSchema.find({
-        $or: [
-          { "usuarios.0.user.id": idUser },
-          { "usuarios.0.userTarget.id": idUser }
-        ]
-      }).select({ usuarios: 1, _id: 0 })
-        .then(data => {
-            res.status(200).send(data)
-        })
-        .catch(err => res.status(400).send({error: "Erro ao encontrar chats", message: err}))
-})
+
 
 
 

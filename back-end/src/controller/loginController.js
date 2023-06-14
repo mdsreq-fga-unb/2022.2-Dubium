@@ -43,7 +43,6 @@ router.post("/", (req, res) => {
         res.status(200).send({
           success: true,
           message: "Logged",
-          token: token
         })
     })
     .catch(err => {

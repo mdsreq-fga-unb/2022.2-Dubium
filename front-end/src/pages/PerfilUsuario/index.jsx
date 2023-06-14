@@ -81,13 +81,11 @@ export default function PerfilUsuario({ setLogado }) {
     const data = {
       user: {
         id: jwt(token).secret.id,
-        nome: jwt(token).secret.nome,
-        notificacoes: 0
+        nome: jwt(token).secret.nome
       },
       userTarget: {
         id: usuarioSelecionado._id,
-        nome: usuarioSelecionado.nome_completo,
-        notificacoes: 0
+        nome: usuarioSelecionado.nome_completo
       },
       privado: true
     }
