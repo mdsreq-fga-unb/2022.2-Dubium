@@ -191,7 +191,7 @@ export default function PerfilUsuario({ setLogado }) {
           )}
 
           <div className="pu-perfil-texto">
-            <span style={{ color: "#f5f5f5" }}>{usuarioSelecionado.nome_completo}</span>
+            <span style={{ color: "#201F25" }}>{usuarioSelecionado.nome_completo}</span>
             <span style={{ color: "#757575" }}>
               {handleCurso(usuarioSelecionado.curso)}
             </span>
@@ -220,11 +220,11 @@ export default function PerfilUsuario({ setLogado }) {
           <span style={{ fontSize: "18px" }}>INFORMAÇÕES DE CONTATO</span>
           <li className="pu-item-informacao">
             <span>E-mail:</span>
-            <span style={{ color: "#ffffff" }}>{usuarioSelecionado?.email}</span>
+            <span style={{ color: "#201F25" }}>{usuarioSelecionado?.email}</span>
           </li>
           <li className="pu-item-informacao">
             <span>Telefone:</span>
-            <span style={{ color: "#ffffff" }}>
+            <span style={{ color: "#201F25" }}>
               {usuarioSelecionado?.celular}
             </span>
           </li>
