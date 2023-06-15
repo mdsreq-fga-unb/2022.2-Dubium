@@ -23,7 +23,7 @@ Projeto: [Link](https://dubium-frontend.vercel.app/)
 
 ## Documentação
 
-:open_file_folder: **Para mais informações sobre o projeto acesse nossa <a href="https://github.com/mdsreq-fga-unb/2023.1-Dubium2.0.git">documentação</a> ou abra por um servidor web**
+:open_file_folder: **Para mais informações sobre o projeto acesse nossa <a href="https://mdsreq-fga-unb.github.io/2023.1-Dubium2.0/inicial/">documentação</a>**
 
 ## Clonando o repositório
 ```bash
