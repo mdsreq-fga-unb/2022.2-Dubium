@@ -7,9 +7,9 @@ const jwt = require('jsonwebtoken')
 
 
 const criarPergunta = (req, res) => {
-    const { titulo, curso, conteudo, filtro } = req.body
-    const idUsuario = jwt.decode(req.cookies.jwt, {complete: true}).payload
-    perguntaService.criarPergunta(titulo, curso, conteudo, filtro, idUsuario.secret)
+    const { titulo, curso, conteudo, filtro, idUser } = req.body
+    const idUsuario = idUser
+    perguntaService.criarPergunta(titulo, curso, conteudo, filtro, idUsuario)
         .then(data => {
             res.status(201).send(data)
         })
