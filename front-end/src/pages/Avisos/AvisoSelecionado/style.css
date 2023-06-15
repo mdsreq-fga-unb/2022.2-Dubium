@@ -6,10 +6,20 @@
   }
   
   .textarea-editar{
-      height: 100px; /* Define a altura desejada */
+      height: 40px; /* Define a altura desejada */
       width: 100%; /* Define a largura desejada */
       margin-bottom: 10px;
+      border-radius: 10px ;
+      border: 1px solid black;
   }
+
+  .conteudoArea{
+    height: 100px; /* Define a altura desejada */
+    width: 100%; /* Define a largura desejada */
+    margin-bottom: 10px;
+    border-radius: 10px ;
+    border: 1px solid black;
+}
   
   .salvar-editar {
   margin-right: 10px;

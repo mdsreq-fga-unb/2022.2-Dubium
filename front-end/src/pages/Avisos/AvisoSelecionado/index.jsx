@@ -146,9 +146,9 @@ export default function AvisoSelecionado() {
     const infoAviso = {
       id_usuario: jwt(token).secret.id,
       id_aviso: idAviso,
-      titulo: tituloEditado,
+      // titulo: tituloEditado,
       conteudo: conteudoEditado,
-      materia: materiaEditada
+      materia: tituloEditado
     };
   
     await apiRequest
@@ -158,8 +158,8 @@ export default function AvisoSelecionado() {
         },
       })
       .then((response) => {
-        setAvisoSelecionado(response.data);
         setEditando(false);
+        getAviso()
       })
       .catch((error) => console.log(error));
   };
@@ -198,13 +198,15 @@ export default function AvisoSelecionado() {
           </span>
           {editando ? (
             <div>
+              <label htmlFor="">Título: </label><br></br><br></br>
               <input
                 type="text"
                 value={tituloEditado}
                 onChange={(e) => setTituloEditado(e.target.value)}
                 className="textarea-editar"
               />
-              <textarea
+              <label htmlFor="">Conteúdo:</label><br></br><br></br>
+              <textarea className="conteudoArea"
                 value={conteudoEditado}
                 onChange={(e) => setConteudoEditado(e.target.value)}
               ></textarea>
@@ -216,7 +218,6 @@ export default function AvisoSelecionado() {
           ) : (
             <div>
               <span className="conteudo">{avisoSelecionado?.conteudo}</span>
-              <span>{avisoSelecionado?.conteudo}</span>
             </div>
           )}
           <ul className="ps-favoritar-salvar">
