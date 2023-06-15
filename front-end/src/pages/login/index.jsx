@@ -33,6 +33,8 @@ export default function Login({ setLogado }) {
       .post("/login", user)
       .then((response) => {
         setLogado(true)
+        console.log(response.data)
+        document.cookie = `jwt=${response.data.token}; expires=DataDeExpiracao; path=/`
         socket.emit("idUser", jwt(response.data.token).secret.id)
         navigate("/")
       })
