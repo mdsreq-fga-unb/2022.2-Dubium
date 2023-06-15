@@ -23,24 +23,23 @@
 }
 
 .usuario-interacao:hover {
-  background-color: #eeeeee;
+  background-color: #b46666;
 }
 
 .pu-perfil {
   display: flex;
-  flex-direction: row;
   gap: 25px;
   align-items: center;
 }
 
 .pu-perfil-texto {
+  width: 20%;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .pu-container {
-  margin-left: -301px;
   justify-content: space-around;
   padding: 50px;
 }
@@ -49,9 +48,10 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-  background-color: #fafafa;
-  width: 60%;
-  border-radius: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
+  width: 50%;
+  border-radius: 20px;
   padding: 50px;
 }
 
@@ -64,13 +64,41 @@
   cursor: pointer;
 }
 
+#imagemPerfil {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.botaoFoto {
+  transition: 0.3s;
+  width: 17%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #201F25;
+  padding: 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.botaoFoto:hover{
+  background-color: rgb(86, 85, 85);
+}
+
 .pu-informacoes {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: #f5f5f5;
+  background-color: #f1f1f1;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
   padding: 20px;
   border-radius: 10px;
+}
+
+.pc-titulo {
+  color: #201F25;
 }
 
 .pu-item-informacao {
@@ -90,8 +118,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-
-  background-color: rgb(214, 49, 49);
+  background-color: #075889;
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -103,12 +130,23 @@
   display: flex;
   align-items: center;
   gap: 5px;
-
-  background-color: rgb(214, 170, 49);
+  background-color: #01C4A6;
   border: none;
   padding: 10px;
   border-radius: 5px;
-  color: #fafafa;
+  color: black;
+  cursor: pointer;
+}
+
+.buttonChat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #01C4A6;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
   cursor: pointer;
 }
 
@@ -117,3 +155,4 @@
   flex-direction: row;
   gap: 20px;
 }
+

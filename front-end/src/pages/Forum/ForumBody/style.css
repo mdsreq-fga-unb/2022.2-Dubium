@@ -1,8 +1,9 @@
 .container-pergunta {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 50px;
-  width: 70%;
+  width: 50%;
 }
 
 .criar-pergunta {
@@ -11,23 +12,27 @@
   justify-content: flex-end;
 }
 
-.criar-pergunta button {
+.buttonPergunta {
   color: white;
-  background-color: #0f5986;
-  border: none;
-  padding: 10px;
+  border: #000000 solid 2px;
+  background-color: #2476aa;
+  padding: 15px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .criar-pergunta button:hover {
-  background-color: #0f4a6d;
+  transition: 0.5s;
+  color: #0f4a6d;
 }
 
 .card-pergunta {
-  background-color: #fafafa;
+  transition: 0.5s;
+  background-color: #f1f1f1;
+  color: #201F25;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
   gap: 25px;
   padding: 20px;
   border-radius: 15px;
@@ -35,7 +40,8 @@
 }
 
 .card-pergunta:hover {
-  background-color: #eeeeee;
+  background-color: #c3c1c1;
+  color: black;
 }
 
 .usuario-pergunta {
@@ -67,4 +73,8 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
+}
+
+.link-usuario{
+  display: contents;
 }

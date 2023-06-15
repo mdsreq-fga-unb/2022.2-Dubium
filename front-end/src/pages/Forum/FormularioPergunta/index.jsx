@@ -5,19 +5,27 @@ import apiRequest from "../../../services/api";
 import { forumData } from "../Sidebar/data";
 
 import { useForm } from "react-hook-form";
+import { useRef, useEffect, useState } from "react";
+
 
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../../context/AuthProvider";
+import jwt from 'jwt-decode'
 
 export default function FormularioPergunta() {
   const navigate = useNavigate();
-
+  
+  const [token, setToken] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
 
   const onSubmit = async (data) => {
     let indexEngenharia;
@@ -47,20 +55,19 @@ export default function FormularioPergunta() {
     }
 
     let novaPergunta = {
-      id_usuario: localStorage.getItem("userId"),
-      tituloPergunta: data.titulo,
-      id_cursoPergunta: indexEngenharia,
-      corpoPergunta: data.textoPergunta,
+      // id_usuario: localStorage.getItem("userId"),
+      titulo: data.titulo,
+      curso: indexEngenharia,
+      conteudo: data.textoPergunta,
       filtro: data.filtro,
-      arquivo: data.midia,
-      votosTotais: 0,
+      // arquivo: data.midia,
     };
 
     await apiRequest
-      .post("perguntas", novaPergunta, {
+      .post("/pergunta", novaPergunta, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
+          Authorization: "Bearer " + token
+        }
       })
       .then((response) => {
         alert("Pergunta cadastrada com sucesso!");
@@ -128,7 +135,7 @@ export default function FormularioPergunta() {
           ></textarea>
           <div className="group-input" style={{ justifyContent: "center" }}>
             <button type="submit" className="botao-geral">
-              Enviar
+              
             </button>
             <button
               className="botao-geral botao-cancelar"

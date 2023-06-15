@@ -4,10 +4,8 @@
   list-style-type: none;
   flex-direction: row;
   align-items: center;
-  height: 40px;
-  background-color: #414141;
-  color: antiquewhite;
-  box-shadow: 0 4px 2px -2px gray;
+  height: 25px;
+  box-shadow: 0 4px 2px -2px black;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -19,7 +17,7 @@
 }
 
 .footer svg {
-  width: 16px;
+  width: 12px;
   margin-left: 5px;
   margin-right: 5px;
 }

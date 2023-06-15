@@ -10,22 +10,59 @@ import RankingUsuarios from "./pages/RankingUsuarios";
 import EditarUsuario from "./pages/EditarUsuarios";
 import PerfilUsuario from "./pages/PerfilUsuario";
 import ForumBody from "./pages/Forum/ForumBody";
-import Footer from "./components/footer";
 import Salvos from "./pages/Salvos";
 import Sobre from "./pages/Sobre";
 import Login from "./pages/login";
-import RecuperarSenha from "./pages/RecuperarSenha"
-import AlterarSenha from "./pages/AlterarSenha"
+import RecuperarSenha from "./pages/RecuperarSenha";
+import AlterarSenha from "./pages/AlterarSenha";
+import Chat from "./pages/Chat";
+import SalasPublico from "./pages/SalasPublico";
+import ChatPublico from "./pages/ChatPublico";
+import CriarSala from "./pages/SalasPublico/CriarSala";
 
 import ForumLayout from "./pages/Forum/ForumLayout";
 import AuthLayout from "./components/AuthLayout";
-
+import SocketProvider, { SocketContext } from "./context/Socket";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import isAuthenticated from "./isAuth";
+import jwt from 'jwt-decode'
 
 function App() {
+  const socketContext = useContext(SocketContext);
   const [logado, setLogado] = useState(false);
   const [materiaPesquisada, setMateriaPesquisada] = useState("");
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+  const getId = async () => {
+    const idUser = await jwt(token).secret.id
+    return idUser
+  }
+
+  useEffect(() => {
+    if(token){
+      setTimeout(() => {
+        getId()
+        .then(idUser => {
+          socketContext.emit("idUser", idUser)
+        })
+        .catch(err => {console.log(err)})
+      }, 100);
+      }
+  }, [token])
+
+  // useEffect(() => {
+  //   if(isAuthenticated() && token){
+  //     const idUser = jwt(token).secret.id
+  //     console.log('idUser')
+  //     socketContext.emit("idUser", idUser)
+  //   }
+  // }, [logado, token])
+
 
   return (
     <Router>
@@ -77,13 +114,30 @@ function App() {
             path="/editar-usuario/:idUsuario"
             element={<EditarUsuario />}
           />
+          <Route
+            path="/chat/:idChat"
+            element={
+               <Chat />
+
+           } />
+          <Route
+            path="/chat"
+            element={
+              <Chat />
+
+          } />
         </Route>
+        <Route
+          path="/salasPublico"
+          element={<SalasPublico />} />
+        <Route
+          path="/criarSala"
+          element={<CriarSala />} />
         <Route path="/cadastrar-usuario" element={<CadastrarUsuarios />} />
         <Route path="/login" element={<Login setLogado={setLogado} />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
         <Route path="/alterar-senha" element={<AlterarSenha />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

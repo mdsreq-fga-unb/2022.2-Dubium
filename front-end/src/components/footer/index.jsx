@@ -9,15 +9,11 @@ export default function Footer() {
       <p>
         <span>Política de Privacidade</span>
       </p>
-      <ul>
-        <li>
           <CopyrightIcon />
-        </li>
-      </ul>
       <p className="p">
-        <Link href="https://github.com/mdsreq-fga-unb/2022.2-Dubium">
-          2022 Dubium
-        </Link>
+        <a href="https://mdsreq-fga-unb.github.io/2023.1-Dubium2.0/">
+        2022 Dubium
+        </a>
       </p>
     </footer>
   );

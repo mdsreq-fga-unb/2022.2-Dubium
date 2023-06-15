@@ -3,40 +3,64 @@ import "./style.css";
 import { useEffect, useState } from "react";
 
 import apiRequest from "../../../services/api";
-
+import jwt from 'jwt-decode' 
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
 
 export default function AvisosSalvos({ idUsuario }) {
   const [avisosSalvos, setAvisosSalvos] = useState([]);
+  const [avisosSalvosCorpo, setAvisosSalvosCorpo] = useState([])
+  const [token, setToken] = useState('');
 
   useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+  const getAvisos = () => {
     apiRequest
-      .get(`salvos/${localStorage.getItem("userId")}`, {
+    .get(`/usuario/salvos/${jwt(token).secret.id}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
+    .then((response) => {
+      setAvisosSalvos(response.data.avisos);
+    })
+    .catch((error) => {});
+  }
+  useEffect(() => {
+    if(avisosSalvos && token){
+      apiRequest.post("/aviso/salvos", {arrayAvisos: avisosSalvos}, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
+          Authorization: "Bearer " + token,
+        }
       })
       .then((response) => {
-        setAvisosSalvos(response.data);
+        setAvisosSalvosCorpo(response.data)
       })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+      .catch((err) => {console.log(err)})
+    }
+  }, [avisosSalvos])
 
-  return (
+  useEffect(() => {
+    if(token) {
+      getAvisos()
+    }
+  }, [token]);
+
+
+  return token && (
     <ul className="pc-container" style={{ width: "35%", gap: "30px" }}>
       <div className="pc-titulo">
         <span>AVISOS</span>
       </div>
-      {avisosSalvos.map((avisoSalvo) => (
-        <Link to={`/avisos/aviso/${avisoSalvo.aviso.id}`} key={avisoSalvo}>
+      {avisosSalvosCorpo.map((avisoSalvo) => (
+        <Link to={`/avisos/aviso/${avisoSalvo._id}`} key={avisoSalvo._id}>
           <li className="pc-pergunta">
-            <span>{avisoSalvo.aviso.tituloAviso}</span>
+            <span>{avisoSalvo?.titulo}</span>
             <div className="pc-votos">
               <StarIcon fontSize="small" sx={{ color: "#ffa722  " }} />
-              <span>{avisoSalvo.aviso.votosTotais}</span>
+              <span>{avisoSalvo?.votos}</span>
             </div>
           </li>
         </Link>

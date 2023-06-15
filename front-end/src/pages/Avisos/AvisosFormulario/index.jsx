@@ -4,13 +4,21 @@ import apiRequest from "../../../services/api";
 
 import { forumData } from "../../Forum/Sidebar/data";
 
+import jwt from 'jwt-decode' 
 import { useForm } from "react-hook-form";
 
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import AuthContext from "../../../context/AuthProvider";
 
 export default function AvisosFormulario() {
+
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+  
   const navigate = useNavigate();
 
   const {
@@ -47,19 +55,18 @@ export default function AvisosFormulario() {
     }
 
     let novoAviso = {
-      id_usuario: localStorage.getItem("userId"),
+      id_usuario: jwt(token).secret,
       tituloAviso: data.tituloAviso,
       corpoAviso: data.textoAviso,
       id_cursoAviso: indexEngenharia,
       filtro: data.filtro,
       midia: data.midia,
-      votosTotais: 0,
     };
 
     await apiRequest
-      .post("avisos", novoAviso, {
+      .post("/aviso/criar", novoAviso, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
@@ -136,9 +143,11 @@ export default function AvisosFormulario() {
           <input type="file" name="arquivo" {...register("arquivo")} />
         </div> */}
           <div className="group-input" style={{ justifyContent: "center" }}>
+            {token &&        
             <button type="submit" className="botao-geral">
               Enviar
             </button>
+            }
             <button
               className="botao-geral botao-cancelar"
               onClick={() => navigate(-1)}
