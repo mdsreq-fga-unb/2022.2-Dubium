@@ -217,9 +217,6 @@ export default function AvisoSelecionado() {
             <div>
               <span className="conteudo">{avisoSelecionado?.conteudo}</span>
               <span>{avisoSelecionado?.conteudo}</span>
-              {avisoSelecionado?.usuario?.id === jwt(token).secret.id && (
-                <button onClick={habilitarEdicao}>Editar</button>
-              )}
             </div>
           )}
           <ul className="ps-favoritar-salvar">

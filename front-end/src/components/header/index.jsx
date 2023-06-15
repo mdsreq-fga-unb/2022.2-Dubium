@@ -1,14 +1,13 @@
 import "./style.css";
 
 import bichinho from "../../assets/images/bichinho.png";
-import logo from "../../assets/images/lgLetraBranca.png";
+import logo from "../../assets/images/logo-dubium.png";
 
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import GroupsIcon from '@mui/icons-material/Groups';
 import isAuthenticated from "../../isAuth";
 import { Link } from "react-router-dom";
@@ -18,7 +17,6 @@ import jwt from 'jwt-decode';
 
 import { SocketContext } from "../../context/Socket";
 import React, { useContext } from "react";
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import SendIcon from '@mui/icons-material/Send';
 import CriarSala from "../../pages/SalasPublico/CriarSala";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -200,14 +198,14 @@ function Header({ setMateriaPesquisada, setLogado }) {
                 </li>
               </Link>
 
-              <li className="notification-item">
-                <label onClick={handleClickIcone} htmlFor="CriarSala"><GroupAddIcon style={icon} /></label>
+              <li>
+                {/*<label onClick={handleClickIcone} htmlFor="CriarSala"><GroupAddIcon style={icon} /></label>*/}
                 <Link to="/salasPublico"><GroupsIcon/></Link>
               </li>
 
               <li className="notification-item">
-                <span>{notificacao}</span>
-                <Link to="/chat"><SendIcon style={estiloMensagem} /></Link>
+                <Link to="/chat"><SendIcon style={estiloMensagem} /> </Link>
+                {notificacao > 0 && <span className="notificacaoHeader">{notificacao}</span>}
               </li>
 
             </>

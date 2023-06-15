@@ -91,9 +91,9 @@ export default function Login({ setLogado }) {
             alignItems: "center",
           }}
         >
-          <Link to="/recuperar-senha">
+          {/*<Link to="/recuperar-senha">
             <span className="lc-alterantiva">Esqueci minha senha</span>
-          </Link>
+          </Link>*/}
           <Link to="/cadastrar-usuario">
             <span className="lc-alterantiva">Realizar cadastro</span>
           </Link>

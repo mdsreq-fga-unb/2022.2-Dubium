@@ -45,11 +45,11 @@ export default function SidebarChat() {
         },
       })
       .then((response) => {
-      const objectData = {}
-          response.data.map(e => {
-              objectData[`${e._id}`] = e.foto
-          })
-      setFotoUsuarios(objectData)
+        const objectData = {}
+        response.data.map(e => {
+          objectData[`${e._id}`] = e.foto
+        })
+        setFotoUsuarios(objectData)
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -57,32 +57,32 @@ export default function SidebarChat() {
   }
 
   useEffect(() => {
-    if(token && usuario){
+    if (token && usuario) {
       getUsuario()
       getFotos()
     }
   }, [token])
 
   useEffect(() => {
-    if(usuario && token){
+    if (usuario && token) {
       apiRequest
         .post("/chat", { chats: usuario.chats }, {
           headers: {
             Authorization: "Bearer " + token,
           }
         })
-          .then(response => {
-            setChats(response.data)
-          })
-          .catch(error => {
-            console.log(error)
-          })
+        .then(response => {
+          setChats(response.data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }, [usuario])
 
   const limparNotificacao = (idChat, notificacao) => {
     const idUser = usuario._id
-    socket.emit("limparNotificacao", ({idChat: idChat, idUser: idUser, notificacao: notificacao}))
+    socket.emit("limparNotificacao", ({ idChat: idChat, idUser: idUser, notificacao: notificacao }))
     getUsuario()
   }
 
@@ -90,71 +90,73 @@ export default function SidebarChat() {
   return token && usuario && chats && (
     <div className="containerSidebar">
       {chats.map((chat, index) => {
-                  return (
-                    <Link
-                      to={ // quando clicar levar pra pergunta específica
-                        isAuthenticated()
-                          ? `/chat/${chat._id}`
-                          : "/login"
-                      }
-                      key={index}
-                      onClick={() => {
-                        if(chat.privado){
-                          let verificaNotificacao = (chat.usuarios[0].user.id == jwt(token).secret.id ? 
-                          chat.usuarios[0].user.notificacoes : 
-                          chat.usuarios[0].userTarget.notificacoes)
-                          if(verificaNotificacao){
-                            limparNotificacao(chat._id, verificaNotificacao)
-                          }
-                        }
-                      }}
-                    >
-                      {chat.privado && (
-                        <div className="sidebarItemChat">
-                          {chat.privado && (
-                            <>
-                              {chat.usuarios[0].user.id === jwt(token).secret.id ? (
-                                chat.usuarios[0].userTarget.id in fotosUsuarios ? (
-                                  <img
-                                    id="imagemPerfilChatS"
-                                    src={fotosUsuarios[chat.usuarios[0].userTarget.id]}
-                                    alt="imagemPerfil"
-                                  />
-                                ) : (
-                                  <PersonIcon/>
-                                )
-                              ) : (
-                                chat.usuarios[0].user.id in fotosUsuarios ? (
-                                  <img
-                                    id="imagemPerfilChatS"
-                                    src={fotosUsuarios[chat.usuarios[0].user.id]}
-                                    alt="imagemPerfil"
-                                  />
-                                ) : (
-                                  <PersonIcon/>
-                                )
-                              )}
-                            </>
-                          )}
-                          {chat.usuarios[0].user.id === jwt(token).secret.id
-                            ? chat.usuarios[0].userTarget.nome
-                            : chat.usuarios[0].user.nome}
-                            
-                          <div className="notificacao">
-                            {chat.usuarios[0].user.id == jwt(token).secret.id ? 
-                            chat.usuarios[0].user.notificacoes : 
-                            chat.usuarios[0].userTarget.notificacoes}
-                          </div>
-                        </div>
-                      )}
-          
-          
-                      {!chat.privado && <div className="sidebarItemChat"><div className="iconeSala">{<GroupsIcon style={{ fontSize: '40px' }}/>}</div>{
-                      chat.nome}</div>}
-                    </Link>
-                  );
-                })}
-          
+        return (
+          <Link
+            to={ // quando clicar levar pra pergunta específica
+              isAuthenticated()
+                ? `/chat/${chat._id}`
+                : "/login"
+            }
+            key={index}
+            onClick={() => {
+              if (chat.privado) {
+                let verificaNotificacao = (chat.usuarios[0].user.id == jwt(token).secret.id ?
+                  chat.usuarios[0].user.notificacoes :
+                  chat.usuarios[0].userTarget.notificacoes)
+                if (verificaNotificacao) {
+                  limparNotificacao(chat._id, verificaNotificacao)
+                }
+              }
+            }}
+          >
+            {chat.privado && (
+              <div className="sidebarItemChat">
+                {chat.privado && (
+                  <>
+                    {chat.usuarios[0].user.id === jwt(token).secret.id ? (
+                      chat.usuarios[0].userTarget.id in fotosUsuarios ? (
+                        <img
+                          id="imagemPerfilChatS"
+                          src={fotosUsuarios[chat.usuarios[0].userTarget.id]}
+                          alt="imagemPerfil"
+                        />
+                      ) : (
+                        <PersonIcon />
+                      )
+                    ) : (
+                      chat.usuarios[0].user.id in fotosUsuarios ? (
+                        <img
+                          id="imagemPerfilChatS"
+                          src={fotosUsuarios[chat.usuarios[0].user.id]}
+                          alt="imagemPerfil"
+                        />
+                      ) : (
+                        <PersonIcon />
+                      )
+                    )}
+                  </>
+                )}
+                {chat.usuarios[0].user.id === jwt(token).secret.id
+                  ? chat.usuarios[0].userTarget.nome
+                  : chat.usuarios[0].user.nome}
+
+                <div>
+                  {chat.usuarios[0].user.id === jwt(token).secret.id ?
+                    chat.usuarios[0].user.notificacoes > 0 && <span className="notificacao" >{chat.usuarios[0].user.notificacoes}</span> :
+                    chat.usuarios[0].userTarget.notificacoes > 0 && <span className="notificacao" >{chat.usuarios[0].userTarget.notificacoes}</span>
+                  }
+                </div>
+
               </div>
-            );
+            )}
+
+
+            {!chat.privado && <div className="sidebarItemChat"><div className="iconeSala">{<GroupsIcon style={{ fontSize: '40px' }} />}</div>{
+              chat.nome}</div>}
+          </Link>
+        );
+      })}
+
+    </div>
+  );
 }

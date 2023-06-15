@@ -22,18 +22,14 @@
 }
 
 #imagemPerfilChat {
-  margin: 1.3rem;
-  height: 2.5rem;
-  height: 2.5rem;
+  margin: 1.2rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   border: #000000 0.5px solid;
 }
 
 .digitando {
-
-    
-
-  
   color: #201F25;
   margin-top: 3px;
   font-size: 15px;
@@ -47,11 +43,6 @@
 }
 
 .conteudoChat::-webkit-scrollbar {
-
-    
-          
-          
-  
   width: 8px;
   /* Largura da barra de rolagem */
 }
@@ -138,13 +129,6 @@
 }
 
 .formEntradas {
-
-    
-        
-          
-    
-
-  
   position: relative;
   /* Deve ter uma posição definida para o z-index funcionar */
   z-index: 9999;

@@ -50,7 +50,6 @@ export default function SidebarSalaPublico() {
 
   const handleClickCampoCriarSala = () => {
     setMostrarDivSala(false);
-    console.log('' + mostrarDivSala);
   };
 
   const handleClickIcone = () => {
@@ -65,8 +64,9 @@ export default function SidebarSalaPublico() {
   return (
     <div className="containerSidebar">
       <div>
-          <div className="criarSalaBotao">
-            <label onClick={handleClickIcone} htmlFor="CriarSala"><GroupAddIcon style={icon} /></label>
+          <div className="criarSalaBotao" onClick={handleClickIcone}>
+            <label><GroupAddIcon style={icon} /></label>
+            <div>Criar Sala</div>
           </div>
       </div>
       {mostrarDivSala && (

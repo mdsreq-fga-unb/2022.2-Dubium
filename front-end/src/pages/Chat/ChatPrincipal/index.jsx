@@ -1,6 +1,5 @@
 import "./style.css";
 
-import imagemPerfil from "../../../assets/images/logo.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 import { useRef, useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
@@ -11,6 +10,7 @@ import { SocketContext } from "../../../context/Socket";
 import React, { useContext } from "react";
 import SendIcon from "@mui/icons-material/Send";
 import GroupsIcon from '@mui/icons-material/Groups';
+import PersonIcon from '@mui/icons-material/Person';
 
 
 export default function ChatPrincipal({ setLogado }) {
@@ -31,6 +31,7 @@ export default function ChatPrincipal({ setLogado }) {
   const [stringDigitando, setStringDigitando] = useState('')
   const [userTarget, setUserTarget] = useState("")
   const socketContext = useContext(SocketContext);
+  const [fotosUsuarios, setFotoUsuarios] = useState({})
 
   //ScrollBar
   useEffect(() => {
@@ -38,9 +39,29 @@ export default function ChatPrincipal({ setLogado }) {
     setSocket(socketContext);
   }, [])
 
+  const getFotos = async () => {
+    await apiRequest
+      .get('/usuario', {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        const objectData = {}
+        response.data.map(e => {
+          objectData[`${e._id}`] = e.foto
+        })
+        setFotoUsuarios(objectData)
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }
+
   useEffect(() => {
     if (token) {
       getUsuario()
+      getFotos()
     }
   }, [token])
 
@@ -204,10 +225,32 @@ export default function ChatPrincipal({ setLogado }) {
 
         <div id="corFundo">
           <div className="cabecalhoChat">
-            <img id="imagemPerfilChat" src={imagemPerfil} alt="imagemPerfil" />
+            {chat.privado && (
+                  <>
+                    {chat.usuarios[0].user.id === jwt(token).secret.id ? (
+                      chat.usuarios[0].userTarget.id in fotosUsuarios ? (
+                        <img
+                          id="imagemPerfilChat"
+                          src={fotosUsuarios[chat.usuarios[0].userTarget.id]}
+                          alt="imagemPerfil"
+                        />
+                      ) : (
+                        <PersonIcon />
+                      )
+                    ) : (
+                      chat.usuarios[0].user.id in fotosUsuarios ? (
+                        <img
+                          id="imagemPerfilChat"
+                          src={fotosUsuarios[chat.usuarios[0].user.id]}
+                          alt="imagemPerfil"
+                        />
+                      ) : (
+                        <PersonIcon />
+                      )
+                    )}
+                  </>
+                )}
             <div className="dados">
-
-
               {token && chat.privado ?
                 <Link to={`/usuario/${chat.usuarios[0].user.id}`}>
                   <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
