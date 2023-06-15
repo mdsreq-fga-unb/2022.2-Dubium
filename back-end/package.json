@@ -2,15 +2,14 @@
   "name": "testemds",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",  
+  "main": "index.js",
   "engines": {
-    "node": "18.x"
+    "node": "16.11.0"
   },
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "jest --testTimeout=5000  --forceExit"
-    
+    "test": "jest --testTimeout=5000 --forceExit"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +23,7 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mocha": "^10.2.0",
