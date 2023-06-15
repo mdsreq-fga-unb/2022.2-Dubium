@@ -9,6 +9,8 @@ import io from 'socket.io-client';
 import apiRequest from '../../../services/api.js'
 import { SocketContext } from "../../../context/Socket";
 import React, { useContext } from "react";
+import SendIcon from "@mui/icons-material/Send";
+import GroupsIcon from '@mui/icons-material/Groups';
 
 
 export default function ChatPrincipal({ setLogado }) {
@@ -268,7 +270,7 @@ export default function ChatPrincipal({ setLogado }) {
               onChange={e => setMessage(e.target.value)}
             />
             <button type="submit" className="sendMessage">
-              Enviar
+            <SendIcon/>
             </button>
           </div>
         </form>

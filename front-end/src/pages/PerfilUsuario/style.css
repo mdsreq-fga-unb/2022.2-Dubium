@@ -7,54 +7,49 @@
   border-radius: 10px;
   padding: 20px;
 }
-
 .usuario-selecionado-informacao {
   display: flex;
   flex-direction: column;
   gap: 5px;
   align-items: center;
 }
-
 .usuario-interacao {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
 }
-
 .usuario-interacao:hover {
   background-color: #b46666;
 }
-
 .pu-perfil {
   display: flex;
   gap: 25px;
   align-items: center;
 }
-
 .pu-perfil-texto {
   width: 20%;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 .pu-container {
   justify-content: space-around;
   padding: 50px;
 }
-
 .perfil-usuario {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  background-color: #201F25;
-  border: #000 solid;
+  background-color: #f1f1f1;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
   width: 50%;
   border-radius: 20px;
   padding: 50px;
-}
 
+
+  
+}
 .button-salvos {
   background-color: #0f5986;
   border: none;
@@ -63,7 +58,6 @@
   color: #fafafa;
   cursor: pointer;
 }
-
 #imagemPerfil {
   height: 100px;
   width: 100px;
@@ -71,62 +65,65 @@
 }
 
 .botaoFoto {
+  transition: 0.3s;
   width: 17%;
   display: flex;
   align-items: center;
   gap: 5px;
-  background-color: #f1f1f1;
+  background-color: #201F25;
   padding: 10px;
   border-radius: 5px;
-  color: black;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .botaoFoto:hover{
-  background-color: #e1e1e1;
+  background-color: rgb(86, 85, 85);
 }
 
 .pu-informacoes {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  border: black solid 1px;
-  background-color: #000;
-  color: #01C4A6;
+  background-color: #f1f1f1;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
   padding: 20px;
   border-radius: 10px;
 }
 
 .pc-titulo {
-  color: #ffffff;
+  color: #201F25;
 }
 
 .pu-item-informacao {
+
+    
+  
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 .pu-interecoes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-
 .pu-excluir {
   display: flex;
   align-items: center;
   gap: 5px;
-
   background-color: #075889;
   border: none;
   padding: 10px;
+
+    
+        
+
   border-radius: 5px;
   color: #fafafa;
   cursor: pointer;
 }
-
 .pu-editar {
   display: flex;
   align-items: center;
@@ -138,23 +135,22 @@
   color: black;
   cursor: pointer;
 }
-
 .buttonChat {
   display: flex;
   align-items: center;
   gap: 5px;
-
   background-color: #01C4A6;
   border: none;
   padding: 10px;
+
+       
+  
   border-radius: 5px;
   color: black;
   cursor: pointer;
 }
-
 .pu-opcoes {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
-

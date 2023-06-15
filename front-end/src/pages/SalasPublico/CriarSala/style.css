@@ -1,23 +1,26 @@
-.criarSala{
-    margin-top: 5.3rem;
-    background-color: #201F25;
-    height: 100%;
-    width: 100%;
-}
 .campoEntrada {
+  font-size: 13px;
+  background-color: #f1f1f1;
   margin-top: 2rem;
-  height: 15px;
-  background-color: #201F25;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  border: solid 2px #f1f1f1;
+  padding: 4px;
+  width: 50%;
+  height: 25px;
+  color: black;
+  border: #201F25 solid 2px;
+  border-radius: 5rem;
+}
+
+.botao-geral {
   padding: 0.5rem;
-  width: 15rem;
+  font-size: 18px;
+  width: 8rem;
 }
 
 .botaoFotoSala {
+
+    
+  
+  
   height: 1rem;
   margin-top: 2rem;
   display: flex;
@@ -30,15 +33,19 @@
   cursor: pointer;
 }
 
-.selecaoImagem{
+.selecaoImagem {
   margin-top: 5rem;
   align-items: center;
   display: flex;
   gap: 10rem;
 }
 
-#imagemSala{
+#imagemSala {
   width: 40rem;
   height: 15rem;
   border-radius: 15px;
+
+    
+    
+  
 }

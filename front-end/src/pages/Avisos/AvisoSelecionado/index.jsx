@@ -2,7 +2,7 @@ import "./style.css";
 
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
 import jwt from 'jwt-decode' 
@@ -170,6 +170,7 @@ export default function AvisoSelecionado() {
         <div className="pergunta-selecionada">
           <div className="ps-usuario-container">
             <div className="ps-usuario-info">
+            <Link className="link-usuario" to={`/usuario/${avisoSelecionado?.usuario?.id}`}>
               <PersonIcon fontSize="large" />
               <div className="ps-usuario-info-texto">
                 <span>{avisoSelecionado?.usuario?.nome}</span>
@@ -177,7 +178,9 @@ export default function AvisoSelecionado() {
                   {handleCurso(avisoSelecionado?.usuario?.curso)}
                 </span>
               </div>
+              </Link>
             </div>
+            <div className="right-buttons">
             {avisoSelecionado?.usuario?.id === jwt(token).secret.id && (
               <IconButton onClick={deleteAviso}>
                 <DeleteIcon sx={{ fontSize: 16 }} />
@@ -188,6 +191,7 @@ export default function AvisoSelecionado() {
                 <EditIcon sx={{ fontSize: 16 }} />
               </IconButton>
             )}
+            </div>
           </div>
           <span className="filtro">
             {avisoSelecionado?.materia?.toUpperCase()}
@@ -198,21 +202,20 @@ export default function AvisoSelecionado() {
                 type="text"
                 value={tituloEditado}
                 onChange={(e) => setTituloEditado(e.target.value)}
+                className="textarea-editar"
               />
               <textarea
                 value={conteudoEditado}
                 onChange={(e) => setConteudoEditado(e.target.value)}
               ></textarea>
-              <input
-                type="text"
-                value={materiaEditada}
-                onChange={(e) => setMateriaEditada(e.target.value)}
-              />
-              <button onClick={editarAviso}>Salvar</button>
-              <button onClick={cancelarEdicao}>Cancelar</button>
+              <div>
+              <button className="salvar-editar" onClick={editarAviso}>Salvar</button>
+              <button className="cancelar-editar" onClick={cancelarEdicao}>Cancelar</button>
+              </div>
             </div>
           ) : (
             <div>
+              <span className="conteudo">{avisoSelecionado?.conteudo}</span>
               <span>{avisoSelecionado?.conteudo}</span>
               {avisoSelecionado?.usuario?.id === jwt(token).secret.id && (
                 <button onClick={habilitarEdicao}>Editar</button>

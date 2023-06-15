@@ -1,23 +1,45 @@
-.containerChat{
-    position: fixed;
-    width: 100%;
-    height: auto;
-}
-
-.containerSidebar {
-    position: fixed;
+.sidebarItem{
+    justify-content: center;
+    color: #ffffff;
+    padding: 20px;
+    border: #000000 solid 2px;
+    background-color: #2476aa;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+    font-size: 17px;
     display: flex;
-}
-
-.containerSidebar {
-    position: fixed;
-    flex-direction: column;
-    border-right: 2px solid #414141;
-    width: 250px;
-    padding: 10px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    top: 80px;
-}
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    gap: 8px;
+    border-radius: 20px;
+  }
+  .criarSalaBotao{
+    justify-content: center;
+    color: #ffffff;
+    padding: 20px;
+    height: 20px;
+    border: #000000 solid 2px;
+    background-color: #2476aa;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+    padding: 0.6rem;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .criarSalaBotao:hover{
+       
+    
+    transition: 0.5s;
+    color: #0f4a6d;
+  }
+  .sidebarItem:hover{
+    transition: 0.5s;
+    color: #0f4a6d;
+  }

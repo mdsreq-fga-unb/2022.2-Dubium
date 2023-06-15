@@ -9,7 +9,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-
+import GroupsIcon from '@mui/icons-material/Groups';
 import isAuthenticated from "../../isAuth";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -124,40 +124,40 @@ function Header({ setMateriaPesquisada, setLogado }) {
   
   return (
     <div className="headerDivs">
-    <header className="header">
-      <Link to="/" className="logo">
-        <img src={logo} alt="logo" className="logo" />
-      </Link>
-      <ul className="list">
-        <li className="item">
-          <Link to="/">FÓRUM</Link>
-        </li>
-        <li className="item">
-          <Link to={isAuthenticated() ? "/avisos" : "/login"}>
-            AVISOS
-          </Link>
-        </li>
-        <li className="item">
-          <Link
-          // se nao tiver logado redireciona pra login
-            to={isAuthenticated() ? "/ranking-usuarios" : "/login"}
-          >
-            USUARIOS
-          </Link>
-        </li>
-        <li className="item">
-          <Link to="/sobre">SOBRE</Link>
-        </li>
-      </ul>
-      <div className="pesquisa">
-        <div id ="iconePesquisa"><SearchIcon /></div>
-        <input id = "busca"
-          type="text"
-          placeholder="Buscar por matéria ou usuário"
-          onChange={handleChange}
-        />
-      </div>
-      <ul className="header-login">
+      <header className="header">
+        <Link to="/" className="logo">
+          <img src={logo} alt="logo" className="logo" />
+        </Link>
+        <ul className="list">
+          <li className="item">
+            <Link to="/">FÓRUM</Link>
+          </li>
+          <li className="item">
+            <Link to={isAuthenticated() ? "/avisos" : "/login"}>
+              AVISOS
+            </Link>
+          </li>
+          <li className="item">
+            <Link
+              // se nao tiver logado redireciona pra login
+              to={isAuthenticated() ? "/ranking-usuarios" : "/login"}
+            >
+              USUARIOS
+            </Link>
+          </li>
+          <li className="item">
+            <Link to="/sobre">SOBRE</Link>
+          </li>
+        </ul>
+        <div className="pesquisa">
+          <div id="iconePesquisa"><SearchIcon /></div>
+          <input id="busca"
+            type="text"
+            placeholder="Buscar por matéria ou usuário"
+            onChange={handleChange}
+          />
+        </div>
+        <ul className="header-login">
           {!isAuthenticated() && (
             <>
               <Link to="/login">
@@ -202,6 +202,7 @@ function Header({ setMateriaPesquisada, setLogado }) {
 
               <li className="notification-item">
                 <label onClick={handleClickIcone} htmlFor="CriarSala"><GroupAddIcon style={icon} /></label>
+                <Link to="/salasPublico"><GroupsIcon/></Link>
               </li>
 
               <li className="notification-item">
