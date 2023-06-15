@@ -7,7 +7,7 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=COMPLETE&color=RED&style=for-the-badge"/>
 </p>
 
-Projeto: [Link](https://dubium-frontend.vercel.app/)
+Projeto: [Link](https://dubium2.vercel.app/login)
 
 ## Índice 
 
