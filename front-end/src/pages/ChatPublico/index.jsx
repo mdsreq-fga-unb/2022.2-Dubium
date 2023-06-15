@@ -1,19 +1,21 @@
 import "./style.css";
 
-import SidebarChatPublico from "../ChatPublico/SidebarChat/index.jsx";
-import ChatPrincipal from "../ChatPublico/ChatPrincipal/index.jsx"
-import Header from "../../components/header";
-import SocketProvider from '../../context/Socket'
+import Header from "../../components/header/index"
+import SidebarSalasPublico from "../SalasPublico/SidebarSala/index.jsx";
+
+import SalasPublicas from "../SalasPublico/SalaPrincipal/index.jsx";
+
 
 export default function ChatPublico() {
     return (
         <div className="containerChat">
-                <Header/>
-            <div className="sidebar-Chat">
-                <SidebarChatPublico/>
+
+            <Header/>
+            <div className="containerSidebar">
+                <SidebarSalasPublico/>
             </div>
-            <div className="chat-principal">
-                <ChatPrincipal/>
+            <div className="chatPrincipal">
+                <SalasPublicas/>
             </div>
         </div>
     );

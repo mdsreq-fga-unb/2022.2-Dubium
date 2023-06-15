@@ -1,0 +1,47 @@
+.pergunta-selecionada{
+  border-radius: 20px;
+  width: 60%;
+  background-color: #fafafa;
+  padding: 20px;
+}
+
+.textarea-editar{
+    height: 100px; /* Define a altura desejada */
+    width: 100%; /* Define a largura desejada */
+    margin-bottom: 10px;
+}
+
+.salvar-editar {
+margin-right: 10px;
+border-radius: 5px;
+border: 2px solid black; 
+background-color: white; 
+transition: background-color 0.3s; 
+}
+
+.salvar-editar:hover {
+background-color: lightgray;
+}
+
+.salvar-editar:active {
+background-color: gray; 
+}
+
+.cancelar-editar {
+margin-right: 10px;
+border-radius: 5px; 
+border: 2px solid black; 
+background-color: white; 
+transition: background-color 0.3s;
+}
+.cancelar-editar:hover {
+background-color: lightgray;
+}
+
+.cancelar-editar:active {
+background-color: gray;
+}
+
+/* .link-usuario{
+    display: contents;
+} */

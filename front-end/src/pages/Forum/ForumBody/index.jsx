@@ -80,15 +80,18 @@ export default function ForumBody({ materiaPesquisada }) {
             >
               <div className="card-pergunta">
                 <div className="usuario-pergunta">
+                  <Link  className='link-usuario' to={`/usuario/${data.idUsuario.id}`}>
                   <PersonIcon fontSize="large" />
                   <div className="usuario-informacao-texto">
 
                       <span>{data.idUsuario.nome}</span>
 
-                    <span style={{ color: "#757575" }}>
+                    <span style={{ color: "#201F25" }}>
                       {handleCurso(data.curso)}
                     </span>
                   </div>
+                  </Link>
+                  
                 </div>
                 <span className="filtro">{data.filtro.toUpperCase()}</span>
                 <span>{data.titulo}</span>

@@ -8,60 +8,30 @@ import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-
-import isAuthenticated from "../../isAuth";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import apiRequest from "../../services/api";
-import jwt from 'jwt-decode';
-
-import { SocketContext } from "../../context/Socket";
-import React, { useContext } from "react";
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import GroupsIcon from '@mui/icons-material/Groups';
 import SendIcon from '@mui/icons-material/Send';
 import CriarSala from "../../pages/SalasPublico/CriarSala";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
+import isAuthenticated from "../../isAuth";
+
+import jwt from 'jwt-decode'
+
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import apiRequest from "../../services/api";
+
+
 
 function Header({ setMateriaPesquisada, setLogado }) {
   const [token, setToken] = useState('');
-  const [notificacao, setNotificacao] = useState(0)
-  const socket = useContext(SocketContext);
   const [mostrarDivSala, setMostrarDivSala] = useState(false);
-
-  useEffect(() => {
-    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
-  }, [])
 
   const handleChange = (e) => {
     e.preventDefault();
     setMateriaPesquisada(e.target.value);
   };
-
-  const getChat = async () => {
-    let number = 0
-    await apiRequest
-      .post(`/chat/user`, { idUser: jwt(token).secret.id }, {
-        headers: {
-          Authorization: "Bearer " + token,
-        }
-      })
-      .then(data => {
-        data.data.forEach(e => {
-          console.log(e.usuarios[0])
-          if(e.usuarios[0].user.id == jwt(token).secret.id){
-            number += e.usuarios[0].user.notificacoes
-          } else {
-            number += e.usuarios[0].userTarget.notificacoes
-          }
-        })
-        setNotificacao(number)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
 
   const divCriarSala = {
     position: 'fixed',
@@ -74,7 +44,6 @@ function Header({ setMateriaPesquisada, setLogado }) {
     zIndex: 999,
     display: mostrarDivSala ? 'flex' : 'none',
   };
-  
   const handleClickCampoCriarSala = () => {
     setMostrarDivSala(false);
     console.log(''+ mostrarDivSala);
@@ -82,18 +51,18 @@ function Header({ setMateriaPesquisada, setLogado }) {
   const icon = {
     cursor: 'pointer',
   };
-  const iconSairDiv = {
-    margin: '2rem',
-    cursor: 'pointer',
-    color: 'black',
-    width: '1%',
-    height: '1%',
-    display: 'flex',
-    alignText: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '15px',
-  };
+const iconSairDiv = {
+  margin: '2rem',
+  cursor: 'pointer',
+  color: 'black',
+  width: '1%',
+  height: '1%',
+  display: 'flex',
+  alignText: 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '15px',
+};
 
   const handleClickIcone = () => {
     setMostrarDivSala(!mostrarDivSala);
@@ -105,59 +74,49 @@ function Header({ setMateriaPesquisada, setLogado }) {
   };
 
 
-  useEffect(() => {
-    if(token) {
-      getChat()
-    }
-  }, [token])
 
   useEffect(() => {
-      socket.on("decrementarNotificacao", (data) => {
-        setNotificacao(prevNumber => prevNumber - data)
-      })
-      socket.on("incrementarNotificacao", (data) => {
-        setNotificacao(prevNumber => prevNumber + 1)
-      })
-
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
   }, [])
 
-  
+
+
   return (
     <div className="headerDivs">
-    <header className="header">
-      <Link to="/" className="logo">
-        <img src={logo} alt="logo" className="logo" />
-      </Link>
-      <ul className="list">
-        <li className="item">
-          <Link to="/">FÓRUM</Link>
-        </li>
-        <li className="item">
-          <Link to={isAuthenticated() ? "/avisos" : "/login"}>
-            AVISOS
-          </Link>
-        </li>
-        <li className="item">
-          <Link
-          // se nao tiver logado redireciona pra login
-            to={isAuthenticated() ? "/ranking-usuarios" : "/login"}
-          >
-            USUARIOS
-          </Link>
-        </li>
-        <li className="item">
-          <Link to="/sobre">SOBRE</Link>
-        </li>
-      </ul>
-      <div className="pesquisa">
-        <div id ="iconePesquisa"><SearchIcon /></div>
-        <input id = "busca"
-          type="text"
-          placeholder="Buscar por matéria ou usuário"
-          onChange={handleChange}
-        />
-      </div>
-      <ul className="header-login">
+      <header className="header">
+        <Link to="/" className="logo">
+          <img src={logo} alt="logo" className="logo" />
+        </Link>
+        <ul className="list">
+          <li className="item">
+            <Link to="/">FÓRUM</Link>
+          </li>
+          <li className="item">
+            <Link to={isAuthenticated() ? "/avisos" : "/login"}>
+              AVISOS
+            </Link>
+          </li>
+          <li className="item">
+            <Link
+              // se nao tiver logado redireciona pra login
+              to={isAuthenticated() ? "/ranking-usuarios" : "/login"}
+            >
+              USUARIOS
+            </Link>
+          </li>
+          <li className="item">
+            <Link to="/sobre">SOBRE</Link>
+          </li>
+        </ul>
+        <div className="pesquisa">
+          <div id="iconePesquisa"><SearchIcon /></div>
+          <input id="busca"
+            type="text"
+            placeholder="Buscar por matéria ou usuário"
+            onChange={handleChange}
+          />
+        </div>
+        <ul className="header-login">
           {!isAuthenticated() && (
             <>
               <Link to="/login">
@@ -202,10 +161,10 @@ function Header({ setMateriaPesquisada, setLogado }) {
 
               <li className="notification-item">
                 <label onClick={handleClickIcone} htmlFor="CriarSala"><GroupAddIcon style={icon} /></label>
+                <Link to="/salasPublico"><GroupsIcon/></Link>
               </li>
 
               <li className="notification-item">
-                <span>{notificacao}</span>
                 <Link to="/chat"><SendIcon style={estiloMensagem} /></Link>
               </li>
 
@@ -222,7 +181,6 @@ function Header({ setMateriaPesquisada, setLogado }) {
       </div>
       )}
     </div>
-
   );
 }
 

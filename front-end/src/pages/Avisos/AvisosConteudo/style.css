@@ -1,0 +1,17 @@
+.link-usuario {
+    display: contents;
+}
+
+.botaoCriarAviso{
+    color: #f1f1f1;
+    border: #000000 solid 2px;
+    background-color: #2476aa;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.botaoCriarAviso:hover {
+  transition: 0.5s;
+  color: #0f4a6d;
+}

@@ -42,17 +42,17 @@ export default function SalasPublicas() {
       .then(response => {
         setChats((response.data))
       })
-      .catch(err => {console.log(err)})
+      .catch(err => { console.log(err) })
   }
 
   useEffect(() => {
-    if(token){
+    if (token) {
       getUsuario()
     }
   }, [token])
 
   useEffect(() => {
-    if(token) {
+    if (token) {
       console.log(usuarioSelecionado)
       const array = usuarioSelecionado.chats.map(e => {
         return e.idChat
@@ -63,11 +63,18 @@ export default function SalasPublicas() {
   }, [usuarioSelecionado])
 
   useEffect(() => {
-    if(chats && token){
-      console.log(chats)
+    if (chats && token) {
+      scrollDown()
     }
   }, [chats])
 
+  const scrollDown = () => {
+    const container = document.getElementsByClassName('conteudoChat')[0];
+    if (container) {
+      console.log(container)
+      container.scrollTop = container.scrollHeight
+    }
+  }
 
   const joinUserInstance = async (idChat) => {
     const data = {
@@ -76,12 +83,12 @@ export default function SalasPublicas() {
     }
     await apiRequest
       .post("/chat/joinUser", data, {
-        headers: {Authorization: "bearer " + token}
+        headers: { Authorization: "bearer " + token }
       })
       .then(response => {
         navigate("/chat")
       })
-      .catch(err => {console.log(err)})
+      .catch(err => { console.log(err) })
   }
 
 
@@ -94,26 +101,25 @@ export default function SalasPublicas() {
       <div className="salaPrincipal">
         {chats.map((data, index) => {
           return !chatsUser.includes(data._id) && (
-            <div className="sala" style={{width: '50%'}} key={index}>
-              <div>{data.nome}</div>
-              <div>{data.tema}</div>
-              <div>
-              <Link
-                className="botaoChatPublico"
-                to="/chat"
-                onClick={(e) => {
-                  e.preventDefault();
-                  joinUserInstance(data._id)
-                }}
-              >
-                Juntar-se ao grupo
-              </Link>
+            <div className="sala" key={index}>
+              <div className="nomeSala">{data.nome}</div>
+              <div className="temaSala">{data.tema}</div>
+              <div className="botaoChatPublico">
+                <Link
+                  to="/chat"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    joinUserInstance(data._id)
+                  }}
+                >
+                  Juntar-se ao grupo
+                </Link>
               </div>
-          </div>
+            </div>
           );
         })}
-      </div>
     </div>
+    </div >
 
   );
 }

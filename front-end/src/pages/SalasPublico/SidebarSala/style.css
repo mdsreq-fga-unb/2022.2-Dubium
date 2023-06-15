@@ -27,11 +27,12 @@
   margin-top: 0.5rem;
   font-size: 17px;
   display: flex;
-  flex-direction: row;
   align-items: center;
+  gap: 10px;
+  flex-direction: row;
   padding: 0.6rem;
-  gap: 8px;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .criarSalaBotao:hover{
