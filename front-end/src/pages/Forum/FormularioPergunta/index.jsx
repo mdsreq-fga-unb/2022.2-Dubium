@@ -60,6 +60,7 @@ export default function FormularioPergunta() {
       curso: indexEngenharia,
       conteudo: data.textoPergunta,
       filtro: data.filtro,
+      idUser: jwt(token).secret
       // arquivo: data.midia,
     };
 

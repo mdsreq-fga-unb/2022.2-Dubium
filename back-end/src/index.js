@@ -7,7 +7,7 @@ const http = require('./server.js')
 require("./config/sockets.js")
 
 
-const port = process.env.PORT
+const port = 8080
 
 const server = http.listen(port, () => {
     console.log(`O servidor está rodando em: http://localhost:${port}`)
