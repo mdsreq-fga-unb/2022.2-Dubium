@@ -11,9 +11,9 @@ import { AuthProvider } from "./context/AuthProvider";
 import SocketProvider  from "./context/Socket";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-
+  <SidebarProvider>
   <SocketProvider>
     <App />
   </SocketProvider>
-
+  </SidebarProvider>
   );
