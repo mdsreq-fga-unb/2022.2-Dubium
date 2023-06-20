@@ -1,10 +1,8 @@
 const emitter = require('../auth/emitter.js');
 const http = require('../server.js')
-const io = require("socket.io")(http, {cors: {origin: "https://dubium2.vercel.app"}})
+const io = require("socket.io")(http, {cors: {origin: "http://localhost:5173"}})
 const chatService = require("../service/chatService.js")
 
-
-const connectedUsers = {}; 
 
 io.on('connection', socket => {
     console.log('SOCKET CONECTADO:', socket.id)
