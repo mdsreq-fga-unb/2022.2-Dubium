@@ -3,7 +3,6 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
 import jwt from 'jwt-decode' 
@@ -21,7 +20,9 @@ export default function AvisoSelecionado() {
   const [token, setToken] = useState('');
   const [infosSalvas, setInfosSalvas] = useState({});
   const [editando, setEditando] = useState(false);
+  const [tituloEditado, setTituloEditado] = useState("");
   const [conteudoEditado, setConteudoEditado] = useState("");
+  const [materiaEditada, setMateriaEditada] = useState("");
 
   const { idAviso } = useParams();
 
@@ -76,12 +77,16 @@ export default function AvisoSelecionado() {
 
   const habilitarEdicao = () => {
     setEditando(true);
+    setTituloEditado(avisoSelecionado?.titulo || "");
     setConteudoEditado(avisoSelecionado?.conteudo || "");
+    setMateriaEditada(avisoSelecionado?.materia || "");
   };
 
   const cancelarEdicao = () => {
     setEditando(false);
+    setTituloEditado("");
     setConteudoEditado("");
+    setMateriaEditada("");
   };
 
   const deleteAviso = async () => {
@@ -141,7 +146,9 @@ export default function AvisoSelecionado() {
     const infoAviso = {
       id_usuario: jwt(token).secret.id,
       id_aviso: idAviso,
-      conteudo: conteudoEditado
+      // titulo: tituloEditado,
+      conteudo: conteudoEditado,
+      materia: tituloEditado
     };
   
     await apiRequest
@@ -151,8 +158,8 @@ export default function AvisoSelecionado() {
         },
       })
       .then((response) => {
-        setAvisoSelecionado(response.data);
         setEditando(false);
+        getAviso()
       })
       .catch((error) => console.log(error));
   };
@@ -163,7 +170,7 @@ export default function AvisoSelecionado() {
         <div className="pergunta-selecionada">
           <div className="ps-usuario-container">
             <div className="ps-usuario-info">
-              <Link className="link-usuario" to={`/usuario/${avisoSelecionado?.usuario?.id}`}>
+            <Link className="link-usuario" to={`/usuario/${avisoSelecionado?.usuario?.id}`}>
               <PersonIcon fontSize="large" />
               <div className="ps-usuario-info-texto">
                 <span>{avisoSelecionado?.usuario?.nome}</span>
@@ -191,10 +198,17 @@ export default function AvisoSelecionado() {
           </span>
           {editando ? (
             <div>
-              <textarea
+              <label htmlFor="">Título: </label><br></br><br></br>
+              <input
+                type="text"
+                value={tituloEditado}
+                onChange={(e) => setTituloEditado(e.target.value)}
+                className="textarea-editar"
+              />
+              <label htmlFor="">Conteúdo:</label><br></br><br></br>
+              <textarea className="conteudoArea"
                 value={conteudoEditado}
                 onChange={(e) => setConteudoEditado(e.target.value)}
-                className="textarea-editar"
               ></textarea>
               <div>
               <button className="salvar-editar" onClick={editarAviso}>Salvar</button>

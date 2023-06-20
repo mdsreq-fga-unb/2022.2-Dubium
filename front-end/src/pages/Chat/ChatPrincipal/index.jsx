@@ -1,14 +1,16 @@
 import "./style.css";
 
-import imagemPerfil from "../../../assets/images/logo.jpg";
 import SearchIcon from "@mui/icons-material/Search";
-import SendIcon from "@mui/icons-material/Send";
-import GroupsIcon from '@mui/icons-material/Groups';
 import { useRef, useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import jwt from 'jwt-decode'
 import io from 'socket.io-client';
 import apiRequest from '../../../services/api.js'
+import { SocketContext } from "../../../context/Socket";
+import React, { useContext } from "react";
+import SendIcon from "@mui/icons-material/Send";
+import GroupsIcon from '@mui/icons-material/Groups';
+import PersonIcon from '@mui/icons-material/Person';
 
 
 export default function ChatPrincipal({ setLogado }) {
@@ -27,29 +29,63 @@ export default function ChatPrincipal({ setLogado }) {
   const navigate = useNavigate();
   const conteudoRef = useRef(null);
   const [stringDigitando, setStringDigitando] = useState('')
-  
-
+  const [userTarget, setUserTarget] = useState("")
+  const socketContext = useContext(SocketContext);
+  const [fotosUsuarios, setFotoUsuarios] = useState({})
 
   //ScrollBar
   useEffect(() => {
     setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
-    setSocket(io('https://dubium2.herokuapp.com'));
+    setSocket(socketContext);
   }, [])
+
+  const getFotos = async () => {
+    await apiRequest
+      .get('/usuario', {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        const objectData = {}
+        response.data.map(e => {
+          objectData[`${e._id}`] = e.foto
+        })
+        setFotoUsuarios(objectData)
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }
 
   useEffect(() => {
     if (token) {
       getUsuario()
+      getFotos()
     }
   }, [token])
 
   useEffect(() => {
+    return () => {
+      if (socket) {
+        console.log(usuarioSelecionado)
+        socket.emit("leaveInstance");
+        console.log("saiu")
+      }
+    };
+  }, [location, socket]);
+  
+
+  useEffect(() => {
     if (socket) {
+      socket.emit("idUser", jwt(token).secret.id)
       socket.emit('joinInstance', usuarioSelecionado.chats)
       socket.on("receivedMessage", (message) => {
         setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);
       });
       socket.on("targetDig", (data) => {
-        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome + " está digitando..." :
+        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? 
+          chat.usuarios[0].userTarget.nome + " está digitando..." :
           chat.usuarios[0].user.nome + " está digitando..."}`)
       })
       socket.on("targetNaoDig", (data) => {
@@ -57,6 +93,13 @@ export default function ChatPrincipal({ setLogado }) {
       })
     }
   }, [usuarioSelecionado]);
+
+
+  useEffect(() => {
+    if(chat && chat.privado) {
+      chat.usuarios[0].user.id == usuarioSelecionado._id ? setUserTarget(chat.usuarios[0].userTarget.id) : setUserTarget(chat.usuarios[0].user.id)
+    }
+  }, [chat])
 
   const getChat = async () => {
     await apiRequest
@@ -112,9 +155,9 @@ export default function ChatPrincipal({ setLogado }) {
     }
   }, [token, idChat]);
 
-  const enviarNotificacao = (userId, mensagem) => {
-    socket.emit('enviarNotificacao', { userId, mensagem });
-  };  
+  // const enviarNotificacao = (userId, mensagem) => {
+  //   socket.emit('enviarNotificacao', { userId, mensagem });
+  // };  
   
 
   const handleSubmit = async (e) => {
@@ -124,14 +167,16 @@ export default function ChatPrincipal({ setLogado }) {
       user: jwt(token).secret,
       message: message,
       horario: new Date(),
-      idRoom: idChat
+      idRoom: idChat,
+      idTarget: userTarget,
+      privado: chat.privado
     }
     setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, _message]);
     socket.emit("sendMessage", _message)
     saveMessages([_message])
-    const userIdDestinatario =  _message.idRoom
-    const mensagemNotificacao = _message.message // mensagem da notificação
-    enviarNotificacao(userIdDestinatario, mensagemNotificacao);
+    // const userIdDestinatario =  _message.idRoom
+    // const mensagemNotificacao = _message.message // mensagem da notificação
+    // enviarNotificacao(userIdDestinatario, mensagemNotificacao);
     setMessage("")
   }
 
@@ -180,10 +225,32 @@ export default function ChatPrincipal({ setLogado }) {
 
         <div id="corFundo">
           <div className="cabecalhoChat">
-            <img id="imagemPerfilChat" src={imagemPerfil} alt="imagemPerfil" />
+            {chat.privado && (
+                  <>
+                    {chat.usuarios[0].user.id === jwt(token).secret.id ? (
+                      chat.usuarios[0].userTarget.id in fotosUsuarios ? (
+                        <img
+                          id="imagemPerfilChat"
+                          src={fotosUsuarios[chat.usuarios[0].userTarget.id]}
+                          alt="imagemPerfil"
+                        />
+                      ) : (
+                        <PersonIcon />
+                      )
+                    ) : (
+                      chat.usuarios[0].user.id in fotosUsuarios ? (
+                        <img
+                          id="imagemPerfilChat"
+                          src={fotosUsuarios[chat.usuarios[0].user.id]}
+                          alt="imagemPerfil"
+                        />
+                      ) : (
+                        <PersonIcon />
+                      )
+                    )}
+                  </>
+                )}
             <div className="dados">
-
-
               {token && chat.privado ?
                 <Link to={`/usuario/${chat.usuarios[0].user.id}`}>
                   <span>{chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.nome : chat.usuarios[0].user.nome}</span>
@@ -246,7 +313,7 @@ export default function ChatPrincipal({ setLogado }) {
               onChange={e => setMessage(e.target.value)}
             />
             <button type="submit" className="sendMessage">
-              <SendIcon/>
+            <SendIcon/>
             </button>
           </div>
         </form>

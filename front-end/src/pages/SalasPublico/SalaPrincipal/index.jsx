@@ -86,34 +86,29 @@ export default function SalasPublicas() {
 
 
   return token && usuarioSelecionado && (
-
-
-
-
     <div className="containerSalaPrincipal">
       <div className="salaPrincipal">
         {chats.map((data, index) => {
           return !chatsUser.includes(data._id) && (
-            <div className="sala" style={{width: '50%'}} key={index}>
-              <div>{data.nome}</div>
-              <div>{data.tema}</div>
-              <div>
-              <Link
-                className="botaoChatPublico"
-                to="/chat"
-                onClick={(e) => {
-                  e.preventDefault();
-                  joinUserInstance(data._id)
-                }}
-              >
-                Juntar-se ao grupo
-              </Link>
+            <div className="sala" key={index}>
+              <div className="nomeSala">{data.nome}</div>
+              <div className="temaSala">{data.tema}</div>
+              <div className="botaoChatPublico">
+                <Link
+                  to="/chat"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    joinUserInstance(data._id)
+                  }}
+                >
+                  Juntar-se ao grupo
+                </Link>
               </div>
-          </div>
+            </div>
           );
         })}
-      </div>
     </div>
+    </div >
 
   );
 }

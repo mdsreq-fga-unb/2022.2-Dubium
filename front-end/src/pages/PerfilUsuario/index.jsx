@@ -81,11 +81,13 @@ export default function PerfilUsuario({ setLogado }) {
     const data = {
       user: {
         id: jwt(token).secret.id,
-        nome: jwt(token).secret.nome
+        nome: jwt(token).secret.nome,
+        notificacoes: 0
       },
       userTarget: {
         id: usuarioSelecionado._id,
-        nome: usuarioSelecionado.nome_completo
+        nome: usuarioSelecionado.nome_completo,
+        notificacoes: 0
       },
       privado: true
     }
@@ -189,7 +191,7 @@ export default function PerfilUsuario({ setLogado }) {
           )}
 
           <div className="pu-perfil-texto">
-            <span style={{ color: "#f5f5f5" }}>{usuarioSelecionado.nome_completo}</span>
+            <span style={{ color: "#201F25" }}>{usuarioSelecionado.nome_completo}</span>
             <span style={{ color: "#757575" }}>
               {handleCurso(usuarioSelecionado.curso)}
             </span>
@@ -218,11 +220,11 @@ export default function PerfilUsuario({ setLogado }) {
           <span style={{ fontSize: "18px" }}>INFORMAÇÕES DE CONTATO</span>
           <li className="pu-item-informacao">
             <span>E-mail:</span>
-            <span style={{ color: "#ffffff" }}>{usuarioSelecionado?.email}</span>
+            <span style={{ color: "#201F25" }}>{usuarioSelecionado?.email}</span>
           </li>
           <li className="pu-item-informacao">
             <span>Telefone:</span>
-            <span style={{ color: "#ffffff" }}>
+            <span style={{ color: "#201F25" }}>
               {usuarioSelecionado?.celular}
             </span>
           </li>
@@ -254,10 +256,10 @@ export default function PerfilUsuario({ setLogado }) {
               </Link>
 
               <li>
-                <button className="pu-excluir" onClick={deletarUsuario}>
+                {/*<button className="pu-excluir" onClick={deletarUsuario}>
                   <DeleteIcon sx={{ fontSize: 16 }} />
                   EXCLUIR CONTA
-                </button>
+                </button>*/}
               </li>
             </div>
           )}

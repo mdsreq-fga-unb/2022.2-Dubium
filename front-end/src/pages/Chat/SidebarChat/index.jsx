@@ -1,19 +1,20 @@
 import "./style.css";
 import jwt from 'jwt-decode';
 import apiRequest from "../../../services/api.js";
-import GroupsIcon from '@mui/icons-material/Groups';
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import isAuthenticated from "../../../isAuth";
+import { SocketContext } from "../../../context/Socket";
+import React from "react";
+import GroupsIcon from '@mui/icons-material/Groups';
 import PersonIcon from "@mui/icons-material/Person";
-
-
 
 export default function SidebarChat() {
   const [usuario, setUsuario] = useState({});
   const [token, setToken] = useState('');
   const [chats, setChats] = useState([])
   const [fotosUsuarios, setFotoUsuarios] = useState({})
+  const socket = useContext(SocketContext);
 
 
   useEffect(() => {
@@ -79,11 +80,12 @@ export default function SidebarChat() {
     }
   }, [usuario])
 
-  // useEffect(() => {
-  //   if(usuario && chats && token){
-  //     console.log(chats)
-  //   }
-  // }, [chats])
+  const limparNotificacao = (idChat, notificacao) => {
+    const idUser = usuario._id
+    socket.emit("limparNotificacao", ({ idChat: idChat, idUser: idUser, notificacao: notificacao }))
+    getUsuario()
+  }
+
 
   return token && usuario && chats && (
     <div className="containerSidebar">
@@ -96,6 +98,16 @@ export default function SidebarChat() {
                 : "/login"
             }
             key={index}
+            onClick={() => {
+              if (chat.privado) {
+                let verificaNotificacao = (chat.usuarios[0].user.id == jwt(token).secret.id ?
+                  chat.usuarios[0].user.notificacoes :
+                  chat.usuarios[0].userTarget.notificacoes)
+                if (verificaNotificacao) {
+                  limparNotificacao(chat._id, verificaNotificacao)
+                }
+              }
+            }}
           >
             {chat.privado && (
               <div className="sidebarItemChat">
@@ -109,7 +121,7 @@ export default function SidebarChat() {
                           alt="imagemPerfil"
                         />
                       ) : (
-                        <PersonIcon/>
+                        <PersonIcon />
                       )
                     ) : (
                       chat.usuarios[0].user.id in fotosUsuarios ? (
@@ -119,7 +131,7 @@ export default function SidebarChat() {
                           alt="imagemPerfil"
                         />
                       ) : (
-                        <PersonIcon/>
+                        <PersonIcon />
                       )
                     )}
                   </>
@@ -127,12 +139,20 @@ export default function SidebarChat() {
                 {chat.usuarios[0].user.id === jwt(token).secret.id
                   ? chat.usuarios[0].userTarget.nome
                   : chat.usuarios[0].user.nome}
+
+                <div>
+                  {chat.usuarios[0].user.id === jwt(token).secret.id ?
+                    chat.usuarios[0].user.notificacoes > 0 && <span className="notificacao" >{chat.usuarios[0].user.notificacoes}</span> :
+                    chat.usuarios[0].userTarget.notificacoes > 0 && <span className="notificacao" >{chat.usuarios[0].userTarget.notificacoes}</span>
+                  }
+                </div>
+
               </div>
             )}
 
 
-            {!chat.privado && <div className="sidebarItemChat"><div className="iconeSala">{<GroupsIcon style={{ fontSize: '40px' }}/>}</div>{
-            chat.nome}</div>}
+            {!chat.privado && <div className="sidebarItemChat"><div className="iconeSala">{<GroupsIcon style={{ fontSize: '40px' }} />}</div>{
+              chat.nome}</div>}
           </Link>
         );
       })}

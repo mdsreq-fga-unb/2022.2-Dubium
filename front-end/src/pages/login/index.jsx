@@ -6,14 +6,16 @@ import Cookies from 'js-cookie';
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, redirect, useNavigate } from "react-router-dom";
-
 import AuthContext from "../../context/AuthProvider";
 import apiRequest from "../../services/api";
+import { SocketContext } from "../../context/Socket";
+import jwt from 'jwt-decode';
 
 
 export default function Login({ setLogado }) {
   const navigate = useNavigate();
   const { user, setUser } = useContext(AuthContext);
+  const socket = useContext(SocketContext)
 
   const {
     register,
@@ -31,6 +33,9 @@ export default function Login({ setLogado }) {
       .post("/login", user)
       .then((response) => {
         setLogado(true)
+        console.log(response.data)
+        document.cookie = `jwt=${response.data.token}; expires=DataDeExpiracao; path=/`
+        socket.emit("idUser", jwt(response.data.token).secret.id)
         navigate("/")
       })
       .catch((err) => {
@@ -88,9 +93,9 @@ export default function Login({ setLogado }) {
             alignItems: "center",
           }}
         >
-          <Link to="/recuperar-senha">
+          {/*<Link to="/recuperar-senha">
             <span className="lc-alterantiva">Esqueci minha senha</span>
-          </Link>
+          </Link>*/}
           <Link to="/cadastrar-usuario">
             <span className="lc-alterantiva">Realizar cadastro</span>
           </Link>

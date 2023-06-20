@@ -83,33 +83,29 @@ export default function AvisosConteudo({ materiaPesquisada }) {
       <div className="container-pergunta">
         <div className="criar-pergunta">
           <Link to={isAuthenticated() ? "/avisos/criar-aviso" : "/login"}>
-            <button className="buttonAviso">CRIAR AVISO</button>
+            <button>CRIAR AVISO</button>
           </Link>
         </div>
         {allQuest.map((aviso, index) => {
           return (
             <Link
-              to={isAuthenticated() ? `/avisos/aviso/${aviso._id}` : "/login"}
+              to={
+                isAuthenticated()
+                  ? `/avisos/aviso/${aviso._id}`
+                  : "/login"
+              }
               key={index}
             >
               <div className="card-pergunta">
                 <div className="usuario-pergunta">
-                  <Link
-                    to={
-                      isAuthenticated()
-                        ? `/usuario/${aviso.usuario.id}`
-                        : "/login"
-                    }
-                    className="link-usuario"
-                  >
-                    <PersonIcon fontSize="large" />
-                    <div className="usuario-informacao-texto">
-                      <span>{aviso.usuario.nome}</span>
-                      <span style={{ color: "#757575" }}>
-                        {handleCurso(aviso.usuario.curso)}
-                      </span>
-                    </div>
-                  </Link>
+                  <PersonIcon fontSize="large" />
+                  <div className="usuario-informacao-texto">
+                    {/* <span>{aviso.usuario.fotoPerfil}</span> */}
+                    <span>{aviso.usuario.nome}</span>
+                    <span style={{ color: "#757575" }}>
+                      {handleCurso(aviso.usuario.curso)}
+                    </span>
+                  </div>
                 </div>
                 <span className="filtro">{aviso.materia.toUpperCase()}</span>
                 <span>{aviso.titulo}</span>
@@ -124,5 +120,5 @@ export default function AvisosConteudo({ materiaPesquisada }) {
         })}
       </div>
     </div>
-  );  
+  );
 }
