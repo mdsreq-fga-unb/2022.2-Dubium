@@ -10,7 +10,7 @@ const respostaSchema = require("../model/respostaSchema.js")
 
 router.post("/", passport.authenticate('jwt', { session: false }), (req, res) => {
     const { Usuario, idPergunta, conteudo } = req.body
-    new RespostaSchema({ Usuario: Usuario, idPergunta: idPergunta, conteudo: conteudo }).save()
+    new RespostaSchema({ Usuario: Usuario, idPergunta: idPergunta, conteudo: conteudo, data: Date.now() }).save()
         .then(data => {
             res.status(201).send("Resposta criada com sucesso")
         })

@@ -23,7 +23,11 @@ const RespostaSchema = new Schema({
     },
     favoritadoPor: {
         type: Array,
-    }
+    },
+    data: {
+        type: Date,
+        required: false
+    },
 })
 
 module.exports = mongoose.model("Resposta", RespostaSchema)
