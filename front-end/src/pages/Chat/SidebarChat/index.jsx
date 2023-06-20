@@ -63,6 +63,19 @@ export default function SidebarChat() {
     }
   }, [token])
 
+  const ordenaChat = (data) => {
+    data.sort((a, b) => {
+      const lastMessageA = a.mensagens[a.mensagens.length - 1];
+      const lastMessageB = b.mensagens[b.mensagens.length - 1];
+      
+      const dateA = new Date(lastMessageA.horario);
+      const dateB = new Date(lastMessageB.horario);
+      
+      return dateB - dateA;
+    })
+    return data
+  }
+
   useEffect(() => {
     if (usuario && token) {
       apiRequest
@@ -72,7 +85,8 @@ export default function SidebarChat() {
           }
         })
         .then(response => {
-          setChats(response.data)
+          let chats = ordenaChat(response.data)
+          setChats(chats)
         })
         .catch(error => {
           console.log(error)
