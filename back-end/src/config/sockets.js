@@ -78,6 +78,11 @@ io.on('connection', socket => {
         console.log("teste")
     })
 
+    socket.on("attSidebar", (data) => {
+        const socketId = findSocketIdByUserId(data.idUser)
+        socket.to(socketId).emit("atualizarSidebar", data.chat)
+    })
+
 
     socket.on('digitando', (data) => {
         socket.to(data.idRoom).emit('targetDig', data)

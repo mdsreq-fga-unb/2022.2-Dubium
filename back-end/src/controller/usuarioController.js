@@ -87,7 +87,7 @@ const instanciarChatUsuario = (req, res) => {
     }
     usuarioService.instanciarChatUsuario(privado, users, infosChat, userIds)
         .then((data) => {
-            res.status(200).json(data)
+            res.status(200).json(data.data)
         })
         .catch(err => {
             res.status(400).send({

@@ -57,26 +57,19 @@ const salvarFoto = async (id, url) => {
     }
 }
 
-
-
-
 const instanciarChatUsuario = async (privado, users, infosChat, userIds) => {
     try {
-        chatService.criarInstanciaChat(privado, users)
-            .then(data => {
-                infosChat.idChat = data._id
-                return usuarioSchema.updateMany({ _id: { $in: userIds } }, { $push: { chats: infosChat } })
-            })
-            .catch(err => {
-                res.status(400).send({
-                    error: "Erro ao fazer requisição",
-                    message: err
-                })
-            })
+      const data = await chatService.criarInstanciaChat(privado, users);
+      infosChat.idChat = data._id;
+      const result = await usuarioSchema.updateMany(
+        { _id: { $in: userIds } },
+        { $push: { chats: infosChat } }
+      );
+      return {result, data};
     } catch (error) {
-        throw new Error(error.message)
+      throw new Error(error.message);
     }
-}
+  };
 
 
 module.exports = {

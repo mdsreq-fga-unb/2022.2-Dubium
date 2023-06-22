@@ -37,6 +37,14 @@ export default function SidebarChat() {
       });
   }
 
+  useEffect(() => {
+    if(usuario){
+      socket.on("atualizarSidebar", (data) => {
+        setChats((prevChats) => [data, ...prevChats]);
+      })
+    }
+  }, [])
+
   const getFotos = async () => {
     await apiRequest
       .get('/usuario', {
