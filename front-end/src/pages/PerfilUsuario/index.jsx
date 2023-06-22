@@ -120,6 +120,7 @@ export default function PerfilUsuario({ setLogado }) {
         })
     }
   }
+  
 
   const getUsuario = () => {
     apiRequest
