@@ -25,6 +25,33 @@ export default function pesquisaPosts(postArray, post) {
       return avisosFiltrados;
 }
 
+export function pesquisaAviso(postArray, post) {
+  const avisosFiltrados = postArray.filter(
+      (e) =>
+        e.materia
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .startsWith(
+            post
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .toLowerCase()
+          ) ||
+        // eslint-disable-next-line eqeqeq
+        e.materia
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase() ==
+          post
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+    );
+
+    return avisosFiltrados;
+}
+
 export function pesquisaUsuario(usuarioArray, usuario) {
   const usuariosFiltrados = usuarioArray.filter(
       (e) =>

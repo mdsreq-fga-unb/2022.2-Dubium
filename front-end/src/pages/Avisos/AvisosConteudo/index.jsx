@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import SidebarContext from "../../../context/SidebarProvider";
-import pesquisaPosts from "../../../services/pesquisa";
+import {pesquisaAviso} from "../../../services/pesquisa";
 import apiRequest from "../../../services/api";
 import handleCurso from "../../../services/curso";
 
@@ -78,6 +78,8 @@ export default function AvisosConteudo({ materiaPesquisada }) {
     }
   }, [token])
 
+  const avisosFiltrados = pesquisaAviso(allQuest, materiaPesquisada);
+
   return token && (
     <div className="container">
       <div className="container-pergunta">
@@ -86,7 +88,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
             <button>CRIAR AVISO</button>
           </Link>
         </div>
-        {allQuest.map((aviso, index) => {
+        {avisosFiltrados.map((aviso, index) => {
           return (
             <Link
               to={

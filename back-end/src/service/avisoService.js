@@ -6,7 +6,7 @@ const usuarioService = require("../service/usuarioService.js")
 
 const criarAviso = async (id_usuario, tituloAviso, corpoAviso, id_cursoAviso, filtro) => {
     try {
-        const aviso = new avisoSchema({ titulo: tituloAviso, usuario: id_usuario, conteudo: corpoAviso, materia: filtro, curso: id_cursoAviso })
+        const aviso = new avisoSchema({ titulo: tituloAviso, usuario: id_usuario, conteudo: corpoAviso, materia: filtro, curso: id_cursoAviso, data: Date.now() })
         return await aviso.save()
     } catch (error) {
         throw new Error(error.message)
@@ -15,7 +15,7 @@ const criarAviso = async (id_usuario, tituloAviso, corpoAviso, id_cursoAviso, fi
 
 const buscarAvisos = async () => {
     try {
-        return await avisoSchema.find().lean()
+        return await avisoSchema.find().lean().sort({ data: -1 })
     } catch (error) {
         throw new Error(error.message)
     }

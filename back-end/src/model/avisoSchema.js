@@ -31,7 +31,11 @@ const AvisoSchema = new Schema({
     },
     favoritadoPor: {
         type: Array,
-    }
+    },
+    data: {
+        type: Date,
+        required: false
+    },
 })
 
 

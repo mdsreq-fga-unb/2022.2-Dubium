@@ -4,8 +4,6 @@ const io = require("socket.io")(http, {cors: {origin: "http://localhost:5173"}})
 const chatService = require("../service/chatService.js")
 
 
-const connectedUsers = {}; 
-
 io.on('connection', socket => {
     console.log('SOCKET CONECTADO:', socket.id)
     socket.on('idUser', (idUser) => {

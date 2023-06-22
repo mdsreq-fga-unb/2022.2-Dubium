@@ -58,6 +58,8 @@ export default function ForumBody({ materiaPesquisada }) {
     allQuest()
   }, [])
 
+  const materiasFiltradas = pesquisaPosts(allQuest, materiaPesquisada);
+
   return (
     <div className="container">
       <div className="container-pergunta">
@@ -68,7 +70,7 @@ export default function ForumBody({ materiaPesquisada }) {
             <button className="buttonPergunta">FAÇA UMA PERGUNTA</button>
           </Link>
         </div>
-        {allQuest.map((data, index) => {
+        {materiasFiltradas.map((data, index) => {
           return (
             <Link
               to={ // quando clicar levar pra pergunta específica
