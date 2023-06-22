@@ -93,7 +93,7 @@ export default function PerfilUsuario({ setLogado }) {
     }
     usuarioSelecionado.chats.forEach(e => {
       if (e.privado && e.usuarios.includes(data.user.id)) {
-        navigate("/chat")
+        navigate(`/chat/${e.idChat}`)
         return verify = true
       }
     })
@@ -107,7 +107,9 @@ export default function PerfilUsuario({ setLogado }) {
         })
         .then(response => {
           console.log("Instância criada com sucesso")
-          navigate("/chat")
+          setTimeout(() => {
+            navigate("/chat")
+          }, 150);
         })
         .catch(err => {
           console.log({ error: "Erro ao fazer requisição" })
