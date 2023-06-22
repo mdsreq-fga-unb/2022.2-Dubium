@@ -7,6 +7,7 @@
 .containerSidebar {
     position: fixed;
     display: flex;
+    overflow: auto;
 }
 
 .containerSidebar {
@@ -20,4 +21,18 @@
     left: 0;
     position: fixed;
     top: 80px;
+}
+
+.containerSidebar::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+.containerSidebar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.containerSidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
