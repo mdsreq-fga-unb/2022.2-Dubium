@@ -85,8 +85,8 @@ export default function SidebarChat() {
           }
         })
         .then(response => {
-          let chats = ordenaChat(response.data)
-          setChats(chats)
+          // let chats = ordenaChat(response.data)
+          setChats(response.data)
         })
         .catch(error => {
           console.log(error)

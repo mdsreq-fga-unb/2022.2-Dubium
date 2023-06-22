@@ -83,17 +83,23 @@ export default function ChatPrincipal({ setLogado }) {
       socket.on("receivedMessage", (message) => {
         setarrayMensagens((prevarrayMensagens) => [...prevarrayMensagens, message]);
       });
+    }
+  }, [usuarioSelecionado]);
+
+  useEffect(() => {
+    if(chat){
       socket.on("targetDig", (data) => {
-        setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? 
-          chat.usuarios[0].userTarget.nome + " está digitando..." :
-          chat.usuarios[0].user.nome + " está digitando..."}`)
+        if(data.idRoom == chat._id){
+          setStringDigitando(`${chat.usuarios[0].user.id == jwt(token).secret.id ? 
+            chat.usuarios[0].userTarget.nome + " está digitando..." :
+            chat.usuarios[0].user.nome + " está digitando..."}`)
+        }
       })
       socket.on("targetNaoDig", (data) => {
         setStringDigitando("")
       })
     }
-  }, [usuarioSelecionado]);
-
+  }, [chat])
 
   useEffect(() => {
     if(chat && chat.privado) {

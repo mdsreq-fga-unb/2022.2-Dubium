@@ -205,7 +205,7 @@ function Header({ setMateriaPesquisada, setLogado }) {
 
               <li className="notification-item">
                 <Link to="/chat"><SendIcon style={estiloMensagem} /> </Link>
-                {notificacao && <span className="notificacaoHeader">{notificacao}</span>}
+                {notificacao > 0 && <span className="notificacaoHeader">{notificacao}</span>}
               </li>
 
             </>
