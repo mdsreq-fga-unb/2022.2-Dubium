@@ -205,7 +205,7 @@ export default function PerfilUsuario({ setLogado }) {
         <input
           id="uploadInput"
           type="file"
-          accept="image/*"
+          accept=".jpg, .jpeg, .png, .gif"
           onChange={handleImageChange}
           style={{ display: 'none' }}
         />
