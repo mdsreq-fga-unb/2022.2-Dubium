@@ -310,7 +310,7 @@ export default function ChatPrincipal({ setLogado }) {
               value={message}
               required
               maxLength='30'
-              onChange={e => setMessage(e.target.value)}
+              onChange={e => {setMessage(e.target.value)}}
             />
             <button type="submit" className="sendMessage">
             <SendIcon/>
