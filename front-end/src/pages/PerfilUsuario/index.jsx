@@ -256,10 +256,10 @@ export default function PerfilUsuario({ setLogado }) {
               </Link>
 
               <li>
-                {/*<button className="pu-excluir" onClick={deletarUsuario}>
+                <button className="pu-excluir" onClick={deletarUsuario}>
                   <DeleteIcon sx={{ fontSize: 16 }} />
                   EXCLUIR CONTA
-                </button>*/}
+                </button>
               </li>
             </div>
           )}

@@ -215,9 +215,9 @@ function Header({ setMateriaPesquisada, setLogado }) {
         <img src={bichinho} alt="bichinho" className="bichinho" />
       </header>
       {mostrarDivSala && (
-      <div style={divCriarSala} ><CriarSala onClick={handleClickCampoCriarSala} />
+      <div className="item"style={divCriarSala} ><CriarSala onClick={handleClickCampoCriarSala} />
 
-        <div htmlFor="sairDiv" onClick={handleClickCampoCriarSala} style={iconSairDiv}> <HighlightOffIcon style={{fontSize: '3rem'}} /> </div>
+        <div className="item" htmlFor="sairDiv" onClick={handleClickCampoCriarSala} style={iconSairDiv}> <HighlightOffIcon style={{fontSize: '3rem'}} /> </div>
       </div>
       )}
     </div>
