@@ -109,12 +109,10 @@ export default function PerfilUsuario({ setLogado }) {
         .then(response => {
           console.log("Instância criada com sucesso")
           setTimeout(() => {
-            //passar um objeto contendo o id do usuário que eu cliquei e o response.data sendo o objeto chat
             let chat = response.data
             let idUser = chat.usuarios[0].user.id == jwt(token).secret.id ? chat.usuarios[0].userTarget.id : chat.usuarios[0].user.id
             socket.emit("attSidebar", {chat, idUser})
-            //socket emit  ---> socket on em sidebar verificando se a pessoa que está mandando msg está dentro do chat no momento, se estiver, fazer um push para o array da sidebar
-            navigate("/chat")
+            navigate(`/chat/${chat._id}`)
           }, 150);
         })
         .catch(err => {
