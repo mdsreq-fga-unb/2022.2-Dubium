@@ -83,21 +83,12 @@ export default function Login({ setLogado }) {
             </button>
           </div>
         </form>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-            alignItems: "center",
-          }}
-        >
           {/*<Link to="/recuperar-senha">
             <span className="lc-alterantiva">Esqueci minha senha</span>
           </Link>*/}
           <Link to="/cadastrar-usuario">
             <span className="lc-alterantiva">Realizar cadastro</span>
           </Link>
-        </div>
       </div>
     </div>
   );

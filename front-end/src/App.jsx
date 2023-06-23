@@ -17,7 +17,6 @@ import RecuperarSenha from "./pages/RecuperarSenha";
 import AlterarSenha from "./pages/AlterarSenha";
 import Chat from "./pages/Chat";
 import SalasPublico from "./pages/SalasPublico";
-import ChatPublico from "./pages/ChatPublico";
 import CriarSala from "./pages/SalasPublico/CriarSala";
 
 import ForumLayout from "./pages/Forum/ForumLayout";

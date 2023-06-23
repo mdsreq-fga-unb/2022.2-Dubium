@@ -40,6 +40,7 @@
   align-items: center;
   gap: 8%;
   width: 30%;
+  height: 75vh;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 10px;
 }
@@ -84,11 +85,9 @@
 
 .lc-form-entrar:hover {
   background: rgb(4, 91, 135);
-  background: linear-gradient(
-    0deg,
-    rgba(4, 91, 135, 1) 35%,
-    rgba(59, 151, 171, 1) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(4, 91, 135, 1) 35%,
+      rgba(59, 151, 171, 1) 100%);
   cursor: pointer;
 }
 
@@ -99,4 +98,26 @@
 .lc-alterantiva:hover {
   color: #045b87;
   cursor: pointer;
+}
+
+@media screen and (max-width:700px) {
+
+  .login {
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-descricao {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-cadastro {
+    margin-left: 3.5rem;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
 }
