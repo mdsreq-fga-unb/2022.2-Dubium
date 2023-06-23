@@ -15,3 +15,13 @@
   transition: 0.5s;
   color: #0f4a6d;
 }
+
+@media (max-width: 1000px){
+  .card-pergunta{
+    display: block;
+    height: 90%;
+  }
+  .textoAviso{
+    height: 80%;
+  }
+}

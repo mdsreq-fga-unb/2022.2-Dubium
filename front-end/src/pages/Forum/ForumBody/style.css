@@ -34,6 +34,7 @@
   padding: 20px;
   border-radius: 15px;
   cursor: pointer;
+  word-wrap: break-word;
 }
 
 .card-pergunta:hover {
@@ -71,4 +72,33 @@
 
 .link-usuario{
   display: contents;
+}
+
+@media (max-width: 1400px){
+  .card-pergunta{
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 1200px){
+  .usuario-pergunta{
+    display: block;
+  }
+  .card-pergunta{
+    margin-left: 4rem;
+  }
+}
+@media (max-width: 1000px){
+  .card-pergunta{
+    width: 70%;
+    margin-left: 6rem;
+  }
+  .criar-pergunta{
+    margin-left: 8rem;
+    margin-right: -5rem;
+  }
+}
+@media (max-width: 700px){
+  .card-pergunta{
+    margin-left: 10rem;
+  }
 }

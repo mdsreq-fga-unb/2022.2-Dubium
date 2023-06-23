@@ -11,10 +11,10 @@ import handleCurso from "../../../services/curso";
 import PersonIcon from "@mui/icons-material/Person";
 import StarIcon from "@mui/icons-material/Star";
 import isAuthenticated from "../../../isAuth";
-import jwt from 'jwt-decode' 
+import jwt from 'jwt-decode'
 
 export default function AvisosConteudo({ materiaPesquisada }) {
-  const [allQuest, setAllQuest ] = useState([]);
+  const [allQuest, setAllQuest] = useState([]);
   const { elementoSidebar } = useContext(SidebarContext);
   const [token, setToken] = useState('');
 
@@ -24,7 +24,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
   }, [])
 
   const getAvisos = () => {
-    if(elementoSidebar) {
+    if (elementoSidebar) {
       apiRequest.get("/aviso", {
         headers: {
           Authorization: "Bearer " + token,
@@ -43,17 +43,17 @@ export default function AvisosConteudo({ materiaPesquisada }) {
           Authorization: "Bearer " + token,
         }
       })
-      .then(response => {
-        setAllQuest(response.data)
-      })
-      .catch(err => {
-        return err
-      })
+        .then(response => {
+          setAllQuest(response.data)
+        })
+        .catch(err => {
+          return err
+        })
     }
   }
 
   useEffect(() => {
-    if(token) {
+    if (token) {
       getAvisos()
     }
   }, [elementoSidebar, token])
@@ -72,8 +72,8 @@ export default function AvisosConteudo({ materiaPesquisada }) {
       })
   }
 
-  useEffect(()=>{
-    if(token){
+  useEffect(() => {
+    if (token) {
       allQuests()
     }
   }, [token])
@@ -111,9 +111,12 @@ export default function AvisosConteudo({ materiaPesquisada }) {
                     </span>
                   </div>
                 </div>
+
                 <span className="filtro">{aviso.materia.toUpperCase()}</span>
-                <span>{aviso.titulo}</span>
-                <span>{aviso.conteudo}</span>
+                <div className="textoAviso">
+                  <span className="textoAviso">{aviso.titulo}</span>
+                  <span className="textoAviso">{aviso.conteudo}</span>
+                </div>
                 <div className="like-comentario">
                   <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
                   <span>{aviso.votos} favoritos</span>
