@@ -199,3 +199,95 @@
     height: 36.3rem;
   }
 }
+@media screen and (max-height: 810px) {
+  #corFundo {
+    height: 39rem;
+  }
+
+  .conteudoChat {
+    height: 33.3rem;
+  }
+}
+
+@media screen and (max-height: 750px) {
+  #corFundo {
+    height: 36rem;
+  }
+
+  .conteudoChat {
+    height: 30.3rem;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  #corFundo {
+    height: 33.3rem;
+  }
+
+  .conteudoChat {
+    height: 27.6rem;
+  }
+}
+
+@media screen and (max-height: 650px) {
+  #corFundo {
+    height: 30.3rem;
+  }
+
+  .conteudoChat {
+    height: 24.6rem;
+  }
+}
+
+@media screen and (max-height: 590px) {
+  #corFundo {
+    height: 25.3rem;
+  }
+
+  .conteudoChat {
+    height: 19.6rem;
+  }
+}
+
+@media screen and (max-height: 520px) {
+  #corFundo {
+    height: 22rem;
+  }
+
+  .conteudoChat {
+    height: 16.4rem;
+  }
+}
+@media screen and (max-width: 1600px) {
+  #searchIcon{
+    margin-left: 65%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  #searchIcon{
+    margin-left: 55%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #campoDigitacao {
+    margin-left: -9rem;
+  }
+  .dados{
+    font-size: 14px;
+  }
+  #searchIcon{
+    margin-left: 47%;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  #searchIcon{
+    margin-left: 30%;
+  }
+}
+@media screen and (max-width: 700px) {
+  #searchIcon{
+    margin-left: 20%;
+  }}
