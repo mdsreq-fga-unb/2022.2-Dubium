@@ -9,7 +9,7 @@
 .salaPrincipal {
   display: block;
   padding: 2rem;
-  height: 52rem;
+  height: 43rem;
   width: auto;
   overflow: auto;
 }
@@ -55,7 +55,7 @@
 
 .botaoChatPublico {
   margin-top: 5%;
-  margin-left: 78%;
+  margin-left: 73%;
   float: left;
   color: #ffffff;
   padding: 5px;
@@ -84,4 +84,79 @@
 
 .salaPrincipal::-webkit-scrollbar-thumb:hover {
   background-color: #555;
+}
+
+@media screen and (max-width: 1500px) {
+  .botaoChatPublico {
+    font-size: 16px;
+    margin-left: 60%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .temaSala {
+    margin-left: 1rem;
+  }
+
+  .botaoChatPublico {
+    font-size: 14px;
+    margin-left: 55%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .botaoChatPublico {
+    margin-top: 2rem;
+    margin-left: 30%;
+    width: 6rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .botaoChatPublico {
+    margin-top: 2rem;
+    width: 4rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@media screen and (max-height: 790px) {
+  .salaPrincipal {
+    height: 40rem;
+  }
+}
+
+@media screen and (max-height: 750px) {
+  .salaPrincipal {
+    height: 37em;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .salaPrincipal {
+    height: 35rem;
+  }
+}
+
+@media screen and (max-height: 650px) {
+  .salaPrincipal {
+    height: 32rem;
+  }
+}
+
+@media screen and (max-height: 590px) {
+  .salaPrincipal {
+    height: 29rem;
+  }
+}
+
+@media screen and (max-height: 520px) {
+  .salaPrincipal {
+    height: 26rem;
+  }
+}
+@media screen and (max-height: 440px) {
+  .salaPrincipal {
+    height: 19rem;
+  }
 }

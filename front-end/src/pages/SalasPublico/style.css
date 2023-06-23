@@ -41,3 +41,8 @@
     transition: 0.5s;
     color: #0f4a6d;
   }
+
+  @media screen and (max-width: 700px) {
+    #searchIcon{
+      margin-left: 20%;
+    }}

@@ -199,6 +199,7 @@
       height: 36.3rem;
     }
   }
+
   @media screen and (max-height: 810px) {
     #corFundo {
       height: 39rem;
@@ -258,14 +259,15 @@
       height: 16.4rem;
     }
   }
+
   @media screen and (max-width: 1600px) {
-    #searchIcon{
+    #searchIcon {
       margin-left: 65%;
     }
   }
 
   @media screen and (max-width: 1400px) {
-    #searchIcon{
+    #searchIcon {
       margin-left: 55%;
     }
   }
@@ -274,20 +276,24 @@
     #campoDigitacao {
       margin-left: -9rem;
     }
-    .dados{
+
+    .dados {
       font-size: 14px;
     }
-    #searchIcon{
+
+    #searchIcon {
       margin-left: 47%;
     }
   }
 
   @media screen and (max-width: 790px) {
-    #searchIcon{
+    #searchIcon {
       margin-left: 30%;
     }
   }
+
   @media screen and (max-width: 700px) {
-    #searchIcon{
+    #searchIcon {
       margin-left: 20%;
-    }}
+    }
+  }
