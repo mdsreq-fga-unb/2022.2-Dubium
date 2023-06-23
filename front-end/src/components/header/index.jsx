@@ -48,7 +48,7 @@ function Header({ setMateriaPesquisada, setLogado }) {
       .then(data => {
         data.data.forEach(e => {
           console.log(e.usuarios[0])
-          if(e.usuarios[0].user.id == jwt(token).secret.id){
+          if (e.usuarios[0].user.id == jwt(token).secret.id) {
             number += e.usuarios[0].user.notificacoes
           } else {
             number += e.usuarios[0].userTarget.notificacoes
@@ -72,10 +72,10 @@ function Header({ setMateriaPesquisada, setLogado }) {
     zIndex: 999,
     display: mostrarDivSala ? 'flex' : 'none',
   };
-  
+
   const handleClickCampoCriarSala = () => {
     setMostrarDivSala(false);
-    console.log(''+ mostrarDivSala);
+    console.log('' + mostrarDivSala);
   };
   const icon = {
     cursor: 'pointer',
@@ -104,22 +104,22 @@ function Header({ setMateriaPesquisada, setLogado }) {
 
 
   useEffect(() => {
-    if(token) {
+    if (token) {
       getChat()
     }
   }, [token])
 
   useEffect(() => {
-      socket.on("decrementarNotificacao", (data) => {
-        setNotificacao(prevNumber => prevNumber - data)
-      })
-      socket.on("incrementarNotificacao", (data) => {
-        setNotificacao(prevNumber => prevNumber + 1)
-      })
+    socket.on("decrementarNotificacao", (data) => {
+      setNotificacao(prevNumber => prevNumber - data)
+    })
+    socket.on("incrementarNotificacao", (data) => {
+      setNotificacao(prevNumber => prevNumber + 1)
+    })
 
   }, [])
 
-  
+
   return (
     <div className="headerDivs">
       <header className="header">
@@ -156,69 +156,69 @@ function Header({ setMateriaPesquisada, setLogado }) {
           />
         </div>
         <ul className="header-login">
-          {!isAuthenticated() && (
-            <>
-              <Link to="/login">
-                <li className="login-item">
-                  <LoginIcon />
-                  <span>Entrar</span>
-                </li>
-              </Link>
-              <Link to="/cadastrar-usuario">
-                <li className="login-item">
-                  <PersonAddIcon />
-                  <span>Cadastrar-se</span>
-                </li>
-              </Link>
-            </>
-          )}
-          {isAuthenticated() && (
-            <>
-              {/* recuperar api de informações do usuario */}
-              {token ?
-
-                <Link to={`/usuario/${jwt(token).secret.id}`}>
+            {!isAuthenticated() && (
+              <>
+                <Link to="/login">
                   <li className="login-item">
-                    <PersonIcon />
-                    <span>Perfil</span>
+                    <LoginIcon />
+                    <span>Entrar</span>
                   </li>
-                </Link> :
-                <></>
-              }
-              <Link
-                to="/"
-                onClick={() => {
-                  document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                  setLogado(false);
-                }}
-              >
-                <li className="login-item">
-                  <LogoutIcon />
-                  <span>Sair</span>
-                </li>
-              </Link>
+                </Link>
+                <Link to="/cadastrar-usuario">
+                  <li className="login-item">
+                    <PersonAddIcon />
+                    <span>Cadastrar-se</span>
+                  </li>
+                </Link>
+              </>
+            )}
+            {isAuthenticated() && (
+              <>
+                {/* recuperar api de informações do usuario */}
+                {token ?
 
-              <li>
-                {/*<label onClick={handleClickIcone} htmlFor="CriarSala"><GroupAddIcon style={icon} /></label>*/}
-                <Link to="/salasPublico"><GroupsIcon/></Link>
-              </li>
+                  <Link to={`/usuario/${jwt(token).secret.id}`}>
+                    <li className="login-item">
+                      <PersonIcon />
+                      <span>Perfil</span>
+                    </li>
+                  </Link> :
+                  <></>
+                }
+                <Link
+                  to="/"
+                  onClick={() => {
+                    document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    setLogado(false);
+                  }}
+                >
+                  <li className="login-item">
+                    <LogoutIcon />
+                    <span>Sair</span>
+                  </li>
+                </Link>
+            <li>
 
-              <li className="notification-item">
-                <Link to="/chat"><SendIcon style={estiloMensagem} /> </Link>
-                {notificacao > 0 && <span className="notificacaoHeader">{notificacao}</span>}
-              </li>
+              {/*<label onClick={handleClickIcone} htmlFor="CriarSala"><GroupAddIcon style={icon} /></label>*/}
+              <Link to="/salasPublico"><GroupsIcon /></Link>
+            </li>
 
-            </>
+            <li className="notification-item">
+              <Link to="/chat"><SendIcon style={estiloMensagem} /> </Link>
+              {notificacao > 0 && <span className="notificacaoHeader">{notificacao}</span>}
+            </li>
+
+          </>
           )}
         </ul>
 
         <img src={bichinho} alt="bichinho" className="bichinho" />
       </header>
       {mostrarDivSala && (
-      <div className="item"style={divCriarSala} ><CriarSala onClick={handleClickCampoCriarSala} />
+        <div className="item" style={divCriarSala} ><CriarSala onClick={handleClickCampoCriarSala} />
 
-        <div className="item" htmlFor="sairDiv" onClick={handleClickCampoCriarSala} style={iconSairDiv}> <HighlightOffIcon style={{fontSize: '3rem'}} /> </div>
-      </div>
+          <div className="item" htmlFor="sairDiv" onClick={handleClickCampoCriarSala} style={iconSairDiv}> <HighlightOffIcon style={{ fontSize: '3rem' }} /> </div>
+        </div>
       )}
     </div>
 

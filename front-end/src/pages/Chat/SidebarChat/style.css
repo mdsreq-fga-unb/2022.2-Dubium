@@ -34,3 +34,21 @@
   border-radius: 50%;
   border: #000000 0.5px solid;
 }
+
+@media screen and (max-width: 1440px) {
+  .sidebarItemChat {
+    width: 230px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .containerSidebar {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .containerSidebar {
+    width: 180px;
+  }
+}
