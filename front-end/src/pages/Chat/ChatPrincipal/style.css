@@ -44,7 +44,7 @@
     position: fixed;
     overflow: auto;
     width: auto;
-    height: 37.7rem;
+    height: 40.7rem;
     padding: 0.3rem;
     justify-content: space-between;
   }
@@ -80,7 +80,7 @@
   #corFundo {
     background-image: url(https://www.papeiseparede.com.br/3257-thickbox_default/papel-de-parede-whatsapp-branco-e-azul.jpg.webp);
     justify-content: center;
-    height: 43.5rem;
+    height: 46.5rem;
   }
 
   .textoChat1 {
