@@ -115,7 +115,8 @@
     display: block;
     width: 100%;
   }
-  .usuario-informacao-texto{
+
+  .usuario-informacao-texto {
     width: 100%;
     margin: 1rem;
   }
@@ -139,10 +140,19 @@
     margin-left: 8rem;
     margin-right: -5rem;
   }
+
+  .usuario-informacao-texto {
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .filtro {
+    width: 100%;
+  }
 }
 
 @media (max-width: 700px) {
   .card-pergunta {
-    margin-left: 10rem;
+    margin-left: 8rem;
   }
 }

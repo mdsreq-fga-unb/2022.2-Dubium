@@ -100,8 +100,9 @@ export default function AvisosConteudo({ materiaPesquisada }) {
               }
               key={index}
             >
-              <div className="card-pergunta">
-                <div className="usuario-pergunta">
+              <div className="card-aviso">
+                <div className="infos">
+                <div className="usuario-aviso">
                   <PersonIcon fontSize="large" />
                   <div className="usuario-informacao-texto">
                     {/* <span>{aviso.usuario.fotoPerfil}</span> */}
@@ -117,10 +118,11 @@ export default function AvisosConteudo({ materiaPesquisada }) {
                   <span className="textoAviso">{aviso.titulo}</span>
                   <span className="textoAviso">{aviso.conteudo}</span>
                 </div>
-                <div className="like-comentario">
+                <div className="like-comentarioAviso">
                   <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
                   <span>{aviso.votos} favoritos</span>
                 </div>
+              </div>
               </div>
             </Link>
           );

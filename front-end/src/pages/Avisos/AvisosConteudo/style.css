@@ -1,7 +1,3 @@
-.link-usuario {
-    display: contents;
-}
-
 .botaoCriarAviso{
     color: #f1f1f1;
     border: #000000 solid 2px;
@@ -10,18 +6,75 @@
     cursor: pointer;
     border-radius: 20px;
 }
-
 .botaoCriarAviso:hover {
   transition: 0.5s;
   color: #0f4a6d;
 }
 
-@media (max-width: 1000px){
-  .card-pergunta{
+.card-aviso {
+  transition: 0.5s;
+  background-color: #f1f1f1;
+  color: #201F25;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
+  gap: 25px;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.usuario-aviso {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.usuario-informacao-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 80%;
+}
+
+.card-aviso:hover {
+  background-color: #c3c1c1;
+  color: black;
+}
+
+
+@media (max-width: 1000px) {
+  .usuario-aviso{
     display: block;
-    height: 90%;
+    margin: 1rem;
+  }
+  .card-aviso {
+    display: block;
+    width: 70%;
+    margin-left: 6rem;
+  }
+  .usuario-informacao-texto{
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
+  }
+  .criar-aviso {
+    margin-left: 8rem;
+    margin-right: -5rem;
   }
   .textoAviso{
-    height: 80%;
+    margin-top: 1rem;
+  }
+  .like-comentarioAviso{
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .card-aviso {
+    margin-left: 8rem;
   }
 }
