@@ -101,7 +101,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
               key={index}
             >
               <div className="card-aviso">
-                <div className="infos">
+                <div className="infosAviso">
                 <div className="usuario-aviso">
                   <PersonIcon fontSize="large" />
                   <div className="usuario-informacao-texto">
@@ -113,7 +113,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
                   </div>
                 </div>
 
-                <span className="filtro">{aviso.materia.toUpperCase()}</span>
+                <span className="filtroAviso">{aviso.materia.toUpperCase()}</span>
                 <div className="textoAviso">
                   <span className="textoAviso">{aviso.titulo}</span>
                   <span className="textoAviso">{aviso.conteudo}</span>

@@ -263,7 +263,7 @@ export default function PerguntaSelecionada() {
             </IconButton>
           )}
         </div>
-        <span className="filtro">
+        <span className="filtroPerguntaSeleionada">
           {perguntaSelecionada?.filtro?.toUpperCase()}
         </span>
         <span>{perguntaSelecionada?.conteudo}</span>

@@ -1,11 +1,12 @@
-.botaoCriarAviso{
-    color: #f1f1f1;
-    border: #000000 solid 2px;
-    background-color: #2476aa;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 20px;
+.botaoCriarAviso {
+  color: #f1f1f1;
+  border: #000000 solid 2px;
+  background-color: #2476aa;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 20px;
 }
+
 .botaoCriarAviso:hover {
   transition: 0.5s;
   color: #0f4a6d;
@@ -22,7 +23,11 @@
   padding: 20px;
   border-radius: 15px;
   cursor: pointer;
-  word-wrap: break-word;
+  height: auto;
+}
+
+.infosAviso {
+  height: 10rem;
 }
 
 .usuario-aviso {
@@ -40,6 +45,18 @@
   width: 80%;
 }
 
+.textoAviso {
+  margin-top: 2rem;
+}
+
+.like-comentarioAviso {
+  margin-top: 2rem;
+}
+
+.filtroAviso {
+  margin-left: 75%;
+}
+
 .card-aviso:hover {
   background-color: #c3c1c1;
   color: black;
@@ -47,28 +64,38 @@
 
 
 @media (max-width: 1000px) {
-  .usuario-aviso{
+  .usuario-aviso {
     display: block;
     margin: 1rem;
   }
+
   .card-aviso {
     display: block;
     width: 70%;
     margin-left: 6rem;
+    height: 20rem;
   }
-  .usuario-informacao-texto{
+
+  .filtroAviso {
+    margin-left: 50%;
+  }
+
+  .usuario-informacao-texto {
     margin-top: 1rem;
     display: block;
     width: 100%;
   }
+
   .criar-aviso {
     margin-left: 8rem;
     margin-right: -5rem;
   }
-  .textoAviso{
+
+  .textoAviso {
     margin-top: 1rem;
   }
-  .like-comentarioAviso{
+
+  .like-comentarioAviso {
     margin-top: 1rem;
   }
 }

@@ -95,6 +95,7 @@ export default function AvisosFormulario() {
             <input
               type="text"
               name="tituloAviso"
+              maxlength="20"
               {...register("tituloAviso")}
               className="titulo-input"
               placeholder="Título"
@@ -122,6 +123,7 @@ export default function AvisosFormulario() {
             <input
               type="text"
               name="filtro"
+              maxlength="20"
               {...register("filtro")}
               className="filtro-input"
               placeholder="Matéria"
@@ -136,7 +138,7 @@ export default function AvisosFormulario() {
             {...register("textoAviso")}
             className="texto-pergunta"
             placeholder="Aviso"
-            maxLength={1000}
+            maxLength={100}
             required
           ></textarea>
           {/* <div className="file-input">
