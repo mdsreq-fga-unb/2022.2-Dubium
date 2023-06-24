@@ -212,7 +212,7 @@ export default function PerfilUsuario({ setLogado }) {
         <input
           id="uploadInput"
           type="file"
-          accept="image/*"
+          accept=".jpg, .jpeg, .png, .gif"
           onChange={handleImageChange}
           style={{ display: 'none' }}
         />
@@ -263,10 +263,10 @@ export default function PerfilUsuario({ setLogado }) {
               </Link>
 
               <li>
-                {/*<button className="pu-excluir" onClick={deletarUsuario}>
+                <button className="pu-excluir" onClick={deletarUsuario}>
                   <DeleteIcon sx={{ fontSize: 16 }} />
                   EXCLUIR CONTA
-                </button>*/}
+                </button>
               </li>
             </div>
           )}

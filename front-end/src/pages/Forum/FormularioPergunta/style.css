@@ -30,7 +30,7 @@ textarea,
 }
 
 .titulo-input,
-.engenharia-input {
+.engenharia-input, .filtro-input {
   padding: 10px;
 }
 
@@ -53,4 +53,40 @@ textarea,
 
 .opcao-engenharia {
   padding: 20px;
+}
+
+@media (max-width: 1250px) {
+  .form-card {
+    display: block;
+    margin-left: 35%;
+    width: 30%;
+  }
+
+  .formulario {
+    display: block;
+  }
+
+  .group-input {
+    gap: 2rem;
+    display: block;
+  }
+
+  .form-card input,
+  select,
+  textarea,
+  .file-input {
+    margin-top: 2rem;
+    width: 80%;
+  }
+
+  .engenharia-input {
+    margin-top: 2rem;
+  }
+
+  .botao-geral, .botao-cancelar {
+    margin-top: 2rem;
+  }
+  .group-input{
+    margin-left: -2rem;
+  }
 }

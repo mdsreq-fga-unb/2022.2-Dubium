@@ -22,3 +22,59 @@
   width: 100%;
   gap: 40px;
 }
+
+@media screen and (max-width: 1400px) {
+  .editar-usuario {
+    margin-left: 15rem;
+  }
+
+  .grupo-x {
+    align-items: center;
+    height: 1.5rem;
+  }
+
+  .grupo-x select {
+    margin-top: 0rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .editar-usuario {
+    margin-left: 15rem;
+  }
+
+  .grupo-x {
+    align-items: center;
+    height: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .editar-usuario {
+    margin-left: 19rem;
+  }
+
+  .eu-form-campos {
+    gap: 0px;
+  }
+
+  .cdu-campos {
+    width: 80%;
+  }
+
+  .grupo-x {
+    height: auto;
+    display: block;
+  }
+
+  .grupo-x input {
+    margin-top: 1rem;
+  }
+
+  .grupo-x select {
+    margin-top: 1rem;
+  }
+  .cdu-form-buttons{
+    margin-left: -8rem;
+  }
+}

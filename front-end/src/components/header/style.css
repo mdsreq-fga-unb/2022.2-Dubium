@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  flex-direction: row;
+
   justify-content: space-between;
   align-items: center;
   height: 81px;
@@ -58,7 +58,7 @@
   margin-right: 10px;
 }
 
-#iconePesquisa{
+#iconePesquisa {
   padding: 0.24rem;
   background-color: #201F25;
   border-bottom-left-radius: 10px;
@@ -99,4 +99,55 @@
 .bichinho {
   width: 10%;
   height: 80%;
+}
+
+@media screen and (max-width: 1300px) {
+
+  .header {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .pesquisa {
+    width: 30%;
+  }
+
+  .logo {
+    margin-left: -1rem;
+  }
+
+  .list {
+    margin-left: -1rem;
+    width: 30%;
+    gap: 0.8rem;
+  }
+
+  .header-login {
+    width: 20%;
+    gap: 1rem;
+  }
+
+  .bichinho {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .logo {
+    display: none;
+  }
+
+  .list {
+    margin-left: -5rem;
+    margin-right: 1.4rem;
+    gap: 0.3rem;
+    font-size: 12px;
+  }
+  .login-item {
+    font-size: 12px;
+  }
+  .header-login{
+    margin:-1.6rem;
+    gap: 0.5rem;
+  }
 }
