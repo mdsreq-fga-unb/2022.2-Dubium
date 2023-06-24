@@ -114,6 +114,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
                 <span className="filtroAviso">{aviso.materia.toUpperCase()}</span>
                 <div className="textoAviso">
                   <span className="textoAviso">{aviso.titulo}</span>
+                  <br></br>
                   <span className="textoAviso">{aviso.conteudo}</span>
                 </div>
                 <div className="like-comentarioAviso">
