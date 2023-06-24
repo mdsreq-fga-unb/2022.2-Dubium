@@ -4,12 +4,15 @@
   justify-content: center;
   gap: 50px;
   width: 50%;
+  word-break: break-all;
 }
+
 .criar-pergunta {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
+
 .buttonPergunta {
   color: white;
   border: #000000 solid 2px;
@@ -18,6 +21,7 @@
   cursor: pointer;
   border-radius: 20px;
 }
+
 .criar-pergunta button:hover {
   transition: 0.5s;
   color: #0f4a6d;
@@ -43,16 +47,20 @@
 }
 
 .usuario-pergunta {
+  width: 50%;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
 }
+
 .usuario-informacao-texto {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 80%;
 }
+
 .container-interacao {
   display: flex;
   flex-direction: row;
@@ -62,6 +70,7 @@
   padding-top: 2px;
   justify-content: space-between;
 }
+
 .item-interacao {
   display: flex;
   flex-direction: row;
@@ -70,35 +79,70 @@
   cursor: pointer;
 }
 
-.link-usuario{
+.link-usuario {
   display: contents;
 }
 
-@media (max-width: 1400px){
-  .card-pergunta{
+#titulo {
+  color: #0f4a6d;
+  font-weight: bold;
+}
+
+.infos {
+  display: flex;
+}
+
+.filtro {
+  margin-left: 30%;
+}
+
+@media (max-width: 1400px) {
+  .card-pergunta {
     margin-left: 2rem;
   }
 }
-@media (max-width: 1200px){
-  .usuario-pergunta{
+
+@media (max-width: 1200px) {
+  .infos {
     display: block;
+    width: 100%;
+    height: 70%;
+    align-items: center;
+    justify-content: center;
   }
-  .card-pergunta{
+
+  .link-usuario {
+    display: block;
+    width: 100%;
+  }
+  .usuario-informacao-texto{
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .filtro {
+    width: 100%;
+  }
+
+  .card-pergunta {
     margin-left: 4rem;
   }
 }
-@media (max-width: 1000px){
-  .card-pergunta{
+
+@media (max-width: 1000px) {
+  .card-pergunta {
     width: 70%;
     margin-left: 6rem;
   }
-  .criar-pergunta{
+
+  .criar-pergunta {
     margin-left: 8rem;
     margin-right: -5rem;
   }
 }
-@media (max-width: 700px){
-  .card-pergunta{
+
+@media (max-width: 700px) {
+  .card-pergunta {
     margin-left: 10rem;
   }
 }

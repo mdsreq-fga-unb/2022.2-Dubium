@@ -78,24 +78,28 @@ export default function ForumBody({ materiaPesquisada }) {
               }
               key={index}
             >
-                            <div className="card-pergunta">
+              <div className="card-pergunta">
+                <div className="infos">
                 <div className="usuario-pergunta">
-                  <Link  className='link-usuario' to={`/usuario/${data.idUsuario.id}`}>
-                  <PersonIcon fontSize="large" />
-                  <div className="usuario-informacao-texto">
+                  <Link className='link-usuario' to={`/usuario/${data.idUsuario.id}`}>
+                    <PersonIcon fontSize="large" />
+                    <div className="usuario-informacao-texto">
 
                       <span>{data.idUsuario.nome}</span>
 
-                    <span style={{ color: "#201F25" }}>
-                      {handleCurso(data.curso)}
-                    </span>
-                  </div>
+                      <span>
+                        {handleCurso(data.curso)}
+                      </span>
+                    </div>
                   </Link>
-
                 </div>
-                <span className="filtro">{data.filtro.toUpperCase()}</span>
-                <span>{data.titulo}</span>
-                <span>{data.conteudo}</span>
+
+                <span className="filtro">{data.filtro}</span>
+                </div>
+
+
+                <span id="titulo">{data.titulo.toUpperCase()}</span>
+                <span >{data.conteudo}</span>
                 <div className="like-comentario">
                   <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
                   <span>{data.favoritado} favoritos</span>

@@ -5,13 +5,11 @@
   width: 30%;
   padding: 20px;
   border-radius: 20px;
-
   background-color: #f1f1f1;
   box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
-  overflow-y: scroll;
+  overflow: auto;
+  word-break: break-all;
 }
-
-
   
 .pc-titulo {
   display: flex;
@@ -21,6 +19,7 @@
   font-size: large;
 }
 .pc-pergunta {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,8 +30,6 @@
   border-radius: 20px;
 }
 
-     
-  
 .pc-votos {
   display: flex;
   flex-direction: row;
@@ -52,4 +49,14 @@
 }
 .pc-container::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media  screen and (max-width: 900px) {
+  .perfil-usuario{
+    width: 80%;
+  }
+  .pc-container{
+    margin-top: 2rem;
+    width: 91%;
+  }
 }
