@@ -62,6 +62,43 @@
   color: black;
 }
 
+@media (max-width: 1800px) {
+  .usuario-aviso {
+    display: block;
+    margin: 1rem;
+  }
+
+  .card-aviso {
+    display: block;
+    width: 70%;
+    margin-left: 6rem;
+    height: 16rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .card-aviso {
+    display: block;
+    width: 70%;
+    margin-left: 6rem;
+    height: 18rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .usuario-aviso {
+    display: block;
+    margin: 1rem;
+  }
+
+  .card-aviso {
+    display: block;
+    width: 70%;
+    margin-left: 6rem;
+    height: 18rem;
+  }
+}
+
 
 @media (max-width: 1000px) {
   .usuario-aviso {

@@ -9,7 +9,7 @@
 .salaPrincipal {
   display: block;
   padding: 2rem;
-  height: 43rem;
+  height: 46rem;
   width: auto;
   overflow: auto;
 }
@@ -102,12 +102,16 @@
     font-size: 14px;
     margin-left: 55%;
   }
+  .sala{
+    justify-content: center;
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 1000px) {
   .botaoChatPublico {
     margin-top: 2rem;
-    margin-left: 30%;
+    margin-left: 50%;
     width: 6rem;
   }
 }
@@ -116,7 +120,7 @@
   .botaoChatPublico {
     margin-top: 2rem;
     width: 4rem;
-    margin-left: 0.5rem;
+    margin-left: 1rem;
   }
 }
 
