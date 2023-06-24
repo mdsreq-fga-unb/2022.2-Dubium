@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { forumData } from "../Forum/Sidebar/data";
 import apiRequest from "../../services/api";
 import InputMask from "react-input-mask";
-import logo from "../../assets/images/lgLetraBranca.png";
+import logo from "../../assets/images/logo-dubium.png";
 
 export default function CadastrarUsuarios() {
   const navigate = useNavigate();
@@ -70,7 +70,7 @@ export default function CadastrarUsuarios() {
         <div className="cdu-form-campos">
 
           <div id="logoCadastro">
-            <img src={logo} alt="logo" className="logo" />
+            <img id="logoCadastro" src={logo} alt="logo" className="logo" />
           </div>
 
           <div className="grupo-x">
