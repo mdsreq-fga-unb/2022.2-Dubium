@@ -275,34 +275,19 @@ export default function ChatPrincipal({ setLogado }) {
 
           <div className="conteudoChat" >
             {messagesDB.map((mensagem, index) => {
-              return (
+              return (mensagem.idRoom == chat._id) && (
                 <Link
                   key={index}
                 >
-
-                  <div
-                    className={jwt(token).secret.id == mensagem.user.id ? "textoChat1" : "textoChatOutro"}>
-                    {chat.privado ? mensagem.message : mensagem.user.nome + ": " + mensagem.message}
-                    <span className="horario">{new Date(mensagem.horario).getHours() + ':' + new Date(mensagem.horario).getMinutes()}</span>
-                  </div>
+                    <div
+                      className={jwt(token).secret.id == mensagem.user.id ? "textoChat1" : "textoChatOutro"}>
+                      {chat.privado ? mensagem.message : mensagem.user.nome + ": " + mensagem.message}
+                      <span className="horario">{new Date(mensagem.horario).getHours() + ':' + new Date(mensagem.horario).getMinutes()}</span>
+                    </div>
                 </Link>
               );
             })
             }
-
-            {arrayMensagens.map((mensagem, index) => {
-              return (
-                <Link
-                  key={index}
-                >
-                  {mensagem.idRoom == idChat && <div
-                    className={jwt(token).secret.id == mensagem.user.id ? "textoChat1" : "textoChatOutro"}>
-                    {mensagem.message}
-                  </div>}
-                </Link>
-              );
-            })}
-
           </div>
         </div >
         

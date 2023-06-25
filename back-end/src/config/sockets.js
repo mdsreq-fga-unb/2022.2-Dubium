@@ -51,8 +51,9 @@ io.on('connection', socket => {
                 socketsConectadosRoom.push(socket.idUser)
                 }
             }
+            io.to(findSocketIdByUserId(data.user.id)).emit("atualizarSidebarMensagens", data.idRoom)
             if(socketsConectadosRoom.includes(data.idTarget)) {
-                console.log("Ele está no chat")
+                io.to(findSocketIdByUserId(data.idTarget)).emit("atualizarSidebarMensagens", data.idRoom)
             } else {
                 console.log("enviar notificacao")
                 const socketId = findSocketIdByUserId(data.idTarget);

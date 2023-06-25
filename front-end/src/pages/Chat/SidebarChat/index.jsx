@@ -45,6 +45,20 @@ export default function SidebarChat() {
     }
   }, [])
 
+  useEffect(() => {
+    if(chats.length > 0){
+      socket.on("atualizarSidebarMensagens", (idChat) => {
+        //acessar chats._id e jogar pra cima
+        const index = chats.findIndex(e => e._id === idChat);
+        const temp = chats[index]
+        if(index > -1){
+          chats.splice(index, 1)
+        }
+        setChats((prevChats) => [temp, ...chats]);
+      })
+    }
+  }, [chats])
+
   const getFotos = async () => {
     await apiRequest
       .get('/usuario', {
@@ -109,6 +123,12 @@ export default function SidebarChat() {
     socket.emit("limparNotificacao", ({ idChat: idChat, idUser: idUser, notificacao: notificacao }))
     getUsuario()
   }
+
+  useEffect(() => {
+    if(chats){
+      console.log(chats)
+    }
+  }, [chats])
 
 
   return token && usuario && chats && (

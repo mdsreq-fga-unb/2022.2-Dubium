@@ -43,7 +43,7 @@
   .conteudoChat {
     position: fixed;
     overflow: auto;
-    width: auto;
+    width: 84%;
     height: 40.7rem;
     padding: 0.3rem;
     justify-content: space-between;
