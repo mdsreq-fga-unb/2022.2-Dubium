@@ -85,7 +85,7 @@ export default function AvisosConteudo({ materiaPesquisada }) {
       <div className="container-pergunta">
         <div className="criar-pergunta">
           <Link to={isAuthenticated() ? "/avisos/criar-aviso" : "/login"}>
-            <button>CRIAR AVISO</button>
+            <button className="botaoCriarAviso">CRIAR AVISO</button>
           </Link>
         </div>
         {avisosFiltrados.map((aviso, index) => {
