@@ -42,6 +42,7 @@ io.on('connection', socket => {
 
     socket.on('sendMessage', (data) => {
         socket.to(data.idRoom).emit('receivedMessage', data)
+        io.to(findSocketIdByUserId(data.user.id)).emit("atualizarSidebarMensagens", data.idRoom)
         if(data.privado){
             let socketsConectadosRoom = []
             const connectedSockets = io.sockets.adapter.rooms.get(data.idRoom);
@@ -51,7 +52,6 @@ io.on('connection', socket => {
                 socketsConectadosRoom.push(socket.idUser)
                 }
             }
-            io.to(findSocketIdByUserId(data.user.id)).emit("atualizarSidebarMensagens", data.idRoom)
             if(socketsConectadosRoom.includes(data.idTarget)) {
                 io.to(findSocketIdByUserId(data.idTarget)).emit("atualizarSidebarMensagens", data.idRoom)
             } else {
