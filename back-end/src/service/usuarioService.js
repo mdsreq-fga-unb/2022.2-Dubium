@@ -14,9 +14,9 @@ const buscarUsuario = async (id) => {
     }
 }
 
-const buscarUsuarioPorUsername = async (username) => {
+const buscarUsuarioPorEmail = async (email) => {
     try {
-        return await usuarioSchema.findOne({ username: username })
+        return await usuarioSchema.findOne({ email: email })
     }
     catch (error) {
         return new Error("Falha ao encontrar usuário!")
@@ -80,11 +80,11 @@ const instanciarChatUsuario = async (privado, users, infosChat, userIds) => {
     }
   };
 
-const excluirUsuario = async (id) =>{
+const excluirUsuario = async (email) =>{
     try {
-    buscarUsuario(id)
+    buscarUsuarioPorEmail(email)
         .then(user => {
-            return user.deleteOne({ _id: id})
+            return user.deleteOne({ email: email})
         })
     }  catch (error){
     console.log("Erro ao excluir usuário")
@@ -98,5 +98,6 @@ module.exports = {
     conteudosSalvos,
     obterUsuarios,
     salvarFoto,
-    instanciarChatUsuario
+    instanciarChatUsuario,
+    excluirUsuario
 }

@@ -1,5 +1,6 @@
 const request = require("supertest");
 const server = require("../index");
+const { excluirUsuario } = require('../service/usuarioService');
 
 let token;
 
@@ -30,11 +31,12 @@ describe('Teste', () => {
 
     token = response.headers['set-cookie'][0].split('=')[1].split(';')[0];
 
-    expect.toHaveProperty('status', 200)
+    expect(response).toHaveProperty('status', 200)
   });
 })
 
-afterAll(() => {
-  
+afterAll( async () => {
+  //retira o usuário de teste do banco de dados
+  await excluirUsuario('usuario_teste@gmail.com')
 })
 
