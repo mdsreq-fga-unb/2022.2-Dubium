@@ -16,10 +16,12 @@ beforeAll( async () => {
         celular: "619999699",
         password: 123456,
     });
+  
+    
 });
 
 beforeEach(async () => {
-  if (!token) {
+  //antes de cada teste, realiza o login para pegar o token de autenticação
     const response = await request(server)
       .post("/login")
       .send({
@@ -28,7 +30,6 @@ beforeEach(async () => {
       });
 
     token = response.headers['set-cookie'][0].split('=')[1].split(';')[0];
-  }
 });
 
 
