@@ -27,8 +27,14 @@ describe('Teste', () => {
         username: 'usuario_teste@gmail.com', 
         password: '123456' 
       })
-    
-    console.log(response)
-  })
+
+    token = response.headers['set-cookie'][0].split('=')[1].split(';')[0];
+
+    expect.toHaveProperty('status', 200)
+  });
+})
+
+afterAll(() => {
+  
 })
 
