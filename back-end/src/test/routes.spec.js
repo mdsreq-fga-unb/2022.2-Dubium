@@ -4,6 +4,7 @@ const { excluirUsuario, buscarUsuarioPorEmail } = require('../service/usuarioSer
 const { perguntasCadastradas } = require('../service/perguntaService')
 
 let token;
+let idPergunta;
 
 //ignorando console.logs do back-end
 console.log = jest.fn();
@@ -73,6 +74,18 @@ describe('Teste', () => {
       let perguntas = await perguntasCadastradas(usuario.id)  
       
       expect(perguntas).toEqual(expect.arrayContaining([expect.any(Object)]));
+    })
+
+    it('Deve excluir uma pergunta', async () => {
+      let usuario = await buscarUsuarioPorEmail('usuario_teste@gmail.com')
+      let perguntas = await perguntasCadastradas(usuario.id) 
+      let idPergunta = perguntas[0]._id.toString();
+
+      const response = await request(server)
+        .delete(`/pergunta/${idPergunta}`)
+        .set('Authorization', `Bearer ${token}`);
+
+      expect(response).toHaveProperty('status', 201)
     })
     
 
