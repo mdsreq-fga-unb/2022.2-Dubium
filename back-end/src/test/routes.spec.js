@@ -1,8 +1,12 @@
 const request = require("supertest");
 const server = require("../index");
-const { excluirUsuario } = require('../service/usuarioService');
+const { excluirUsuario, buscarUsuarioPorEmail } = require('../service/usuarioService');
+const { perguntasCadastradas } = require('../service/perguntaService')
 
 let token;
+
+//ignorando console.logs do back-end
+console.log = jest.fn();
 
 beforeAll( async () => {
   //criação de usuário
@@ -17,7 +21,7 @@ beforeAll( async () => {
         password: 123456,
     });
   
-    
+
 });
 
 beforeEach(async () => {
@@ -45,11 +49,40 @@ describe('Teste', () => {
     expect(response).toHaveProperty('status', 200)
   });
 
+  it('Deve criar uma pergunta', async () =>{
+    let usuario = await buscarUsuarioPorEmail('usuario_teste@gmail.com')
+    const response = await request(server)
+      .post('/pergunta')
+      .send({
+        idUser: {
+          username: usuario.email, 
+          id: usuario.id, 
+          nome: usuario.nome, 
+          curso: usuario.curso
+        },
+        titulo: 'Rei e Rainha da Derivada',
+        curso: 1,
+        conteudo: 'É obrigatório participar do evento?',
+        filtro: 'C1'
+      })
+      .set('Authorization', `Bearer ${token}`);
+    })
 
+    it('Deve retornar perguntas', async () => {
+      let usuario = await buscarUsuarioPorEmail('usuario_teste@gmail.com')
+      let perguntas = await perguntasCadastradas(usuario.id)  
+      
+      expect(perguntas).toEqual(expect.arrayContaining([expect.any(Object)]));
+    })
+    
+      // expect(response).toH.`jwt=${token}`  
+    
+
+  it('Deve criar um aviso', async () =>{
+  }) 
 })
 
 afterAll( async () => {
   //retira o usuário de teste do banco de dados
   await excluirUsuario('usuario_teste@gmail.com')
 })
-

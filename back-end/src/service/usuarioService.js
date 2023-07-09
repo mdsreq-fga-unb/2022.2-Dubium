@@ -99,5 +99,6 @@ module.exports = {
     obterUsuarios,
     salvarFoto,
     instanciarChatUsuario,
-    excluirUsuario
+    excluirUsuario,
+    buscarUsuarioPorEmail
 }
