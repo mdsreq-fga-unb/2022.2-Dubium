@@ -14,6 +14,15 @@ const buscarUsuario = async (id) => {
     }
 }
 
+const buscarUsuarioPorUsername = async (username) => {
+    try {
+        return await usuarioSchema.findOne({ username: username })
+    }
+    catch (error) {
+        return new Error("Falha ao encontrar usuário!")
+    }
+}
+
 const editarUsuario = async (id, reqUserId, nome_completo, matricula, curso, celular, email, password) => {
     try {
         if(id != reqUserId) {
