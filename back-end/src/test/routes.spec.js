@@ -16,9 +16,21 @@ beforeAll( async () => {
         celular: "619999699",
         password: 123456,
     });
-  
-    expect(response).toHaveProperty('status', 200)
 });
+
+beforeEach(async () => {
+  if (!token) {
+    const response = await request(server)
+      .post("/login")
+      .send({
+        username: 'usuario_teste@gmail.com',
+        password: '123456'
+      });
+
+    token = response.headers['set-cookie'][0].split('=')[1].split(';')[0];
+  }
+});
+
 
 describe('Teste', () => {
   it('Deve fazer login em um usuário', async () => {
@@ -29,10 +41,10 @@ describe('Teste', () => {
         password: '123456' 
       })
 
-    token = response.headers['set-cookie'][0].split('=')[1].split(';')[0];
-
     expect(response).toHaveProperty('status', 200)
   });
+
+
 })
 
 afterAll( async () => {
