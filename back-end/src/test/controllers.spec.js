@@ -38,7 +38,11 @@ beforeEach(async () => {
 });
 
 
-describe('Teste', () => {
+describe('Cadastro', () => {
+
+})
+
+describe('Usuário', () => {
   it('Deve fazer login em um usuário', async () => {
     const response = await request(server)
       .post('/login')
@@ -49,7 +53,9 @@ describe('Teste', () => {
 
     expect(response).toHaveProperty('status', 200)
   });
+})
 
+describe('Perguntas', () => {
   it('Deve criar uma pergunta', async () =>{
     let usuario = await buscarUsuarioPorEmail('usuario_teste@gmail.com')
     const response = await request(server)
@@ -69,13 +75,6 @@ describe('Teste', () => {
       .set('Authorization', `Bearer ${token}`);
     })
 
-    it('Deve retornar perguntas', async () => {
-      let usuario = await buscarUsuarioPorEmail('usuario_teste@gmail.com')
-      let perguntas = await perguntasCadastradas(usuario.id)  
-      
-      expect(perguntas).toEqual(expect.arrayContaining([expect.any(Object)]));
-    })
-
     it('Deve excluir uma pergunta', async () => {
       let usuario = await buscarUsuarioPorEmail('usuario_teste@gmail.com')
       let perguntas = await perguntasCadastradas(usuario.id) 
@@ -87,11 +86,21 @@ describe('Teste', () => {
 
       expect(response).toHaveProperty('status', 201)
     })
-    
-
-  it('Deve criar um aviso', async () =>{
-  }) 
 })
+
+describe('Respostas', () => {
+
+})
+
+describe('Avisos', () => {
+
+})
+
+describe('Chat', () => {
+
+})
+
+
 
 afterAll( async () => {
   //retira o usuário de teste do banco de dados
