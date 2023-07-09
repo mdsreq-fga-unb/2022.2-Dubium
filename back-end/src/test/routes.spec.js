@@ -75,8 +75,6 @@ describe('Teste', () => {
       expect(perguntas).toEqual(expect.arrayContaining([expect.any(Object)]));
     })
     
-      // expect(response).toH.`jwt=${token}`  
-    
 
   it('Deve criar um aviso', async () =>{
   }) 
