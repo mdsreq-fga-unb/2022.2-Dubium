@@ -71,6 +71,17 @@ const instanciarChatUsuario = async (privado, users, infosChat, userIds) => {
     }
   };
 
+const excluirUsuario = async (id) =>{
+    try {
+    buscarUsuario(id)
+        .then(user => {
+            return user.deleteOne({ _id: id})
+        })
+    }  catch (error){
+    console.log("Erro ao excluir usuário")
+        }
+    };
+
 
 module.exports = {
     buscarUsuario,
