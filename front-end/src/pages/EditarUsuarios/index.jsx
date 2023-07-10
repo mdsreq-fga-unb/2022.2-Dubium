@@ -6,26 +6,38 @@ import apiRequest from "../../services/api";
 import { useEffect } from "react";
 import { useState } from "react";
 import InputMask from "react-input-mask";
+import jwt from 'jwt-decode' 
 
 export default function EditarUsuario() {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState({});
+  const [token, setToken] = useState('');
   const { idUsuario } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+  const getUsuario = () => {
     apiRequest
-      .get(`usuarios/${idUsuario}`, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {
-        setUsuarioSelecionado(response.data);
-      })
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, []);
+    .get(`/usuario/${idUsuario}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
+    .then((response) => {
+      setUsuarioSelecionado(response.data);
+    })
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+    });
+  }
+
+  useEffect(() => {
+    if(token){
+      getUsuario()
+    }
+  }, [token]);
 
   function formatPhoneNumber(phoneNumber) {
     const formattedPhoneNumber = phoneNumber
@@ -78,9 +90,9 @@ export default function EditarUsuario() {
     };
 
     await apiRequest
-      .put(`usuarios/${idUsuario}`, usuarioEditado, {
+      .post(`/usuario/editar/${idUsuario}`, usuarioEditado, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
@@ -119,7 +131,7 @@ export default function EditarUsuario() {
                 {...register("engenharia")}
                 required
                 className="cdu-campos"
-                defaultValue={usuarioSelecionado?.engenharia}
+                defaultValue={usuarioSelecionado?.curso}
               >
                 {forumData.map(
                   (data, index) =>
@@ -151,7 +163,7 @@ export default function EditarUsuario() {
                 placeholder="Email"
                 required
                 className="cdu-campos"
-                defaultValue={usuarioSelecionado?.email}
+                defaultValue={usuarioSelecionado.email}
               />
               <input
                 type="password"

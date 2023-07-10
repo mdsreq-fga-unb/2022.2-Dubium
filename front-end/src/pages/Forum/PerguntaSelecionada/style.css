@@ -1,10 +1,13 @@
 .pergunta-selecionada {
-  width: 60%;
-  background-color: #fafafa;
+  margin-top: 2rem;
+  transition: 0.5s;
+  width: 40%;
+  background-color: #f1f1f1;
+  color: #201F25;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
   display: flex;
   flex-direction: column;
   gap: 25px;
-  padding: 20px;
   border-radius: 15px;
 }
 
@@ -13,26 +16,22 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
 .ps-usuario-info {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
 }
-
 .ps-usuario-info-texto {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-
 .ps-favoritar-salvar {
   display: flex;
   flex-direction: row;
   gap: 15px;
 }
-
 .like-comentario {
   display: flex;
   flex-direction: row;
@@ -40,13 +39,11 @@
   align-items: center;
   gap: 5px;
 }
-
 .container-resposta {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .container-resposta-interacao {
   display: flex;
   flex-direction: row;
@@ -54,23 +51,22 @@
   justify-content: flex-end;
   padding-top: 2px;
 }
-
 .delete {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-
 .corFavorito {
   color: #ffa722;
 }
-
+.corFavorito2 {
+  color: #ffa722;
+}
 .comentar {
   padding: 10px;
   width: 90%;
 }
-
 .card-resposta {
   display: flex;
   flex-direction: column;
@@ -79,10 +75,23 @@
   padding: 10px;
   border-radius: 10px;
 }
-
 .ps-favoritar {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
+}
+@media (max-width: 1250px) {
+  .pergunta-selecionada {
+    margin-left: 15rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .pergunta-selecionada {
+    margin-left: 15rem;
+  }
+  .ps-usuario-container{
+    width: 80%;
+  }
 }

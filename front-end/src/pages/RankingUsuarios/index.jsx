@@ -7,18 +7,23 @@ import { pesquisaUsuario } from "../../services/pesquisa";
 import { useContext, useEffect, useState } from "react";
 import apiRequest from "../../services/api";
 import AuthContext from "../../context/AuthProvider";
-
+import jwt from 'jwt-decode'
 import PersonIcon from "@mui/icons-material/Person";
 import StarIcon from "@mui/icons-material/Star";
 
 export default function RankingUsuarios({ materiaPesquisada }) {
   const [usuarios, setUsuarios] = useState([]);
+  const [token, setToken] = useState('');
 
   useEffect(() => {
+    setToken(document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*\=\s*([^;]*).*$)|^.*$/, '$1'))
+  }, [])
+
+  const getUsuarios = () => {
     apiRequest
-      .get("usuarios", {
+      .get("/usuario", {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
@@ -27,38 +32,51 @@ export default function RankingUsuarios({ materiaPesquisada }) {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, []);
+  }
+
+  useEffect(() => {
+    if (token) {
+      getUsuarios()
+    }
+  }, [token]);
 
   const usuariosFiltrados = pesquisaUsuario(usuarios, materiaPesquisada);
 
   return (
-    <div className="container" style={{ marginLeft: "-301px" }}>
+    <div className="container">
       <ul className="ranking-usuario">
         {usuariosFiltrados.map((usuario, index) => (
           <Link
-            to={`/usuario/${usuario.id}`}
+            to={`/usuario/${usuario._id}`}
             key={index}
             style={{ width: "50%" }}
           >
             <li className="usuario-ranqueado">
               <div
-                style={{ display: "flex", flexDirection: "row", gap: "10px" }}
+                className="dadosUsuario"
+                style={{flexDirection: "row", gap: "10px" }}
               >
-                <PersonIcon fontSize="large" />
-                <div
+                {usuario.foto ? (
+                  <img id="imagemPerfil" src={usuario.foto} alt="Selected" />
+                ) : (
+                  <PersonIcon sx={{ fontSize: 120 }} />
+                )}
+                <div className="dados"
                   style={{
+                    marginTop: "2rem",
                     display: "flex",
                     flexDirection: "column",
                     gap: "5px",
                   }}
                 >
-                  <span>{usuario.nome_completo}</span>
-                  <span>{handleCurso(usuario.curso)}</span>
+                  <span id="textoNome">{usuario.nome_completo}</span>
+                  <span id="texto">{handleCurso(usuario.curso)}</span>
                 </div>
               </div>
               <div className="ru-favorito">
                 <StarIcon sx={{ color: "#ffa722", fontSize: 16 }} />
-                <span>{usuario.votosTotais} favoritos</span>
+                <span>{1 - 1} favoritos</span>
+                {/* arrumar o favoritos */}
               </div>
             </li>
           </Link>

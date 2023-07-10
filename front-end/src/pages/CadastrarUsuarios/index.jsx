@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { forumData } from "../Forum/Sidebar/data";
 import apiRequest from "../../services/api";
 import InputMask from "react-input-mask";
+import logo from "../../assets/images/logo-dubium.png";
 
 export default function CadastrarUsuarios() {
   const navigate = useNavigate();
@@ -51,8 +52,9 @@ export default function CadastrarUsuarios() {
     };
 
     await apiRequest
-      .post("usuarios", novoUsuario)
+      .post("/cadastro", novoUsuario)
       .then((response) => {
+        console.log(response)
         alert("Usuário cadastrado com sucesso!");
         navigate("/login");
       })
@@ -66,6 +68,11 @@ export default function CadastrarUsuarios() {
     <div className="cadastrar-usuario">
       <form action="" onSubmit={handleSubmit(onSubmit)} className="cdu-form">
         <div className="cdu-form-campos">
+
+          <div id="logoCadastro">
+            <img id="logoCadastro" src={logo} alt="logo" className="logo" />
+          </div>
+
           <div className="grupo-x">
             <input
               type="text"

@@ -1,0 +1,57 @@
+.campoEntrada {
+  font-size: 13px;
+  background-color: #f1f1f1;
+  margin-top: 3rem;
+  padding: 4px;
+  width: 50%;
+  height: 25px;
+  color: black;
+  border: #201F25 solid 2px;
+  border-radius: 5rem;
+  margin-left: 1rem;
+}
+
+.iconSairDiv{
+  width: 25px;
+  height: 25px;
+  border-color: #201F25;
+  border:#201F25 2px solid;
+  padding: 5px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.botao-geral {
+  padding: 0.5rem;
+  font-size: 18px;
+  width: 8rem;
+  margin-left: 5rem;
+}
+
+.botaoFotoSala {
+  height: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+}
+
+.selecaoImagem {
+  margin-top: 5rem;
+  align-items: center;
+  display: flex;
+  gap: 10rem;
+}
+
+#imagemSala {
+  width: 40rem;
+  height: 15rem;
+  border-radius: 15px;
+}

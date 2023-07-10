@@ -7,18 +7,29 @@
 }
 
 .cdu-form {
-  background-color: #fafafa;
+  background-color: #f1f1f1;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
   display: flex;
+  color: #201F25;
   flex-direction: column;
   align-items: center;
   gap: 50px;
   width: 60%;
+  height: 50%;
   padding: 5%;
-  border-radius: 10px;
+  border-radius: 20px;
+}
+
+#logoCadastro {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cdu-form-campos {
   display: flex;
+  height: 80%;
   flex-direction: column;
   width: 100%;
   gap: 40px;
@@ -31,10 +42,12 @@
 }
 
 .cdu-form-buttons {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 100px;
+  font-size: 12px;
   width: 100%;
 }
 
@@ -42,7 +55,25 @@
   padding: 15px;
   border: none;
   color: black;
-  border-radius: 10px;
+  border-radius: 19px;
+  font-size: 12px;
   width: 25%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+@media (max-width: 1400px) {
+  .cdu-form-buttons {
+    margin-top: -1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .cdu-form {
+    height: 40rem;
+    width: 80%;
+  }
+
+  .cdu-form-campos {
+    gap: 0px;
+  }
 }

@@ -1,8 +1,10 @@
 .container-pergunta {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 50px;
-  width: 70%;
+  width: 50%;
+  word-break: break-all;
 }
 
 .criar-pergunta {
@@ -11,34 +13,41 @@
   justify-content: flex-end;
 }
 
-.criar-pergunta button {
+.buttonPergunta {
   color: white;
-  background-color: #0f5986;
-  border: none;
-  padding: 10px;
+  border: #000000 solid 2px;
+  background-color: #2476aa;
+  padding: 15px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .criar-pergunta button:hover {
-  background-color: #0f4a6d;
+  transition: 0.5s;
+  color: #0f4a6d;
 }
 
 .card-pergunta {
-  background-color: #fafafa;
+  transition: 0.5s;
+  background-color: #f1f1f1;
+  color: #201F25;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 5px 10px 2px rgb(162, 161, 161);
   gap: 25px;
   padding: 20px;
   border-radius: 15px;
   cursor: pointer;
+  word-wrap: break-word;
 }
 
 .card-pergunta:hover {
-  background-color: #eeeeee;
+  background-color: #c3c1c1;
+  color: black;
 }
 
 .usuario-pergunta {
+  width: 50%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,6 +58,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 80%;
 }
 
 .container-interacao {
@@ -67,4 +77,77 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
+}
+
+.link-usuario {
+  display: contents;
+}
+
+#titulo {
+  color: #0f4a6d;
+  font-weight: bold;
+}
+.filtro {
+  margin-left: 30%;
+}
+
+@media (max-width: 1400px) {
+  .card-pergunta {
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .infos {
+    display: block;
+    width: 100%;
+    height: 70%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .link-usuario {
+    display: block;
+    width: 100%;
+  }
+
+  .usuario-informacao-texto {
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .filtro {
+    width: 100%;
+  }
+
+  .card-pergunta {
+    margin-left: 4rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .card-pergunta {
+    width: 70%;
+    margin-left: 6rem;
+  }
+
+  .criar-pergunta {
+    margin-left: 8rem;
+    margin-right: -5rem;
+  }
+
+  .usuario-informacao-texto {
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .filtro {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .card-pergunta {
+    margin-left: 8rem;
+  }
 }

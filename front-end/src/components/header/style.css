@@ -1,20 +1,39 @@
 .header {
   display: flex;
-  flex-direction: row;
+
   justify-content: space-between;
   align-items: center;
   height: 81px;
-  background-color: #ffffff;
+  background-color: #f1f1f1;
   box-shadow: 0 4px 2px -2px gray;
   position: fixed;
+  color: #201F25;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 100;
 }
 
+.notificacaoHeader {
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #ED4956;
+  color: #fff;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -30px;
+  margin-left: 5px;
+  z-index: 9999;
+  position: absolute;
+}
+
 .logo {
-  height: inherit;
+  margin: 0.2rem;
+  height: 8rem;
 }
 
 .list {
@@ -25,37 +44,50 @@
 }
 
 .item a:hover {
-  color: cadetblue;
+  transition: 0.5s;
+  color: #2476aa;
 }
 
 .pesquisa {
   width: 25%;
-  height: 36px;
+  height: 38px;
   display: flex;
   flex-direction: row;
   border-radius: 10px;
-  background-color: #414141;
   align-items: center;
   margin-right: 10px;
 }
 
-.pesquisa svg {
-  color: #ffffff;
+#iconePesquisa {
+  padding: 0.24rem;
+  background-color: #201F25;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border: #201F25;
+}
+
+#iconePesquisa svg {
+  color: #f1f1f1;
   padding-left: 3px;
 }
 
-.pesquisa input {
+#busca {
+  font-size: 13px;
+  background-color: #f1f1f1;
+  padding: 2px;
   width: 95%;
-  height: 30px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  height: 25px;
+  color: #201F25;
+  border: #201F25 solid 2px;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
 }
 
 .header-login {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 13%;
+  width: 16%;
 }
 
 .login-item {
@@ -65,5 +97,57 @@
 }
 
 .bichinho {
-  height: inherit;
+  width: 10%;
+  height: 80%;
+}
+
+@media screen and (max-width: 1300px) {
+
+  .header {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .pesquisa {
+    width: 30%;
+  }
+
+  .logo {
+    margin-left: -1rem;
+  }
+
+  .list {
+    margin-left: -1rem;
+    width: 30%;
+    gap: 0.8rem;
+  }
+
+  .header-login {
+    width: 20%;
+    gap: 1rem;
+  }
+
+  .bichinho {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .logo {
+    display: none;
+  }
+
+  .list {
+    margin-left: -5rem;
+    margin-right: 1.4rem;
+    gap: 0.3rem;
+    font-size: 12px;
+  }
+  .login-item {
+    font-size: 12px;
+  }
+  .header-login{
+    margin:-1.6rem;
+    gap: 0.5rem;
+  }
 }
